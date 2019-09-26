@@ -1,0 +1,33 @@
+{
+  "name": "vision2020",
+  "version": "0.1.0",
+  "private": true,
+  "main": "main/index.js",
+  "scripts": {
+    "dev": "next dev",
+    "start": "next start",
+    "build": "next build && next export",
+    "electron": "electron .",
+    "dist": "npm run build && electron-builder --dir"
+  },
+  "build": {
+    "asar": false,
+    "extraResources": [
+      {
+        "from": "out",
+        "to": "app/renderer"
+      }
+    ]
+  },
+  "devDependencies": {
+    "electron": "6.0.10",
+    "electron-builder": "21.2.0"
+  },
+  "dependencies": {
+    "electron-is-dev": "1.1.0",
+    "electron-next": "3.1.5",
+    "next": "9.0.6",
+    "react": "16.9.0",
+    "react-dom": "16.9.0"
+  }
+}
