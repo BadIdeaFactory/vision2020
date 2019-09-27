@@ -1,22 +1,24 @@
 import React from 'react'
 import Head from 'next/head'
-import Nav from '../components/nav'
+import LowerNav from '../components/LowerNav'
+import '../styles/styles.scss'
 
 const Home = () => (
   <div>
     <Head>
-      <title>Home</title>
+      <title>Vision2020</title>
     </Head>
 
-    <Nav />
-
-    <div className='hero'>
-      <h1 className='title'>vision2020 placeholder</h1>
-      <p className='description'>
-        To get started, edit <code>pages/index.js</code> and save to reload.
+    <div className="hero">
+      <h1 className="title">vision2020 placeholder</h1>
+      <p className="description">
+        attract mode is ... {process.env.VISION2020_ATTRACT || 'none'}
       </p>
 
-      <div className='row'>
+      <p className="description">
+        <a href="/pioneers">character select screen</a>
+      </p>
+      {/* <div className='row'>
         <a href='https://nextjs.org/docs' className='card'>
           <h3>Documentation &rarr;</h3>
           <p>Learn more about Next.js in the documentation.</p>
@@ -32,7 +34,9 @@ const Home = () => (
           <h3>Examples &rarr;</h3>
           <p>Find other example boilerplates on the Next.js GitHub.</p>
         </a>
-      </div>
+      </div> */}
+
+      <LowerNav />
     </div>
 
     <style jsx>{`
@@ -80,7 +84,8 @@ const Home = () => (
         font-size: 13px;
         color: #333;
       }
-    `}</style>
+    `}
+    </style>
   </div>
 )
 
