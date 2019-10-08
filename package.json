@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "babel-eslint": "10.0.3",
+    "csv2json": "2.0.0",
     "electron": "6.0.10",
     "electron-builder": "21.2.0",
     "eslint-config-standard": "14.1.0",

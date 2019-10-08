@@ -24,3 +24,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Vision2020 project
+# Don't save original CSV, just the processed output
+data/*.csv
