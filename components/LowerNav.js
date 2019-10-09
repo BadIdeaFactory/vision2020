@@ -10,11 +10,11 @@ LowerNav.propTypes = {
 }
 
 export default function LowerNav (props) {
-  const { left, middle, right, inverse } = props
+  const { left, middle, right, inverse, ...rest } = props
 
   return (
     <>
-      <nav className={inverse ? 'lower-nav-inverse' : ''}>
+      <nav className={inverse ? 'lower-nav-inverse' : ''} {...rest}>
         <ul>
           <li>
             {
@@ -49,36 +49,47 @@ export default function LowerNav (props) {
       <style jsx>
         {`
           nav {
+            position: fixed;
+            bottom: 0;
             text-align: center;
             width: 100%;
+            padding: 3em;
+            left: 0;
           }
+
           ul {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             justify-content: space-between;
           }
+
           nav > ul {
-            padding: 20px 0;
+            padding: 0;
           }
+
           li {
             list-style-type: none;
             margin: 0;
             text-align: center;
           }
+
           li:first-child {
             text-align: left;
           }
+
           li:last-child {
             text-align: right;
           }
+
           a {
             color: black;
             text-decoration: none;
-            font-size: 24px;
+            font-size: 2em;
             text-transform: uppercase;
             border-bottom: 3px solid black;
             font-weight: bold;
           }
+
           .lower-nav-inverse a {
             color: white;
             border-color: white;

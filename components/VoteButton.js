@@ -15,13 +15,13 @@ function VoteButton (props) {
         {`
           .vote-button {
             position: fixed;
-            right: 30px;
-            bottom: 30px;
-            width: 96px;
-            height: 96px;
+            right: 1em;
+            bottom: 1em;
+            width: 4em;
+            height: 4em;
             background-color: black;
             border-radius: 50%;
-            font-size: 24px;
+            font-size: 2em;
             overflow: hidden;
           }
 

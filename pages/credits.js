@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 import Layout from '../components/Layout'
+import CategoryEyebrow from '../components/CategoryEyebrow'
 import LowerNav from '../components/LowerNav'
 import { getData } from '../data/load'
-import '../styles/styles.scss'
 
 const Credits = (props) => (
   <div>
@@ -38,7 +38,7 @@ const CreditsPage = () => (
       <title>Credits // Vision2020</title>
     </Head>
 
-    <h1>Credits</h1>
+    <CategoryEyebrow>Credits</CategoryEyebrow>
 
     <div className="credits">
       {getData().map((item) => {

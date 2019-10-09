@@ -2,9 +2,8 @@ import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Layout from '../components/Layout'
-// import Nav from '../components/nav'
+import CategoryEyebrow from '../components/CategoryEyebrow'
 import LowerNav from '../components/LowerNav'
-import '../styles/styles.scss'
 
 const PioneersList = () => (
   <Layout>
@@ -12,7 +11,7 @@ const PioneersList = () => (
       <title>Pioneering women // Vision2020</title>
     </Head>
 
-    <h1>Pioneering women</h1>
+    <CategoryEyebrow>Pioneering women</CategoryEyebrow>
 
     <ul className="pioneers-list">
       <li><span>Agents of Change</span></li>
@@ -54,6 +53,82 @@ const PioneersList = () => (
     </ul>
 
     <LowerNav middle right />
+    <style jsx>{`
+      .pioneers-list {
+        padding: 0;
+        font-size: 2vh;
+      }
+
+      .pioneers-list > li {
+        text-align: center;
+        position: relative;
+        margin-top: 10px !important;
+      }
+
+      .pioneers-list > li::before {
+        content: '';
+        border-top: 1px solid black;
+        width: 100%;
+        height: 1px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+      }
+
+      .pioneers-list > li > span {
+        background-color: white;
+        padding: 0 0.25em;
+        display: inline-block;
+        white-space: nowrap;
+        // Position text above line
+        position: relative;
+        z-index: 1;
+      }
+
+      ul {
+        padding: 0;
+      }
+
+      li {
+        list-style: none;
+        margin: 0;
+      }
+
+      @media screen and (min-width: 768px) {
+        .pioneers-list > ul {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-column-gap: 10%;
+          max-width: 90%;
+          margin: 0 auto;
+        }
+
+        .pioneers-list > ul > li {
+          display: inline-block;
+        }
+      }
+
+      .pioneers-list > ul > li {
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 1em;
+        display: flex;
+        min-height: 10vh;
+        margin-top: 0.25em;
+        justify-content: center;
+        align-items: center;
+      }
+
+        a,
+        a:visited,
+        a:active,
+        a:hover {
+          text-decoration: none;
+          color: black;
+        }
+      }
+    `}
+    </style>
   </Layout>
 )
 

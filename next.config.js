@@ -8,5 +8,8 @@ module.exports = withSass({
     return {
       '/': { page: '/' }
     }
+  },
+  devIndicators: {
+    autoPrerender: false
   }
 })

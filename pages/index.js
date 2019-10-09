@@ -1,10 +1,10 @@
 import React from 'react'
 import Head from 'next/head'
+import Layout from '../components/Layout'
 import LowerNav from '../components/LowerNav'
-import '../styles/styles.scss'
 
 const Home = () => (
-  <div>
+  <Layout>
     <Head>
       <title>Vision2020</title>
     </Head>
@@ -86,7 +86,7 @@ const Home = () => (
       }
     `}
     </style>
-  </div>
+  </Layout>
 )
 
 export default Home

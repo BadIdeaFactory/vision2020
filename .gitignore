@@ -28,3 +28,5 @@ yarn-error.log*
 # Vision2020 project
 # Don't save original CSV, just the processed output
 data/*.csv
+# Don't save assets folder right now; it's very large
+static/Interactive

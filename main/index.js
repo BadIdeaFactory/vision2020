@@ -29,6 +29,7 @@ app.on('ready', async () => {
     })
 
   mainWindow.loadURL(url)
+  mainWindow.setKiosk(true)
 })
 
 // Quit the app once all windows are closed
