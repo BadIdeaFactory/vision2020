@@ -45,15 +45,15 @@ export default function Pioneer () {
         <Parallax.Layer
           offset={0} speed={0.5}
           style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: 'white' }}
-          // onClick={() => parallax.current.scrollTo(1)}
+          onClick={() => parallax.current.scrollTo(0.99)}
         >
           <Image
             src="/static/Interactive/mary/3b47842u.jpg"
             style={{
-              // maxWidth: '80%',
-              // maxHeight: '50%',
-              // marginTop: '-50%',
-              height: '117%'
+              maxWidth: '80%',
+              maxHeight: '50%',
+              marginTop: '-50%'
+              // height: '117%'
             }}
           />
         </Parallax.Layer>
@@ -87,7 +87,11 @@ export default function Pioneer () {
         </Parallax.Layer>
 
         {/* Slide 1 */}
-        <Parallax.Layer offset={1} speed={1}>
+        <Parallax.Layer
+          offset={1}
+          speed={1}
+          onClick={() => parallax.current.scrollTo(1.5)}
+        >
           <Image src="/static/Interactive/mary/Mary-Church-Terrell-1.jpg" className="fake-image lightbox" style={{ width: '35%', left: '58%', top: '20%' }} data-src="/static/Interactive/mary/Mary-Church-Terrell-1.jpg" />
           <Image src="/static/Interactive/mary/6a08546u.jpg" className="fake-image lightbox" style={{ width: '30%', left: '54%', top: '41%' }} />
           <Image src="/static/Interactive/mary/mary_church_terrell_web.jpg" className="fake-image lightbox" style={{ width: '45%', left: '59%', top: '44%' }} />
@@ -99,7 +103,11 @@ export default function Pioneer () {
         </Parallax.Layer>
 
         {/* Slide 2 */}
-        <Parallax.Layer offset={1.99} speed={1}>
+        <Parallax.Layer
+          offset={1.99}
+          speed={1}
+          onClick={() => parallax.current.scrollTo(2)}
+        >
           <Image src="/static/Interactive/mary/3b30139u.jpg" className="fake-image lightbox" style={{ width: '45%', left: '10%', top: '20%' }} />
           <Image src="/static/Interactive/mary/Mary_Church_Terrell_portrait.jpg" className="fake-image lightbox" style={{ width: '40%', left: '-2%', top: '57%' }} />
         </Parallax.Layer>
