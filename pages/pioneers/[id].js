@@ -48,7 +48,7 @@ export default function Pioneer () {
           onClick={() => parallax.current.scrollTo(0.99)}
         >
           <Image
-            src="/static/Interactive/mary/3b47842u.jpg"
+            src="/static/mary/3b47842u.jpg"
             style={{
               maxWidth: '80%',
               maxHeight: '50%',
@@ -92,9 +92,9 @@ export default function Pioneer () {
           speed={1}
           onClick={() => parallax.current.scrollTo(1.5)}
         >
-          <Image src="/static/Interactive/mary/Mary-Church-Terrell-1.jpg" className="fake-image lightbox" style={{ width: '35%', left: '58%', top: '20%' }} data-src="/static/Interactive/mary/Mary-Church-Terrell-1.jpg" />
-          <Image src="/static/Interactive/mary/6a08546u.jpg" className="fake-image lightbox" style={{ width: '30%', left: '54%', top: '41%' }} />
-          <Image src="/static/Interactive/mary/mary_church_terrell_web.jpg" className="fake-image lightbox" style={{ width: '45%', left: '59%', top: '44%' }} />
+          <Image src="/static/mary/Mary-Church-Terrell-1.jpg" className="fake-image lightbox" style={{ width: '35%', left: '58%', top: '20%' }} data-src="/static/mary/Mary-Church-Terrell-1.jpg" />
+          <Image src="/static/mary/6a08546u.jpg" className="fake-image lightbox" style={{ width: '30%', left: '54%', top: '41%' }} />
+          <Image src="/static/mary/mary_church_terrell_web.jpg" className="fake-image lightbox" style={{ width: '45%', left: '59%', top: '44%' }} />
         </Parallax.Layer>
         <Parallax.Layer offset={1} speed={0.5} style={{ pointerEvents: 'none' }}>
           <div className="context context1" style={{ textAlign: 'left', width: '40%', marginLeft: '10%', marginTop: '50%' }}>
@@ -108,8 +108,8 @@ export default function Pioneer () {
           speed={1}
           onClick={() => parallax.current.scrollTo(2)}
         >
-          <Image src="/static/Interactive/mary/3b30139u.jpg" className="fake-image lightbox" style={{ width: '45%', left: '10%', top: '20%' }} />
-          <Image src="/static/Interactive/mary/Mary_Church_Terrell_portrait.jpg" className="fake-image lightbox" style={{ width: '40%', left: '-2%', top: '57%' }} />
+          <Image src="/static/mary/3b30139u.jpg" className="fake-image lightbox" style={{ width: '45%', left: '10%', top: '20%' }} />
+          <Image src="/static/mary/Mary_Church_Terrell_portrait.jpg" className="fake-image lightbox" style={{ width: '40%', left: '-2%', top: '57%' }} />
         </Parallax.Layer>
         <Parallax.Layer offset={1.99} speed={0.5} style={{ pointerEvents: 'none' }}>
           <div className="context context1" style={{ textAlign: 'left', width: '40%', marginLeft: '58%', marginTop: '30%' }}>
@@ -119,12 +119,12 @@ export default function Pioneer () {
 
         {/* Slide 3 */}
         <Parallax.Layer offset={2} speed={1}>
-          <Image src="/static/Interactive/mary/30267a.jpg" className="fake-image lightbox" style={{ width: '20%', left: '0%', top: '23%' }} />
-          <Image src="/static/Interactive/mary/3b39728u.jpg" className="fake-image lightbox" style={{ width: '20%', left: '0%', top: '33%' }} />
-          <Image src="/static/Interactive/mary/pbox.jpg" className="fake-image lightbox" style={{ width: '20%', left: '0%', top: '49%' }} />
-          <Image src="/static/Interactive/mary/2010_2_1ab_001.jpg" className="fake-image lightbox" style={{ width: '20%', left: '22%', top: '33%' }} />
-          <Image src="/static/Interactive/mary/7794198-logo.png" className="fake-image lightbox" style={{ width: '20%', left: '22%', top: '49%' }} />
-          <Image src="/static/Interactive/mary/Deltasigmathetafounders.jpg" className="fake-image lightbox" style={{ width: '20%', left: '22%', top: '65%' }} />
+          <Image src="/static/mary/30267a.jpg" className="fake-image lightbox" style={{ width: '20%', left: '0%', top: '23%' }} />
+          <Image src="/static/mary/3b39728u.jpg" className="fake-image lightbox" style={{ width: '20%', left: '0%', top: '33%' }} />
+          <Image src="/static/mary/pbox.jpg" className="fake-image lightbox" style={{ width: '20%', left: '0%', top: '49%' }} />
+          <Image src="/static/mary/2010_2_1ab_001.jpg" className="fake-image lightbox" style={{ width: '20%', left: '22%', top: '33%' }} />
+          <Image src="/static/mary/7794198-logo.png" className="fake-image lightbox" style={{ width: '20%', left: '22%', top: '49%' }} />
+          <Image src="/static/mary/Deltasigmathetafounders.jpg" className="fake-image lightbox" style={{ width: '20%', left: '22%', top: '65%' }} />
         </Parallax.Layer>
         <Parallax.Layer offset={2} speed={0.5} style={{ pointerEvents: 'none' }}>
           <div className="context context1" style={{ textAlign: 'left', width: '40%', marginLeft: '48%', marginTop: '60%', backgroundColor: 'white' }}>
@@ -146,7 +146,7 @@ export default function Pioneer () {
           </div>
         </Parallax.Layer>
         <Parallax.Layer offset={2.99} speed={1}>
-          <Image src="/static/Interactive/mary/IMG_4438.jpg" className="fake-image lightbox f1" style={{ width: '60%', left: '45%', top: '34%' }} />
+          <Image src="/static/mary/IMG_4438.jpg" className="fake-image lightbox f1" style={{ width: '60%', left: '45%', top: '34%' }} />
         </Parallax.Layer>
 
         {/* Slide 5 */}
@@ -156,13 +156,13 @@ export default function Pioneer () {
           </div>
         </Parallax.Layer>
         <Parallax.Layer offset={3} speed={1}>
-          <Image src="/static/Interactive/mary/Tru1P-09152015-014.jpg" className="fake-image lightbox f1" style={{ width: '60%', left: '45%', top: '45%' }} />
+          <Image src="/static/mary/Tru1P-09152015-014.jpg" className="fake-image lightbox f1" style={{ width: '60%', left: '45%', top: '45%' }} />
         </Parallax.Layer>
 
         {/* Slide 6 */}
         <Parallax.Layer offset={3.99} speed={1}>
-          <Image src="/static/Interactive/mary/Protesting-768x501 with mct c1952.jpg" className="fake-image lightbox" style={{ width: '49%', left: '7%', top: '34%' }} />
-          <Image src="/static/Interactive/mary/Mary_Church_Terrell_-_NARA_-_559207.jpg" className="fake-image lightbox" style={{ width: '46%', left: '-2%', top: '49%' }} />
+          <Image src="/static/mary/Protesting-768x501 with mct c1952.jpg" className="fake-image lightbox" style={{ width: '49%', left: '7%', top: '34%' }} />
+          <Image src="/static/mary/Mary_Church_Terrell_-_NARA_-_559207.jpg" className="fake-image lightbox" style={{ width: '46%', left: '-2%', top: '49%' }} />
         </Parallax.Layer>
         <Parallax.Layer offset={3.99} speed={0.5} style={{ pointerEvents: 'none' }}>
           <div className="context context1" style={{ textAlign: 'left', width: '40%', marginLeft: '58%', marginTop: '30%' }}>
@@ -177,7 +177,7 @@ export default function Pioneer () {
           </div>
         </Parallax.Layer>
         <Parallax.Layer offset={4} speed={1}>
-          <Image src="/static/Interactive/mary/Mary_Church_Terrell_-_NARA_-_559207.jpg" className="fake-image lightbox f1" style={{ width: '60%', left: '45%', top: '34%' }} />
+          <Image src="/static/mary/Mary_Church_Terrell_-_NARA_-_559207.jpg" className="fake-image lightbox f1" style={{ width: '60%', left: '45%', top: '34%' }} />
         </Parallax.Layer>
 
         {/* Vote */}
