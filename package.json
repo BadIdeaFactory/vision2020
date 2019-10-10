@@ -34,7 +34,6 @@
     "eslint-plugin-standard": "4.0.1"
   },
   "dependencies": {
-    "@zeit/next-sass": "1.0.1",
     "electron-is-dev": "1.1.0",
     "electron-next": "3.1.5",
     "eslint": "6.4.0",
