@@ -1,5 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
+import Link from 'next/link'
 import Layout from '../components/Layout'
 import LowerNav from '../components/LowerNav'
 
@@ -16,7 +17,9 @@ const Home = () => (
       </p>
 
       <p className="description">
-        <a href="/pioneers">character select screen</a>
+        <Link href="/pioneers">
+          <a>character select screen</a>
+        </Link>
       </p>
       {/* <div className='row'>
         <a href='https://nextjs.org/docs' className='card'>
