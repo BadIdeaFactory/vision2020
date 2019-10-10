@@ -9,5 +9,6 @@ module.exports = {
   },
   devIndicators: {
     autoPrerender: false
-  }
+  },
+  target: 'server'
 }
