@@ -8,7 +8,8 @@
     "start": "next start",
     "build": "next build && next export",
     "electron": "electron .",
-    "dist": "npm run build && electron-builder --dir"
+    "dist": "npm run build && electron-builder --dir",
+    "static": "npx serve -p 3010 out"
   },
   "build": {
     "asar": false,
