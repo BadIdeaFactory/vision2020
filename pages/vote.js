@@ -3,10 +3,11 @@ import Head from 'next/head'
 import Layout from '../components/Layout'
 import CategoryEyebrow from '../components/CategoryEyebrow'
 import VoteForm from '../components/VoteForm'
+import VoteResults from '../components/VoteResults'
 import LowerNav from '../components/LowerNav'
 
 const VotePage = () => {
-  const [hasVoted, setVote] = useState(null)
+  const [hasVoted, setVote] = useState(false)
 
   function handleSubmitVote (data) {
     setVote(data)
@@ -27,7 +28,7 @@ const VotePage = () => {
             <div style={{ fontSize: '2em', textAlign: 'center' }}>
               <h2>Thank you!</h2>
               <p><em>Here’s how others voted:</em></p>
-              <p>TODO: chart</p>
+              <VoteResults />
             </div>
           </>
         ) : (
