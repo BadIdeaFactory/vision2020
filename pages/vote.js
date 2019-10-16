@@ -4,14 +4,74 @@ import Layout from '../components/Layout'
 import CategoryEyebrow from '../components/CategoryEyebrow'
 import VoteForm from '../components/VoteForm'
 import VoteResults from '../components/VoteResults'
+import DemographicsForm from '../components/DemographicsForm'
 import LowerNav from '../components/LowerNav'
 
 const VotePage = () => {
-  const [hasVoted, setVote] = useState(false)
+  const [voteState, setVoteState] = useState(0)
+  const [vote, setVote] = useState(false)
+  const [demo, setDemo] = useState(false)
 
   function handleSubmitVote (data) {
     setVote(data)
-    console.log(data)
+
+    // Go to next vote page
+    setVoteState(1)
+  }
+
+  function handleSubmitDemographics (data) {
+    setDemo(data)
+
+    // Go to next vote page
+    setVoteState(2)
+    submitData()
+  }
+
+  function submitData () {
+    const date = new Date()
+    console.log({
+      date,
+      vote,
+      demo
+    })
+  }
+
+  let voteContent
+  switch (voteState) {
+    case 0:
+    default:
+      voteContent = (
+        <>
+          <div style={{ fontSize: '2em', textAlign: 'center' }}>
+            <h2>What’s your vision?</h2>
+            <p><em>Select a goal to support in 2020</em></p>
+          </div>
+          <VoteForm onSubmit={handleSubmitVote} />
+        </>
+      )
+      break
+    case 1:
+      voteContent = (
+        <>
+          <div style={{ fontSize: '2em', textAlign: 'center' }}>
+            <h2>Thanks!</h2>
+            <p><em>We’re collecting anonymous information for internal purposes. Share or skip ahead to see poll results.</em></p>
+            <DemographicsForm onSubmit={handleSubmitDemographics} />
+          </div>
+        </>
+      )
+      break
+    case 2:
+      voteContent = (
+        <>
+          <div style={{ fontSize: '2em', textAlign: 'center' }}>
+            <h2>Thank you!</h2>
+            <p><em>Here’s how others voted:</em></p>
+            <VoteResults />
+          </div>
+        </>
+      )
+      break
   }
 
   return (
@@ -23,23 +83,7 @@ const VotePage = () => {
 
         <CategoryEyebrow>Cast your vote</CategoryEyebrow>
 
-        {hasVoted ? (
-          <>
-            <div style={{ fontSize: '2em', textAlign: 'center' }}>
-              <h2>Thank you!</h2>
-              <p><em>Here’s how others voted:</em></p>
-              <VoteResults />
-            </div>
-          </>
-        ) : (
-          <>
-            <div style={{ fontSize: '2em', textAlign: 'center' }}>
-              <h2>What’s your vision?</h2>
-              <p><em>Select a goal to support in 2020</em></p>
-            </div>
-            <VoteForm onSubmit={handleSubmitVote} />
-          </>
-        )}
+        {voteContent}
 
         <LowerNav left right inverse />
       </Layout>
