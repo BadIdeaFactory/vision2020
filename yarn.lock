@@ -768,6 +768,13 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime@^7.3.1":
+  version "7.6.3"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.6.3.tgz#935122c74c73d2240cafd32ddb5fc2a6cd35cf1f"
+  integrity sha512-kq6anf9JGjW8Nt5rYfEuGRaEAaH1mkv3Bbu6rYvLOpPh/RusSJXuKPEAoZ7L7gybZkchE8+NV5g9vKF4AGAtsA==
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/template@^7.1.0", "@babel/template@^7.4.4", "@babel/template@^7.6.0":
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.6.0.tgz#7f0159c7f5012230dad64cca42ec9bdb5c9536e6"
@@ -846,6 +853,52 @@
   integrity sha512-aVWQTOI9wBD6zawmOr6f+tdEIxQC8JXfQVLTjgGe8YEStAWGn/GNNVTobKJhbWKveQj2RyYF3oYbO9SC8/eOCA==
   dependencies:
     "@hapi/hoek" "8.x.x"
+
+"@react-spring/animated@9.0.0-canary.808.8.4a87fcb":
+  version "9.0.0-canary.808.8.4a87fcb"
+  resolved "https://registry.yarnpkg.com/@react-spring/animated/-/animated-9.0.0-canary.808.8.4a87fcb.tgz#b664ebb4afb263e5a942b48a81a615f92129fbb7"
+  integrity sha512-btqfvXlqpRbYVJ1X9c2LCaLKxBMdCEH/nH+RIoR9bhd1/64xNDb5nw+FDuJLLq9gY/fMzt1914kYU8RqolpMSg==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    "@react-spring/shared" "9.0.0-canary.808.8.4a87fcb"
+
+"@react-spring/core@9.0.0-canary.808.8.4a87fcb":
+  version "9.0.0-canary.808.8.4a87fcb"
+  resolved "https://registry.yarnpkg.com/@react-spring/core/-/core-9.0.0-canary.808.8.4a87fcb.tgz#bae726aa6f6a08015a5d3977dff1d6b96b32e153"
+  integrity sha512-qaEBkn0Ox3hL+H79N0Nrqsq1sdRathxvAUSzfItwWPcb+iVDvZFT9XHpVDyuGuCs+osschfPB2zMhbXr4NdqYQ==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    "@react-spring/animated" "9.0.0-canary.808.8.4a87fcb"
+    "@react-spring/shared" "9.0.0-canary.808.8.4a87fcb"
+    use-memo-one "^1.1.0"
+
+"@react-spring/parallax@9.0.0-canary.808.8.4a87fcb":
+  version "9.0.0-canary.808.8.4a87fcb"
+  resolved "https://registry.yarnpkg.com/@react-spring/parallax/-/parallax-9.0.0-canary.808.8.4a87fcb.tgz#64c52cb8893b4ffd6098dc29d24b8f7d6d024b73"
+  integrity sha512-0s0tRead7YLk60BWH1jGw11YQuMeFk6NieSaspak2M0+Uez62mb9ZfJrROrR6myYolDhXtYELQ+qhucNf3bKPw==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    "@react-spring/shared" "9.0.0-canary.808.8.4a87fcb"
+    "@react-spring/web" "9.0.0-canary.808.8.4a87fcb"
+    use-memo-one "^1.1.0"
+
+"@react-spring/shared@9.0.0-canary.808.8.4a87fcb":
+  version "9.0.0-canary.808.8.4a87fcb"
+  resolved "https://registry.yarnpkg.com/@react-spring/shared/-/shared-9.0.0-canary.808.8.4a87fcb.tgz#4d94a34a8ddf5f263466c5eebef04621b6846624"
+  integrity sha512-mMROW57OcLKtLacyeOGqGxSHtxIxVkesQrAyfnkHs5/oWYTHo6rJ9KLIDYJDrEK4LmKk4nBLxLrh2VA1n9MDMQ==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    fluids "^0.1.0"
+
+"@react-spring/web@9.0.0-canary.808.8.4a87fcb":
+  version "9.0.0-canary.808.8.4a87fcb"
+  resolved "https://registry.yarnpkg.com/@react-spring/web/-/web-9.0.0-canary.808.8.4a87fcb.tgz#6e39d9d46430f5b0c6c3db60a3b24da5837f32f2"
+  integrity sha512-RG4VQpCOZ+mTe6E6q0q3Wwk0aqxn2sCBLxpbQTmCoGraQYeTTuM0FEN9FZN2E3ni7gIb8Es+udZzrpZFKOJGEg==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    "@react-spring/animated" "9.0.0-canary.808.8.4a87fcb"
+    "@react-spring/core" "9.0.0-canary.808.8.4a87fcb"
+    "@react-spring/shared" "9.0.0-canary.808.8.4a87fcb"
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
@@ -1081,14 +1134,6 @@ amphtml-validator@1.0.23:
     colors "1.1.2"
     commander "2.9.0"
     promise "7.1.1"
-
-animated@^0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/animated/-/animated-0.2.2.tgz#04af7846ad0b9b8d1f0472cc53d82b8efeb4a751"
-  integrity sha512-7pMzS0Sk2lA6/JT6he+apuy3GnDWUWVCurHMrpsbT9ugeLe80kpDQWjZQvkFiU9o7LsPGydPnoZpJsmt1HPPMA==
-  dependencies:
-    invariant "^2.2.0"
-    normalize-css-color "^1.0.1"
 
 ansi-align@^3.0.0:
   version "3.0.0"
@@ -3085,6 +3130,11 @@ flatted@^2.0.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-2.0.1.tgz#69e57caa8f0eacbc281d2e2cb458d46fdb449e08"
   integrity sha512-a1hQMktqW9Nmqr5aktAux3JMNqaucxGcjtjWnZLHX7yyPCmlSV3M54nGYbqT8K+0GhF3NBgmJCc3ma+WOgX8Jg==
 
+fluids@^0.1.0:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/fluids/-/fluids-0.1.3.tgz#00887a206927d4aca38cfb0b0c7bd62758a85b0d"
+  integrity sha512-MyvtLf3QCMm5MYkAptXJrzOz8e4tMxOz+g0BlT3GVE5glqovO2ZMZj0DvJPpo9Lk9Y8+Llwt4KsmhHbPc2GeVg==
+
 flush-write-stream@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/flush-write-stream/-/flush-write-stream-1.1.1.tgz#8dd7d873a1babc207d94ead0c2e0e44276ebf2e8"
@@ -3620,7 +3670,7 @@ inquirer@^6.4.1:
     strip-ansi "^5.1.0"
     through "^2.3.6"
 
-invariant@^2.2.0, invariant@^2.2.2:
+invariant@^2.2.2:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -4675,11 +4725,6 @@ nopt@^4.0.1:
     abbrev "1"
     osenv "^0.1.4"
 
-normalize-css-color@^1.0.1:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/normalize-css-color/-/normalize-css-color-1.0.2.tgz#02991e97cccec6623fe573afbbf0de6a1f3e9f8d"
-  integrity sha1-Apkel8zOxmI/5XOvu/Deah8+n40=
-
 normalize-package-data@^2.3.2, normalize-package-data@^2.3.4, normalize-package-data@^2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/normalize-package-data/-/normalize-package-data-2.5.0.tgz#e66db1838b200c1dfc233225d12cb36520e234a8"
@@ -5437,12 +5482,13 @@ react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
   integrity sha512-tJBzzzIgnnRfEm046qRcURvwQnZVXmuCbscxUO5RWrGTXpon2d4c8mI0D8WE6ydVIm29JiLB6+RslkIvym9Rjw==
 
-react-springy-parallax@1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/react-springy-parallax/-/react-springy-parallax-1.3.0.tgz#e36d3483b98ffa445fb8aa5b22b4d70e195a8f2a"
-  integrity sha512-kQeEao3zOnTr4nWYP9ipPC3RyJjVGp0hI1m69G3ZLJpHmJDHBtCzlvrNn/7KfwQgmtIG8P39Qds4p8G5sgO3IA==
+react-spring@8.0.27:
+  version "8.0.27"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-8.0.27.tgz#97d4dee677f41e0b2adcb696f3839680a3aa356a"
+  integrity sha512-nDpWBe3ZVezukNRandTeLSPcwwTMjNVu1IDq9qA/AMiUqHuRN4BeSWvKr3eIxxg1vtiYiOLy4FqdfCP5IoP77g==
   dependencies:
-    animated "^0.2.2"
+    "@babel/runtime" "^7.3.1"
+    prop-types "^15.5.8"
 
 react-swipeable@^5.2.0:
   version "5.4.0"
@@ -6719,6 +6765,11 @@ url@0.11.0, url@^0.11.0:
   dependencies:
     punycode "1.3.2"
     querystring "0.2.0"
+
+use-memo-one@^1.1.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/use-memo-one/-/use-memo-one-1.1.1.tgz#39e6f08fe27e422a7d7b234b5f9056af313bd22c"
+  integrity sha512-oFfsyun+bP7RX8X2AskHNTxu+R3QdE/RC5IefMbqptmACAA/gfol1KDD5KRzPsGMa62sWxGZw+Ui43u6x4ddoQ==
 
 use@^3.1.0:
   version "3.1.1"
