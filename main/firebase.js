@@ -26,7 +26,7 @@ function init (config) {
   console.log('[Firebase] Initializing ...')
   firebase.initializeApp(config)
   firebase.analytics()
-  firebase.firestore().enablePersistence()
+  firebase.firestore().enablePersistence({ synchronizeTabs: true })
     .then(() => {
       console.log('[Firebase] Database persistence enabled!')
     })

@@ -19,6 +19,7 @@ export default function CategoryEyebrow (props) {
             text-align: center;
             text-transform: uppercase;
             margin-bottom: 3em;
+            color: #f5ce3e;
           }
         `}
       </style>
