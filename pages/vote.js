@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Layout from '../components/Layout'
 import CategoryEyebrow from '../components/CategoryEyebrow'
@@ -6,14 +6,43 @@ import VoteForm from '../components/VoteForm'
 import VoteResults from '../components/VoteResults'
 import DemographicsForm from '../components/DemographicsForm'
 import LowerNav from '../components/LowerNav'
+import firebase from '../main/firebase'
 
 const VotePage = () => {
   const [voteState, setVoteState] = useState(0)
   const [vote, setVote] = useState(false)
   const [demo, setDemo] = useState(false)
 
+  useEffect(() => {
+    // When the voteState hits the end, we submit data.
+    // We have to do this in an effect hook so that we can
+    // submit the latest state.
+    if (voteState === 2) {
+      // TODO:
+      // THIS WORKS!
+      // But we can't initialize it more than once per session.
+      // How to access this after init?
+      // const db = firebase.db
+
+      // Add a new document with a generated id.
+      const date = new Date()
+      firebase.firestore().collection('survey-responses').add({
+        vote,
+        timestamp: date, // Firebase accepts the raw Date object!
+        ...demo,
+        source: 'test' // TODO: Update source with environment
+      })
+        .then(function (docRef) {
+          console.log('[Firestore] Document written with ID: ', docRef.id)
+        })
+        .catch(function (error) {
+          console.error('[Firestore] Error adding document: ', error)
+        })
+    }
+  }, [voteState, demo, vote])
+
   function handleSubmitVote (data) {
-    setVote(data)
+    setVote(Number.parseInt(data, 10))
 
     // Go to next vote page
     setVoteState(1)
@@ -24,16 +53,6 @@ const VotePage = () => {
 
     // Go to next vote page
     setVoteState(2)
-    submitData()
-  }
-
-  function submitData () {
-    const date = new Date()
-    console.log({
-      date,
-      vote,
-      demo
-    })
   }
 
   let voteContent

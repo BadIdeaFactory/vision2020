@@ -10,7 +10,7 @@ function DemographicsForm (props) {
   const [formState, setFormState] = useState({})
 
   function handleOptionChange (event) {
-    console.log(event.target.name, event.target.value)
+    console.log(`Demographics form: ${event.target.name} = ${event.target.value}`)
     setFormState({
       ...formState,
       [event.target.name]: event.target.value

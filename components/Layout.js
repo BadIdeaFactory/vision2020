@@ -1,6 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+// Imports and initializes Firebase
+// Runs here because every page in our app uses <Layout />
+// so loading any page initializes it
+import '../main/firebase'
+
 Layout.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any

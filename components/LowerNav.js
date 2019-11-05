@@ -55,6 +55,7 @@ export default function LowerNav (props) {
             width: 100%;
             padding: 3em;
             left: 0;
+            pointer-events: none;
           }
 
           ul {
@@ -88,6 +89,7 @@ export default function LowerNav (props) {
             text-transform: uppercase;
             border-bottom: 3px solid black;
             font-weight: bold;
+            pointer-events: auto;
           }
 
           .lower-nav-inverse a {

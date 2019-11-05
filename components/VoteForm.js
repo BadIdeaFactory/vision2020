@@ -19,6 +19,7 @@ function VoteForm (props) {
 
   function handleSubmit (event) {
     event.preventDefault()
+    console.log(`Voting for: ${checkedValue}`)
     onSubmit(checkedValue)
   }
 
