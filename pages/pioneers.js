@@ -1,9 +1,55 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Head from 'next/head'
 import Link from 'next/link'
 import Layout from '../components/Layout'
-import CategoryEyebrow from '../components/CategoryEyebrow'
+// import CategoryEyebrow from '../components/CategoryEyebrow'
 import LowerNav from '../components/LowerNav'
+
+PioneerItem.propTypes = {
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired
+}
+
+function PioneerItem ({ id, label }) {
+  return (
+    <>
+      <Link href="/pioneers/[id]" as={`/pioneers/${id}`}>
+        <a>
+          <div className="pioneer-pic" />
+          <div className="pioneer-label">{label}</div>
+        </a>
+      </Link>
+      <style jsx>{`
+        .pioneer-pic {
+          width: 300px;
+          height: 300px;
+          border: 12px solid black;
+          background-image: url(/static/terrell_bitmap.jpg);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: 50% 0;
+        }
+
+        .pioneer-label {
+          font-size: 24px;
+          font-family: 'Anton';
+          line-height: 1.4;
+          margin-top: 1em;
+        }
+
+        a,
+        a:visited,
+        a:active,
+        a:hover {
+          text-decoration: none;
+          color: black;
+        }
+      `}
+      </style>
+    </>
+  )
+}
 
 const PioneersList = () => (
   <Layout>
@@ -11,49 +57,101 @@ const PioneersList = () => (
       <title>Pioneering women // Vision2020</title>
     </Head>
 
-    <CategoryEyebrow>Pioneering women</CategoryEyebrow>
+    <h1>Pioneering women</h1>
 
     <ul className="pioneers-list">
-      <li><span>Agents of Change</span></li>
+      <li><h5>Agents of Change</h5></li>
       <ul>
-        <li><Link href="/pioneers/[id]" as="/pioneers/mary-church-terrell"><a>Mary Church Terrell</a></Link></li>
-        <li><Link href="/pioneers/[id]" as="/pioneers/florynce-kennedy"><a>Florynce Kennedy</a></Link></li>
-        <li><Link href="/pioneers/[id]" as="/pioneers/emma-gonzalez"><a>Emma González</a></Link></li>
+        <li>
+          <PioneerItem id="mary-church-terrell" label="Mary Church Terrell" />
+        </li>
+        <li>
+          <PioneerItem id="florynce-kennedy" label="Florynce Kennedy" />
+        </li>
+        <li>
+          <PioneerItem id="emma-gonzalez" label="Emma González" />
+        </li>
       </ul>
-      <li><span>Politics & Government</span></li>
+      <li><h5>Politics & Government</h5></li>
       <ul>
-        <li><Link href="/pioneers/[id]" as="/pioneers/jeannette-rankin"><a>Jeannette Rankin</a></Link></li>
-        <li><Link href="/pioneers/[id]" as="/pioneers/shirley-chisholm"><a>Shirley Chisholm</a></Link></li>
-        <li><Link href="/pioneers/[id]" as="/pioneers/women-in-the-116th-us-congress"><a>Women in the 116th U.S. Congress</a></Link></li>
+        <li>
+          <PioneerItem id="jeannette-rankin" label="Jeannette Rankin" />
+        </li>
+        <li>
+          <PioneerItem id="shirley-chisholm" label="Shirley Chisholm" />
+        </li>
+        <li>
+          <PioneerItem id="women-in-the-116th-us-congress" label="Women in the 116th U.S. Congress" />
+        </li>
       </ul>
-      <li><span>Business & Finance</span></li>
+      <li><h5>Business & Finance</h5></li>
       <ul>
-        <li><Link href="/pioneers/[id]" as="/pioneers/alva-belmont"><a>Alva Belmont</a></Link></li>
-        <li><Link href="/pioneers/[id]" as="/pioneers/indra-nooyi"><a>Indra Nooyi</a></Link></li>
-        <li><Link href="/pioneers/[id]" as="/pioneers/arlan-hamilton"><a>Arlan Hamilton</a></Link></li>
+        <li>
+          <PioneerItem id="alva-belmont" label="Alva Belmont" />
+        </li>
+        <li>
+          <PioneerItem id="indra-nooyi" label="Indra Nooyi" />
+        </li>
+        <li>
+          <PioneerItem id="arlan-hamilton" label="Arlan Hamilton" />
+        </li>
       </ul>
-      <li><span>Science, Technology, Engineering, & Mathematics</span></li>
+      {/* <li><h5>Science, Technology, Engineering, & Mathematics</h5></li> */}
+      <li><h5>STEM</h5></li>
       <ul>
-        <li><Link href="/pioneers/[id]" as="/pioneers/grace-hopper"><a>Grace Hopper</a></Link></li>
-        <li><Link href="/pioneers/[id]" as="/pioneers/reshma-saujani"><a>Reshma Saujani</a></Link></li>
-        <li><Link href="/pioneers/[id]" as="/pioneers/sabrina-gonzalez-pasterski"><a>Sabrina Gonzalez Pasterski</a></Link></li>
+        <li>
+          <PioneerItem id="grace-hopper" label="Grace Hopper" />
+        </li>
+        <li>
+          <PioneerItem id="reshma-saujani" label="Reshma Saujani" />
+        </li>
+        <li>
+          <PioneerItem id="sabrina-gonzalez-pasterski" label="Sabrina Gonzalez Pasterski" />
+        </li>
       </ul>
-      <li><span>Communications & Media</span></li>
+      <li><h5>Communications & Media</h5></li>
       <ul>
-        <li><Link href="/pioneers/[id]" as="/pioneers/ida-b-wells"><a>Ida B. Wells</a></Link></li>
-        <li><Link href="/pioneers/[id]" as="/pioneers/gloria-steinem"><a>Gloria Steinem</a></Link></li>
-        <li><Link href="/pioneers/[id]" as="/pioneers/brittney-c-cooper"><a>Brittney C. Cooper</a></Link></li>
+        <li>
+          <PioneerItem id="ida-b-wells" label="Ida B. Wells" />
+        </li>
+        <li>
+          <PioneerItem id="gloria-steinem" label="Gloria Steinem" />
+        </li>
+        <li>
+          <PioneerItem id="brittney-c-cooper" label="Brittney C. Cooper" />
+        </li>
       </ul>
-      <li><span>Sports</span></li>
+      <li><h5>Sports</h5></li>
       <ul>
-        <li><Link href="/pioneers/[id]" as="/pioneers/bernice-sandler"><a>Bernice Sandler</a></Link></li>
-        <li><Link href="/pioneers/[id]" as="/pioneers/dawn-staley"><a>Dawn Staley</a></Link></li>
-        <li><Link href="/pioneers/[id]" as="/pioneers/mone-davis"><a>Mo’ne Davis</a></Link></li>
+        <li>
+          <PioneerItem id="bernice-sandler" label="Bernice Sandler" />
+        </li>
+        <li>
+          <PioneerItem id="dawn-staley" label="Dawn Staley" />
+        </li>
+        <li>
+          <PioneerItem id="mone-davis" label="Mo’ne Davis" />
+        </li>
       </ul>
     </ul>
 
     <LowerNav middle right />
+    <style jsx global>{`
+      body {
+        background-color: #92ddd0;
+      }
+    `}
+    </style>
     <style jsx>{`
+      h1 {
+        font-size: 200px;
+        width: 100%;
+        text-align: center;
+        text-transform: uppercase;
+        margin-top: 400px;
+        line-height: 1.1;
+      }
+
       .pioneers-list {
         padding: 0;
         font-size: 2vh;
@@ -65,24 +163,20 @@ const PioneersList = () => (
         margin-top: 10px !important;
       }
 
-      .pioneers-list > li::before {
-        content: '';
-        border-top: 1px solid black;
-        width: 100%;
-        height: 1px;
-        position: absolute;
-        left: 0;
-        top: 50%;
-      }
-
-      .pioneers-list > li > span {
-        background-color: white;
+      .pioneers-list h5 {
+        color: white;
+        font-size: 60px;
+        font-weight: normal;
         padding: 0 0.25em;
         display: inline-block;
         white-space: nowrap;
-        // Position text above line
-        position: relative;
-        z-index: 1;
+        text-transform: uppercase;
+
+        border-top: 16px solid white;
+        width: 100%;
+        padding-top: 0.35em;
+        margin-bottom: 0.5em;
+        margin-top: 0.5em;
       }
 
       ul {
@@ -98,8 +192,7 @@ const PioneersList = () => (
         .pioneers-list > ul {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
-          grid-column-gap: 10%;
-          max-width: 90%;
+          gap: 16px;
           margin: 0 auto;
         }
 
@@ -112,20 +205,10 @@ const PioneersList = () => (
         text-transform: uppercase;
         text-align: center;
         font-size: 1em;
-        display: flex;
         min-height: 10vh;
         margin-top: 0.25em;
         justify-content: center;
         align-items: center;
-      }
-
-        a,
-        a:visited,
-        a:active,
-        a:hover {
-          text-decoration: none;
-          color: black;
-        }
       }
     `}
     </style>
