@@ -90,6 +90,7 @@ export default function Layout ({ className = '', ...props }) {
 
         h1, h2, h3, h4, h5, h6 {
           font-family: 'Anton', sans-serif;
+          font-weight: normal;
         }
 
         html, body {
