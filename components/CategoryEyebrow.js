@@ -2,11 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 CategoryEyebrow.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  color: PropTypes.string
 }
 
 export default function CategoryEyebrow (props) {
-  const { children } = props
+  const { children, color } = props
 
   return (
     <>
@@ -19,7 +20,7 @@ export default function CategoryEyebrow (props) {
             text-align: center;
             text-transform: uppercase;
             margin-bottom: 3em;
-            color: #f5ce3e;
+            color: ${color || '#f5ce3e'};
           }
         `}
       </style>

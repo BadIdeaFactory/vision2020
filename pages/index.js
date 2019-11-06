@@ -3,6 +3,8 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Layout from '../components/Layout'
 import LowerNav from '../components/LowerNav'
+import CategoryEyebrow from '../components/CategoryEyebrow'
+import AttractMode from '../components/AttractMode'
 
 const Home = () => {
   return (
@@ -11,37 +13,42 @@ const Home = () => {
         <title>Vision2020</title>
       </Head>
 
-      <div className="hero">
-        <h1 className="title">vision2020 placeholder</h1>
-        <p className="description">
-          attract mode is ... {process.env.VISION2020_ATTRACT || 'none'}
-        </p>
+      {/* <h1 className="title">vision2020 placeholder</h1>
+      <p className="description">
+        attract mode is ... {process.env.VISION2020_ATTRACT || 'none'}
+      </p>
 
-        <p className="description">
-          <Link href="/pioneers">
-            <a>character select screen</a>
-          </Link>
-        </p>
-        {/* <div className='row'>
-          <a href='https://nextjs.org/docs' className='card'>
-            <h3>Documentation &rarr;</h3>
-            <p>Learn more about Next.js in the documentation.</p>
-          </a>
-          <a href='https://nextjs.org/learn' className='card'>
-            <h3>Next.js Learn &rarr;</h3>
-            <p>Learn about Next.js by following an interactive tutorial!</p>
-          </a>
-          <a
-            href='https://github.com/zeit/next.js/tree/master/examples'
-            className='card'
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Find other example boilerplates on the Next.js GitHub.</p>
-          </a>
-        </div> */}
-
-        <LowerNav />
+      <p className="description">
+        <Link href="/pioneers">
+          <a>character select screen</a>
+        </Link>
+      </p> */}
+      <AttractMode />
+      {/* <div className='row'>
+        <a href='https://nextjs.org/docs' className='card'>
+          <h3>Documentation &rarr;</h3>
+          <p>Learn more about Next.js in the documentation.</p>
+        </a>
+        <a href='https://nextjs.org/learn' className='card'>
+          <h3>Next.js Learn &rarr;</h3>
+          <p>Learn about Next.js by following an interactive tutorial!</p>
+        </a>
+        <a
+          href='https://github.com/zeit/next.js/tree/master/examples'
+          className='card'
+        >
+          <h3>Examples &rarr;</h3>
+          <p>Find other example boilerplates on the Next.js GitHub.</p>
+        </a>
+      </div> */}
+      <CategoryEyebrow color="#91ddd0">Agents of Change</CategoryEyebrow>
+      <div className="button-container">
+        <Link href="/pioneers">
+          <button>Mary Church Terrell</button>
+        </Link>
       </div>
+
+      <LowerNav />
 
       <style jsx>{`
         .hero {
@@ -87,6 +94,24 @@ const Home = () => {
           padding: 12px 0 0;
           font-size: 13px;
           color: #333;
+        }
+
+        .button-container {
+          position: absolute;
+          left: 0;
+          bottom: 200px;
+          width: 100%;
+          text-align: center;
+        }
+        button {
+          background-color: #ecdb5a;
+          padding: 1em;
+          font-size: 2em;
+          color: black;
+          appearance: none;
+          border: 0;
+          font-family: 'Anton';
+          text-transform: uppercase;
         }
       `}
       </style>
