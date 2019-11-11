@@ -97,6 +97,19 @@ export default function Layout ({ className = '', ...props }) {
           width: 100%;
           height: 100%;
         }
+
+        section {
+          min-height: 100vh;
+          padding: 30px;
+          position: relative;
+        }
+
+        @media screen and (min-width: 768px) {
+          section {
+            padding: 30px 70px;
+            padding-bottom: 120px;
+          }
+        }
       `}
       </style>
     </>
