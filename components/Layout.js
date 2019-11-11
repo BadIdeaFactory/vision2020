@@ -97,6 +97,13 @@ export default function Layout ({ className = '', ...props }) {
           width: 100%;
           height: 100%;
         }
+      `}
+      </style>
+    </>
+  )
+}
+
+/*
 
         #vision2020 {
           min-height: 100vh;
@@ -110,8 +117,4 @@ export default function Layout ({ className = '', ...props }) {
             padding-bottom: 120px;
           }
         }
-      `}
-      </style>
-    </>
-  )
-}
+*/

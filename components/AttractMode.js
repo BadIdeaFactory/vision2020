@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react'
+import Link from 'next/link'
+import CategoryEyebrow from '../components/CategoryEyebrow'
 
 function animate () {
   console.log('[Vision2020.Attract] Beginning attract loop')
@@ -14,11 +16,17 @@ function animate () {
   document.querySelector('.attract-container').style.backgroundColor = 'white'
   document.querySelector('.attract-container').style.opacity = 1
 
+  document.querySelector('#WE-KNOCK-AT-THE').style.transform = 'translateX(-45px)'
+  document.querySelector('#BAR-OF-JUSTICE').style.transform = 'translateX(45px)'
+  document.querySelector('#ASKING-AN').style.transform = 'translateX(-45px)'
+  document.querySelector('#EQUAL-CHANCE').style.transform = 'translateX(-45px)'
+
   // Start
   window.setTimeout(() => {
     try {
       document.querySelector('.attract-container').classList.remove('reset')
       document.querySelector('#WE-KNOCK-AT-THE').style.opacity = 1
+      document.querySelector('#WE-KNOCK-AT-THE').style.transform = 'translateX(0)'
     } catch {
       console.log('animation aborted')
     }
@@ -26,6 +34,7 @@ function animate () {
   window.setTimeout(() => {
     try {
       document.querySelector('#BAR-OF-JUSTICE').style.opacity = 1
+      document.querySelector('#BAR-OF-JUSTICE').style.transform = 'translateX(0)'
     } catch {
       console.log('animation aborted')
     }
@@ -33,6 +42,7 @@ function animate () {
   window.setTimeout(() => {
     try {
       document.querySelector('#ASKING-AN').style.opacity = 1
+      document.querySelector('#ASKING-AN').style.transform = 'translateX(0)'
     } catch {
       console.log('animation aborted')
     }
@@ -40,6 +50,7 @@ function animate () {
   window.setTimeout(() => {
     try {
       document.querySelector('#EQUAL-CHANCE').style.opacity = 1
+      document.querySelector('#EQUAL-CHANCE').style.transform = 'translateX(0)'
     } catch {
       console.log('animation aborted')
     }
@@ -136,6 +147,12 @@ function AttractMode (props) {
             backgroundImage: 'url(/static/terrell_bitmap.png), linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(249,255,0,1) 100%)'
           }}
         />
+        <CategoryEyebrow color="#91ddd0">Agents of Change</CategoryEyebrow>
+        <div className="button-container">
+          <Link href="/pioneers">
+            <button>Mary Church Terrell</button>
+          </Link>
+        </div>
       </div>
 
       <style jsx>{`
@@ -143,8 +160,9 @@ function AttractMode (props) {
           position: absolute;
           top: 0;
           left: 0;
-          width: 100%;
-          height: 100%;
+          width: 100vw;
+          height: 100vh;
+          position: sticky;
           transition: background-color 2000ms, opacity 2000ms;
           z-index: -1;
           background-color: white;
@@ -198,13 +216,24 @@ function AttractMode (props) {
         }
         svg text {
           opacity: 0;
-          transition: opacity 2000ms;
+          transition: opacity 2000ms, transform 2500ms;
         }
-      `}
-      </style>
-      <style jsx global>{`
-        #vision2020 {
-          overflow: hidden;
+        .button-container {
+          position: fixed;
+          left: 0;
+          bottom: 200px;
+          width: 100%;
+          text-align: center;
+        }
+        button {
+          background-color: #ecdb5a;
+          padding: 1em;
+          font-size: 2em;
+          color: black;
+          appearance: none;
+          border: 0;
+          font-family: 'Anton';
+          text-transform: uppercase;
         }
       `}
       </style>
