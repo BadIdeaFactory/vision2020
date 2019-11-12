@@ -6,6 +6,7 @@ import Layout from '../components/Layout'
 import CategoryEyebrow from '../components/CategoryEyebrow'
 import LowerNav from '../components/LowerNav'
 import NavButton from '../components/NavButton'
+import { UI_COLOR_PRIMARY } from '../main/const'
 
 PioneerItem.propTypes = {
   id: PropTypes.string.isRequired,
@@ -70,7 +71,7 @@ const PioneersList = () => (
     </Head>
 
     <section>
-      <CategoryEyebrow>Pioneers</CategoryEyebrow>
+      <CategoryEyebrow color="black">Pioneers</CategoryEyebrow>
       <h1>Pioneering women</h1>
 
       <div className="pioneers-list-container">
@@ -156,10 +157,14 @@ const PioneersList = () => (
       </div>
     </section>
 
-    <LowerNav right />
+    <LowerNav
+      left="exit"
+      right="vote"
+    />
+
     <style jsx global>{`
       body {
-        background-color: #8fddd1;
+        background-color: ${UI_COLOR_PRIMARY};
       }
     `}
     </style>

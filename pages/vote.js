@@ -104,8 +104,12 @@ const VotePage = () => {
 
         {voteContent}
 
-        <LowerNav left right inverse />
+        <LowerNav
+          left="pioneers"
+          right="exit"
+        />
       </Layout>
+
       <style jsx>{`
         :global(.vote-page) {
           background-color: black;

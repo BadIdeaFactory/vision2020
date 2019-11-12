@@ -147,7 +147,7 @@ function AttractMode (props) {
             backgroundImage: 'url(/static/terrell_bitmap.png), linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(249,255,0,1) 100%)'
           }}
         />
-        <CategoryEyebrow color="#91ddd0">Agents of Change</CategoryEyebrow>
+        <CategoryEyebrow>Agents of Change</CategoryEyebrow>
         <div className="button-container">
           <Link href="/pioneers">
             <button>Mary Church Terrell</button>

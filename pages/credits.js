@@ -69,7 +69,7 @@ const CreditsPage = () => (
       <title>Credits // Vision2020</title>
     </Head>
 
-    <CategoryEyebrow color="#8fddd1">Credits</CategoryEyebrow>
+    <CategoryEyebrow>Credits</CategoryEyebrow>
 
     <div className="credits-container">
       <h2>Exhibition Team</h2>
@@ -97,7 +97,12 @@ const CreditsPage = () => (
       </div>
     </div>
 
-    <LowerNav left right />
+    <LowerNav
+      left="pioneers"
+      middle="exit"
+      right="vote"
+    />
+
     <style jsx global>{`
       body {
         background-color: black;
@@ -109,6 +114,7 @@ const CreditsPage = () => (
       {`
         .credits-container {
           width: 620px;
+          max-width: 620px;
           margin: 0 auto;
           margin-top: 80px;
         }

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { UI_COLOR_PRIMARY } from '../main/const'
 
 CategoryEyebrow.propTypes = {
   children: PropTypes.node,
@@ -22,7 +23,7 @@ export default function CategoryEyebrow (props) {
             font-size: 36px;
             font-weight: normal;
             margin-top: 80px;
-            color: ${color || 'black'};
+            color: ${color || UI_COLOR_PRIMARY};
           }
 
           @media only screen and (max-width: 768px) {

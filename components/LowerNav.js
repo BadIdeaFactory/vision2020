@@ -2,45 +2,74 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import NavButton from './NavButton'
 
+const PioneersButton = () => (
+  <NavButton href="/pioneers">
+    Pioneers
+  </NavButton>
+)
+
+const CreditsButton = () => (
+  <NavButton href="/credits">
+    Credits
+  </NavButton>
+)
+
+const ExitButton = () => (
+  <NavButton href="/">
+    Exit
+  </NavButton>
+)
+
+const VoteButton = () => (
+  <NavButton href="/vote">
+    Vote
+  </NavButton>
+)
+
+function getButton (string) {
+  switch (string) {
+    case 'pioneers':
+      return <PioneersButton />
+    case 'credits':
+      return <CreditsButton />
+    case 'exit':
+      return <ExitButton />
+    case 'vote':
+      return <VoteButton />
+    default:
+      console.error(`Nav button ${string} is not valid.`)
+      break
+  }
+
+  return null
+}
+
 LowerNav.propTypes = {
-  left: PropTypes.bool,
-  middle: PropTypes.bool,
-  right: PropTypes.bool,
-  inverse: PropTypes.bool
+  left: PropTypes.string,
+  middle: PropTypes.string,
+  right: PropTypes.string
 }
 
 export default function LowerNav (props) {
-  const { left, middle, right, inverse, ...rest } = props
+  const { left, middle, right, ...rest } = props
 
   return (
     <>
-      <nav className={inverse ? 'lower-nav-inverse' : ''} {...rest}>
+      <nav {...rest}>
         <ul>
           <li>
             {
-              left && (
-                <NavButton href="/pioneers">
-                  Pioneers
-                </NavButton>
-              )
+              left && getButton(left)
             }
           </li>
           <li>
             {
-              middle && (
-                <NavButton href="/credits">
-                  Credits
-                </NavButton>
-              )
+              middle && getButton(middle)
             }
           </li>
           <li>
             {
-              right && (
-                <NavButton href="/">
-                  Exit
-                </NavButton>
-              )
+              right && getButton(right)
             }
           </li>
         </ul>

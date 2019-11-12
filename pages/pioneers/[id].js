@@ -34,7 +34,7 @@ export default function Pioneer () {
   return (
     <Layout className="pioneer-page">
       <Head>
-        <title>{data.NAME} ${'// Vision2020'}</title>
+        <title>{data.NAME} {'// Vision2020'}</title>
       </Head>
 
       <div className="bglinefixed" />
@@ -206,8 +206,12 @@ export default function Pioneer () {
           </div>
         </ParallaxLayer>
       </Parallax>
-      <LowerNav left />
-      <VoteButton />
+
+      <LowerNav
+        left="pioneers"
+        right="vote"
+      />
+
       <style jsx>
         {`
           .page1 {
