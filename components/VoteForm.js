@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import { UI_COLOR_SECONDARY } from '../main/const'
 
 VoteForm.propTypes = {
   onSubmit: PropTypes.func
@@ -74,23 +75,30 @@ function VoteForm (props) {
         }
 
         label {
-          height: 3em;
-          border-radius: 1.5em;
-          border: 3px solid white;
-          display: block;
           display: flex;
           justify-content: center;
           align-items: center;
           width: 100%;
-          white-space: nowrap;
-          text-transform: uppercase;
-          padding: 1em;
+
           margin-bottom: 1em;
           cursor: pointer;
+
+          padding: 0.1em 0.55em;
+          text-decoration: none;
+          font-family: 'Anton', sans-serif;
+          font-size: 36px;
+          text-transform: uppercase;
+          white-space: nowrap;
+          pointer-events: auto;
+
+          background-color: black;
+          color: white;
+          border: 8px solid ${UI_COLOR_SECONDARY};
         }
 
         input:checked + label {
-          background-color: #666;
+          background-color: ${UI_COLOR_SECONDARY};
+          color: black;
         }
         
         button {

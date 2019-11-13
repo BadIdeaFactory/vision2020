@@ -38,7 +38,7 @@ function PioneerItem ({ id, label }) {
           height: 100%;
           border: 20px solid black;
           background-color: white;
-          background-image: url(/static/terrell_bitmap.jpg);
+          background-image: url(/terrell_bitmap.jpg);
           background-repeat: no-repeat;
           background-size: cover;
           background-position: 50% 0;
@@ -72,7 +72,8 @@ const PioneersList = () => (
 
     <section>
       <CategoryEyebrow color="black">Pioneers</CategoryEyebrow>
-      <h1>Pioneering women</h1>
+
+      <h2>Pioneering women</h2>
 
       <div className="pioneers-list-container">
         <ul className="pioneers-list">
@@ -169,13 +170,9 @@ const PioneersList = () => (
     `}
     </style>
     <style jsx>{`
-      h1 {
-        font-size: 180px;
+      h2 {
         width: 100%;
-        text-align: center;
-        text-transform: uppercase;
         margin-top: 400px;
-        line-height: 1.1;
       }
 
       .pioneers-list-container {

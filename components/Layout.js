@@ -39,8 +39,8 @@ export default function Layout ({ className = '', ...props }) {
           font-style: normal;
           font-weight: 400;
           font-display: swap;
-          src: url(/static/fonts/Anton/Anton-Regular.woff2) format('woff2'),
-               url(/static/fonts/Anton/Anton-Regular.ttf) format('truetype');
+          src: url(/fonts/Anton/Anton-Regular.woff2) format('woff2'),
+               url(/fonts/Anton/Anton-Regular.ttf) format('truetype');
           unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
         }
 
@@ -49,7 +49,7 @@ export default function Layout ({ className = '', ...props }) {
           font-style: normal;
           font-weight: 400;
           font-display: swap;
-          src: url(/static/fonts/Noto_Serif/NotoSerif-Regular.ttf) format('truetype');
+          src: url(/fonts/Noto_Serif/NotoSerif-Regular.ttf) format('truetype');
           unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
         }
 
@@ -58,7 +58,7 @@ export default function Layout ({ className = '', ...props }) {
           font-style: italic;
           font-weight: 400;
           font-display: swap;
-          src: url(/static/fonts/Noto_Serif/NotoSerif-Italic.ttf) format('truetype');
+          src: url(/fonts/Noto_Serif/NotoSerif-Italic.ttf) format('truetype');
           unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
         }
 
@@ -67,7 +67,7 @@ export default function Layout ({ className = '', ...props }) {
           font-style: normal;
           font-weight: 700;
           font-display: swap;
-          src: url(/static/fonts/Noto_Serif/NotoSerif-Bold.ttf) format('truetype');
+          src: url(/fonts/Noto_Serif/NotoSerif-Bold.ttf) format('truetype');
           unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
         }
 
@@ -76,8 +76,13 @@ export default function Layout ({ className = '', ...props }) {
           font-style: italic;
           font-weight: 700;
           font-display: swap;
-          src: url(/static/fonts/Noto_Serif/NotoSerif-BoldItalic.ttf) format('truetype');
+          src: url(/fonts/Noto_Serif/NotoSerif-BoldItalic.ttf) format('truetype');
           unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        html, body {
+          width: 100%;
+          height: 100%;
         }
 
         body {
@@ -91,11 +96,18 @@ export default function Layout ({ className = '', ...props }) {
         h1, h2, h3, h4, h5, h6 {
           font-family: 'Anton', sans-serif;
           font-weight: normal;
+          text-transform: uppercase;
+          line-height: 1.1;
+          text-align: center;
+          letter-spacing: 0.02em;
         }
 
-        html, body {
-          width: 100%;
-          height: 100%;
+        h2 {
+          font-size: 180px;
+        }
+
+        h3 {
+          font-size: 60px;
         }
 
         section {

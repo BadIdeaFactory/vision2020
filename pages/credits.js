@@ -49,9 +49,8 @@ const Credits = (props) => (
           margin-top: 0;
           margin-bottom: 0;
           font-size: 20px;
-          font-weight: normal;
           color: #8fddd1;
-          text-transform: uppercase;
+          text-align: left;
         }
       `}
     </style>
@@ -72,7 +71,7 @@ const CreditsPage = () => (
     <CategoryEyebrow>Credits</CategoryEyebrow>
 
     <div className="credits-container">
-      <h2>Exhibition Team</h2>
+      <h3>Exhibition Team</h3>
 
       <div className="credits">
         {TEAM.map((item) => {
@@ -85,7 +84,7 @@ const CreditsPage = () => (
     </div>
 
     <div className="credits-container with-divider">
-      <h2>Photo Credits</h2>
+      <h3>Photo Credits</h3>
 
       <div className="credits">
         {getData().map((item) => {
@@ -123,16 +122,10 @@ const CreditsPage = () => (
           border-top: 10px solid #8fddd1;
         }
 
-        h2 {
-          text-align: center;
-          font-size: 60px;
-          font-weight: normal;
-          text-transform: uppercase;
-          line-height: 1.1;
+        h3 {
           color: #8fddd1;
-          margin-top: 0.5em;
+          margin-top: 0.75em;
           margin-bottom: 0.75em;
-          letter-spacing: 2px;
         }
 
         .credits {

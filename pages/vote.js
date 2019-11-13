@@ -7,6 +7,7 @@ import VoteResults from '../components/VoteResults'
 import DemographicsForm from '../components/DemographicsForm'
 import LowerNav from '../components/LowerNav'
 import firebase from '../main/firebase'
+import { UI_COLOR_SECONDARY } from '../main/const'
 
 const VotePage = () => {
   const [voteState, setVoteState] = useState(0)
@@ -123,7 +124,8 @@ const VotePage = () => {
         }
 
         h2 {
-          margin-top: 3em;
+          margin: 3em 20% 0;
+          color: ${UI_COLOR_SECONDARY}
         }
       `}
       </style>

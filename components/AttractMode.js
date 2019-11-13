@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import Link from 'next/link'
-import CategoryEyebrow from '../components/CategoryEyebrow'
+import CategoryEyebrow from './CategoryEyebrow'
+import MainButton from './MainButton'
 
 function animate () {
   console.log('[Vision2020.Attract] Beginning attract loop')
@@ -138,20 +138,22 @@ function AttractMode (props) {
         <div
           className="image"
           style={{
-            backgroundImage: 'url(/static/terrell_bitmap.png)'
+            backgroundImage: 'url(/terrell_bitmap.png)'
           }}
         />
         <div
           className="filter"
           style={{
-            backgroundImage: 'url(/static/terrell_bitmap.png), linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(249,255,0,1) 100%)'
+            backgroundImage: 'url(/terrell_bitmap.png), linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(249,255,0,1) 100%)'
           }}
         />
+
         <CategoryEyebrow>Agents of Change</CategoryEyebrow>
+
         <div className="button-container">
-          <Link href="/pioneers">
-            <button>Mary Church Terrell</button>
-          </Link>
+          <MainButton href="/pioneers/mary-church-terrell">
+            Mary Church Terrell
+          </MainButton>
         </div>
       </div>
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="96px" height="91px" viewBox="0 0 96 91" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60 (88103) - https://sketch.com -->
+    <title>Star Copy</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="PROFILE" transform="translate(-353.000000, -9687.000000)">
+            <g id="Vote_div" transform="translate(0.000000, 9475.000000)">
+                <rect id="black-background" fill="#000000" x="0" y="0" width="1080" height="1920"></rect>
+                <g id="Stars" transform="translate(211.000000, 212.000000)" fill="#FFFFFF">
+                    <polygon id="Star-Copy" points="189.75 70.1942845 160.360737 90.4508497 170.544094 56.2403771 142.197174 34.5491503 177.880097 33.6624806 189.75 0 201.619903 33.6624806 237.302826 34.5491503 208.955906 56.2403771 219.139263 90.4508497"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
