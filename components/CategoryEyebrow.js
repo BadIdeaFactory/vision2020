@@ -28,8 +28,14 @@ export default function CategoryEyebrow (props) {
 
           @media only screen and (max-width: 768px) {
             h1 {
-              font-size: 18px;
-              margin-top: 40px;
+              position: fixed;
+              width: calc(100% - 60px);
+              left: 30px;
+              top: 0;
+              margin-top: 30px;
+              height: 70px;
+              font-size: 30px;
+              border-bottom: 10px solid black;
             }
           }
         `}

@@ -41,180 +41,191 @@ export default function Pioneer () {
       </Head>
 
       <div className="bglinefixed" />
+
       <Lightbox />
 
-      <Parallax
-        ref={parallax}
-        pages={6}
-        scrolling
-        style={{
-          left: 0,
-          top: 0
-        }}
-      >
-        {/* Page 1 */}
-        <ParallaxLayer
-          offset={0} speed={0.5}
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
-          onClick={() => parallax.current.scrollTo(0.99)}
+      <div className="section1">
+        <Parallax
+          ref={parallax}
+          pages={4.5}
+          scrolling
+          style={{
+            left: 0,
+            top: 0
+          }}
         >
-          <div
-            style={{
-              width: '100%',
-              backgroundColor: 'black',
-              height: '50%',
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              overflow: 'hidden'
-            }}
+          {/* Page 1 */}
+          <ParallaxLayer
+            offset={0} speed={0.5}
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
+            onClick={() => parallax.current.scrollTo(0.99)}
           >
-            <Image
-              src="/terrell_bitmap.png"
+            <div
               style={{
-                maxWidth: '60%',
-                minWidth: '400px',
-                display: 'block',
-                margin: '20% auto 0'
+                width: '100%',
+                backgroundColor: 'black',
+                height: '50%',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                overflow: 'hidden'
               }}
-            />
-          </div>
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={0} speed={1} style={{ padding: '30px' }}>
-          <CategoryEyebrow>{data.NAME}</CategoryEyebrow>
-        </ParallaxLayer>
-
-        <ParallaxLayer
-          offset={0} speed={1}
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
-        >
-          <div className="page1" style={{ marginTop: '50%', backgroundColor: 'white', width: '100%', paddingTop: '100px', paddingBottom: '80px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-            <div className="largename">{data.NAME}</div>
-            <div className="lifedate">{data['LIFE DATE']}</div>
-            <div className="titles" style={{ textAlign: 'center' }}>
-              {data['TITLE 1'] && <div>{data['TITLE 1']}</div>}
-              {data['TITLE 2'] && <div>{data['TITLE 2']}</div>}
-              {data['TITLE 3'] && <div>{data['TITLE 3']}</div>}
-              {data['TITLE 4'] && <div>{data['TITLE 4']}</div>}
+            >
+              <Image
+                src="/terrell_bitmap.png"
+                style={{
+                  maxWidth: '60%',
+                  minWidth: '400px',
+                  display: 'block',
+                  margin: '20% auto 0'
+                }}
+              />
             </div>
-          </div>
-        </ParallaxLayer>
+          </ParallaxLayer>
 
-        {/* as long as offset is not rounded up to 1 it will appear between page offsets, weird huh */}
-        {/* <ParallaxLayer
-          offset={0.99} speed={1}
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
-        >
-          <div className="bgline" /> */}
-        {/* formerly the titles screen */}
-        {/* </ParallaxLayer> */}
+          <ParallaxLayer offset={0} speed={1} style={{ padding: '30px' }}>
+            <CategoryEyebrow>{data.NAME}</CategoryEyebrow>
+          </ParallaxLayer>
 
-        {/* Slide 1 */}
-        <ParallaxLayer
-          offset={0.99}
-          speed={1}
-          onClick={() => parallax.current.scrollTo(1.5)}
-        >
-          <Image src="/mary/Mary-Church-Terrell-1.jpg" className="fake-image lightbox" style={{ width: '35%', left: '58%', top: '20%' }} data-src="/mary/Mary-Church-Terrell-1.jpg" />
-          <Image src="/mary/6a08546u.jpg" className="fake-image lightbox" style={{ width: '30%', left: '54%', top: '41%' }} />
-          <Image src="/mary/mary_church_terrell_web.jpg" className="fake-image lightbox" style={{ width: '45%', left: '59%', top: '44%' }} />
-        </ParallaxLayer>
-        <ParallaxLayer offset={1} speed={0.5} style={{ pointerEvents: 'none' }}>
-          <div className="context context1" style={{ textAlign: 'left', width: '40%', marginLeft: '10%', marginTop: '50%' }}>
-            {data['CONTEXT TEXT 1']}
-          </div>
-        </ParallaxLayer>
-
-        {/* Slide 2 */}
-        <ParallaxLayer
-          offset={1}
-          speed={1}
-          onClick={() => parallax.current.scrollTo(2)}
-        >
-          <Image src="/mary/3b30139u.jpg" className="fake-image lightbox" style={{ width: '45%', left: '10%', top: '20%' }} />
-          <Image src="/mary/Mary_Church_Terrell_portrait.jpg" className="fake-image lightbox" style={{ width: '40%', left: '-2%', top: '57%' }} />
-        </ParallaxLayer>
-        <ParallaxLayer offset={1.99} speed={0.5} style={{ pointerEvents: 'none' }}>
-          <div className="context context1" style={{ textAlign: 'left', width: '40%', marginLeft: '58%', marginTop: '30%' }}>
-            {data['CONTEXT TEXT 2']}
-          </div>
-        </ParallaxLayer>
-
-        {/* Slide 3 */}
-        <ParallaxLayer offset={1.99} speed={1}>
-          <Image src="/mary/30267a.jpg" className="fake-image lightbox" style={{ width: '20%', left: '0%', top: '23%' }} />
-          <Image src="/mary/3b39728u.jpg" className="fake-image lightbox" style={{ width: '20%', left: '0%', top: '33%' }} />
-          <Image src="/mary/pbox.jpg" className="fake-image lightbox" style={{ width: '20%', left: '0%', top: '49%' }} />
-          <Image src="/mary/2010_2_1ab_001.jpg" className="fake-image lightbox" style={{ width: '20%', left: '22%', top: '33%' }} />
-          <Image src="/mary/7794198-logo.png" className="fake-image lightbox" style={{ width: '20%', left: '22%', top: '49%' }} />
-          <Image src="/mary/Deltasigmathetafounders.jpg" className="fake-image lightbox" style={{ width: '20%', left: '22%', top: '65%' }} />
-        </ParallaxLayer>
-        <ParallaxLayer offset={1.99} speed={0.5} style={{ pointerEvents: 'none' }}>
-          <div className="context context1" style={{ textAlign: 'left', width: '40%', marginLeft: '48%', marginTop: '60%', backgroundColor: 'white' }}>
-            {data['CONTEXT TEXT 3']}
-          </div>
-          <div className="quote" style={{ textAlign: 'left', width: '45%', marginLeft: '48%', marginTop: '2em' }}>
-            <div className="quote-content">
-              <div>“</div>
-              We knock at the bar of justice, asking an equal chance.
+          <ParallaxLayer
+            offset={0} speed={1}
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
+          >
+            <div className="pioneer-hero">
+              <div className="largename">{data.NAME}</div>
+              <div className="lifedate">{data['LIFE DATE']}</div>
+              <div className="titles" style={{ textAlign: 'center' }}>
+                {data['TITLE 1'] && <div>{data['TITLE 1']}</div>}
+                {data['TITLE 2'] && <div>{data['TITLE 2']}</div>}
+                {data['TITLE 3'] && <div>{data['TITLE 3']}</div>}
+                {data['TITLE 4'] && <div>{data['TITLE 4']}</div>}
+              </div>
             </div>
-            <p className="attribution">— Attribution first name last name</p>
-          </div>
-        </ParallaxLayer>
+          </ParallaxLayer>
 
-        {/* Slide 4 */}
-        <ParallaxLayer offset={2} speed={0.5} style={{ pointerEvents: 'none' }}>
-          <div className="context context1" style={{ textAlign: 'left', width: '35%', marginLeft: '10%', marginTop: '60%' }}>
-            {data['CONTEXT TEXT 4']}
-          </div>
-        </ParallaxLayer>
-        <ParallaxLayer offset={2} speed={1}>
-          <Image src="/mary/IMG_4438.jpg" className="fake-image lightbox f1" style={{ width: '60%', left: '45%', top: '34%' }} />
-        </ParallaxLayer>
+          {/* as long as offset is not rounded up to 1 it will appear between page offsets, weird huh */}
+          {/* <ParallaxLayer
+            offset={0.99} speed={1}
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
+          >
+            <div className="bgline" /> */}
+          {/* formerly the titles screen */}
+          {/* </ParallaxLayer> */}
 
-        {/* Slide 5 */}
-        <ParallaxLayer offset={2.99} speed={0.5} style={{ pointerEvents: 'none' }}>
-          <div className="context context1" style={{ textAlign: 'left', width: '35%', marginLeft: '10%', marginTop: '70%' }}>
-            {data['CONTEXT TEXT 5']}
-          </div>
-        </ParallaxLayer>
-        <ParallaxLayer offset={2.99} speed={1}>
-          <Image src="/mary/Tru1P-09152015-014.jpg" className="fake-image lightbox f1" style={{ width: '60%', left: '45%', top: '45%' }} />
-        </ParallaxLayer>
+          {/* Slide 1 */}
+          <ParallaxLayer
+            offset={0.99}
+            speed={1}
+            onClick={() => parallax.current.scrollTo(1.5)}
+          >
+            <Image src="/mary/Mary-Church-Terrell-1.jpg" className="fake-image lightbox" style={{ width: '35%', left: '58%', top: '20%' }} data-src="/mary/Mary-Church-Terrell-1.jpg" />
+            <Image src="/mary/6a08546u.jpg" className="fake-image lightbox" style={{ width: '30%', left: '54%', top: '41%' }} />
+            <Image src="/mary/mary_church_terrell_web.jpg" className="fake-image lightbox" style={{ width: '45%', left: '59%', top: '44%' }} />
+          </ParallaxLayer>
+          <ParallaxLayer offset={0.99} speed={0.5} style={{ pointerEvents: 'none' }}>
+            <div
+              className="context context1"
+              style={{
+                textAlign: 'left',
+                marginLeft: '20%',
+                marginTop: '50%',
+                marginRight: 'calc(50% - 50px)'
+              }}
+            >
+              {data['CONTEXT TEXT 1']}
+            </div>
+          </ParallaxLayer>
 
-        {/* Slide 6 */}
-        <ParallaxLayer offset={3} speed={1}>
-          <Image src="/mary/Protesting-768x501 with mct c1952.jpg" className="fake-image lightbox" style={{ width: '49%', left: '7%', top: '34%' }} />
-          <Image src="/mary/Mary_Church_Terrell_-_NARA_-_559207.jpg" className="fake-image lightbox" style={{ width: '46%', left: '-2%', top: '49%' }} />
-        </ParallaxLayer>
-        <ParallaxLayer offset={3} speed={0.5} style={{ pointerEvents: 'none' }}>
-          <div className="context context1" style={{ textAlign: 'left', width: '40%', marginLeft: '58%', marginTop: '30%' }}>
-            {data['CONTEXT TEXT 6']}
-          </div>
-        </ParallaxLayer>
+          {/* Slide 2 */}
+          <ParallaxLayer
+            offset={1}
+            speed={1}
+            onClick={() => parallax.current.scrollTo(2)}
+          >
+            <Image src="/mary/3b30139u.jpg" className="fake-image lightbox" style={{ width: '45%', left: '10%', top: '20%' }} />
+            <Image src="/mary/Mary_Church_Terrell_portrait.jpg" className="fake-image lightbox" style={{ width: '40%', left: '-2%', top: '57%' }} />
+          </ParallaxLayer>
+          <ParallaxLayer offset={1} speed={0.5} style={{ pointerEvents: 'none' }}>
+            <div className="context context1" style={{ textAlign: 'left', width: '40%', marginLeft: '58%', marginTop: '30%' }}>
+              {data['CONTEXT TEXT 2']}
+            </div>
+          </ParallaxLayer>
 
-        {/* Slide 7 */}
-        <ParallaxLayer offset={3.99} speed={0.5} style={{ pointerEvents: 'none' }}>
-          <div className="context context1" style={{ textAlign: 'left', width: '35%', marginLeft: '5%', marginTop: '50%' }}>
-            {data['CONTEXT TEXT 7']}
-          </div>
-        </ParallaxLayer>
-        <ParallaxLayer offset={3.99} speed={1}>
-          <Image src="/mary/Mary_Church_Terrell_-_NARA_-_559207.jpg" className="fake-image lightbox f1" style={{ width: '60%', left: '45%', top: '34%' }} />
-        </ParallaxLayer>
-        <ParallaxLayer offset={4} speed={1}>
-          <div className="arrow-holder">
-            <img src="/ui/triangle.svg" />
-          </div>
-        </ParallaxLayer>
+          {/* Slide 3 */}
+          <ParallaxLayer offset={1.99} speed={1}>
+            <Image src="/mary/30267a.jpg" className="fake-image lightbox" style={{ width: '20%', left: '0%', top: '23%' }} />
+            <Image src="/mary/3b39728u.jpg" className="fake-image lightbox" style={{ width: '20%', left: '0%', top: '33%' }} />
+            <Image src="/mary/pbox.jpg" className="fake-image lightbox" style={{ width: '20%', left: '0%', top: '49%' }} />
+            <Image src="/mary/2010_2_1ab_001.jpg" className="fake-image lightbox" style={{ width: '20%', left: '22%', top: '33%' }} />
+            <Image src="/mary/7794198-logo.png" className="fake-image lightbox" style={{ width: '20%', left: '22%', top: '49%' }} />
+            <Image src="/mary/Deltasigmathetafounders.jpg" className="fake-image lightbox" style={{ width: '20%', left: '22%', top: '65%' }} />
+          </ParallaxLayer>
+          <ParallaxLayer offset={1.99} speed={0.5} style={{ pointerEvents: 'none' }}>
+            <div className="context context1" style={{ textAlign: 'left', width: '40%', marginLeft: '48%', marginTop: '60%', backgroundColor: 'white' }}>
+              {data['CONTEXT TEXT 3']}
+            </div>
+            <div className="quote" style={{ textAlign: 'left', width: '45%', marginLeft: '48%', marginTop: '2em' }}>
+              <div className="quote-content">
+                <div>“</div>
+                We knock at the bar of justice, asking an equal chance.
+              </div>
+              <p className="attribution">— Attribution first name last name</p>
+            </div>
+          </ParallaxLayer>
 
-        {/* Vote */}
-        <ParallaxLayer offset={4.99} speed={1}>
-          <VoteIntro />
-        </ParallaxLayer>
-      </Parallax>
+          {/* Slide 4 */}
+          <ParallaxLayer offset={2} speed={0.5} style={{ pointerEvents: 'none' }}>
+            <div className="context context1" style={{ textAlign: 'left', width: '35%', marginLeft: '10%', marginTop: '60%' }}>
+              {data['CONTEXT TEXT 4']}
+            </div>
+          </ParallaxLayer>
+          <ParallaxLayer offset={2} speed={1}>
+            <Image src="/mary/IMG_4438.jpg" className="fake-image lightbox f1" style={{ width: '60%', left: '45%', top: '34%' }} />
+          </ParallaxLayer>
 
+          {/* Slide 5 */}
+          <ParallaxLayer offset={2.99} speed={0.5} style={{ pointerEvents: 'none' }}>
+            <div className="context context1" style={{ textAlign: 'left', width: '35%', marginLeft: '10%', marginTop: '70%' }}>
+              {data['CONTEXT TEXT 5']}
+            </div>
+          </ParallaxLayer>
+          <ParallaxLayer offset={2.99} speed={1}>
+            <Image src="/mary/Tru1P-09152015-014.jpg" className="fake-image lightbox f1" style={{ width: '60%', left: '45%', top: '45%' }} />
+          </ParallaxLayer>
+
+          {/* Slide 6 */}
+          <ParallaxLayer offset={3} speed={1}>
+            <Image src="/mary/Protesting-768x501 with mct c1952.jpg" className="fake-image lightbox" style={{ width: '49%', left: '7%', top: '34%' }} />
+            <Image src="/mary/Mary_Church_Terrell_-_NARA_-_559207.jpg" className="fake-image lightbox" style={{ width: '46%', left: '-2%', top: '49%' }} />
+          </ParallaxLayer>
+          <ParallaxLayer offset={3} speed={0.5} style={{ pointerEvents: 'none' }}>
+            <div className="context context1" style={{ textAlign: 'left', width: '40%', marginLeft: '58%', marginTop: '30%' }}>
+              {data['CONTEXT TEXT 6']}
+            </div>
+          </ParallaxLayer>
+
+          {/* Slide 7 */}
+          <ParallaxLayer offset={3.99} speed={0.5} style={{ pointerEvents: 'none' }}>
+            <div className="context context1" style={{ textAlign: 'left', width: '35%', marginLeft: '5%', marginTop: '50%' }}>
+              {data['CONTEXT TEXT 7']}
+            </div>
+          </ParallaxLayer>
+          <ParallaxLayer offset={3.99} speed={1}>
+            <Image src="/mary/Mary_Church_Terrell_-_NARA_-_559207.jpg" className="fake-image lightbox f1" style={{ width: '60%', left: '45%', top: '34%' }} />
+            <div className="arrow-holder">
+              <img src="/ui/triangle.svg" />
+            </div>
+          </ParallaxLayer>
+
+          {/* Vote */}
+          {/* <ParallaxLayer offset={4.99} speed={1}>
+            <VoteIntro />
+          </ParallaxLayer> */}
+        </Parallax>
+      </div>
+      <div className="section2">
+        <VoteIntro />
+      </div>
       {/* <div style={{
         position: 'fixed',
         width: '100%'
@@ -230,12 +241,40 @@ export default function Pioneer () {
 
       <style jsx>
         {`
-          .page1 {
-            text-align: center;
-            margin-top: 4vh;
-            margin-left: 30px;
-            margin-right: 30px;
+          .section1, .section2 {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
           }
+          .section1 {
+            position: sticky;
+            bottom: 0;
+          }
+          .section2 {
+            box-shadow: 0 0 5vh 0 rgba(0, 0, 0, 0.25);
+          }
+
+          .pioneer-hero {
+            position: absolute;
+            margin: 0;
+            left: 0;
+            top: 40%;
+            bottom: 160px;
+            width: 100%;
+            text-align: center;
+
+            padding-top: 100px;
+            padding-bottom: 60px;
+            background-color: white;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          }
+
           .largename {
             font-size: 140px;
             line-height: 1;
@@ -260,6 +299,7 @@ export default function Pioneer () {
             text-transform: uppercase;
             background-color: white;
             z-index: 1;
+            margin: 0.5em 10%;
           }
           .bgline {
             position: fixed;
@@ -280,9 +320,10 @@ export default function Pioneer () {
             z-index: -1;
           }
           .context {
-            font-size: 2vh;
+            font-size: 22px;
             position: relative;
             background-color: white;
+            padding: 2em 0;
           }
           :global(.fake-image) {
             background-color: #ccc;

@@ -166,7 +166,6 @@ function AttractMode (props) {
           height: 100vh;
           position: sticky;
           transition: background-color 2000ms, opacity 2000ms;
-          z-index: -1;
           background-color: white;
         }
         .reset, .reset * {

@@ -35,6 +35,7 @@ export default function NavButton (props) {
         @media only screen and (max-width: 768px) {
           a {
             font-size: 18px;
+            border: 4px solid black;
           }
         }
       `}

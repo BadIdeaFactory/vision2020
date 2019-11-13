@@ -47,6 +47,11 @@ export default function WireframeOverlay (props) {
             font-family: Courier, monospace;
             font-size: 36px;
           }
+          @media only screen and (max-width: 768px) {
+            .wireframe-overlay {
+              display: none;
+            }
+          }
           .wireframe-overlay-eye {
             position: absolute;
             bottom: 1134px;

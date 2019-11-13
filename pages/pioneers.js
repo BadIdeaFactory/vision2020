@@ -44,12 +44,27 @@ function PioneerItem ({ id, label }) {
           background-position: 50% 0;
         }
 
+        @media only screen and (max-width: 768px) {
+          .pioneer-pic-wrapper {
+            display: none;
+          }
+        }
+
         .pioneer-label {
           font-size: 24px;
           font-family: 'Anton';
           line-height: 1.4;
           margin-top: 1em;
         }
+
+        @media only screen and (max-width: 768px) {
+          .pioneer-label {
+            font-size: 18px;
+            border-top: 1px solid black;
+            line-height: 50px;
+          }
+        }
+
 
         a,
         a:visited,
@@ -170,11 +185,6 @@ const PioneersList = () => (
     `}
     </style>
     <style jsx>{`
-      h2 {
-        width: 100%;
-        margin-top: 400px;
-      }
-
       .pioneers-list-container {
         border-top: 10px solid black;
         position: absolute;
@@ -184,6 +194,26 @@ const PioneersList = () => (
         right: 70px;
         overflow: hidden;
         overflow-y: scroll;
+      }
+
+      @media only screen and (max-width: 768px) {
+        .pioneers-list-container {
+          position: relative;
+          top: 0;
+          left: 0;
+          width: calc(100vw - 60px);
+        }
+      }
+
+      h2 {
+        width: 100%;
+        margin-top: 400px;
+      }
+
+      @media only screen and (max-width: 768px) {
+        h2 {
+          display: none;
+        }
       }
 
       .pioneers-list {
@@ -215,6 +245,14 @@ const PioneersList = () => (
         line-height: 60px;
         white-space: nowrap;
       }
+
+      @media only screen and (max-width: 768px) {
+        .pioneers-list h5 {
+          font-size: 24px;
+          text-transform: capitalize;
+        }
+      }
+
 
       ul {
         padding: 0;
