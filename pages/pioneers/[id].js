@@ -32,6 +32,14 @@ export default function Pioneer () {
 
   if (!data) return null
 
+  // profile image tests
+  let profileImageUrl = '/Mary_Church_Terrell_profile_portrait.png'
+  if (router.query.id === 'brittney-c-cooper') {
+    profileImageUrl = '/cooper_profile_portrait.png'
+  } else if (router.query.id === 'women-in-the-116th-us-congress') {
+    profileImageUrl = '/congress_profile_portrait.png'
+  }
+
   return (
     <Layout className="pioneer-page">
       <Head>
@@ -62,23 +70,27 @@ export default function Pioneer () {
               style={{
                 width: '100%',
                 backgroundColor: 'black',
-                height: '50%',
+                height: '40%',
                 position: 'absolute',
                 top: 0,
                 left: 0,
-                overflow: 'hidden'
+                overflow: 'hidden',
+                backgroundImage: `url(${profileImageUrl})`,
+                backgroundPosition: '50% 0',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover'
               }}
-            >
-              <Image
-                src="/terrell_bitmap.png"
-                style={{
-                  maxWidth: '60%',
-                  minWidth: '400px',
-                  display: 'block',
-                  margin: '20% auto 0'
-                }}
-              />
-            </div>
+            />
+            {/* <Image
+              src={profileImageUrl}
+              style={{
+                maxWidth: '60%',
+                minWidth: '400px',
+                display: 'block',
+                margin: '20% auto 0'
+              }}
+            />
+          </div> */}
           </ParallaxLayer>
 
           <ParallaxLayer offset={0} speed={1} style={{ padding: '30px' }}>
