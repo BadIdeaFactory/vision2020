@@ -8,10 +8,8 @@ import Image from '../../components/Image'
 import VoteIntro from '../../components/VoteIntro'
 import LowerNav from '../../components/LowerNav'
 import Lightbox from '../../components/Lightbox'
-import {
-  UI_COLOR_PRIMARY,
-  UI_COLOR_SECONDARY
-} from '../../main/const'
+import PioneerTitleCard from '../../components/PioneerTitleCard'
+import { UI_COLOR_SECONDARY } from '../../main/const'
 import { getEntry } from '../../data/load'
 
 export default function Pioneer () {
@@ -40,7 +38,7 @@ export default function Pioneer () {
         <title>{data.NAME} {'// Vision2020'}</title>
       </Head>
 
-      <div className="bglinefixed" />
+      <div className="pioneer-spine" />
 
       <Lightbox />
 
@@ -91,26 +89,10 @@ export default function Pioneer () {
             offset={0} speed={1}
             style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
           >
-            <div className="pioneer-hero">
-              <h2>{data.NAME}</h2>
-              <div className="lifedate">{data['LIFE DATE']}</div>
-              <div className="titles" style={{ textAlign: 'center' }}>
-                {data['TITLE 1'] && <div>{data['TITLE 1']}</div>}
-                {data['TITLE 2'] && <div>{data['TITLE 2']}</div>}
-                {data['TITLE 3'] && <div>{data['TITLE 3']}</div>}
-                {data['TITLE 4'] && <div>{data['TITLE 4']}</div>}
-              </div>
+            <div className="pioneer-title-card-container">
+              <PioneerTitleCard data={data} />
             </div>
           </ParallaxLayer>
-
-          {/* as long as offset is not rounded up to 1 it will appear between page offsets, weird huh */}
-          {/* <ParallaxLayer
-            offset={0.99} speed={1}
-            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
-          >
-            <div className="bgline" /> */}
-          {/* formerly the titles screen */}
-          {/* </ParallaxLayer> */}
 
           {/* Slide 1 */}
           <ParallaxLayer
@@ -216,23 +198,11 @@ export default function Pioneer () {
               <img src="/ui/triangle.svg" />
             </div>
           </ParallaxLayer>
-
-          {/* Vote */}
-          {/* <ParallaxLayer offset={4.99} speed={1}>
-            <VoteIntro />
-          </ParallaxLayer> */}
         </Parallax>
       </div>
       <div className="section2">
         <VoteIntro />
       </div>
-      {/* <div style={{
-        position: 'fixed',
-        width: '100%'
-      }}
-      >
-        <CategoryEyebrow>{data.NAME}</CategoryEyebrow>
-      </div> */}
 
       <LowerNav
         left="pioneers"
@@ -252,64 +222,20 @@ export default function Pioneer () {
             position: sticky;
             bottom: 0;
           }
+
           .section2 {
             box-shadow: 0 0 5vh 0 rgba(0, 0, 0, 0.25);
           }
 
-          .pioneer-hero {
+          .pioneer-title-card-container {
             position: absolute;
-            margin: 0;
-            left: 0;
             top: 40%;
+            left: 0;
+            right: 0;
             bottom: 160px;
-            width: 100%;
-            text-align: center;
-
-            padding-top: 100px;
-            padding-bottom: 60px;
-            background-color: white;
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
           }
 
-          /* Note: do not adjust line-height here, we need
-             white space for the accent mark in GOZÁLEZ */
-          h2 {
-            font-size: 140px;
-            margin: 0 20%;
-          }
-
-          .lifedate {
-            margin-top: 1em;
-            margin-bottom: 1em;
-            font-family: 'Noto Serif', serif;
-            font-weight: bold;
-            font-size: 48px;
-            white-space: nowrap;
-          }
-          .titles {
-            font-family: 'Anton', sans-serif;
-            font-size: 60px;
-            line-height: 1.5;
-            color: ${UI_COLOR_PRIMARY};
-            text-transform: uppercase;
-            background-color: white;
-            z-index: 1;
-            margin: 0.5em 10%;
-          }
-          .bgline {
-            position: fixed;
-            height: 110%;
-            width: 0;
-            border-left: 100px solid ${UI_COLOR_SECONDARY};
-            left: 50%;
-            margin-left: -50px;
-            z-index: -1;
-          }
-          .bglinefixed {
+          .pioneer-spine {
             position: fixed;
             height: 100%;
             width: 0;
@@ -318,6 +244,7 @@ export default function Pioneer () {
             margin-left: -50px;
             z-index: -1;
           }
+
           .context {
             font-size: 22px;
             position: relative;
