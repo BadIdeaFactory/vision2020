@@ -222,7 +222,7 @@ function AttractMode (props) {
         .button-container {
           position: fixed;
           left: 0;
-          bottom: 200px;
+          bottom: 20%;
           width: 100%;
           text-align: center;
         }

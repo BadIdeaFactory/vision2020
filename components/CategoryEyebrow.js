@@ -35,7 +35,7 @@ export default function CategoryEyebrow (props) {
               margin-top: 30px;
               height: 70px;
               font-size: 30px;
-              border-bottom: 10px solid black;
+              border-bottom: 10px solid ${color || 'black'};
             }
           }
         `}

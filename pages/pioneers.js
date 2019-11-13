@@ -62,9 +62,9 @@ function PioneerItem ({ id, label }) {
             font-size: 18px;
             border-top: 1px solid black;
             line-height: 50px;
+            margin-top: 0;
           }
         }
-
 
         a,
         a:visited,
@@ -202,6 +202,10 @@ const PioneersList = () => (
           top: 0;
           left: 0;
           width: calc(100vw - 60px);
+          position: absolute;
+          top: 90px;
+          left: 30px;
+          bottom: 60px;
         }
       }
 
@@ -280,7 +284,6 @@ const PioneersList = () => (
         text-transform: uppercase;
         text-align: center;
         font-size: 1em;
-        min-height: 10vh;
         margin-top: 0.25em;
         justify-content: center;
         align-items: center;
