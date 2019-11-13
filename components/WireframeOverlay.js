@@ -54,7 +54,7 @@ export default function WireframeOverlay (props) {
           }
           .wireframe-overlay-eye {
             position: absolute;
-            bottom: 1134px;
+            bottom: 1216px;
             width: 100%;
             color: cyan;
             border-bottom: 1px solid cyan;
@@ -62,7 +62,7 @@ export default function WireframeOverlay (props) {
           }
           .wireframe-overlay-ada {
             position: absolute;
-            bottom: 632px;
+            bottom: 712px;
             width: 100%;
             color: red;
             border-bottom: 1px solid red;
