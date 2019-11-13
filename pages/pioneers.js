@@ -188,7 +188,7 @@ const PioneersList = () => (
       .pioneers-list-container {
         border-top: 10px solid black;
         position: absolute;
-        bottom: 52px;
+        bottom: 0;
         top: 1030px;
         left: 70px;
         right: 70px;
@@ -292,6 +292,7 @@ const PioneersList = () => (
       .nav-button {
         width: 100%;
         text-align: center;
+        margin-bottom: 64px;
       }
     `}
     </style>

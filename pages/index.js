@@ -46,11 +46,13 @@ const Home = () => {
         }
 
         .chevron {
-          width: 100%;
-          height: 300px;
+          width: 120px;
+          height: auto;
           text-align: center;
           position: absolute;
-          bottom: -180px;
+          left: 50%;
+          margin-left: -60px;
+          bottom: 3.25em;
         }
 
       `}

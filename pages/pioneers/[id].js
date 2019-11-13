@@ -92,7 +92,7 @@ export default function Pioneer () {
             style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
           >
             <div className="pioneer-hero">
-              <div className="largename">{data.NAME}</div>
+              <h2>{data.NAME}</h2>
               <div className="lifedate">{data['LIFE DATE']}</div>
               <div className="titles" style={{ textAlign: 'center' }}>
                 {data['TITLE 1'] && <div>{data['TITLE 1']}</div>}
@@ -275,14 +275,13 @@ export default function Pioneer () {
             justify-content: center;
           }
 
-          .largename {
+          /* Note: do not adjust line-height here, we need
+             white space for the accent mark in GOZÁLEZ */
+          h2 {
             font-size: 140px;
-            line-height: 1;
-            color: black;
-            font-family: 'Anton', sans-serif;
-            text-transform: uppercase;
             margin: 0 20%;
           }
+
           .lifedate {
             margin-top: 1em;
             margin-bottom: 1em;

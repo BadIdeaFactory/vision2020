@@ -5,6 +5,7 @@ import Layout from '../components/Layout'
 import CategoryEyebrow from '../components/CategoryEyebrow'
 import LowerNav from '../components/LowerNav'
 import { getData } from '../data/load'
+import { UI_COLOR_PRIMARY } from '../main/const'
 
 const TEAM = [
   {
@@ -83,7 +84,7 @@ const CreditsPage = () => (
       </div>
     </div>
 
-    <div className="credits-container with-divider">
+    <div className="credits-container credits-section-with-divider">
       <h3>Photo Credits</h3>
 
       <div className="credits">
@@ -112,18 +113,16 @@ const CreditsPage = () => (
     <style jsx>
       {`
         .credits-container {
-          width: 620px;
           max-width: 620px;
-          margin: 0 auto;
-          margin-top: 80px;
+          margin: 80px auto 160px;
         }
 
-        .with-divider {
-          border-top: 10px solid #8fddd1;
+        .credits-section-with-divider {
+          border-top: 10px solid ${UI_COLOR_PRIMARY};
         }
 
         h3 {
-          color: #8fddd1;
+          color: ${UI_COLOR_PRIMARY};
           margin-top: 0.75em;
           margin-bottom: 0.75em;
         }

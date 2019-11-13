@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 import WireframeOverlay from './WireframeOverlay'
+import { TYPOGRAPHY_DISPLAY, TYPOGRAPHY_BODY } from '../main/const'
 
 // Imports and initializes Firebase
 // Runs here because every page in our app uses <Layout />
@@ -90,11 +91,11 @@ export default function Layout ({ className = '', ...props }) {
           padding: 0;
           margin: 0;
           font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica, sans-serif;
-          font-family: 'Noto Serif', serif;
+          font-family: ${TYPOGRAPHY_BODY};
         }
 
         h1, h2, h3, h4, h5, h6 {
-          font-family: 'Anton', sans-serif;
+          font-family: ${TYPOGRAPHY_DISPLAY};
           font-weight: normal;
           text-transform: uppercase;
           line-height: 1.1;
