@@ -1,62 +1,22 @@
-import React, { useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import CategoryEyebrow from './CategoryEyebrow'
 import MainButton from './MainButton'
 
-const attractVideos = [
-  '/attract/TERRELL.mp4',
-  '/attract/GONZALEZ.mp4',
-  '/attract/KENNEDY.mp4'
+// TODO: This needs to be created dynamically based on kiosk identity
+const attractLinks = [
+  {
+    name: 'Mary Church Terrell',
+    slug: 'mary-church-terrell'
+  },
+  {
+    name: 'Emma González',
+    slug: 'emma-gonzalez'
+  },
+  {
+    name: 'Florynce Kennedy',
+    slug: 'florynce-kennedy'
+  }
 ]
-
-let currentVideo = 0
-
-function createVideo (url) {
-  const videoEl = document.createElement('video')
-  videoEl.setAttribute('src', url)
-  videoEl.setAttribute('width', 1080)
-  videoEl.setAttribute('height', 1920)
-  videoEl.setAttribute('autoplay', 'true')
-  return videoEl
-}
-
-function playVideo () {
-  const url = attractVideos[currentVideo]
-  const containerEl = document.querySelector('#attract-video')
-  const videoEl = createVideo(url)
-  containerEl.appendChild(videoEl)
-  videoEl.load()
-
-  let trigger1 = false
-  let trigger2 = false
-
-  videoEl.addEventListener('play', (event) => {
-    window.dispatchEvent(new CustomEvent('attract_video:start'))
-    console.log('Playing video', url)
-  })
-
-  videoEl.addEventListener('timeupdate', (event) => {
-    if (event.target.currentTime >= 4 && !trigger1) {
-      window.dispatchEvent(new CustomEvent('attract_video:trigger1'))
-      console.log('4 seconds elapsed')
-      trigger1 = true
-    }
-    if ((event.target.duration - event.target.currentTime) <= 1 && !trigger2) {
-      window.dispatchEvent(new CustomEvent('attract_video:trigger2'))
-      console.log('1 second left')
-      trigger2 = true
-    }
-  })
-  videoEl.addEventListener('ended', () => {
-    window.dispatchEvent(new CustomEvent('attract_video:end'))
-    videoEl.remove()
-    currentVideo++
-    if (currentVideo === attractVideos.length) {
-      currentVideo = 0
-    }
-
-    window.setTimeout(playVideo, 2000)
-  }, false)
-}
 
 function fadeInButton () {
   const el = document.querySelector('.button-container')
@@ -69,30 +29,53 @@ function fadeOutButton () {
 }
 
 function AttractMode (props) {
-  useEffect(() => {
-    playVideo()
-  })
+  const [attractId, setAttractId] = useState(0)
+  const videoRef = useRef(null)
+  let nearEndTriggered = useRef(false).current
 
-  useEffect(() => {
-    window.addEventListener('attract_video:trigger1', fadeInButton)
-    window.addEventListener('attract_video:trigger2', fadeOutButton)
+  function handlePlay () {
+    fadeInButton()
+  }
 
-    return () => {
-      window.removeEventListener('attract_video:trigger1', fadeInButton)
-      window.removeEventListener('attract_video:trigger2', fadeOutButton)
+  function handleTimeUpdate (event) {
+    if ((event.target.duration - event.target.currentTime) <= 2.5 && !nearEndTriggered) {
+      fadeOutButton()
+      nearEndTriggered = true
     }
-  })
+  }
+
+  function handleEnded () {
+    let nextId = attractId + 1
+    if (nextId === attractLinks.length) {
+      nextId = 0
+    }
+
+    setAttractId(nextId)
+    console.log('[Vision2020] Attract mode: next video is', nextId, '-', attractLinks[nextId].name)
+  }
 
   return (
     <>
       <div className="attract-container">
-        <div id="attract-video" className="attract-video-container" />
+        <div id="attract-video" className="attract-video-container">
+          <video
+            autoPlay
+            muted
+            width={1080}
+            height={1920}
+            src={`/attract/${attractLinks[attractId].slug}.mp4`}
+            ref={videoRef}
+            onPlay={handlePlay}
+            onTimeUpdate={handleTimeUpdate}
+            onEnded={handleEnded}
+          />
+        </div>
 
         <CategoryEyebrow>Agents of Change</CategoryEyebrow>
 
         <div className="button-container">
-          <MainButton href="/pioneers/mary-church-terrell">
-            Mary Church Terrell
+          <MainButton href={`/pioneers/${attractLinks[attractId].slug}`}>
+            {attractLinks[attractId].name}
           </MainButton>
         </div>
       </div>
@@ -119,11 +102,11 @@ function AttractMode (props) {
         .button-container {
           position: fixed;
           left: 0;
-          bottom: 20%;
+          bottom: 15%;
           width: 100%;
           text-align: center;
           opacity: 0;
-          transition: opacity 500ms;
+          transition: opacity 750ms;
         }
 
         button {

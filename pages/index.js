@@ -53,8 +53,19 @@ const Home = () => {
           left: 50%;
           margin-left: -60px;
           bottom: 3.25em;
+          animation-name: pulse;
+          animation-duration: 5s;
+          animation-iteration-count: infinite;
         }
 
+        @keyframes pulse {
+          0%, 80%, 100% {
+            opacity: 1;
+          }
+          90% {
+            opacity: 0.5;
+          }
+        }
       `}
       </style>
     </Layout>
