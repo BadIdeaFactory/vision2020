@@ -22,8 +22,13 @@ export default function CategoryEyebrow (props) {
             text-transform: uppercase;
             font-size: 36px;
             font-weight: normal;
-            margin-top: 80px;
             color: ${color || UI_COLOR_PRIMARY};
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            pointer-events: none;
+            margin: 0;
           }
 
           @media only screen and (max-width: 768px) {
