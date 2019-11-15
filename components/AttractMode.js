@@ -1,22 +1,11 @@
 import React, { useState, useRef } from 'react'
 import CategoryEyebrow from './CategoryEyebrow'
 import MainButton from './MainButton'
+import DIRECTORY from '../data/directory.json'
 
 // TODO: This needs to be created dynamically based on kiosk identity
-const attractLinks = [
-  {
-    name: 'Mary Church Terrell',
-    slug: 'mary-church-terrell'
-  },
-  {
-    name: 'Emma González',
-    slug: 'emma-gonzalez'
-  },
-  {
-    name: 'Florynce Kennedy',
-    slug: 'florynce-kennedy'
-  }
-]
+const kioskId = 0
+const attractLinks = DIRECTORY[kioskId].persons
 
 function fadeInButton () {
   const el = document.querySelector('.button-container')
@@ -71,7 +60,7 @@ function AttractMode (props) {
           />
         </div>
 
-        <CategoryEyebrow>Agents of Change</CategoryEyebrow>
+        <CategoryEyebrow>{DIRECTORY[kioskId].name}</CategoryEyebrow>
 
         <div className="button-container">
           <MainButton href={`/pioneers/${attractLinks[attractId].slug}`}>

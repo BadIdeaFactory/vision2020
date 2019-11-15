@@ -7,6 +7,7 @@ import CategoryEyebrow from '../components/CategoryEyebrow'
 import LowerNav from '../components/LowerNav'
 import NavButton from '../components/NavButton'
 import { UI_COLOR_PRIMARY } from '../main/const'
+import DIRECTORY from '../data/directory.json'
 
 PioneerItem.propTypes = {
   id: PropTypes.string.isRequired,
@@ -92,78 +93,18 @@ const PioneersList = () => (
 
       <div className="pioneers-list-container">
         <ul className="pioneers-list">
-          <li><h5>Agents of Change</h5></li>
-          <ul>
-            <li>
-              <PioneerItem id="mary-church-terrell" label="Mary Church Terrell" />
-            </li>
-            <li>
-              <PioneerItem id="florynce-kennedy" label="Florynce Kennedy" />
-            </li>
-            <li>
-              <PioneerItem id="emma-gonzalez" label="Emma González" />
-            </li>
-          </ul>
-          <li><h5>Politics & Government</h5></li>
-          <ul>
-            <li>
-              <PioneerItem id="jeannette-rankin" label="Jeannette Rankin" />
-            </li>
-            <li>
-              <PioneerItem id="shirley-chisholm" label="Shirley Chisholm" />
-            </li>
-            <li>
-              <PioneerItem id="women-in-the-116th-us-congress" label="Women in the 116th U.S. Congress" />
-            </li>
-          </ul>
-          <li><h5>Business & Finance</h5></li>
-          <ul>
-            <li>
-              <PioneerItem id="alva-belmont" label="Alva Belmont" />
-            </li>
-            <li>
-              <PioneerItem id="indra-nooyi" label="Indra Nooyi" />
-            </li>
-            <li>
-              <PioneerItem id="arlan-hamilton" label="Arlan Hamilton" />
-            </li>
-          </ul>
-          <li><h5>STEM</h5></li>
-          <ul>
-            <li>
-              <PioneerItem id="grace-hopper" label="Grace Hopper" />
-            </li>
-            <li>
-              <PioneerItem id="reshma-saujani" label="Reshma Saujani" />
-            </li>
-            <li>
-              <PioneerItem id="sabrina-gonzalez-pasterski" label="Sabrina Gonzalez Pasterski" />
-            </li>
-          </ul>
-          <li><h5>Communications & Media</h5></li>
-          <ul>
-            <li>
-              <PioneerItem id="ida-b-wells" label="Ida B. Wells" />
-            </li>
-            <li>
-              <PioneerItem id="gloria-steinem" label="Gloria Steinem" />
-            </li>
-            <li>
-              <PioneerItem id="brittney-c-cooper" label="Brittney C. Cooper" />
-            </li>
-          </ul>
-          <li><h5>Sports</h5></li>
-          <ul>
-            <li>
-              <PioneerItem id="bernice-sandler" label="Bernice Sandler" />
-            </li>
-            <li>
-              <PioneerItem id="dawn-staley" label="Dawn Staley" />
-            </li>
-            <li>
-              <PioneerItem id="mone-davis" label="Mo’ne Davis" />
-            </li>
-          </ul>
+          {DIRECTORY.map((category) => (
+            <React.Fragment key={category.key}>
+              <li><h5>{category.name}</h5></li>
+              <ul>
+                {category.persons.map((person) => (
+                  <li key={person.slug}>
+                    <PioneerItem id={person.slug} label={person.name} />
+                  </li>
+                ))}
+              </ul>
+            </React.Fragment>
+          ))}
         </ul>
         <div className="nav-button">
           <NavButton href="/credits">

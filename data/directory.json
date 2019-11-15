@@ -1,0 +1,116 @@
+[
+  {
+    "index": 0,
+    "key": "category-1",
+    "name": "Agents of Change",
+    "persons": [
+      {
+        "slug": "mary-church-terrell",
+        "name": "Mary Church Terrell"
+      },
+      {
+        "slug": "florynce-kennedy",
+        "name": "Florynce Kennedy"
+      },
+      {
+        "slug": "emma-gonzalez",
+        "name": "Emma González"
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "key": "category-2",
+    "name": "Politics & Government",
+    "persons": [
+      {
+        "slug": "jeannette-rankin",
+        "name": "Jeannette Rankin"
+      },
+      {
+        "slug": "shirley-chisholm",
+        "name": "Shirley Chisholm"
+      },
+      {
+        "slug": "women-in-the-116th-us-congress",
+        "name": "Women in the 116th U.S. Congress"
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "key": "category-3",
+    "name": "Business & Finance",
+    "persons": [
+      {
+        "slug": "alva-belmont",
+        "name": "Alva Belmont"
+      },
+      {
+        "slug": "indra-nooyi",
+        "name": "Indra Nooyi"
+      },
+      {
+        "slug": "arlan-hamilton",
+        "name": "Arlan Hamilton"
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "key": "category-4",
+    "name": "STEM",
+    "persons": [
+      {
+        "slug": "grace-hopper",
+        "name": "Grace Hopper"
+      },
+      {
+        "slug": "reshma-saujani",
+        "name": "Reshma Saujani"
+      },
+      {
+        "slug": "sabrina-gonzalez-pasterski",
+        "name": "Sabrina Gonzalez Pasterski"
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "key": "category-5",
+    "name": "Communications & Media",
+    "persons": [
+      {
+        "slug": "ida-b-wells",
+        "name": "Ida B. Wells"
+      },
+      {
+        "slug": "gloria-steinem",
+        "name": "Gloria Steinem"
+      },
+      {
+        "slug": "brittney-c-cooper",
+        "name": "Brittney C. Cooper"
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "key": "category-6",
+    "name": "Sports",
+    "persons": [
+      {
+        "slug": "bernice-sandler",
+        "name": "Bernice Sandler"
+      },
+      {
+        "slug": "dawn-staley",
+        "name": "Dawn Staley"
+      },
+      {
+        "slug": "mone-davis",
+        "name": "Mo’ne Davis"
+      }
+    ]
+  }
+]
