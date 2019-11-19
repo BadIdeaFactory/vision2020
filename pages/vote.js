@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
+import { useSpring, animated } from 'react-spring'
 import Layout from '../components/Layout'
 import CategoryEyebrow from '../components/CategoryEyebrow'
 import VoteForm from '../components/VoteForm'
@@ -14,6 +15,12 @@ const VotePage = () => {
   const [vote, setVote] = useState(false)
   const [demo, setDemo] = useState(false)
 
+  const props = useSpring({
+    from: { transform: 'translate3d(0, 3vh, 0)', opacity: 0 },
+    opacity: 1,
+    transform: 'translate3d(0, 0, 0)'
+  })
+
   useEffect(() => {
     // When the voteState hits the end, we submit data.
     // We have to do this in an effect hook so that we can
@@ -26,19 +33,21 @@ const VotePage = () => {
       // const db = firebase.db
 
       // Add a new document with a generated id.
-      const date = new Date()
-      firebase.firestore().collection('survey-responses').add({
-        vote,
-        timestamp: date, // Firebase accepts the raw Date object!
-        ...demo,
-        source: 'test' // TODO: Update source with environment
-      })
-        .then(function (docRef) {
-          console.log('[Firestore] Document written with ID: ', docRef.id)
-        })
-        .catch(function (error) {
-          console.error('[Firestore] Error adding document: ', error)
-        })
+
+      console.log('firestore disabled')
+      // const date = new Date()
+      // firebase.firestore().collection('survey-responses').add({
+      //   vote,
+      //   timestamp: date, // Firebase accepts the raw Date object!
+      //   ...demo,
+      //   source: 'test' // TODO: Update source with environment
+      // })
+      //   .then(function (docRef) {
+      //     console.log('[Firestore] Document written with ID: ', docRef.id)
+      //   })
+      //   .catch(function (error) {
+      //     console.error('[Firestore] Error adding document: ', error)
+      //   })
     }
   }, [voteState, demo, vote])
 
@@ -61,35 +70,29 @@ const VotePage = () => {
     case 0:
     default:
       voteContent = (
-        <>
-          <div style={{ fontSize: '2em', textAlign: 'center' }}>
-            <h2>What’s your vision?</h2>
-            <p><em>Select a goal to support in 2020</em></p>
-          </div>
+        <animated.div className="vote-content" style={props}>
+          <h2>What’s your vision?</h2>
+          <p>Select a goal to support in 2020</p>
           <VoteForm onSubmit={handleSubmitVote} />
-        </>
+        </animated.div>
       )
       break
     case 1:
       voteContent = (
-        <>
-          <div style={{ fontSize: '2em', textAlign: 'center' }}>
-            <h2>Thanks!</h2>
-            <p><em>We’re collecting anonymous information for internal purposes. Share or skip ahead to see poll results.</em></p>
-            <DemographicsForm onSubmit={handleSubmitDemographics} />
-          </div>
-        </>
+        <animated.div className="vote-content" style={props}>
+          <h2>Thanks!</h2>
+          <p>We’re collecting anonymous information for internal purposes. Share or skip ahead to see poll results.</p>
+          <DemographicsForm onSubmit={handleSubmitDemographics} />
+        </animated.div>
       )
       break
     case 2:
       voteContent = (
-        <>
-          <div style={{ fontSize: '2em', textAlign: 'center' }}>
-            <h2>Thank you!</h2>
-            <p><em>Here’s how others voted:</em></p>
-            <VoteResults />
-          </div>
-        </>
+        <animated.div className="vote-content" style={props}>
+          <h2>Results</h2>
+          <p>Here’s how others voted:</p>
+          <VoteResults />
+        </animated.div>
       )
       break
   }
@@ -112,6 +115,10 @@ const VotePage = () => {
       </Layout>
 
       <style jsx>{`
+        :global(body) {
+          overflow: hidden;
+        }
+
         :global(.vote-page) {
           background-color: black;
           color: white;
@@ -119,14 +126,26 @@ const VotePage = () => {
           display: flex;
           height: 100vh;
           flex-direction: column;
-          align-items: center;
+          align-items: stretch;
           justify-content: center;
         }
 
-        h2 {
-          margin: 3em 20% 0;
-          color: ${UI_COLOR_SECONDARY}
+        :global(.vote-content) {
+          margin: 0 20%;
+          max-width: 620px;
         }
+
+        :global(.vote-content h2) {
+          color: ${UI_COLOR_SECONDARY};
+          margin-bottom: 0.25em;
+        }
+
+        :global(.vote-content p) {
+          font-size: 1.5em;
+          text-align: center;
+          margin: 3em;
+        }
+
       `}
       </style>
     </>
