@@ -50,8 +50,6 @@ function AttractMode (props) {
           <video
             autoPlay
             muted
-            width={1080}
-            height={1920}
             src={`/attract/${attractLinks[attractId].slug}.mp4`}
             ref={videoRef}
             onPlay={handlePlay}
@@ -86,6 +84,19 @@ function AttractMode (props) {
           left: 0;
           width: 100vw;
           height: 100vh;
+        }
+
+        /* Video is set to be "full screen" for flexibility even
+           though we'll only be displaying it on one screen */
+        .attract-video-container video {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: auto;
+          height: auto;
+          min-width: 100%;
+          min-height: 100%;
+          transform: translate(-50%, -50%);
         }
 
         .button-container {
