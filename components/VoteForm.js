@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { UI_COLOR_SECONDARY } from '../main/const'
+import VoteButton from './VoteButton'
 
 VoteForm.propTypes = {
   onSubmit: PropTypes.func
@@ -11,9 +11,8 @@ function VoteForm (props) {
   const [checkedValue, setCheckedValue] = useState(null)
 
   function handleOptionChange (event) {
-    if (event.target.value === checkedValue) {
-      setCheckedValue(null)
-    } else {
+    // Only vote once
+    if (checkedValue === null) {
       setCheckedValue(event.target.value)
     }
   }
@@ -24,28 +23,50 @@ function VoteForm (props) {
     onSubmit(checkedValue)
   }
 
+  useEffect(() => {
+    // Basically the same as handleSubmit but we handle it immediately on
+    // selection. (The other function is kept for the record.) We do not
+    // use the HTML DOM method .submit() because the event handler is
+    // defined in React, not in HTML DOM.
+    if (checkedValue !== null) {
+      console.log(`Voting for: ${checkedValue}`)
+      window.setTimeout(() => {
+        onSubmit(checkedValue)
+      }, 500)
+    }
+  }, [checkedValue, onSubmit])
+
   return (
     <>
       <form className="vote-form" onSubmit={handleSubmit}>
-        <div>
-          <input type="checkbox" id="vote1" name="vote1" value="1" checked={checkedValue === '1'} onChange={handleOptionChange} />
-          <label htmlFor="vote1">Women & Men Sharing Leadership 50-50</label>
-        </div>
-        <div>
-          <input type="checkbox" id="vote2" name="vote1" value="2" checked={checkedValue === '2'} onChange={handleOptionChange} />
-          <label htmlFor="vote2">Equal Pay for Equal Work</label>
-        </div>
-        <div>
-          <input type="checkbox" id="vote3" name="vote1" value="3" checked={checkedValue === '3'} onChange={handleOptionChange} />
-          <label htmlFor="vote3">More Women Voting & Running for Office</label>
-        </div>
-        <div>
-          <input type="checkbox" id="vote4" name="vote1" value="4" checked={checkedValue === '4'} onChange={handleOptionChange} />
-          <label htmlFor="vote4">Inclusive Education of Women's History</label>
-        </div>
-        <p>
-          <button type="submit" disabled={checkedValue === null}>Vote</button>
-        </p>
+        <VoteButton
+          name="vote1"
+          value="1"
+          checked={checkedValue === '1'}
+          onChange={handleOptionChange}
+          label="Women & Men Sharing Leadership 50-50"
+        />
+        <VoteButton
+          name="vote1"
+          value="2"
+          checked={checkedValue === '2'}
+          onChange={handleOptionChange}
+          label="Equal Pay for Equal Work"
+        />
+        <VoteButton
+          name="vote1"
+          value="3"
+          checked={checkedValue === '3'}
+          onChange={handleOptionChange}
+          label="More Women Voting & Running for Office"
+        />
+        <VoteButton
+          name="vote1"
+          value="4"
+          checked={checkedValue === '4'}
+          onChange={handleOptionChange}
+          label="Inclusive Education of Women's History"
+        />
       </form>
       <style jsx>{`
         .vote-form {
@@ -54,75 +75,6 @@ function VoteForm (props) {
           text-align: center;
           margin-top: 2em;
           font-size: 2vh;
-        }
-
-        /* Hides the original input element from view, but not from DOM */
-        input {
-          position: absolute;
-
-          /* A standard CSS approach for "accessible" visually-hidden elements,
-            such as absolutely positioning elements off the page, can still cause
-            inputs to be hidden from certain screen readers. This approach hides
-            the input visually, but still makes it accessible. For more info:
-            https://scottaohara.github.io/a11y_styled_form_controls/src/checkbox/
-      
-            Furthermore, absolute positioning with 'left' can cause issues when
-            the document is in rtl text direction on Chrome. See also
-            https://github.com/streetmix/streetmix/issues/1424 */
-          opacity: 0.00001;
-          appearance: none;
-          z-index: 2;
-        }
-
-        label {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 100%;
-
-          margin-bottom: 1em;
-          cursor: pointer;
-
-          padding: 0.1em 0.55em;
-          text-decoration: none;
-          font-family: 'Anton', sans-serif;
-          font-size: 36px;
-          text-transform: uppercase;
-          white-space: nowrap;
-          pointer-events: auto;
-
-          background-color: black;
-          color: white;
-          border: 8px solid ${UI_COLOR_SECONDARY};
-        }
-
-        input:checked + label {
-          background-color: ${UI_COLOR_SECONDARY};
-          color: black;
-        }
-        
-        button {
-          appearance: none;
-          width: 6em;
-          height: 3em;
-          background-color: white;
-          color: black;
-          text-transform: uppercase;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 1.5em;
-          margin: 0 auto;
-          margin-top: 1em;
-          font-size: 1em;
-          cursor: pointer;
-          margin-top: 1em;
-          border: 0;
-        }
-
-        button:disabled {
-          background-color: gray;
-          cursor: default;
         }
       `}
       </style>

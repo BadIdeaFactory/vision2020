@@ -81,7 +81,11 @@ const VotePage = () => {
       voteContent = (
         <animated.div className="vote-content" style={props}>
           <h2>Thanks!</h2>
-          <p>We’re collecting anonymous information for internal purposes. Share or skip ahead to see poll results.</p>
+          <p>
+            We're collecting anonymous data for internal purposes only.
+            This will not be shown to the public.
+            Share or skip ahead to see poll results.
+          </p>
           <DemographicsForm onSubmit={handleSubmitDemographics} />
         </animated.div>
       )
@@ -145,7 +149,6 @@ const VotePage = () => {
           text-align: center;
           margin: 3em;
         }
-
       `}
       </style>
     </>
