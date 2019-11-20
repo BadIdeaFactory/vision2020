@@ -145,7 +145,7 @@ const VotePage = () => {
           :global(.vote-content p) {
             font-size: 1.5em;
             text-align: center;
-            margin: 3em;
+            margin: 2em;
           }
         `}
       </style>

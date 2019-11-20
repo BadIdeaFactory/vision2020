@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import PageDots from './PageDots'
 import VoteButton from './VoteButton'
 import UIButton from './UIButton'
 import { UI_COLOR_SECONDARY } from '../main/const'
@@ -30,6 +31,7 @@ function DemographicsForm (props) {
   return (
     <>
       <form className="demo-form" onSubmit={handleSubmit}>
+        <PageDots pages={4} currentPage={1} />
         <div className="form-section">
           <h3>Your Age</h3>
           <div className="selection age-selection">
@@ -246,7 +248,7 @@ function DemographicsForm (props) {
             user-select: none;
             font-size: 2vh;
             width: 90%;
-            margin: 3em auto 0;
+            margin: 2em auto 0;
           }
 
           h3 {
