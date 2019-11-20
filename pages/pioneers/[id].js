@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
@@ -12,6 +13,21 @@ import Lightbox from '../../components/Lightbox'
 import PioneerTitleCard from '../../components/PioneerTitleCard'
 import { UI_COLOR_SECONDARY } from '../../main/const'
 import { getEntry } from '../../data/load'
+
+ParseText.propTypes = {
+  text: PropTypes.string.isRequired
+}
+
+function ParseText ({ text }) {
+  return (
+    <ReactMarkdown
+      source={text}
+      className="context"
+      unwrapDisallowed
+      disallowedTypes={['link', 'linkReference']}
+    />
+  )
+}
 
 export default function Pioneer () {
   const router = useRouter()
@@ -73,7 +89,7 @@ export default function Pioneer () {
               alignItems: 'center',
               justifyContent: 'center'
             }}
-            onClick={() => parallax.current.scrollTo(0.99)}
+            // onClick={() => parallax.current.scrollTo(0.99)}
           >
             <div
               style={{
@@ -125,7 +141,7 @@ export default function Pioneer () {
           <ParallaxLayer
             offset={0.99}
             speed={1}
-            onClick={() => parallax.current.scrollTo(1.5)}
+            // onClick={() => parallax.current.scrollTo(1.5)}
           >
             <Image
               src="/mary/Mary-Church-Terrell-1.jpg"
@@ -158,7 +174,7 @@ export default function Pioneer () {
                 marginRight: 'calc(50% - 50px)'
               }}
             >
-              <ReactMarkdown source={data['CONTEXT TEXT 1']} />
+              <ParseText text={data['CONTEXT TEXT 1']} />
             </div>
           </ParallaxLayer>
 
@@ -166,7 +182,7 @@ export default function Pioneer () {
           <ParallaxLayer
             offset={1}
             speed={1}
-            onClick={() => parallax.current.scrollTo(2)}
+            // onClick={() => parallax.current.scrollTo(2)}
           >
             <Image
               src="/mary/3b30139u.jpg"
@@ -193,7 +209,7 @@ export default function Pioneer () {
                 marginTop: '30%'
               }}
             >
-              <ReactMarkdown source={data['CONTEXT TEXT 2']} />
+              <ParseText text={data['CONTEXT TEXT 2']} />
             </div>
           </ParallaxLayer>
 
@@ -245,22 +261,7 @@ export default function Pioneer () {
                 backgroundColor: 'white'
               }}
             >
-              <ReactMarkdown source={data['CONTEXT TEXT 3']} />
-            </div>
-            <div
-              className="quote"
-              style={{
-                textAlign: 'left',
-                width: '45%',
-                marginLeft: '48%',
-                marginTop: '2em'
-              }}
-            >
-              <div className="quote-content">
-                <div>“</div>
-                We knock at the bar of justice, asking an equal chance.
-              </div>
-              <p className="attribution">— Attribution first name last name</p>
+              <ParseText text={data['CONTEXT TEXT 3']} />
             </div>
           </ParallaxLayer>
 
@@ -279,7 +280,7 @@ export default function Pioneer () {
                 marginTop: '60%'
               }}
             >
-              <ReactMarkdown source={data['CONTEXT TEXT 4']} />
+              <ParseText text={data['CONTEXT TEXT 4']} />
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={2} speed={1}>
@@ -305,7 +306,7 @@ export default function Pioneer () {
                 marginTop: '70%'
               }}
             >
-              <ReactMarkdown source={data['CONTEXT TEXT 5']} />
+              <ParseText text={data['CONTEXT TEXT 5']} />
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={2.99} speed={1}>
@@ -343,7 +344,7 @@ export default function Pioneer () {
                 marginTop: '30%'
               }}
             >
-              <ReactMarkdown source={data['CONTEXT TEXT 6']} />
+              <ParseText text={data['CONTEXT TEXT 6']} />
             </div>
           </ParallaxLayer>
 
@@ -362,7 +363,7 @@ export default function Pioneer () {
                 marginTop: '50%'
               }}
             >
-              <ReactMarkdown source={data['CONTEXT TEXT 7']} />
+              <ParseText text={data['CONTEXT TEXT 7']} />
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={3.99} speed={1}>
@@ -383,6 +384,49 @@ export default function Pioneer () {
 
       <LowerNav left="pioneers" right="vote" />
 
+      <style jsx global>
+        {`
+          .context blockquote {
+            margin-left: 0;
+            margin-right: 0;
+          }
+
+          .context blockquote p {
+            font-family: 'Anton', sans-serif;
+            font-size: 40px;
+            text-transform: uppercase;
+            line-height: 1.2;
+          }
+
+          .context blockquote p::before {
+            content: '“';
+            display: block;
+            font-family: 'Anton', sans-serif;
+            font-size: 40px;
+            text-transform: uppercase;
+          }
+
+          .context blockquote em {
+            display: block;
+            margin-top: 3em;
+            font-family: 'Noto Serif', serif;
+            font-size: 22px;
+            font-style: normal;
+            text-transform: initial;
+            line-height: 1.4;
+          }
+
+          .context blockquote em::before {
+            content: '';
+            display: block;
+            position: relative;
+            width: 50px;
+            height: 0px;
+            border-top: 5px solid black;
+            top: -1.5em;
+          }
+        `}
+      </style>
       <style jsx>
         {`
           .section1,
@@ -426,9 +470,9 @@ export default function Pioneer () {
             background-color: white;
             padding: 2em 0;
           }
+
           :global(.fake-image) {
             background-color: #ccc;
-            box-shadow: 0 0 2em 0 rgba(0, 0, 0, 0.25);
             position: absolute;
           }
           .f1 {
