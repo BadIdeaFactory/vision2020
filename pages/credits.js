@@ -80,9 +80,7 @@ const CreditsPage = () => (
           return <Credits name={item.name} text={item.text} key={item.name} />
         })}
       </div>
-    </div>
 
-    <div className="credits-container credits-section-with-divider">
       <h3>Photo Credits</h3>
 
       <div className="credits">
@@ -113,17 +111,18 @@ const CreditsPage = () => (
       {`
         .credits-container {
           max-width: 620px;
-          margin: 80px auto 160px;
-        }
-
-        .credits-section-with-divider {
-          border-top: 10px solid ${UI_COLOR_PRIMARY};
+          margin: 160px auto 200px;
         }
 
         h3 {
           color: ${UI_COLOR_PRIMARY};
           margin-top: 0.75em;
-          margin-bottom: 0.75em;
+          margin-bottom: 1em;
+          padding-top: 1em;
+        }
+
+        h3:not(:first-of-type) {
+          border-top: 10px solid ${UI_COLOR_PRIMARY};
         }
 
         .credits {
