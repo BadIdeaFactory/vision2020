@@ -391,6 +391,31 @@ export default function Pioneer () {
             margin-right: 0;
           }
 
+          /* Override headings in Markdown format */
+          .context h1,
+          .context h2,
+          .context h3,
+          .context h4,
+          .context h5,
+          .context h6 {
+            font-size: 22px;
+            font-family: 'Noto Serif', serif;
+            text-transform: initial;
+            text-align: left;
+            font-weight: bold;
+            margin-bottom: 0;
+          }
+
+          /* Reduce margins on paragraphs following a heading */
+          .context h1 + p,
+          .context h2 + p,
+          .context h3 + p,
+          .context h4 + p,
+          .context h5 + p,
+          .context h6 + p {
+            margin-top: 0.2em;
+          }
+
           .context blockquote p {
             font-family: 'Anton', sans-serif;
             font-size: 40px;
@@ -411,7 +436,6 @@ export default function Pioneer () {
             margin-top: 3em;
             font-family: 'Noto Serif', serif;
             font-size: 22px;
-            font-style: normal;
             text-transform: initial;
             line-height: 1.4;
           }
