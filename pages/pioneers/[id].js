@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
+import ReactMarkdown from 'react-markdown'
 import Layout from '../../components/Layout'
 import CategoryEyebrow from '../../components/CategoryEyebrow'
 import Image from '../../components/Image'
@@ -157,7 +158,7 @@ export default function Pioneer () {
                 marginRight: 'calc(50% - 50px)'
               }}
             >
-              {data['CONTEXT TEXT 1']}
+              <ReactMarkdown source={data['CONTEXT TEXT 1']} />
             </div>
           </ParallaxLayer>
 
@@ -192,7 +193,7 @@ export default function Pioneer () {
                 marginTop: '30%'
               }}
             >
-              {data['CONTEXT TEXT 2']}
+              <ReactMarkdown source={data['CONTEXT TEXT 2']} />
             </div>
           </ParallaxLayer>
 
@@ -244,7 +245,7 @@ export default function Pioneer () {
                 backgroundColor: 'white'
               }}
             >
-              {data['CONTEXT TEXT 3']}
+              <ReactMarkdown source={data['CONTEXT TEXT 3']} />
             </div>
             <div
               className="quote"
@@ -278,7 +279,7 @@ export default function Pioneer () {
                 marginTop: '60%'
               }}
             >
-              {data['CONTEXT TEXT 4']}
+              <ReactMarkdown source={data['CONTEXT TEXT 4']} />
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={2} speed={1}>
@@ -304,7 +305,7 @@ export default function Pioneer () {
                 marginTop: '70%'
               }}
             >
-              {data['CONTEXT TEXT 5']}
+              <ReactMarkdown source={data['CONTEXT TEXT 5']} />
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={2.99} speed={1}>
@@ -342,7 +343,7 @@ export default function Pioneer () {
                 marginTop: '30%'
               }}
             >
-              {data['CONTEXT TEXT 6']}
+              <ReactMarkdown source={data['CONTEXT TEXT 6']} />
             </div>
           </ParallaxLayer>
 
@@ -361,7 +362,7 @@ export default function Pioneer () {
                 marginTop: '50%'
               }}
             >
-              {data['CONTEXT TEXT 7']}
+              <ReactMarkdown source={data['CONTEXT TEXT 7']} />
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={3.99} speed={1}>

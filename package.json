@@ -49,6 +49,7 @@
     "react-dom": "16.11.0",
     "react-image-gallery": "0.9.1",
     "react-intersection-observer": "8.25.1",
+    "react-markdown": "4.2.2",
     "react-spring": "8.0.27"
   },
   "husky": {
