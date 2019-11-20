@@ -27,18 +27,24 @@ function init (config) {
   console.log('[Firebase] Initializing ...')
   firebase.initializeApp(config)
   // firebase.analytics()
-  firebase.firestore().enablePersistence({ synchronizeTabs: true })
+  firebase
+    .firestore()
+    .enablePersistence({ synchronizeTabs: true })
     .then(() => {
       console.log('[Firebase] Database persistence enabled!')
     })
     .catch(function (err) {
       if (err.code === 'failed-precondition') {
-        console.error('[Firebase] Multiple tabs open, persistence can only be enabled in one tab at a time.')
+        console.error(
+          '[Firebase] Multiple tabs open, persistence can only be enabled in one tab at a time.'
+        )
         // Multiple tabs open, persistence can only be enabled
         // in one tab at a a time.
         // ...
       } else if (err.code === 'unimplemented') {
-        console.error('[Firebase] The current browser does not support all of the features required to enable persistence')
+        console.error(
+          '[Firebase] The current browser does not support all of the features required to enable persistence'
+        )
         // The current browser does not support all of the
         // features required to enable persistence
         // ...

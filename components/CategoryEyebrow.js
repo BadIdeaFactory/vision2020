@@ -12,9 +12,7 @@ export default function CategoryEyebrow (props) {
 
   return (
     <>
-      <h1>
-        {children}
-      </h1>
+      <h1>{children}</h1>
       <style jsx>
         {`
           h1 {

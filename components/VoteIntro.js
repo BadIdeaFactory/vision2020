@@ -32,48 +32,49 @@ function VoteIntro (props) {
         </div>
       </div>
 
-      <style jsx>{`
-        .vote-intro-container {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          height: 100vh;
-          background-color: black;
-          color: white;
-        }
+      <style jsx>
+        {`
+          .vote-intro-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: black;
+            color: white;
+          }
 
-        .vote-intro-content {
-          max-width: 660px;
-          text-align: center;
-        }
+          .vote-intro-content {
+            max-width: 660px;
+            text-align: center;
+          }
 
-        .vote-intro-stars {
-          display: flex;
-          flex-direction: row;
-          width: 100%;
-          justify-content: space-between;
-        }
+          .vote-intro-stars {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+          }
 
-        .vote-intro-content h2 {
-          font-family: 'Anton', sans-serif;
-          line-height: 1;
-          font-size: 180px;
-          color: ${UI_COLOR_SECONDARY};
-          text-align: center;
-          text-transform: uppercase;
-          margin: 0.75em 0 0.5em;
-        }
+          .vote-intro-content h2 {
+            font-family: 'Anton', sans-serif;
+            line-height: 1;
+            font-size: 180px;
+            color: ${UI_COLOR_SECONDARY};
+            text-align: center;
+            text-transform: uppercase;
+            margin: 0.75em 0 0.5em;
+          }
 
-        .vote-intro-content p {
-          font-family: 'Noto Serif', serif;
-          font-size: 22px;
-        }
+          .vote-intro-content p {
+            font-family: 'Noto Serif', serif;
+            font-size: 22px;
+          }
 
-        .vote-intro-button {
-          margin: 6em 0;
-        }
-      `}
+          .vote-intro-button {
+            margin: 6em 0;
+          }
+        `}
       </style>
     </>
   )

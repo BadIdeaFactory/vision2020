@@ -1,96 +1,130 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
+import { useSpring, useTransition, animated } from 'react-spring'
+import { UI_COLOR_SECONDARY } from '../main/const'
+
+BarChartItem.propTypes = {
+  label: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired
+}
+
+function BarChartItem ({ label, value }) {
+  const spring = useSpring({
+    width: `${value}%`,
+    number: value,
+    from: {
+      width: '0%',
+      number: 0
+    }
+  })
+
+  return (
+    <>
+      <div className="chart-item">
+        <div className="chart-label">{label}</div>
+        <div className="chart-bar-outside">
+          <animated.div className="chart-bar-inside" style={spring} />
+        </div>
+        <div className="chart-data-label">
+          <animated.span>
+            {spring.number.interpolate((x) => `${x.toFixed(0)}%`)}
+          </animated.span>
+        </div>
+      </div>
+
+      <style jsx>
+        {`
+          .chart-item {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            height: 110px;
+            margin-bottom: 40px;
+          }
+
+          .chart-label {
+            font-family: 'Anton', sans-serif;
+            font-size: 24px;
+            line-height: 1.2;
+            text-transform: uppercase;
+            text-align: left;
+            width: 140px;
+            margin-right: 20px;
+          }
+
+          .chart-bar-outside {
+            position: relative;
+            background-color: #4a4a4a;
+            flex-grow: 1;
+          }
+
+          /* <animated.div> required global style */
+          :global(.chart-bar-inside) {
+            position: absolute;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: ${UI_COLOR_SECONDARY};
+          }
+
+          .chart-data-label {
+            font-family: 'Anton', sans-serif;
+            font-size: 72px;
+            color: ${UI_COLOR_SECONDARY};
+            margin-left: 20px;
+            width: 140px;
+            text-align: left;
+          }
+        `}
+      </style>
+    </>
+  )
+}
+
+function generateRandomTestPercentages () {
+  const num1 = Math.random()
+  const num2 = Math.random()
+  const num3 = Math.random()
+  const num4 = Math.random()
+  const sum = num1 + num2 + num3 + num4
+
+  return [
+    Math.round((num1 / sum) * 100),
+    Math.round((num2 / sum) * 100),
+    Math.round((num3 / sum) * 100),
+    Math.round((num4 / sum) * 100)
+  ]
+}
 
 function VoteResults (props) {
-  function generateRandomTestPercentages () {
-    const num1 = Math.random()
-    const num2 = Math.random()
-    const num3 = Math.random()
-    const num4 = Math.random()
-    const sum = num1 + num2 + num3 + num4
+  const [items] = useState([
+    'Women & Men Sharing Leadership 50-50',
+    'Equal Pay for Equal Work',
+    'More Women Voting & Running for Office',
+    'Inclusive Education of Women’s History'
+  ])
+  const [values, setValues] = useState([0, 0, 0, 0])
 
-    return [
-      Math.round(num1 / sum * 100),
-      Math.round(num2 / sum * 100),
-      Math.round(num3 / sum * 100),
-      Math.round(num4 / sum * 100)
-    ]
-  }
-
-  const [values, setValues] = useState([])
-
+  // Generate random values inside a useEffect to ensure values
+  // on server and client sides match
   useEffect(() => {
     setValues(generateRandomTestPercentages())
   }, [])
 
-  return (
-    <>
-      <div className="barchart">
-        <div className="column">
-          <div className="bar-container">
-            <div className="bar bar1" style={{ height: `${values[0]}%` }} />
-            <div className="barlabel">{values[0]}%</div>
-          </div>
-          <div className="label">Women & Men Sharing Leadership 50-50</div>
-        </div>
-        <div className="column">
-          <div className="bar-container">
-            <div className="bar bar2" style={{ height: `${values[1]}%` }} />
-            <div className="barlabel">{values[1]}%</div>
-          </div>
-          <div className="label">Equal Pay for Equal Work</div>
-        </div>
-        <div className="column">
-          <div className="bar-container">
-            <div className="bar bar3" style={{ height: `${values[2]}%` }} />
-            <div className="barlabel">{values[2]}%</div>
-          </div>
-          <div className="label">More Women Voting & Running for Office</div>
-        </div>
-        <div className="column">
-          <div className="bar-container">
-            <div className="bar bar4" style={{ height: `${values[3]}%` }} />
-            <div className="barlabel">{values[3]}%</div>
-          </div>
-          <div className="label">Inclusive Education of Women's History</div>
-        </div>
-      </div>
-      <style jsx>{`
-        .barchart {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr 1fr;
-          grid-gap: 3%;
-          max-width: 40vh;
-          font-size: 1.5vh
-        }
-        .column {
-          display: flex;
-          flex-direction: column;
-        }
-        .bar-container {
-          flex-basis: 40vh;
-          margin-bottom: 1vh;
-          position: relative;
-        }
-        .bar {
-          background-color: #969696;
-          /* min-height: 15%; */
-          width: 100%;
-          position: absolute;
-          bottom: 0;
-          left: 0;
-        }
-        .barlabel {
-          position: absolute;
-          bottom: 3%;
-          text-align: center;
-          width: 100%;
-          font-size: 200%;
-          font-weight: bold;
-        }
-      `}
-      </style>
-    </>
-  )
+  const transitions = useTransition(items, (item) => item, {
+    from: { transform: 'translate3d(0, 3vh, 0)', opacity: 0 },
+    enter: { transform: 'translate3d(0, 0px, 0)', opacity: 1 },
+    leave: { transform: 'translate3d(0, -3vh, 0)', opacity: 0 },
+    // Note: this is an unchained animation, so the BarChartItem
+    // transitions begin before all the items have transitioned in
+    trail: 80
+  })
+
+  return transitions.map(({ item, props, key }, index) => (
+    <animated.div key={key} style={props}>
+      <BarChartItem label={item} value={values[index]} />
+    </animated.div>
+  ))
 }
 
 export default VoteResults

@@ -2,29 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import NavButton from './NavButton'
 
-const PioneersButton = () => (
-  <NavButton href="/pioneers">
-    Pioneers
-  </NavButton>
-)
+const PioneersButton = () => <NavButton href="/pioneers">Pioneers</NavButton>
 
-const CreditsButton = () => (
-  <NavButton href="/credits">
-    Credits
-  </NavButton>
-)
+const CreditsButton = () => <NavButton href="/credits">Credits</NavButton>
 
-const ExitButton = () => (
-  <NavButton href="/">
-    Exit
-  </NavButton>
-)
+const ExitButton = () => <NavButton href="/">Exit</NavButton>
 
-const VoteButton = () => (
-  <NavButton href="/vote">
-    Vote
-  </NavButton>
-)
+const VoteButton = () => <NavButton href="/vote">Vote</NavButton>
 
 function getButton (string) {
   switch (string) {
@@ -57,21 +41,9 @@ export default function LowerNav (props) {
     <>
       <nav {...rest}>
         <ul>
-          <li>
-            {
-              left && getButton(left)
-            }
-          </li>
-          <li>
-            {
-              middle && getButton(middle)
-            }
-          </li>
-          <li>
-            {
-              right && getButton(right)
-            }
-          </li>
+          <li>{left && getButton(left)}</li>
+          <li>{middle && getButton(middle)}</li>
+          <li>{right && getButton(right)}</li>
         </ul>
       </nav>
 

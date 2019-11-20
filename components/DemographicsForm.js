@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import PageDots from './PageDots'
+import VoteButton from './VoteButton'
+import UIButton from './UIButton'
+import { UI_COLOR_SECONDARY } from '../main/const'
 
 DemographicsForm.propTypes = {
   onSubmit: PropTypes.func
@@ -10,7 +14,9 @@ function DemographicsForm (props) {
   const [formState, setFormState] = useState({})
 
   function handleOptionChange (event) {
-    console.log(`Demographics form: ${event.target.name} = ${event.target.value}`)
+    console.log(
+      `Demographics form: ${event.target.name} = ${event.target.value}`
+    )
     setFormState({
       ...formState,
       [event.target.name]: event.target.value
@@ -25,56 +31,41 @@ function DemographicsForm (props) {
   return (
     <>
       <form className="demo-form" onSubmit={handleSubmit}>
+        <PageDots pages={4} currentPage={1} />
         <div className="form-section">
-          <h3>Age</h3>
+          <h3>Your Age</h3>
           <div className="selection age-selection">
-            <span>
-              <input
-                type="radio"
-                id="age1"
-                name="age"
-                onChange={handleOptionChange}
-                checked={formState.age === 'age-under18'}
-                value="age-under18"
-              />
-              <label htmlFor="age1">Under 18</label>
-            </span>
-            <span>
-              <input
-                type="radio"
-                id="age2"
-                name="age"
-                onChange={handleOptionChange}
-                checked={formState.age === 'age-18-34'}
-                value="age-18-34"
-              />
-              <label htmlFor="age2">18–34</label>
-            </span>
-            <span>
-              <input
-                type="radio"
-                id="age3"
-                name="age"
-                onChange={handleOptionChange}
-                checked={formState.age === 'age-35-64'}
-                value="age-35-64"
-              />
-              <label htmlFor="age3">35–64</label>
-            </span>
-            <span>
-              <input
-                type="radio"
-                id="age4"
-                name="age"
-                onChange={handleOptionChange}
-                checked={formState.age === 'age-65plus'}
-                value="age-65plus"
-              />
-              <label htmlFor="age4">65+</label>
-            </span>
+            <VoteButton
+              name="age"
+              value="age-under18"
+              checked={formState.age === 'age-under18'}
+              onChange={handleOptionChange}
+              label="Under 18"
+            />
+            <VoteButton
+              name="age"
+              value="age-18-34"
+              checked={formState.age === 'age-18-34'}
+              onChange={handleOptionChange}
+              label="18 – 34"
+            />
+            <VoteButton
+              name="age"
+              value="age-35-64"
+              checked={formState.age === 'age-35-64'}
+              onChange={handleOptionChange}
+              label="35 – 64"
+            />
+            <VoteButton
+              name="age"
+              value="age-65plus"
+              checked={formState.age === 'age-65plus'}
+              onChange={handleOptionChange}
+              label="65+"
+            />
           </div>
         </div>
-        <div className="form-section">
+        {/* <div className="form-section">
           <h3>Gender</h3>
           <div className="selection">
             <span>
@@ -246,83 +237,41 @@ function DemographicsForm (props) {
               <label htmlFor="location3">International</label>
             </span>
           </div>
+        </div> */}
+        <div className="buttons">
+          <UIButton>Skip</UIButton>
         </div>
-        <p className="buttons">
-          <button type="submit">Submit</button>
-          <button>Skip</button>
-        </p>
       </form>
-      <style jsx>{`
-        .demo-form {
-          user-select: none;
-          font-size: 2vh;
-          width: 90%;
-          margin: 3em auto 0;
+      <style jsx>
+        {`
+          .demo-form {
+            user-select: none;
+            font-size: 2vh;
+            width: 90%;
+            margin: 2em auto 0;
+          }
 
-          border-top: 0.35vh solid white;
-        }
+          h3 {
+            font-size: 60px;
+            color: ${UI_COLOR_SECONDARY};
+          }
 
-        h3 {
-          text-align: left;
-          font-size: 2vh;
-          font-style: italic;
-          font-weight: normal;
-        }
+          .selection {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
 
-        .form-section {
-          border-bottom: 1px solid white;
-          padding-bottom: 1em;
-        }
+          .age-selection {
+            width: 300px;
+            margin: 0 auto;
+          }
 
-        .selection {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-        }
-
-        .column {
-          text-align: left;
-        }
-
-        input {
-          margin-right: 1em;
-        }
-
-        input:checked + label {
-          color: yellow;
-        }
-
-        .buttons {
-          display: flex;
-          flex-direction: row;
-
-        }
-        
-        button {
-          appearance: none;
-          width: 6em;
-          height: 3em;
-          background-color: white;
-          color: black;
-          text-transform: uppercase;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 1.5em;
-          margin: 0 auto;
-          margin-top: 1em;
-          font-size: 1em;
-          cursor: pointer;
-          margin-top: 1em;
-          border: 0;
-        }
-
-        button:not([type="submit"]) {
-          background-color: black;
-          color: white;
-          border: 4px solid white;
-        }
-      `}
+          .buttons {
+            margin-top: 2em;
+            text-align: center;
+          }
+        `}
       </style>
     </>
   )

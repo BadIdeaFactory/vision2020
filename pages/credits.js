@@ -77,54 +77,52 @@ const CreditsPage = () => (
       <div className="credits">
         {TEAM.map((item) => {
           // NOTE: the credits have no connection to the image they're crediting.
-          return (
-            <Credits name={item.name} text={item.text} key={item.name} />
-          )
+          return <Credits name={item.name} text={item.text} key={item.name} />
         })}
       </div>
-    </div>
 
-    <div className="credits-container credits-section-with-divider">
       <h3>Photo Credits</h3>
 
       <div className="credits">
         {getData().map((item) => {
           // NOTE: the credits have no connection to the image they're crediting.
           return (
-            <Credits name={item.NAME} text={item['IMAGE CREDITS']} key={item.NAME} />
+            <Credits
+              name={item.NAME}
+              text={item['IMAGE CREDITS']}
+              key={item.NAME}
+            />
           )
         })}
       </div>
     </div>
 
-    <LowerNav
-      left="pioneers"
-      middle="exit"
-      right="vote"
-    />
+    <LowerNav left="pioneers" middle="exit" right="vote" />
 
-    <style jsx global>{`
-      body {
-        background-color: black;
-        color: white;
-      }
-    `}
+    <style jsx global>
+      {`
+        body {
+          background-color: black;
+          color: white;
+        }
+      `}
     </style>
     <style jsx>
       {`
         .credits-container {
           max-width: 620px;
-          margin: 80px auto 160px;
-        }
-
-        .credits-section-with-divider {
-          border-top: 10px solid ${UI_COLOR_PRIMARY};
+          margin: 160px auto 200px;
         }
 
         h3 {
           color: ${UI_COLOR_PRIMARY};
           margin-top: 0.75em;
-          margin-bottom: 0.75em;
+          margin-bottom: 1em;
+          padding-top: 1em;
+        }
+
+        h3:not(:first-of-type) {
+          border-top: 10px solid ${UI_COLOR_PRIMARY};
         }
 
         .credits {
