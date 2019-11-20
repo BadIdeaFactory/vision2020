@@ -31,8 +31,11 @@ module.exports = {
       '/vote': { page: '/vote' }
     }
 
-    slugs.forEach(slug => {
-      paths[`/pioneers/${slug}`] = { page: '/pioneers/[id]', query: { id: slug } }
+    slugs.forEach((slug) => {
+      paths[`/pioneers/${slug}`] = {
+        page: '/pioneers/[id]',
+        query: { id: slug }
+      }
     })
 
     return paths

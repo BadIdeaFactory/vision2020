@@ -7,7 +7,7 @@ import VoteForm from '../components/VoteForm'
 import VoteResults from '../components/VoteResults'
 import DemographicsForm from '../components/DemographicsForm'
 import LowerNav from '../components/LowerNav'
-import firebase from '../main/firebase'
+// import firebase from '../main/firebase'
 import { UI_COLOR_SECONDARY } from '../main/const'
 
 const VotePage = () => {
@@ -82,9 +82,9 @@ const VotePage = () => {
         <animated.div className="vote-content" style={props}>
           <h2>Thanks!</h2>
           <p>
-            We're collecting anonymous data for internal purposes only.
-            This will not be shown to the public.
-            Share or skip ahead to see poll results.
+            We're collecting anonymous data for internal purposes only. This
+            will not be shown to the public. Share or skip ahead to see poll
+            results.
           </p>
           <DemographicsForm onSubmit={handleSubmitDemographics} />
         </animated.div>
@@ -112,44 +112,42 @@ const VotePage = () => {
 
         {voteContent}
 
-        <LowerNav
-          left="pioneers"
-          right="exit"
-        />
+        <LowerNav left="pioneers" right="exit" />
       </Layout>
 
-      <style jsx>{`
-        :global(body) {
-          overflow: hidden;
-        }
+      <style jsx>
+        {`
+          :global(body) {
+            overflow: hidden;
+          }
 
-        :global(.vote-page) {
-          background-color: black;
-          color: white;
+          :global(.vote-page) {
+            background-color: black;
+            color: white;
 
-          display: flex;
-          height: 100vh;
-          flex-direction: column;
-          align-items: stretch;
-          justify-content: center;
-        }
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: center;
+          }
 
-        :global(.vote-content) {
-          margin: 0 20%;
-          max-width: 620px;
-        }
+          :global(.vote-content) {
+            margin: 0 20%;
+            max-width: 620px;
+          }
 
-        :global(.vote-content h2) {
-          color: ${UI_COLOR_SECONDARY};
-          margin-bottom: 0.25em;
-        }
+          :global(.vote-content h2) {
+            color: ${UI_COLOR_SECONDARY};
+            margin-bottom: 0.25em;
+          }
 
-        :global(.vote-content p) {
-          font-size: 1.5em;
-          text-align: center;
-          margin: 3em;
-        }
-      `}
+          :global(.vote-content p) {
+            font-size: 1.5em;
+            text-align: center;
+            margin: 3em;
+          }
+        `}
       </style>
     </>
   )

@@ -1,10 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { InView } from 'react-intersection-observer'
-import {
-  UI_COLOR_PRIMARY,
-  TYPOGRAPHY_DISPLAY
-} from '../main/const'
+import { UI_COLOR_PRIMARY, TYPOGRAPHY_DISPLAY } from '../main/const'
 
 PioneerTitleCard.propTypes = {
   data: PropTypes.object
@@ -36,9 +33,7 @@ function PioneerTitleCard ({ data }) {
             }
           }}
         >
-          <div className="pioneer-lifedate">
-            {data['LIFE DATE']}
-          </div>
+          <div className="pioneer-lifedate">{data['LIFE DATE']}</div>
         </InView>
         <InView
           as="div"
@@ -61,59 +56,60 @@ function PioneerTitleCard ({ data }) {
         </InView>
       </div>
 
-      <style jsx>{`
-        .pioneer-title-card {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          padding-top: 100px;
-          padding-bottom: 60px;
-          background-color: white;
+      <style jsx>
+        {`
+          .pioneer-title-card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding-top: 100px;
+            padding-bottom: 60px;
+            background-color: white;
 
-          display: flex;
-          flex-direction: column;
-          align-items: stretch;
-          justify-content: center;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: center;
 
-          text-align: center;
-        }
+            text-align: center;
+          }
 
-        /* react-spring <animated.div> does not render namespaced classnames */
-        :global(.pioneer-title-card > div) {
-          opacity: 0;
-          transform: translateY(4em);
-          transition: opacity 1000ms, transform 600ms ease-out;
-        }
+          /* react-spring <animated.div> does not render namespaced classnames */
+          :global(.pioneer-title-card > div) {
+            opacity: 0;
+            transform: translateY(4em);
+            transition: opacity 1000ms, transform 600ms ease-out;
+          }
 
-        :global(.pioneer-title-card > div.visible) {
-          opacity: 1;
-          transform: translateY(0);
-        }
+          :global(.pioneer-title-card > div.visible) {
+            opacity: 1;
+            transform: translateY(0);
+          }
 
-        /* Note: do not adjust line-height here, we need
+          /* Note: do not adjust line-height here, we need
           white space for the accent mark in GONZÁLEZ */
-        h2 {
-          font-size: 140px;
-          margin: 0 20%;
-        }
+          h2 {
+            font-size: 140px;
+            margin: 0 20%;
+          }
 
-        .pioneer-lifedate {
-          margin-top: 1em;
-          margin-bottom: 1em;
-          font-weight: bold;
-          font-size: 48px;
-          white-space: nowrap;
-        }
+          .pioneer-lifedate {
+            margin-top: 1em;
+            margin-bottom: 1em;
+            font-weight: bold;
+            font-size: 48px;
+            white-space: nowrap;
+          }
 
-        .pioneer-titles {
-          font-family: ${TYPOGRAPHY_DISPLAY};
-          font-size: 60px;
-          line-height: 1.5;
-          color: ${UI_COLOR_PRIMARY};
-          text-transform: uppercase;
-          margin: 0 10%;
-        }
-      `}
+          .pioneer-titles {
+            font-family: ${TYPOGRAPHY_DISPLAY};
+            font-size: 60px;
+            line-height: 1.5;
+            color: ${UI_COLOR_PRIMARY};
+            text-transform: uppercase;
+            margin: 0 10%;
+          }
+        `}
       </style>
     </>
   )

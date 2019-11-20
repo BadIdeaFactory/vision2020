@@ -26,53 +26,56 @@ function BarChartItem ({ label, value }) {
           <animated.div className="chart-bar-inside" style={spring} />
         </div>
         <div className="chart-data-label">
-          <animated.span>{spring.number.interpolate(x => `${x.toFixed(0)}%`)}</animated.span>
+          <animated.span>
+            {spring.number.interpolate((x) => `${x.toFixed(0)}%`)}
+          </animated.span>
         </div>
       </div>
 
-      <style jsx>{`
-        .chart-item {
-          position: relative;
-          display: flex;
-          flex-direction: row;
-          height: 110px;
-          margin-bottom: 40px;
-        }
+      <style jsx>
+        {`
+          .chart-item {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            height: 110px;
+            margin-bottom: 40px;
+          }
 
-        .chart-label {
-          font-family: 'Anton', sans-serif;
-          font-size: 24px;
-          line-height: 1.2;
-          text-transform: uppercase;
-          text-align: left;
-          width: 140px;
-          margin-right: 20px;
-        }
+          .chart-label {
+            font-family: 'Anton', sans-serif;
+            font-size: 24px;
+            line-height: 1.2;
+            text-transform: uppercase;
+            text-align: left;
+            width: 140px;
+            margin-right: 20px;
+          }
 
-        .chart-bar-outside {
-          position: relative;
-          background-color: #4a4a4a;
-          flex-grow: 1;
-        }
+          .chart-bar-outside {
+            position: relative;
+            background-color: #4a4a4a;
+            flex-grow: 1;
+          }
 
-        /* <animated.div> required global style */
-        :global(.chart-bar-inside) {
-          position: absolute;
-          left: 0;
-          width: 0%;
-          height: 100%;
-          background-color: ${UI_COLOR_SECONDARY};
-        }
+          /* <animated.div> required global style */
+          :global(.chart-bar-inside) {
+            position: absolute;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: ${UI_COLOR_SECONDARY};
+          }
 
-        .chart-data-label {
-          font-family: 'Anton', sans-serif;
-          font-size: 72px;
-          color: ${UI_COLOR_SECONDARY};
-          margin-left: 20px;
-          width: 140px;
-          text-align: left;
-        }
-      `}
+          .chart-data-label {
+            font-family: 'Anton', sans-serif;
+            font-size: 72px;
+            color: ${UI_COLOR_SECONDARY};
+            margin-left: 20px;
+            width: 140px;
+            text-align: left;
+          }
+        `}
       </style>
     </>
   )
@@ -86,10 +89,10 @@ function generateRandomTestPercentages () {
   const sum = num1 + num2 + num3 + num4
 
   return [
-    Math.round(num1 / sum * 100),
-    Math.round(num2 / sum * 100),
-    Math.round(num3 / sum * 100),
-    Math.round(num4 / sum * 100)
+    Math.round((num1 / sum) * 100),
+    Math.round((num2 / sum) * 100),
+    Math.round((num3 / sum) * 100),
+    Math.round((num4 / sum) * 100)
   ]
 }
 
@@ -117,11 +120,11 @@ function VoteResults (props) {
     trail: 80
   })
 
-  return transitions.map(({ item, props, key }, index) =>
+  return transitions.map(({ item, props, key }, index) => (
     <animated.div key={key} style={props}>
       <BarChartItem label={item} value={values[index]} />
     </animated.div>
-  )
+  ))
 }
 
 export default VoteResults

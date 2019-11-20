@@ -27,7 +27,10 @@ function AttractMode (props) {
   }
 
   function handleTimeUpdate (event) {
-    if ((event.target.duration - event.target.currentTime) <= 2.5 && !nearEndTriggered) {
+    if (
+      event.target.duration - event.target.currentTime <= 2.5 &&
+      !nearEndTriggered
+    ) {
       fadeOutButton()
       nearEndTriggered = true
     }
@@ -40,7 +43,12 @@ function AttractMode (props) {
     }
 
     setAttractId(nextId)
-    console.log('[Vision2020] Attract mode: next video is', nextId, '-', attractLinks[nextId].name)
+    console.log(
+      '[Vision2020] Attract mode: next video is',
+      nextId,
+      '-',
+      attractLinks[nextId].name
+    )
   }
 
   return (
@@ -67,59 +75,60 @@ function AttractMode (props) {
         </div>
       </div>
 
-      <style jsx>{`
-        .attract-container {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          position: sticky;
-          background-color: white;
-        }
+      <style jsx>
+        {`
+          .attract-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            position: sticky;
+            background-color: white;
+          }
 
-        .attract-video-container {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-        }
+          .attract-video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+          }
 
-        /* Video is set to be "full screen" for flexibility even
+          /* Video is set to be "full screen" for flexibility even
            though we'll only be displaying it on one screen */
-        .attract-video-container video {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: auto;
-          height: auto;
-          min-width: 100%;
-          min-height: 100%;
-          transform: translate(-50%, -50%);
-        }
+          .attract-video-container video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: auto;
+            height: auto;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+          }
 
-        .button-container {
-          position: fixed;
-          left: 0;
-          bottom: 15%;
-          width: 100%;
-          text-align: center;
-          opacity: 0;
-          transition: opacity 750ms;
-        }
+          .button-container {
+            position: fixed;
+            left: 0;
+            bottom: 15%;
+            width: 100%;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 750ms;
+          }
 
-        button {
-          background-color: #ecdb5a;
-          padding: 1em;
-          font-size: 2em;
-          color: black;
-          appearance: none;
-          border: 0;
-          font-family: 'Anton';
-          text-transform: uppercase;
-        }
-      `}
+          button {
+            background-color: #ecdb5a;
+            padding: 1em;
+            font-size: 2em;
+            color: black;
+            appearance: none;
+            border: 0;
+            font-family: 'Anton';
+            text-transform: uppercase;
+          }
+        `}
       </style>
     </>
   )

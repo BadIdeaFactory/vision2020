@@ -68,15 +68,16 @@ function VoteForm (props) {
           label="Inclusive Education of Women's History"
         />
       </form>
-      <style jsx>{`
-        .vote-form {
-          user-select: none;
-        
-          text-align: center;
-          margin-top: 2em;
-          font-size: 2vh;
-        }
-      `}
+      <style jsx>
+        {`
+          .vote-form {
+            user-select: none;
+
+            text-align: center;
+            margin-top: 2em;
+            font-size: 2vh;
+          }
+        `}
       </style>
     </>
   )

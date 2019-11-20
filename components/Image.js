@@ -21,12 +21,5 @@ export default function Image (props) {
     }
   }
 
-  return (
-    <img
-      src={src}
-      className={className}
-      onClick={handleClick}
-      {...rest}
-    />
-  )
+  return <img src={src} className={className} onClick={handleClick} {...rest} />
 }

@@ -77,9 +77,7 @@ const CreditsPage = () => (
       <div className="credits">
         {TEAM.map((item) => {
           // NOTE: the credits have no connection to the image they're crediting.
-          return (
-            <Credits name={item.name} text={item.text} key={item.name} />
-          )
+          return <Credits name={item.name} text={item.text} key={item.name} />
         })}
       </div>
     </div>
@@ -91,24 +89,25 @@ const CreditsPage = () => (
         {getData().map((item) => {
           // NOTE: the credits have no connection to the image they're crediting.
           return (
-            <Credits name={item.NAME} text={item['IMAGE CREDITS']} key={item.NAME} />
+            <Credits
+              name={item.NAME}
+              text={item['IMAGE CREDITS']}
+              key={item.NAME}
+            />
           )
         })}
       </div>
     </div>
 
-    <LowerNav
-      left="pioneers"
-      middle="exit"
-      right="vote"
-    />
+    <LowerNav left="pioneers" middle="exit" right="vote" />
 
-    <style jsx global>{`
-      body {
-        background-color: black;
-        color: white;
-      }
-    `}
+    <style jsx global>
+      {`
+        body {
+          background-color: black;
+          color: white;
+        }
+      `}
     </style>
     <style jsx>
       {`

@@ -13,7 +13,9 @@ function DemographicsForm (props) {
   const [formState, setFormState] = useState({})
 
   function handleOptionChange (event) {
-    console.log(`Demographics form: ${event.target.name} = ${event.target.value}`)
+    console.log(
+      `Demographics form: ${event.target.name} = ${event.target.value}`
+    )
     setFormState({
       ...formState,
       [event.target.name]: event.target.value
@@ -238,35 +240,36 @@ function DemographicsForm (props) {
           <UIButton>Skip</UIButton>
         </div>
       </form>
-      <style jsx>{`
-        .demo-form {
-          user-select: none;
-          font-size: 2vh;
-          width: 90%;
-          margin: 3em auto 0;
-        }
+      <style jsx>
+        {`
+          .demo-form {
+            user-select: none;
+            font-size: 2vh;
+            width: 90%;
+            margin: 3em auto 0;
+          }
 
-        h3 {
-          font-size: 60px;
-          color: ${UI_COLOR_SECONDARY};
-        }
+          h3 {
+            font-size: 60px;
+            color: ${UI_COLOR_SECONDARY};
+          }
 
-        .selection {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-        }
+          .selection {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
 
-        .age-selection {
-          width: 300px;
-          margin: 0 auto;
-        }
+          .age-selection {
+            width: 300px;
+            margin: 0 auto;
+          }
 
-        .buttons {
-          margin-top: 2em;
-          text-align: center;
-        }
-      `}
+          .buttons {
+            margin-top: 2em;
+            text-align: center;
+          }
+        `}
       </style>
     </>
   )

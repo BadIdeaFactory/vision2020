@@ -12,10 +12,7 @@ const Home = () => {
       </Head>
 
       <AttractMode />
-      <LowerNav
-        left="pioneers"
-        right="vote"
-      />
+      <LowerNav left="pioneers" right="vote" />
 
       <div className="chevron">
         <img
@@ -31,42 +28,45 @@ const Home = () => {
         <h1>temp</h1>
       </section>
 
-      <style jsx>{`
-        .scrollcontent {
-          background-color: black;
-          width: 100vw;
-          height: 100vh;
-          color: yellow;
-          display: flex;
-          align-items: center;
-          justify-content: center
-        }
-        .scrollcontent h1 {
-          font-size: 500%;
-        }
-
-        .chevron {
-          width: 120px;
-          height: auto;
-          text-align: center;
-          position: absolute;
-          left: 50%;
-          margin-left: -60px;
-          bottom: 3.25em;
-          animation-name: pulse;
-          animation-duration: 5s;
-          animation-iteration-count: infinite;
-        }
-
-        @keyframes pulse {
-          0%, 80%, 100% {
-            opacity: 1;
+      <style jsx>
+        {`
+          .scrollcontent {
+            background-color: black;
+            width: 100vw;
+            height: 100vh;
+            color: yellow;
+            display: flex;
+            align-items: center;
+            justify-content: center;
           }
-          90% {
-            opacity: 0.5;
+          .scrollcontent h1 {
+            font-size: 500%;
           }
-        }
-      `}
+
+          .chevron {
+            width: 120px;
+            height: auto;
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            margin-left: -60px;
+            bottom: 3.25em;
+            animation-name: pulse;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+          }
+
+          @keyframes pulse {
+            0%,
+            80%,
+            100% {
+              opacity: 1;
+            }
+            90% {
+              opacity: 0.5;
+            }
+          }
+        `}
       </style>
     </Layout>
   )
