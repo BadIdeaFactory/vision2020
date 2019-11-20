@@ -28,5 +28,5 @@ yarn-error.log*
 # Vision2020 project
 # Don't commit original CSV, just the processed output
 data/*.csv
-# Don't commit attract loop videos
-public/attract
+# Don't commit large / original media assets
+*.mp4

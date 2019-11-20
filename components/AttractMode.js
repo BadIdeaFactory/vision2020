@@ -58,7 +58,7 @@ function AttractMode (props) {
           <video
             autoPlay
             muted
-            src={`/attract/${attractLinks[attractId].slug}.mp4`}
+            src={`/media/attract/${attractLinks[attractId].slug}.mp4`}
             ref={videoRef}
             onPlay={handlePlay}
             onTimeUpdate={handleTimeUpdate}
