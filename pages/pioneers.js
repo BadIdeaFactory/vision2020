@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -16,6 +16,7 @@ PioneerItem.propTypes = {
 }
 
 function PioneerItem ({ id, label }) {
+  const [imageLoaded, setImageLoaded] = useState(false)
   const data = getEntry(id)
   const profileImageTrace = require(`../public/portraits/${data['PORTRAIT IMG']}?trace`)
   const profileImageUrl = require(`../public/portraits/${data['PORTRAIT IMG']}?webp&resize&size=600`)
@@ -28,13 +29,17 @@ function PioneerItem ({ id, label }) {
           <div className="pioneer-pic-wrapper">
             <div className="pioneer-pic">
               {/* Inline svg trace while image is loading */}
-              <img src={profileImageTrace.trace} aria-hidden="true" />
+              <img
+                src={profileImageTrace.trace}
+                aria-hidden="true"
+                style={{ opacity: imageLoaded ? 0 : 1 }}
+              />
               {/* Image fades in after loading */}
               <img
                 src={profileImageUrl}
-                style={{ opacity: 0 }}
+                style={{ opacity: imageLoaded ? 1 : 0 }}
                 onLoad={(e) => {
-                  e.target.style.opacity = 1
+                  setImageLoaded(true)
                 }}
                 aria-labelledby={`pioneer-label-${id}`}
               />

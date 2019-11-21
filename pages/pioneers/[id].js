@@ -50,7 +50,7 @@ export default function Pioneer () {
   if (!data) return null
 
   // profile image tests
-  const profileImageUrl = '/portraits/' + data['PORTRAIT IMG']
+  const profileImageUrl = require(`../../public/portraits/${data['PORTRAIT IMG']}?webp`)
 
   return (
     <Layout className="pioneer-page">
@@ -86,31 +86,15 @@ export default function Pioneer () {
             }}
             // onClick={() => parallax.current.scrollTo(0.99)}
           >
-            <div
-              style={{
-                width: '100%',
-                backgroundColor: 'black',
-                height: '40%',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                overflow: 'hidden',
-                backgroundImage: `url(${profileImageUrl})`,
-                backgroundPosition: '50% 0',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover'
-              }}
-            />
-            {/* <Image
-              src={profileImageUrl}
-              style={{
-                maxWidth: '60%',
-                minWidth: '400px',
-                display: 'block',
-                margin: '20% auto 0'
-              }}
-            />
-          </div> */}
+            <div className="profile-image-container">
+              <img
+                src={profileImageUrl}
+                onLoad={(e) => {
+                  e.target.style.opacity = 1
+                  e.target.style.transform = 'translateY(0)'
+                }}
+              />
+            </div>
           </ParallaxLayer>
 
           <ParallaxLayer offset={0} speed={1} style={{ padding: '30px' }}>
@@ -465,12 +449,32 @@ export default function Pioneer () {
             box-shadow: 0 0 5vh 0 rgba(0, 0, 0, 0.25);
           }
 
+          .profile-image-container {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            overflow: hidden;
+            background-color: black;
+          }
+
+          .profile-image-container img {
+            height: 100%;
+            opacity: 0;
+            transform: translateY(3vh);
+            transition: 500ms opacity ease-in-out, 500ms transform ease-in-out;
+          }
+
           .pioneer-title-card-container {
             position: absolute;
             top: 40%;
             left: 0;
             right: 0;
             bottom: 160px;
+            background-color: white;
           }
 
           .pioneer-spine {
