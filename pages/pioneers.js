@@ -7,6 +7,7 @@ import CategoryEyebrow from '../components/CategoryEyebrow'
 import LowerNav from '../components/LowerNav'
 import NavButton from '../components/NavButton'
 import { UI_COLOR_PRIMARY } from '../main/const'
+import { getEntry } from '../data/load'
 import DIRECTORY from '../data/directory.json'
 
 PioneerItem.propTypes = {
@@ -15,6 +16,9 @@ PioneerItem.propTypes = {
 }
 
 function PioneerItem ({ id, label }) {
+  const data = getEntry(id)
+  const profileImageUrl = '/portraits/' + data['PORTRAIT IMG']
+
   return (
     <>
       <Link href="/pioneers/[id]" as={`/pioneers/${id}`}>
@@ -40,10 +44,10 @@ function PioneerItem ({ id, label }) {
             height: 100%;
             border: 20px solid black;
             background-color: white;
-            background-image: url(/terrell_bitmap.jpg);
+            background-image: url(${profileImageUrl});
             background-repeat: no-repeat;
-            background-size: cover;
-            background-position: 50% 0;
+            background-size: 225%;
+            background-position: 50% 100%;
           }
 
           @media only screen and (max-width: 768px) {

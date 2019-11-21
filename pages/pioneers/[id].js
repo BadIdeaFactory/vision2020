@@ -50,12 +50,7 @@ export default function Pioneer () {
   if (!data) return null
 
   // profile image tests
-  let profileImageUrl = '/Mary_Church_Terrell_profile_portrait.png'
-  if (router.query.id === 'brittney-c-cooper') {
-    profileImageUrl = '/cooper_profile_portrait.png'
-  } else if (router.query.id === 'women-in-the-116th-us-congress') {
-    profileImageUrl = '/congress_profile_portrait.png'
-  }
+  const profileImageUrl = '/portraits/' + data['PORTRAIT IMG']
 
   return (
     <Layout className="pioneer-page">
