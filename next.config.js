@@ -1,4 +1,7 @@
-module.exports = {
+const withPlugins = require('next-compose-plugins')
+const optimizedImages = require('next-optimized-images')
+
+const nextConfig = {
   exportPathMap () {
     // Let Next.js know where to find the entry page
     // when it's exporting the static bundle for the use
@@ -45,3 +48,18 @@ module.exports = {
   },
   target: 'server'
 }
+
+const optimizedImagesConfig = {
+  optimizeImagesInDev: false,
+  imageTrace: {
+    color: '#888888'
+  },
+  responsive: {
+    adapter: require('responsive-loader/sharp')
+  }
+}
+
+module.exports = withPlugins(
+  [[optimizedImages, optimizedImagesConfig]],
+  nextConfig
+)

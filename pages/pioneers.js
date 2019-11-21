@@ -17,7 +17,8 @@ PioneerItem.propTypes = {
 
 function PioneerItem ({ id, label }) {
   const data = getEntry(id)
-  const profileImageUrl = '/portraits/' + data['PORTRAIT IMG']
+  const profileImageTrace = require(`../public/portraits/${data['PORTRAIT IMG']}?trace`)
+  const profileImageUrl = require(`../public/portraits/${data['PORTRAIT IMG']}?webp&resize&size=600`)
 
   return (
     <>
@@ -25,9 +26,23 @@ function PioneerItem ({ id, label }) {
         <a>
           {/* Wrapper element ensures square image at any width */}
           <div className="pioneer-pic-wrapper">
-            <div className="pioneer-pic" />
+            <div className="pioneer-pic">
+              {/* Inline svg trace while image is loading */}
+              <img src={profileImageTrace.trace} aria-hidden="true" />
+              {/* Image fades in after loading */}
+              <img
+                src={profileImageUrl}
+                style={{ opacity: 0 }}
+                onLoad={(e) => {
+                  e.target.style.opacity = 1
+                }}
+                aria-labelledby={`pioneer-label-${id}`}
+              />
+            </div>
           </div>
-          <div className="pioneer-label">{label}</div>
+          <div className="pioneer-label" id={`pioneer-label-${id}`}>
+            {label}
+          </div>
         </a>
       </Link>
       <style jsx>
@@ -44,10 +59,15 @@ function PioneerItem ({ id, label }) {
             height: 100%;
             border: 20px solid black;
             background-color: white;
-            background-image: url(${profileImageUrl});
-            background-repeat: no-repeat;
-            background-size: 225%;
-            background-position: 50% 100%;
+            overflow: hidden;
+          }
+
+          .pioneer-pic img {
+            height: 135%;
+            left: -62%;
+            position: absolute;
+            bottom: 0;
+            transition: '150ms opacity';
           }
 
           @media only screen and (max-width: 768px) {
