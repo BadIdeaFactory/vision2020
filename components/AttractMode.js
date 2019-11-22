@@ -98,14 +98,9 @@ function AttractMode (props) {
           /* Video is set to be "full screen" for flexibility even
            though we'll only be displaying it on one screen */
           .attract-video-container video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: auto;
-            height: auto;
-            min-width: 100%;
-            min-height: 100%;
-            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
           }
 
           .button-container {

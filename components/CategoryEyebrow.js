@@ -27,6 +27,7 @@ export default function CategoryEyebrow (props) {
             width: 100%;
             pointer-events: none;
             margin: 0;
+            white-space: nowrap;
           }
 
           @media only screen and (max-width: 768px) {
