@@ -60,8 +60,6 @@ export default function Pioneer () {
         </title>
       </Head>
 
-      <div className="pioneer-spine" />
-
       <Lightbox />
 
       <div className="section1">
@@ -71,10 +69,12 @@ export default function Pioneer () {
           scrolling
           style={{
             left: 0,
-            top: 0
+            top: 0,
+            backgroundColor: 'white'
           }}
         >
           {/* Page 1 */}
+          <div className="pioneer-spine" />
           <ParallaxLayer
             offset={0}
             speed={0.5}
@@ -357,6 +357,7 @@ export default function Pioneer () {
           </ParallaxLayer>
         </Parallax>
       </div>
+
       <div className="section2">
         <VoteIntro />
       </div>
@@ -443,6 +444,7 @@ export default function Pioneer () {
           .section1 {
             position: sticky;
             bottom: 0;
+            background-color: black;
           }
 
           .section2 {
@@ -478,7 +480,7 @@ export default function Pioneer () {
           }
 
           .pioneer-spine {
-            position: fixed;
+            position: absolute;
             height: 100%;
             width: 0;
             border-left: 100px solid ${UI_COLOR_SECONDARY};
@@ -503,29 +505,16 @@ export default function Pioneer () {
             top: 30%;
             right: -5%;
           }
-          .quote {
-            z-index: 1;
-            background-color: white;
-          }
-          .quote-content {
-            font-size: 3vh;
-            font-weight: bold;
-            text-transform: uppercase;
-          }
-          .attribution {
-            font-style: italic;
-            text-align: right;
-            white-space: nowrap;
-          }
           .arrow-holder {
-            width: 100%;
+            width: 300px;
             background-color: white;
             display: flex;
             align-items: flex-start;
             justify-content: center;
             height: 20%;
             position: absolute;
-            bottom: 0;
+            bottom: -20px; /* Cover a bit of the bottom of the spine */
+            left: calc(50% - 150px); /* Center */
           }
         `}
       </style>
