@@ -19,9 +19,7 @@ export function getEntry (id) {
   let found = false
 
   for (let i = 0; i < data.length; i++) {
-    const idCompare = id.slice(0, 2).toLowerCase()
-    const dataCompare = data[i].NAME && data[i].NAME.slice(0, 2).toLowerCase()
-    if (idCompare && dataCompare && idCompare === dataCompare) {
+    if (id && data[i].slug && id === data[i].slug) {
       found = data[i]
       break
     }
