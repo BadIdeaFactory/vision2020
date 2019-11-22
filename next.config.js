@@ -53,10 +53,11 @@ const optimizedImagesConfig = {
   optimizeImagesInDev: false,
   imageTrace: {
     color: '#888888'
-  },
-  responsive: {
-    adapter: require('responsive-loader/sharp')
   }
+  // We don't use `sharp` because there's issues with Electron
+  // responsive: {
+  //   adapter: require('responsive-loader/sharp')
+  // }
 }
 
 module.exports = withPlugins(
