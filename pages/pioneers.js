@@ -218,6 +218,7 @@ const PioneersList = () => (
           letter-spacing: -2px;
           line-height: 60px;
           white-space: nowrap;
+          text-transform: initial;
         }
 
         @media only screen and (max-width: 768px) {
