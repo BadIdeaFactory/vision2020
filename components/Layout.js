@@ -144,6 +144,10 @@ export default function Layout ({ className = '', ...props }) {
               padding-bottom: 120px;
             }
           }
+
+          ::-webkit-scrollbar {
+            display: none;
+          }
         `}
       </style>
     </>
