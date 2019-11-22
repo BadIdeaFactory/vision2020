@@ -50,12 +50,7 @@ export default function Pioneer () {
   if (!data) return null
 
   // profile image tests
-  let profileImageUrl = '/Mary_Church_Terrell_profile_portrait.png'
-  if (router.query.id === 'brittney-c-cooper') {
-    profileImageUrl = '/cooper_profile_portrait.png'
-  } else if (router.query.id === 'women-in-the-116th-us-congress') {
-    profileImageUrl = '/congress_profile_portrait.png'
-  }
+  const profileImageUrl = require(`../../public/portraits/${data['PORTRAIT IMG']}?webp`)
 
   return (
     <Layout className="pioneer-page">
@@ -64,8 +59,6 @@ export default function Pioneer () {
           {data.NAME} {'// Vision2020'}
         </title>
       </Head>
-
-      <div className="pioneer-spine" />
 
       <Lightbox />
 
@@ -76,10 +69,12 @@ export default function Pioneer () {
           scrolling
           style={{
             left: 0,
-            top: 0
+            top: 0,
+            backgroundColor: 'white'
           }}
         >
           {/* Page 1 */}
+          <div className="pioneer-spine" />
           <ParallaxLayer
             offset={0}
             speed={0.5}
@@ -91,31 +86,15 @@ export default function Pioneer () {
             }}
             // onClick={() => parallax.current.scrollTo(0.99)}
           >
-            <div
-              style={{
-                width: '100%',
-                backgroundColor: 'black',
-                height: '40%',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                overflow: 'hidden',
-                backgroundImage: `url(${profileImageUrl})`,
-                backgroundPosition: '50% 0',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover'
-              }}
-            />
-            {/* <Image
-              src={profileImageUrl}
-              style={{
-                maxWidth: '60%',
-                minWidth: '400px',
-                display: 'block',
-                margin: '20% auto 0'
-              }}
-            />
-          </div> */}
+            <div className="profile-image-container">
+              <img
+                src={profileImageUrl}
+                onLoad={(e) => {
+                  e.target.style.opacity = 1
+                  e.target.style.transform = 'translateY(0)'
+                }}
+              />
+            </div>
           </ParallaxLayer>
 
           <ParallaxLayer offset={0} speed={1} style={{ padding: '30px' }}>
@@ -378,6 +357,7 @@ export default function Pioneer () {
           </ParallaxLayer>
         </Parallax>
       </div>
+
       <div className="section2">
         <VoteIntro />
       </div>
@@ -464,10 +444,30 @@ export default function Pioneer () {
           .section1 {
             position: sticky;
             bottom: 0;
+            background-color: black;
           }
 
           .section2 {
             box-shadow: 0 0 5vh 0 rgba(0, 0, 0, 0.25);
+          }
+
+          .profile-image-container {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            overflow: hidden;
+            background-color: black;
+          }
+
+          .profile-image-container img {
+            height: 100%;
+            opacity: 0;
+            transform: translateY(3vh);
+            transition: 500ms opacity ease-in-out, 500ms transform ease-in-out;
           }
 
           .pioneer-title-card-container {
@@ -476,10 +476,11 @@ export default function Pioneer () {
             left: 0;
             right: 0;
             bottom: 160px;
+            background-color: white;
           }
 
           .pioneer-spine {
-            position: fixed;
+            position: absolute;
             height: 100%;
             width: 0;
             border-left: 100px solid ${UI_COLOR_SECONDARY};
@@ -504,29 +505,16 @@ export default function Pioneer () {
             top: 30%;
             right: -5%;
           }
-          .quote {
-            z-index: 1;
-            background-color: white;
-          }
-          .quote-content {
-            font-size: 3vh;
-            font-weight: bold;
-            text-transform: uppercase;
-          }
-          .attribution {
-            font-style: italic;
-            text-align: right;
-            white-space: nowrap;
-          }
           .arrow-holder {
-            width: 100%;
+            width: 300px;
             background-color: white;
             display: flex;
             align-items: flex-start;
             justify-content: center;
             height: 20%;
             position: absolute;
-            bottom: 0;
+            bottom: -20px; /* Cover a bit of the bottom of the spine */
+            left: calc(50% - 150px); /* Center */
           }
         `}
       </style>

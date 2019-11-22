@@ -56,13 +56,14 @@
     "CONTEXT IMG 9": "",
     "CONTEXT TEXT 10": "",
     "CONTEXT IMG 10": "",
-    "IMAGE CREDITS": ""
+    "IMAGE CREDITS": "",
+    "slug": ""
   },
   {
     "NAME": "Mary Church Terrell ",
     "LIFE DATE": "1863 – 1954",
     "MAIN QUOTE": "We knock at the bar of justice, asking an equal chance.",
-    "PORTRAIT IMG": "Mary_Church_Terrell_profile_portrait.png",
+    "PORTRAIT IMG": "terrell_profile_portrait.png",
     "TITLE 1": "Educator",
     "TITLE 2": "Suffragist",
     "TITLE 3": "Early civil rights activist",
@@ -115,7 +116,8 @@
     "CONTEXT IMG 9": "",
     "CONTEXT TEXT 10": "",
     "CONTEXT IMG 10": "",
-    "IMAGE CREDITS": "Library of Congress, National Archives and Records Administration, Woman’s American Baptist Home Mission Society. Smithsonian National Museum of African American History & Culture, National Association of Colored Women, Delta Sigma Theta, National Archives and Records Administration, Photo Courtesy of the Oberlin College Archives\n\n"
+    "IMAGE CREDITS": "Library of Congress, National Archives and Records Administration, Woman’s American Baptist Home Mission Society. Smithsonian National Museum of African American History & Culture, National Association of Colored Women, Delta Sigma Theta, National Archives and Records Administration, Photo Courtesy of the Oberlin College Archives\n\n",
+    "slug": "mary-church-terrell"
   },
   {
     "NAME": "Florynce Kennedy",
@@ -174,7 +176,8 @@
     "CONTEXT IMG 9": "",
     "CONTEXT TEXT 10": "",
     "CONTEXT IMG 10": "",
-    "IMAGE CREDITS": "Pearson Scott Foresman, LIFE, Library of Congress, Bettye Lane photo; Schlesinger Library, Radcliffe Institute, Harvard University\n\n"
+    "IMAGE CREDITS": "Pearson Scott Foresman, LIFE, Library of Congress, Bettye Lane photo; Schlesinger Library, Radcliffe Institute, Harvard University\n\n",
+    "slug": "florynce-kennedy"
   },
   {
     "NAME": "Emma González ",
@@ -191,7 +194,7 @@
     "CONTEXT IMG 2": "Emma_Gonzalez_and_David_Hogg_at_the_Rally_to_Support_Firearm_Safety_Legislation_in_Fort_Lauderdale.jpg; Emma_Gonzalez_at_the_Rally_to_Support_Firearm_Safety_Legislation_in_Fort_Lauderdale.jpg",
     "CONTEXT TEXT 3": "Her speech was broadcast nationally and began trending on Twitter. With other survivors she founded March for Our Lives, pushing for stricter gun laws and registering young voters.",
     "CONTEXT IMG 3": "Emma_Gonzalez_speaks_at_the_March_for_Our_Lives.jpg; March_for_Our_Lives_Washington_DC_2018_-_Signs_and_Marchers_53.jpg; Banners_and_signs_at_March_for_Our_Lives_-_110.jpg; March_for_Our_Lives_Washington_DC_2018_-_Signs_and_Marchers_54.jpg; March_for_Our_Lives_Rally_DC_(40994450742).jpg",
-    "CONTEXT TEXT 4": "A year later, she has over 1.6 million Twitter followers—hundreds of thousands more than the NRA. \r\n\r\n@Emma4Change\r\n",
+    "CONTEXT TEXT 4": "A year later, she has over 1.6 million Twitter followers—hundreds of thousands more than the NRA. \n\n",
     "CONTEXT IMG 4": "Emma-gonzalez-protest-sign.jpg; Emma_Gonzalez_imagery_at_Minnesota_March_for_Our_Lives.jpg",
     "SLIDESHOW TEXT 4a": "",
     "SLIDESHOW IMG 4a": "",
@@ -233,7 +236,8 @@
     "CONTEXT IMG 9": "",
     "CONTEXT TEXT 10": "",
     "CONTEXT IMG 10": "",
-    "IMAGE CREDITS": "Congressman Ted Deutch, Formulanone, Voice of America, Barry Stock, Mobilus In Mobili, Ziggyfan23, Jarek Tuszyński, Robb Wilson, Fibonacci Blue, Ted Eytan"
+    "IMAGE CREDITS": "Congressman Ted Deutch, Formulanone, Voice of America, Barry Stock, Mobilus In Mobili, Ziggyfan23, Jarek Tuszyński, Robb Wilson, Fibonacci Blue, Ted Eytan",
+    "slug": "emma-gonzalez"
   },
   {
     "NAME": "2. POLITICS & GOVERNMENT",
@@ -292,7 +296,8 @@
     "CONTEXT IMG 9": "",
     "CONTEXT TEXT 10": "",
     "CONTEXT IMG 10": "",
-    "IMAGE CREDITS": ""
+    "IMAGE CREDITS": "",
+    "slug": ""
   },
   {
     "NAME": "Jeannette Rankin ",
@@ -309,7 +314,7 @@
     "CONTEXT IMG 2": "20182u.jpg; 20183u.jpg",
     "CONTEXT TEXT 3": "She ran for Congress as a Representative from Montana in 1916—and won. As the only congresswoman, she was the only woman voting to give women the right to vote!\r\n\r\nShe ran unsuccessfully for Senate in 1918, but later won a second term in the House.\r\n",
     "CONTEXT IMG 3": "13272u.jpg; Rep._Jeanette_Rankin_276027v.jpg",
-    "CONTEXT TEXT 4": ">I am deeply conscious of the responsibility resting upon me…\n\n\n>When her name was called the House cheered and rose, so that she had to rise and bow twice…\n_Observer of Jeannette Rankin being sworn in, 1917_\n",
+    "CONTEXT TEXT 4": ">I am deeply conscious of the responsibility resting upon me…\n\n>When her name was called the House cheered and rose, so that she had to rise and bow twice…\n_Observer of Jeannette Rankin being sworn in, 1917_\n",
     "CONTEXT IMG 4": "",
     "SLIDESHOW TEXT 4a": "",
     "SLIDESHOW IMG 4a": "",
@@ -331,7 +336,7 @@
     "SLIDESHOW IMG 4i": "",
     "SLIDESHOW TEXT 4j": "",
     "SLIDESHOW IMG 4j": "",
-    "CONTEXT TEXT 5": "A pacifist, she did not believe war was a good way to solve conflicts. She was the only member of Congress to vote against U.S. involvement in both World Wars I and II. Her beliefs ended her political career in 1943.\n\n“The original dove in Congress”\n",
+    "CONTEXT TEXT 5": "## \"The Original Dove in Congress\"\nA pacifist, she did not believe war was a good way to solve conflicts. She was the only member of Congress to vote against U.S. involvement in both World Wars I and II. Her beliefs ended her political career in 1943.\n\n",
     "CONTEXT IMG 5": "FIRST_~1.jpg; 636009825082819462-XXX-AP-320602022-dcb.jpg",
     "SLIDESHOW TEXT 5a": "",
     "SLIDESHOW IMG 5a": "",
@@ -351,7 +356,8 @@
     "CONTEXT IMG 9": "",
     "CONTEXT TEXT 10": "",
     "CONTEXT IMG 10": "",
-    "IMAGE CREDITS": "Library of Congress, National Archives and Records Administration, U.S. Congress"
+    "IMAGE CREDITS": "Library of Congress, National Archives and Records Administration, U.S. Congress",
+    "slug": "jeannette-rankin"
   },
   {
     "NAME": "Shirley Chisholm ",
@@ -368,7 +374,7 @@
     "CONTEXT IMG 2": "3b30075u.jpg",
     "CONTEXT TEXT 3": "Ever aware of racial and gender inequality, she joined national advocacy groups. \r\n\r\nShe ran for a seat in the New York State Legislature in 1964—and won.\r\n",
     "CONTEXT IMG 3": "3c35429u.jpg; 47134u.jpg",
-    "CONTEXT TEXT 4": "She ran for a seat in the U.S. House of Representatives in 1968, campaigning from a sound truck: \r\n\r\n“Ladies and Gentlemen…this is fighting Shirley Chisholm coming through.”\r\n\r\nHer opponent argued their district needed “a man’s voice in Washington,” not that of a “little schoolteacher.” She used this to highlight discrimination against women.\r\n",
+    "CONTEXT TEXT 4": "She ran for a seat in the U.S. House of Representatives in 1968, campaigning from a sound truck: \n\n>Ladies and Gentlemen…this is fighting Shirley Chisholm coming through.\n\nHer opponent argued their district needed “a man’s voice in Washington,” not that of a “little schoolteacher.” She used this to highlight discrimination against women.\n",
     "CONTEXT IMG 4": "38704u.jpg",
     "SLIDESHOW TEXT 4a": "",
     "SLIDESHOW IMG 4a": "",
@@ -396,7 +402,7 @@
     "SLIDESHOW IMG 5a": "",
     "SLIDESHOW TEXT 5b": "",
     "SLIDESHOW IMG 5b": "",
-    "CONTEXT TEXT 6": "She was the first black candidate to seek nomination for president of the United States from one of the two major political parties. Despite many odds, she received 10% of the vote.",
+    "CONTEXT TEXT 6": "## “Unbossed and Unbought”\r\nShe was the first black candidate to seek nomination for president of the United States from one of the two major political parties. Despite many odds, she received 10% of the vote.\r\n",
     "CONTEXT IMG 6": "55926u.jpg;55938u.jpg; 42048u.jpg",
     "SLIDESHOW TEXT 6a": "",
     "SLIDESHOW IMG 6a": "",
@@ -410,7 +416,8 @@
     "CONTEXT IMG 9": "",
     "CONTEXT TEXT 10": "",
     "CONTEXT IMG 10": "",
-    "IMAGE CREDITS": "Library of Congress"
+    "IMAGE CREDITS": "Library of Congress",
+    "slug": "shirley-chisholm"
   },
   {
     "NAME": "Women in the 116th U.S. Congress",
@@ -421,13 +428,13 @@
     "TITLE 2": "",
     "TITLE 3": "",
     "TITLE 4": "",
-    "CONTEXT TEXT 1": ">It gives me pride to be the woman Speaker of the House of this Congress, which marks 100 years since women won the right to vote, and as we serve with more than 100 women.\n_Rep. Nancy Pelosi (California), First woman to serve as Speaker of the House of Representatives_\n",
+    "CONTEXT TEXT 1": ">It gives me pride to be the woman Speaker of the House of this Congress, which marks 100 years since women won the right to vote, and as we serve with more than 100 women.\n_Rep. Nancy Pelosi (California)\r\nFirst woman to serve as Speaker of the House of Representatives_\r\n",
     "CONTEXT IMG 1": "03819a.jpg",
     "CONTEXT TEXT 2": "This is the first time more than 100 women have served in Congress. \n\nWomen have been in Congress more than a century, but only in substantial numbers in recent decades. Numbers continue to rise. \n\nMore women and people of color were elected in 2018 than ever before.\n\nPolitical power is changing.\n",
     "CONTEXT IMG 2": "Welcoming_several_of_the_new_female_CBC_members_49798884_862840530725748_4594476672882835456_o.jpg",
     "CONTEXT TEXT 3": "What it means to be a woman in power varies. For some, gender is central. Others say they are not women politicians, but politicians that happen to be women. \n\n>I’m a wife, a mother, a grandmother, a business owner and a bison farmer. I don’t think my gender defines who I am, but it does add value and perspective to the decisions I make. _Rep. Carol Miller (West Virginia)_\n",
     "CONTEXT IMG 3": "Carol_Miller,_Official_Portrait,_116th_Congress.jpg",
-    "CONTEXT TEXT 4": "## The First Women to Represent Their States\nMany of the women elected in 2018—spanning generations—are historic “firsts” in Congress. Virginia, New Jersey, and Florida also elected first-time women candidates to Congress.",
+    "CONTEXT TEXT 4": "## The First Women to Represent Their States\nMany of the women elected in 2018—spanning generations—are historic “firsts” in Congress. ",
     "CONTEXT IMG 4": "",
     "SLIDESHOW TEXT 4a": "Sen. Marsha Blackburn is the first woman elected to the Senate from Tennessee. She is one of the first two Republican women serving on the powerful Senate Judiciary Committee. \n",
     "SLIDESHOW IMG 4a": "Marsha_Blackburn,_official_photo,_116th_Congress.jpg",
@@ -445,10 +452,10 @@
     "SLIDESHOW IMG 4g": "Kyrsten_Sinema_(30603768437)_crop.jpg",
     "SLIDESHOW TEXT 4h": "Sens. Kyrsten Sinema and Martha McSally are the first women elected to the Senate from Arizona. ",
     "SLIDESHOW IMG 4h": "Martha_McSally_(42529959700)_crop.jpg",
-    "SLIDESHOW TEXT 4i": "Reps. Abby Finkenauer and Cindy Axne are the first women elected to Congress from Iowa. Finkenauer, 29 when she won her seat, is also one of the two youngest women ever elected to Congress.   ",
-    "SLIDESHOW IMG 4i": "CongresswomanFinkenauer_crop.jpg",
+    "SLIDESHOW TEXT 4i": "Reps. Abby Finkenauer and Cindy Axne are the first women elected to Congress from Iowa. Virginia, New Jersey, and Florida also elected first-time women candidates to Congress.",
+    "SLIDESHOW IMG 4i": "Women's_March_2019_(39839549983)_crop.jpg",
     "SLIDESHOW TEXT 4j": "Reps. Abby Finkenauer and Cindy Axne are the first women elected to Congress from Iowa. Finkenauer, 29 when she won her seat, is also one of the two youngest women ever elected to Congress.   ",
-    "SLIDESHOW IMG 4j": "Women's_March_2019_(39839549983)_crop.jpg",
+    "SLIDESHOW IMG 4j": "CongresswomanFinkenauer_crop.jpg",
     "CONTEXT TEXT 5": "## The First Native American Women\nA record number of Native American people won federal, state, and local offices in 2018.",
     "CONTEXT IMG 5": "",
     "SLIDESHOW TEXT 5a": "Rep. Deb Haaland, part of the Pueblo of Laguna, was elected to the House from New Mexico.\n\n>Congress has never heard a voice like mine. After years of seeing my community at the whim of national politics while organizing in Indian Country, it was time for me to take the lead.\n",
@@ -461,7 +468,7 @@
     "SLIDESHOW IMG 6a": "Ilhan_Omar,_official_portrait,_116th_Congress.jpg",
     "SLIDESHOW TEXT 6B": "Rep. Rashida Tlaib, daughter of Palestinian immigrants, was elected to the House from Michigan. ",
     "CONTEXT IMG 6B": "Rashida_Tlaib,_official_portrait,_116th_Congress_crop.jpg",
-    "CONTEXT TEXT 7": "## The Youngest Woman\nRep. Alexandria Ocasio-Cortez, 29 when she won her seat, was elected to the House from New York. (Rep. Abby Finkenauer from Iowa was also 29 when she won her seat.\n",
+    "CONTEXT TEXT 7": "## The Youngest Women\nRep. Alexandria Ocasio-Cortez, 29 when she won her seat, was elected to the House from New York. (Rep. Abby Finkenauer from Iowa was also 29 when she won her seat.\n",
     "CONTEXT IMG 7": "Alexandria_Ocasio-Cortez_Official_Portrait.jpg",
     "CONTEXT TEXT 8": "Congress is also becoming more family friendly. Many congresswomen are mothers of younger children.\n\n>To truly represent the American people, Congress needs more women and moms. I’m expecting my third baby since I was elected to serve, and it is a privilege to offer my unique perspective as we shape policy for all American families.\n_Rep. Jaime Herrera Beutler (Washington)_\n",
     "CONTEXT IMG 8": "Jaime_Herrera_Beutler,_Official_Portrait,_112th_Congress.jpg",
@@ -469,7 +476,8 @@
     "CONTEXT IMG 9": "house comm chairs speaker gov.jpg",
     "CONTEXT TEXT 10": "",
     "CONTEXT IMG 10": "",
-    "IMAGE CREDITS": "Library of Congress, U.S. Congress, American Federation of Government Employees, Gage Skidmore, Phil Roeder, Tony Webster, Speaker of the House"
+    "IMAGE CREDITS": "Library of Congress, U.S. Congress, American Federation of Government Employees, Gage Skidmore, Phil Roeder, Tony Webster, Speaker of the House",
+    "slug": "women-in-the-116th-us-congress"
   },
   {
     "NAME": "3. BUSINESS & FINANCE",
@@ -528,7 +536,8 @@
     "CONTEXT IMG 9": "",
     "CONTEXT TEXT 10": "",
     "CONTEXT IMG 10": "",
-    "IMAGE CREDITS": ""
+    "IMAGE CREDITS": "",
+    "slug": ""
   },
   {
     "NAME": "Alva Belmont ",
@@ -587,7 +596,8 @@
     "CONTEXT IMG 9": "",
     "CONTEXT TEXT 10": "",
     "CONTEXT IMG 10": "",
-    "IMAGE CREDITS": "Library of Congress"
+    "IMAGE CREDITS": "Library of Congress",
+    "slug": "alva-belmont"
   },
   {
     "NAME": "Indra Nooyi ",
@@ -646,7 +656,8 @@
     "CONTEXT IMG 9": "",
     "CONTEXT TEXT 10": "",
     "CONTEXT IMG 10": "",
-    "IMAGE CREDITS": "Michael Wuertenberg, Jolly Janner, Library of Congress, World Economic Forum, PepsiCo, Government of India, Andy Mettler, World Economic Forum, Nick Allen, GPA Photo Archive"
+    "IMAGE CREDITS": "Michael Wuertenberg, Jolly Janner, Library of Congress, World Economic Forum, PepsiCo, Government of India, Andy Mettler, World Economic Forum, Nick Allen, GPA Photo Archive",
+    "slug": "indra-nooyi"
   },
   {
     "NAME": "Arlan Hamilton ",
@@ -661,7 +672,7 @@
     "CONTEXT IMG 1": "",
     "CONTEXT TEXT 2": "She heard about people in the entertainment world investing in Silicon Valley. Always asking questions, she educated herself about venture capital and startups. ",
     "CONTEXT IMG 2": "SFO_ramps_P1180289.jpg",
-    "CONTEXT TEXT 3": ">It was crazy to me that 90% of venture funding was going to white men, when that is not how innovation, intelligence, and drive is dispersed in the real world…I had no background in finance, but I just saw it as a problem. Maybe it’s because I was coming from such a different place that I could recognize it.",
+    "CONTEXT TEXT 3": ">90% of venture funding was going to white men...I just saw it as a problem. ",
     "CONTEXT IMG 3": "45367499505_64cdee97aa_o.jpg",
     "CONTEXT TEXT 4": "She bought a one-way ticket to San Francisco in 2015. With no money or connections, she pursued investors by day and slept on the airport floor at night. She had one goal:\n\n>I wanted to try to get more funding to underrepresented founders…\n",
     "CONTEXT IMG 4": "Empty_seats_at_SFO_(7771062866).jpg",
@@ -697,7 +708,7 @@
     "SLIDESHOW IMG 6a": "",
     "SLIDESHOW TEXT 6B": "",
     "CONTEXT IMG 6B": "",
-    "CONTEXT TEXT 7": "She recalled some advice from a fellow VC:\n\n<He said I need to be better than everyone in order to be seen as an equal…It’s very unfair.\n\nBut he can ship it to me; I’m not signing for it. I don’t feel the pressure.”\n",
+    "CONTEXT TEXT 7": "She recalled some advice from a fellow VC:\n\n>He said I need to be better than everyone in order to be seen as an equal…It’s very unfair. But he can ship it to me; I’m not signing for it. I don’t feel the pressure.\n",
     "CONTEXT IMG 7": "",
     "CONTEXT TEXT 8": "",
     "CONTEXT IMG 8": "",
@@ -705,7 +716,8 @@
     "CONTEXT IMG 9": "",
     "CONTEXT TEXT 10": "",
     "CONTEXT IMG 10": "",
-    "IMAGE CREDITS": "William Murphy, David Monniaux, Stuart Isett/Fortune, Angelo DeSantis, Echoing Green Fellows & Programs"
+    "IMAGE CREDITS": "William Murphy, David Monniaux, Stuart Isett/Fortune, Angelo DeSantis, Echoing Green Fellows & Programs",
+    "slug": "arlan-hamilton"
   },
   {
     "NAME": "4. SCIENCE, TECHNOLOGY, ENGINEERING, & MATHEMATICS",
@@ -764,7 +776,8 @@
     "CONTEXT IMG 9": "",
     "CONTEXT TEXT 10": "",
     "CONTEXT IMG 10": "",
-    "IMAGE CREDITS": ""
+    "IMAGE CREDITS": "",
+    "slug": ""
   },
   {
     "NAME": "Grace Hopper",
@@ -782,7 +795,7 @@
     "CONTEXT TEXT 3": "During World War II she joined the WAVES—Women Accepted for Volunteer Emergency Service. ",
     "CONTEXT IMG 3": "3g01680u.jpg; 3g01856u.jpg",
     "CONTEXT TEXT 4": "First in her officer-training class, she was assigned to the Navy’s Computation Project at Harvard University. Here she became one of the first programmers of the first programmable computer in the country. \r\n\r\nAfter the War she was a research fellow at Harvard and produced the first programming textbook.\r\n",
-    "CONTEXT IMG 4": "Mark I -- The Crew_600ppi.jpg; CruftLaboratory1940s.jpg",
+    "CONTEXT IMG 4": "GraceHopper.jpg; Mark I -- The Crew_600ppi.jpg; CruftLaboratory1940s.jpg",
     "SLIDESHOW TEXT 4a": "",
     "SLIDESHOW IMG 4a": "",
     "SLIDESHOW TEXT 4b": "",
@@ -823,7 +836,8 @@
     "CONTEXT IMG 9": "",
     "CONTEXT TEXT 10": "",
     "CONTEXT IMG 10": "",
-    "IMAGE CREDITS": "United States Navy, Library of Congress, National Museum of American History, Smithsonian Institution, Collection of Historical Scientific Instruments, Harvard University, Harvard University Archives, Mike Gifford, Naval History and Heritage Command, HUV 193 (1-13), olvwork723683. Harvard University Archives.\n\n\n"
+    "IMAGE CREDITS": "United States Navy, Library of Congress, National Museum of American History, Smithsonian Institution, Collection of Historical Scientific Instruments, Harvard University, Harvard University Archives, Mike Gifford, Naval History and Heritage Command, HUV 193 (1-13), olvwork723683. Harvard University Archives.\n\n\n",
+    "slug": "grace-hopper"
   },
   {
     "NAME": "Reshma Saujani ",
@@ -835,7 +849,7 @@
     "TITLE 3": "",
     "TITLE 4": "",
     "CONTEXT TEXT 1": "Born in Illinois, she graduated from the University of Illinois, Harvard Kennedy School (of Government), and Yale Law School.",
-    "CONTEXT IMG 1": "Yale_Law_Library.jpg",
+    "CONTEXT IMG 1": "Yale_Law_Library.jpg; Yale_Law_School_Library_Reading_Room_(L3).jpg",
     "CONTEXT TEXT 2": "She began her career as a lawyer and activist. She also served as deputy public advocate of New York City, an office linking the people with city government—a watchdog for the people.",
     "CONTEXT IMG 2": "Reshma_Saujani_(6723908891).jpg",
     "CONTEXT TEXT 3": "In 2010 she became the first Indian-American woman to run for U.S. Congress.",
@@ -862,7 +876,7 @@
     "SLIDESHOW IMG 4i": "",
     "SLIDESHOW TEXT 4j": "",
     "SLIDESHOW IMG 4j": "",
-    "CONTEXT TEXT 5": "To help close this gap, she started Girls Who Code. The national nonprofit equips girls to pursue 21st-century opportunities in technology. The movement is reaching millions through special programs and a bestselling book series. Alumni are majoring in computer-related fields at 15 times the national average. Their mission is:\n\n>…to change the image of what a programmer looks like and does. We’re building the largest pipeline of future female engineers in the United States.\n_GWC website_\n\n",
+    "CONTEXT TEXT 5": "To help close this gap, she started Girls Who Code whose mission is:\n\n>…to change the image of what a programmer looks like and does. We’re building the largest pipeline of future female engineers in the United States.\n\nThe national nonprofit equips girls to pursue 21st-century opportunities in technology. The movement is reaching millions through special programs and a bestselling book series. Alumni are majoring in computer-related fields at 15 times the national average.\n\n\n",
     "CONTEXT IMG 5": "43102527730_f69597ed20_o.jpg; GWC_logo_2016.jpg;  47378896232_c64e4cbafe_o.jpg",
     "SLIDESHOW TEXT 5a": "",
     "SLIDESHOW IMG 5a": "",
@@ -882,7 +896,8 @@
     "CONTEXT IMG 9": "",
     "CONTEXT TEXT 10": "",
     "CONTEXT IMG 10": "",
-    "IMAGE CREDITS": "Nick Allen, PENG Yanan, Alec Perkins, Women’s eNews, Gov. Tom Wolf, City of St. Pete, Fortune"
+    "IMAGE CREDITS": "Nick Allen, PENG Yanan, Alec Perkins, Women’s eNews, Gov. Tom Wolf, City of St. Pete, Fortune",
+    "slug": "reshma-saujani"
   },
   {
     "NAME": "Sabrina Gonzalez Pasterski ",
@@ -935,13 +950,14 @@
     "CONTEXT IMG 6B": "",
     "CONTEXT TEXT 7": "Initially rejected by MIT and Harvard, she moved to the Boston area because a Nobel Laureate offered her a position as lab assistant or patent clerk. But she was soon admitted to MIT, where she graduated number one in the Physics department and tied for the top overall GPA: 5.00. \r\n\r\nShe earned a doctorate from Harvard in 2019.\r\n",
     "CONTEXT IMG 7": "Sabrina_Gonzalez_Pasterski_2014_2.jpg",
-    "CONTEXT TEXT 8": "In 2019 she is a principal investigator at the Princeton Center for Theoretical Science. As a theoretical physicist who studies high-energy physics, she describes one skill as:\r\n\r\n>Spotting the elegance within the chaos. \r\n",
+    "CONTEXT TEXT 8": "A theoretical physicist who studies high-energy physics, she describes one skill as:\r\n\r\n>Spotting the elegance within the chaos. \r\n\r\nIn 2019 she is a principal investigator at the Princeton Center for Theoretical Science. \r\n\r\n",
     "CONTEXT IMG 8": "pcts logo.jpg",
     "CONTEXT TEXT 9": "She gives talks around the world and has received international recognition for her work promoting STEM education for girls.",
     "CONTEXT IMG 9": "37756803021_230160fb06_o.jpg; 37756800081_c470dfd290_o.jpg",
     "CONTEXT TEXT 10": "",
     "CONTEXT IMG 10": "",
-    "IMAGE CREDITS": "Cambridge02138, Marc Buehler, Kaboldy, NASA, Cambridge02138, International Monetary Fund"
+    "IMAGE CREDITS": "Cambridge02138, Marc Buehler, Kaboldy, NASA, Cambridge02138, International Monetary Fund",
+    "slug": "sabrina-gonzalez-pasterski"
   },
   {
     "NAME": "5. COMMUNICATIONS & MEDIA",
@@ -1000,10 +1016,11 @@
     "CONTEXT IMG 9": "",
     "CONTEXT TEXT 10": "",
     "CONTEXT IMG 10": "",
-    "IMAGE CREDITS": ""
+    "IMAGE CREDITS": "",
+    "slug": ""
   },
   {
-    "NAME": "Ida B. Wells ",
+    "NAME": "Ida B. Wells-Barnett",
     "LIFE DATE": "1862 – 1931",
     "MAIN QUOTE": "Virtue knows no color line…",
     "PORTRAIT IMG": "wells_profile_portrait.png",
@@ -1011,7 +1028,7 @@
     "TITLE 2": "Crusader for justice",
     "TITLE 3": "",
     "TITLE 4": "",
-    "CONTEXT TEXT 1": "She was born into slavery in Mississippi during the Civil War. Free after the War, her parents were politically active, focusing on education. Her father helped start Shaw University—now Rust College, one of the first historically black colleges.\n\n>Our job was to go to school and learn all we could.\n\n",
+    "CONTEXT TEXT 1": "She was born into slavery in Mississippi during the Civil War. Free after the War, her parents were politically active, focusing on education. \n\n>Our job was to go to school and learn all we could.\n\n",
     "CONTEXT IMG 1": "Birthplace_of_Ida_Wells-Barnett,_full_view.jpg",
     "CONTEXT TEXT 2": "When she was 16, her parents died of yellow fever. To care for five siblings, she found work as a teacher. She also attended Shaw, but she was expelled over a conflict with the president.\r\n\r\nA few years later she moved her family to Tennessee, where she continued teaching. \r\n",
     "CONTEXT IMG 2": "RustCollegeSeal.jpg",
@@ -1059,7 +1076,8 @@
     "CONTEXT IMG 9": "14579286127_70d25625a6_o.jpg",
     "CONTEXT TEXT 10": ">The way to right wrongs is to turn the light of truth upon them.",
     "CONTEXT IMG 10": "",
-    "IMAGE CREDITS": "National Portrait Gallery, Ser Amantio di Nicolao, Library of Congress, Internet Archive"
+    "IMAGE CREDITS": "National Portrait Gallery, Ser Amantio di Nicolao, Library of Congress, Internet Archive",
+    "slug": "ida-b-wells"
   },
   {
     "NAME": "Gloria Steinem ",
@@ -1071,10 +1089,10 @@
     "TITLE 3": "",
     "TITLE 4": "",
     "CONTEXT TEXT 1": "Born in Ohio, she was the granddaughter of a well-known suffragist. Her father sold antiques from their mobile home in winter and ran a beach resort in summer. \r\n\r\nHer parents divorced when she was 10, and she helped care for her mother, who was mentally ill. She went to Smith College and studied government, graduating in 1956.\r\n",
-    "CONTEXT IMG 1": "",
+    "CONTEXT IMG 1": "Gloria_Steinem_at_news_conference,_Women's_Action_Alliance,_January_12,_1972.jpg",
     "CONTEXT TEXT 2": "On a fellowship to India, she developed an interest in Gandhi and grassroots activism. Back in Boston she earned the first Doctorate of Human Justice awarded by Simmons College.",
     "CONTEXT IMG 2": "India_United_States_Locator.jpg; 12389u.jpg",
-    "CONTEXT TEXT 3": "She began her career as a freelance journalist in New York. Inevitably, her assignments were lifestyle or fashion pieces for “women’s pages” in the 1950s and 1960s.\n\n>When I suggested political stories to The New York Times Sunday Magazine, my editor just said something like, ‘I don’t think of you that way.’\n",
+    "CONTEXT TEXT 3": "She began her career as a freelance journalist in New York. Inevitably, her assignments were lifestyle or fashion pieces for “women’s pages” in the 1950s and 1960s.\n\n>When I suggested political stories to _The New York Times Sunday Magazine,_ my editor just said something like, ‘I don’t think of you that way.’\n",
     "CONTEXT IMG 3": "USA,_New_York._1960th._Times_Square_and_Broadway.jpg",
     "CONTEXT TEXT 4": "In 1968 she cofounded _New York_ magazine. She covered political campaigns and social issues—including the women’s movement. She began speaking at protests.",
     "CONTEXT IMG 4": "02-anniversary-lede.w1200.h1200.jpg; Wilhelmina_Druckerprijs_uitgereikt_in_concertgebouw_te_Amsterdam,_Gloria_Steinem,_Bestanddeelnr_926-1772.jpg",
@@ -1118,7 +1136,8 @@
     "CONTEXT IMG 9": "",
     "CONTEXT TEXT 10": "",
     "CONTEXT IMG 10": "",
-    "IMAGE CREDITS": "Library of Congress, Jolly Janner, SAS Scandinavian Airlines, Rob Croes, Liberty Media for Women, LLC, Lynn Gilbert, U.S. Embassy New Zealand, Kristine"
+    "IMAGE CREDITS": "Library of Congress, Jolly Janner, SAS Scandinavian Airlines, Rob Croes, Liberty Media for Women, LLC, Lynn Gilbert, U.S. Embassy New Zealand, Kristine",
+    "slug": "gloria-steinem"
   },
   {
     "NAME": "Brittney C. Cooper ",
@@ -1177,7 +1196,8 @@
     "CONTEXT IMG 9": "",
     "CONTEXT TEXT 10": "",
     "CONTEXT IMG 10": "",
-    "IMAGE CREDITS": "University of Memphis, Library of Congress, TED Conference"
+    "IMAGE CREDITS": "University of Memphis, Library of Congress, TED Conference",
+    "slug": "brittney-c-cooper"
   },
   {
     "NAME": "6. SPORTS",
@@ -1236,7 +1256,8 @@
     "CONTEXT IMG 9": "",
     "CONTEXT TEXT 10": "",
     "CONTEXT IMG 10": "",
-    "IMAGE CREDITS": ""
+    "IMAGE CREDITS": "",
+    "slug": ""
   },
   {
     "NAME": "Bernice Sandler ",
@@ -1251,9 +1272,9 @@
     "CONTEXT IMG 1": "",
     "CONTEXT TEXT 2": "She earned a bachelor’s and master’s in Psychology, and doctorate in Education in 1969. She taught part-time at the University of Maryland. \r\n\r\nInterviewing for a full-time job, she was told by one man, “you come on too strong for a woman.” Another complained women stayed home with sick children. Another said she was “just a housewife who went back to school.”\r\n",
     "CONTEXT IMG 2": "",
-    "CONTEXT TEXT 3": "There were no laws against sex discrimination in education.\n\nAnd she had not considered herself a feminist. (Her husband first defined the rejection as sex discrimination.)\n\n“Like many women at that time…I was somewhat ambivalent about the women’s movement and halfway believed the press descriptions of its supporters as ‘abrasive,’ ‘man-hating,’ ‘radical,’ and ‘unfeminine.’”\n\nBut she started researching—and found an executive order outlawing sex discrimination by organizations with federal government contracts. She knew universities received federal money.\n",
+    "CONTEXT TEXT 3": "There were no laws against sex discrimination in education.\n\nAnd she had not considered herself a feminist. \n\nBut she started researching—and found an executive order outlawing sex discrimination by organizations with federal government contracts. She knew universities received federal money.\n",
     "CONTEXT IMG 3": "",
-    "CONTEXT TEXT 4": "She initiated a class-action complaint in 1970, charging colleges and universities with an “industrywide pattern” of discrimination.\n\nWorking with allies, her efforts became the basis of Title IX (Nine) of the Education Amendments of 1972. Title IX outlawed sex discrimination in federally funded schools.\n\n>She had many allies, but Bunny Sandler was the point person…She taught us that you could actually do something about discrimination.\n_Marty Langelan, sexual harassment expert and friend_\n\n",
+    "CONTEXT TEXT 4": "She initiated a class-action complaint in 1970, charging colleges and universities with an “industrywide pattern” of discrimination.\n\nWorking with allies, her efforts became the basis of Title IX (Nine) of the Education Amendments of 1972. Title IX outlawed sex discrimination in federally funded schools.\n\n>She taught us that you could actually do something about discrimination.\n_Marty Langelan, sexual harassment expert and friend_\n\n",
     "CONTEXT IMG 4": "Delaney_with_Dr._Bernice_Sandler_at_today's_Montgomery_County_Commission_for_Women_Legislative_Briefing.jpg",
     "SLIDESHOW TEXT 4a": "",
     "SLIDESHOW IMG 4a": "",
@@ -1289,13 +1310,14 @@
     "CONTEXT IMG 6B": "",
     "CONTEXT TEXT 7": "Title IX is widely associated with gender equality in sports.\r\n\r\nRequiring equal access to resources, it transformed college athletics, dramatically increasing the number of women able to play sports.\r\n\r\nAt the high school level, before Title IX only 4% of girls played, compared to 40% today.\r\n",
     "CONTEXT IMG 7": "5345140760_649dffaa25_o.jpg",
-    "CONTEXT TEXT 8": "She initially thought:\n\n\"…it would only take a year or two for all the inequities based on sex to be eliminated.”\n\nShe finally realized true change:\n\n\"…would take more than my lifetime to accomplish.”\n\n",
-    "CONTEXT IMG 8": "Ford_B2371_NLGRF_photo_contact_sheet_(1976-12-01)(Gerald_Ford_Library).jpg",
-    "CONTEXT TEXT 9": "She spent the rest of her life fighting sex discrimination in education. She was also an adjunct professor at Drexel University College of Medicine.\n\nAs an expert she gave 2,500 presentations, wrote 100 articles and several books, and consulted for numerous institutions (including the military college the Citadel, with its “female assimilation plan”). \n\nShe served on 30 boards, and received a dozen honorary degrees and numerous other awards. She was inducted into the National Women’ Hall of Fame in 2013. \n",
-    "CONTEXT IMG 9": "IWHL+9-26-13+0319-2797732428-O.jpg",
-    "CONTEXT TEXT 10": "She died of cancer in 2019, at age 90. \n\nWomen and men, she said:\n\n>…are far closer to equal than they have ever been in the history of the world…We have only taken the very first steps of what will be a very long journey.\n",
-    "CONTEXT IMG 10": "IWHL+9-26-13+0450-2797743782-O.jpg",
-    "IMAGE CREDITS": "Institute for Women’s Health & Leadership, Drexel University College of Medicine, Rep. John Delaney, Devon Christopher Adams, National Archives and Records Administration (Gerald R. Ford Presidential Library)"
+    "CONTEXT TEXT 8": "She spent the rest of her life fighting sex discrimination in education. \n\nAs an expert she gave 2,500 presentations, wrote 100 articles and several books, and consulted for numerous institutions. \n\nShe served on 30 boards, and received a dozen honorary degrees and numerous other awards. She was inducted into the National Women’ Hall of Fame in 2013. \n",
+    "CONTEXT IMG 8": "Ford_B2371_NLGRF_photo_contact_sheet_(1976-12-01)(Gerald_Ford_Library).jpg; IWHL+9-26-13+0319-2797732428-O.jpg",
+    "CONTEXT TEXT 9": "She died of cancer in 2019, at age 90. \n\nWomen and men, she said:\n\n>…are far closer to equal than they have ever been in the history of the world…We have only taken the very first steps of what will be a very long journey.\n",
+    "CONTEXT IMG 9": "IWHL+9-26-13+0450-2797743782-O.jpg",
+    "CONTEXT TEXT 10": "",
+    "CONTEXT IMG 10": "",
+    "IMAGE CREDITS": "Institute for Women’s Health & Leadership, Drexel University College of Medicine, Rep. John Delaney, Devon Christopher Adams, National Archives and Records Administration (Gerald R. Ford Presidential Library)",
+    "slug": "bernice-sandler"
   },
   {
     "NAME": "Dawn Staley ",
@@ -1308,11 +1330,11 @@
     "TITLE 4": "",
     "CONTEXT TEXT 1": "A North Philadelphia native, she played basketball at Dobbins Technical High School and stood out in the Philadelphia Public League. ",
     "CONTEXT IMG 1": "2228915955_f639bcc7d2_o.jpg",
-    "CONTEXT TEXT 2": "After high school she played point guard for the University of Virginia, where she earned a B.A. in communications. An “undersized sparkplug,” she led her team to four national tournaments in four years. She won national Player of the Year awards as a junior and senior in 1991 and 1992.\r\n\r\nSimultaneously she began her national career on the 1989 Junior World Championship Team. (With a 95% winning record, she played on USA teams nearly every year through 2004.)\r\n",
+    "CONTEXT TEXT 2": "After high school she played point guard for the University of Virginia, where she earned a B.A. in communications. An “undersized sparkplug,” she led her team to four national tournaments in four years. \n\nSimultaneously she began her national career on the 1989 Junior World Championship Team. (With a 95% winning record, she played on USA teams nearly every year through 2004.)\n",
     "CONTEXT IMG 2": "Virginia_Cavaliers_text_logo.svg copy.jpg; Usa_basketball_2012 copy.jpg",
-    "CONTEXT TEXT 3": "In the mid-1990s she was a pioneer of women’s professional basketball. She played in the ABL for two years and WNBA for eight, appearing in seven All-Star Games. Fans voted her one of the top 15 players in WNBA history.",
+    "CONTEXT TEXT 3": "In the mid-1990s she was a pioneer of women’s professional basketball. She played in the ABL for two years and WNBA for eight, appearing in seven All-Star Games. ",
     "CONTEXT IMG 3": "1920px-WNBA_logo.jpg",
-    "CONTEXT TEXT 4": "Her first Olympics were in 1996, when her team was undefeated, won gold, and was the U.S. committee’s Team of the Year. She also won gold in 2000 and 2004. In Athens in 2004, she carried the flag, leading Team USA in the opening ceremony. She was USA Basketball Female Athlete of the Year in 1994 and 2004.",
+    "CONTEXT TEXT 4": "Her first Olympics were in 1996, when her team was undefeated, won gold, and was the U.S. committee’s Team of the Year. She also won gold in 2000 and 2004. In Athens in 2004, she carried the flag, leading Team USA in the opening ceremony. ",
     "CONTEXT IMG 4": "Olympic_flame_at_opening_ceremony.jpg; Interior_of_OAKA_Olympic_Indoor_Hall,_Athens.jpg",
     "SLIDESHOW TEXT 4a": "",
     "SLIDESHOW IMG 4a": "",
@@ -1340,7 +1362,7 @@
     "SLIDESHOW IMG 5a": "",
     "SLIDESHOW TEXT 5b": "",
     "SLIDESHOW IMG 5b": "",
-    "CONTEXT TEXT 6": "Since 2008 she has been head coach at the University of South Carolina. Her team won the national championship in 2017. \n\nDuring the tournament, the first African-American woman to win the title (Carolyn Peck) gave her a piece of the net from that championship, reminding her she had:\n\n>…a real good shot at winning. Sometimes you need something tangible to hold onto to let you know that somebody did it before you…\n",
+    "CONTEXT TEXT 6": "Since 2008 she has been head coach at the University of South Carolina. Her team won the national championship in 2017.",
     "CONTEXT IMG 6": "8396309129_b7bd095055_o.jpg; Nikki_Haley_selfie_with_University_of_South_Carolina_women's_basketball.jpg; 800px-South_Carolina_Gamecocks_logo.jpg",
     "SLIDESHOW TEXT 6a": "",
     "SLIDESHOW IMG 6a": "",
@@ -1350,11 +1372,12 @@
     "CONTEXT IMG 7": "2750596506_d3113a297f_o.jpg; 2750038903_159d9e7dd0_o.jpg",
     "CONTEXT TEXT 8": "She is the first person to receive both the USA Basketball National Coach of the Year and Athlete of the Year awards. She has received multiple Coach of the Year awards and was inducted into the Women’s Basketball Hall of Fame in 2012.",
     "CONTEXT IMG 8": "",
-    "CONTEXT TEXT 9": "She is known for her work with children in need, setting up charitable foundations. The WNBA established the Dawn Staley Community Leadership Award in 2007, awarded to players who best exemplify leadership in their communities.",
+    "CONTEXT TEXT 9": "She is known for her work with children in need, setting up charitable foundations. The WNBA established the Dawn Staley Community Leadership Award in 2007.",
     "CONTEXT IMG 9": "25441742938_e57eb68963_o.jpg; 39281653252_92342321a2_o.jpg",
     "CONTEXT TEXT 10": "She seeks to provide hope to young athletes:\n\n>If they’re faced with roadblocks along the way, I want them to look at me with our national championship and say, that is what I need to get me through this particular moment.\n",
     "CONTEXT IMG 10": "27533346049_2e7e9ce4e8_o.jpg",
-    "IMAGE CREDITS": "Sphilbrick, chrisinphilly5448, Alterego, Emilio Garcia, Leslie, South Carolina Office of the Governor, Kris Krüg, Philadelphia City Council"
+    "IMAGE CREDITS": "Sphilbrick, chrisinphilly5448, Alterego, Emilio Garcia, Leslie, South Carolina Office of the Governor, Kris Krüg, Philadelphia City Council",
+    "slug": "dawn-staley"
   },
   {
     "NAME": "Mo’ne Davis ",
@@ -1365,9 +1388,9 @@
     "TITLE 2": "",
     "TITLE 3": "",
     "TITLE 4": "",
-    "CONTEXT TEXT 1": "The coach at her local recreation center in South Philadelphia saw her playing football with her older brother and cousins when she was 10. He invited her to basketball practice. \n\n>There she was throwing this football in perfect spirals, effortless and running these tough kids down and tackling them…\n_Steve Bandura, coach_\n\n",
+    "CONTEXT TEXT 1": "The coach at her local recreation center in South Philadelphia saw her playing football with her older brother and cousins when she was 10. He invited her to basketball practice. \n\n>Her eyes were just glued on the drill and when it came time for her turn she went through it like she has been doing it a thousand times…I just knew right then. \n_Steve Bandura, coach_\n",
     "CONTEXT IMG 1": "574cb9f0015f7.image.jpg",
-    "CONTEXT TEXT 2": "The only girl, she became the team’s best player, dominating the game in basketball, baseball, and soccer—and helping win city championships.\n\nShowing dedication, she got up early to commute to an all-girls private school in Chestnut Hill and went to the rec center after school for practice or games.\n\n>Her eyes were just glued on the drill and when it came time for her turn she went through it like she has been doing it a thousand times…I just knew right then. \n_Steve Bandura, coach_",
+    "CONTEXT TEXT 2": "The only girl, she became the team’s best player, dominating the game in basketball, baseball, and soccer—and helping win city championships.\n\nShowing dedication, she got up early to commute to an all-girls private school in Chestnut Hill and went to the rec center after school for practice or games.\n",
     "CONTEXT IMG 2": "",
     "CONTEXT TEXT 3": "In 2014 she became the first girl to pitch a shutout in the Little League World Series in Williamsport, PA. She threw a 70 mph fastball, at 13.\r\n\r\nShe was the fourth American girl (18th overall) to play in the tournament, out of 9,000 participants since it began in 1947. \r\n",
     "CONTEXT IMG 3": "13093663905_b686967222_o.jpg",
@@ -1399,7 +1422,7 @@
     "SLIDESHOW IMG 5a": "",
     "SLIDESHOW TEXT 5b": "",
     "SLIDESHOW IMG 5b": "",
-    "CONTEXT TEXT 6": "She was also the first African-American girl in the Little League World Series.\n\n>She’s a novelty in the white community, a celebrity you want to take a picture with, but in the black community, she’s more of a cultural icon…Little League baseball is a white suburban sport. Mo’ne is an African-American girl. She crossed every barrier.\n_Steve Bandura, coach_",
+    "CONTEXT TEXT 6": "She was also the first African-American girl in the Little League World Series.\n\n>...in the black community, she’s more of a cultural icon…Little League baseball is a white suburban sport...She crossed every barrier.\n_Steve Bandura, coach_",
     "CONTEXT IMG 6": "Mo'ne_Davis_(15948839942).jpg",
     "SLIDESHOW TEXT 6a": "",
     "SLIDESHOW IMG 6a": "",
@@ -1409,10 +1432,11 @@
     "CONTEXT IMG 7": "19543491800_a879fc43e4_o.jpg; 19733342225_7946ef4083_o.jpg",
     "CONTEXT TEXT 8": "In 2015 she took a trip with her team, playing baseball and exploring black history. On her 14th birthday, the team visited the Alabama church where white supremacists killed four black girls in 1963.\n\n>We walked past where the bomb was placed; I still don’t have words for it…What could those girls have done in their lives? They could have changed the world.\n\nThe experience left her grateful:\n\n>…for all the people who fought for the freedom we now have.\n",
     "CONTEXT IMG 8": "05091u.jpg; 36461944610_cb1637c67b_o.jpg",
-    "CONTEXT TEXT 9": "In high school she played as many sports as she could, winning state championships in softball and soccer. Summers she continued pitching, and her baseball team won a national championship in 2017.\n\nHer friends call her “Big Time” and “Superstar.” But, she would call her coach to discuss ways to improve, and she always credited teammates and encouraged younger players.\n\n>She’s not one of these people who’s like, ‘I’m already famous so I don’t have to work hard.’ She always picked up everyone’s mood. She brought a happy spirit to the team.\n_Emily McNesby, soccer teammate_\n\n",
+    "CONTEXT TEXT 9": "In high school she played as many sports as she could, winning state championships in softball and soccer. Summers she continued pitching, and her baseball team won a national championship in 2017.\n",
     "CONTEXT IMG 9": "39743300085_ba4c6a713e_o.jpg; 39743302045_0707660628_o.jpg",
-    "CONTEXT TEXT 10": "Graduating in 2019, she has committed to playing softball at Hampton University in Virginia. Her high school experiences and older friends influenced her decision to attend a historically black university.\n\nPlanning to major in communications, she wants to be a motivational speaker for kids and host her own TV sports show.\n",
+    "CONTEXT TEXT 10": "Graduating in 2019, she has committed to playing softball at Hampton University in Virginia. Her high school experiences influenced her decision to attend a historically black university.\n\nPlanning to major in communications, she wants to be a motivational speaker for kids and host her own TV sports show.\n",
     "CONTEXT IMG 10": "HAMPTON_UNIVERSITY_Monroe_Memorial_Church.jpg",
-    "IMAGE CREDITS": "Sam Nabi, U.S. Department of the Interior, Walt Disney Television, Library of Congress, Philadelphia City Council, Douglas W. Reynolds"
+    "IMAGE CREDITS": "Sam Nabi, U.S. Department of the Interior, Walt Disney Television, Library of Congress, Philadelphia City Council, Douglas W. Reynolds",
+    "slug": "mone-davis"
   }
 ]

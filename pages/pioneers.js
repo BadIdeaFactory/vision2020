@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -7,6 +7,7 @@ import CategoryEyebrow from '../components/CategoryEyebrow'
 import LowerNav from '../components/LowerNav'
 import NavButton from '../components/NavButton'
 import { UI_COLOR_PRIMARY } from '../main/const'
+import { getEntry } from '../data/load'
 import DIRECTORY from '../data/directory.json'
 
 PioneerItem.propTypes = {
@@ -15,15 +16,38 @@ PioneerItem.propTypes = {
 }
 
 function PioneerItem ({ id, label }) {
+  const [imageLoaded, setImageLoaded] = useState(false)
+  const data = getEntry(id)
+  const profileImageTrace = require(`../public/portraits/${data['PORTRAIT IMG']}?trace`)
+  const profileImageUrl = require(`../public/portraits/${data['PORTRAIT IMG']}?webp&resize&size=600`)
+
   return (
     <>
       <Link href="/pioneers/[id]" as={`/pioneers/${id}`}>
         <a>
           {/* Wrapper element ensures square image at any width */}
           <div className="pioneer-pic-wrapper">
-            <div className="pioneer-pic" />
+            <div className="pioneer-pic">
+              {/* Inline svg trace while image is loading */}
+              <img
+                src={profileImageTrace.trace}
+                aria-hidden="true"
+                style={{ opacity: imageLoaded ? 0 : 1 }}
+              />
+              {/* Image fades in after loading */}
+              <img
+                src={profileImageUrl}
+                style={{ opacity: imageLoaded ? 1 : 0 }}
+                onLoad={(e) => {
+                  setImageLoaded(true)
+                }}
+                aria-labelledby={`pioneer-label-${id}`}
+              />
+            </div>
           </div>
-          <div className="pioneer-label">{label}</div>
+          <div className="pioneer-label" id={`pioneer-label-${id}`}>
+            {label}
+          </div>
         </a>
       </Link>
       <style jsx>
@@ -40,10 +64,15 @@ function PioneerItem ({ id, label }) {
             height: 100%;
             border: 20px solid black;
             background-color: white;
-            background-image: url(/terrell_bitmap.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: 50% 0;
+            overflow: hidden;
+          }
+
+          .pioneer-pic img {
+            height: 135%;
+            left: -62%;
+            position: absolute;
+            bottom: 0;
+            transition: '150ms opacity';
           }
 
           @media only screen and (max-width: 768px) {
