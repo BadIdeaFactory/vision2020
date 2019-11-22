@@ -90,7 +90,7 @@ function PioneerTitleCard ({ data }) {
           white space for the accent mark in GONZÁLEZ */
           h2 {
             font-size: 140px;
-            margin: 0 20%;
+            margin: 0 10%;
           }
 
           .pioneer-lifedate {
