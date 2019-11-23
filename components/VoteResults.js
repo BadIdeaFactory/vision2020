@@ -9,13 +9,15 @@ BarChartItem.propTypes = {
 }
 
 function BarChartItem ({ label, value }) {
+  // Sets animation style of counting up number and bar
   const spring = useSpring({
     width: `${value}%`,
     number: value,
     from: {
       width: '0%',
       number: 0
-    }
+    },
+    config: { mass: 50, tension: 300, friction: 220, clamp: true }
   })
 
   return (
@@ -93,7 +95,7 @@ function generateRandomTestPercentages () {
     Math.round((num2 / sum) * 100),
     Math.round((num3 / sum) * 100),
     Math.round((num4 / sum) * 100)
-  ]
+  ].sort((a, b) => a - b) // Sorts results so winner is last
 }
 
 function VoteResults (props) {
@@ -111,13 +113,14 @@ function VoteResults (props) {
     setValues(generateRandomTestPercentages())
   }, [])
 
+  // Sets transition of each result item
   const transitions = useTransition(items, (item) => item, {
     from: { transform: 'translate3d(0, 3vh, 0)', opacity: 0 },
     enter: { transform: 'translate3d(0, 0px, 0)', opacity: 1 },
     leave: { transform: 'translate3d(0, -3vh, 0)', opacity: 0 },
     // Note: this is an unchained animation, so the BarChartItem
     // transitions begin before all the items have transitioned in
-    trail: 80
+    trail: 300
   })
 
   return transitions.map(({ item, props, key }, index) => (
