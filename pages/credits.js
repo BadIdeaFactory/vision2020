@@ -42,13 +42,11 @@ const Credits = (props) => (
       {`
         div {
           border-top: 1px solid #8fddd1;
-          padding-top: 1em;
-          padding-bottom: 1em;
         }
 
         h5 {
-          margin-top: 0;
-          margin-bottom: 0;
+          margin-top: 1em;
+          margin-bottom: 1em;
           font-size: 20px;
           color: #8fddd1;
           text-align: left;
@@ -137,10 +135,14 @@ const CreditsPage = () => (
             margin-left: 30px;
             margin-right: 30px;
             margin-top: 40px;
+            margin-bottom: 40px;
           }
 
-          h2 {
-            font-size: 30px;
+          h3 {
+            font-size: 24px;
+            text-align: left;
+            margin-bottom: 1.5em;
+            margin-top: 3em;
           }
 
           .credits {
