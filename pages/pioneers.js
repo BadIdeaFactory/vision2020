@@ -157,13 +157,6 @@ const PioneersList = () => (
       {`
         .pioneers-list-container {
           border-top: 10px solid black;
-          position: absolute;
-          bottom: 0;
-          top: 1030px;
-          left: 70px;
-          right: 70px;
-          overflow: hidden;
-          overflow-y: scroll;
         }
 
         @media only screen and (max-width: 768px) {
@@ -193,38 +186,53 @@ const PioneersList = () => (
         .pioneers-list {
           padding: 0;
           font-size: 2vh;
-          padding-bottom: 40px;
-          border-bottom: 20px solid black;
+          border-bottom: 10px solid black;
+        }
+
+        @media only screen and (min-width: 768px) {
+          .pioneers-list {
+            padding-bottom: 60px;
+            border-bottom: 20px solid black;
+          }
         }
 
         .pioneers-list > li {
           text-align: center;
           position: relative;
-          margin-top: 1.5em;
+          margin-top: 0.5em;
         }
 
         .pioneers-list > li:not(:first-of-type) {
-          border-top: 1px solid black;
+          border-top: 10px solid black;
+        }
+
+        @media only screen and (min-width: 768px) {
+          .pioneers-list > li {
+            margin-top: 1.5em;
+          }
+
+          .pioneers-list > li:not(:first-of-type) {
+            border-top: 1px solid black;
+          }
         }
 
         .pioneers-list h5 {
           display: block;
-          padding-top: 0.35em;
+          font-family: 'Noto Serif', serif;
+          font-size: 24px;
+          font-weight: bold;
           margin-bottom: 0.75em;
           margin-top: 0.75em;
-          font-family: 'Noto Serif', serif;
-          font-size: 48px;
-          font-weight: bold;
-          letter-spacing: -2px;
-          line-height: 60px;
           white-space: nowrap;
+          letter-spacing: -1px;
           text-transform: initial;
         }
 
-        @media only screen and (max-width: 768px) {
+        @media screen and (min-width: 768px) {
           .pioneers-list h5 {
-            font-size: 24px;
-            text-transform: capitalize;
+            font-size: 48px;
+            line-height: 60px;
+            padding-top: 0.35em;
           }
         }
 
@@ -262,7 +270,15 @@ const PioneersList = () => (
         .nav-button {
           width: 100%;
           text-align: center;
-          margin-bottom: 64px;
+          margin: 2em 0;
+        }
+
+        @media screen and (min-width: 768px) {
+          .nav-button {
+            /* Position to align with other nav buttons */
+            position: relative;
+            top: 90px;
+          }
         }
       `}
     </style>
