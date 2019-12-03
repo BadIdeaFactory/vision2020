@@ -72,10 +72,9 @@ function VoteForm (props) {
         {`
           .vote-form {
             user-select: none;
-
             text-align: center;
-            margin-top: 2em;
-            font-size: 2vh;
+            max-width: 680px;
+            margin: 6em auto;
           }
         `}
       </style>

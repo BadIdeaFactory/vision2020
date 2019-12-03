@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
+import Router from 'next/router'
 import { useSpring, animated } from 'react-spring'
 import Layout from '../components/Layout'
 import CategoryEyebrow from '../components/CategoryEyebrow'
 import VoteForm from '../components/VoteForm'
-import VoteResults from '../components/VoteResults'
 import DemographicsForm from '../components/DemographicsForm'
 import LowerNav from '../components/LowerNav'
 // import firebase from '../main/firebase'
@@ -62,7 +62,7 @@ const VotePage = () => {
     setDemo(data)
 
     // Go to next vote page
-    setVoteState(2)
+    Router.push('/results')
   }
 
   let voteContent
@@ -87,15 +87,6 @@ const VotePage = () => {
             results.
           </p>
           <DemographicsForm onSubmit={handleSubmitDemographics} />
-        </animated.div>
-      )
-      break
-    case 2:
-      voteContent = (
-        <animated.div className="vote-content" style={props}>
-          <h2>Results</h2>
-          <p>Here’s how others voted:</p>
-          <VoteResults />
         </animated.div>
       )
       break
@@ -133,8 +124,10 @@ const VotePage = () => {
           }
 
           :global(.vote-content) {
-            margin: 0 20%;
-            max-width: 620px;
+            margin: 0 10%;
+            /* Bottom alignment keeps interactive area in ADA zone */
+            position: absolute;
+            bottom: 240px;
           }
 
           :global(.vote-content h2) {
@@ -145,7 +138,7 @@ const VotePage = () => {
           :global(.vote-content p) {
             font-size: 1.5em;
             text-align: center;
-            margin: 2em;
+            margin: 2em 5em;
           }
         `}
       </style>

@@ -32,7 +32,7 @@ function PageDots ({ pages, currentPage }) {
             flex-direction: row;
             width: 60px;
             justify-content: space-between;
-            margin: 0 auto;
+            margin: 60px auto;
           }
 
           .dot {

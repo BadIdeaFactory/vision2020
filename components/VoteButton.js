@@ -60,7 +60,7 @@ function VoteButton ({
             align-items: center;
             width: 100%;
 
-            margin-bottom: 1em;
+            margin-bottom: 0.5em;
             cursor: pointer;
 
             padding: 0.1em 0.55em;
