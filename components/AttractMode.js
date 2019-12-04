@@ -1,11 +1,8 @@
 import React, { useState, useRef } from 'react'
+import PropTypes from 'prop-types'
 import CategoryEyebrow from './CategoryEyebrow'
 import MainButton from './MainButton'
 import DIRECTORY from '../data/directory.json'
-
-// TODO: This needs to be created dynamically based on kiosk identity
-const kioskId = 0
-const attractLinks = DIRECTORY[kioskId].persons
 
 function fadeInButton () {
   const el = document.querySelector('.button-container')
@@ -17,7 +14,14 @@ function fadeOutButton () {
   el.style.opacity = 0
 }
 
+AttractMode.propTypes = {
+  kioskId: PropTypes.oneOf([0, 1, 2, 3, 4, 5])
+}
+
 function AttractMode (props) {
+  const { kioskId = 0 } = props
+  const attractLinks = DIRECTORY[kioskId].persons
+
   const [attractId, setAttractId] = useState(0)
   const videoRef = useRef(null)
   let nearEndTriggered = useRef(false).current

@@ -28,12 +28,24 @@ const nextConfig = {
     ]
 
     const paths = {
+      // Home page
       '/': { page: '/' },
+
+      // Convenience attract-loop URLs
+      '/attract/1': { page: '/', query: { kioskId: 0 } },
+      '/attract/2': { page: '/', query: { kioskId: 1 } },
+      '/attract/3': { page: '/', query: { kioskId: 2 } },
+      '/attract/4': { page: '/', query: { kioskId: 3 } },
+      '/attract/5': { page: '/', query: { kioskId: 4 } },
+      '/attract/6': { page: '/', query: { kioskId: 5 } },
+
+      // Other pages
       '/credits': { page: '/credits' },
       '/pioneers': { page: '/pioneers' },
       '/vote': { page: '/vote' }
     }
 
+    // Define individual pioneer pages
     slugs.forEach((slug) => {
       paths[`/pioneers/${slug}`] = {
         page: '/pioneers/[id]',
