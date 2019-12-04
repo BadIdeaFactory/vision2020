@@ -10,7 +10,7 @@ import Image from '../../components/Image'
 import VoteIntro from '../../components/VoteIntro'
 import LowerNav from '../../components/LowerNav'
 import Lightbox from '../../components/Lightbox'
-import PioneerTitleCard from '../../components/PioneerTitleCard'
+import PioneerLede from '../../components/PioneerLede'
 import { UI_COLOR_SECONDARY } from '../../main/const'
 import { getEntry } from '../../data/load'
 
@@ -49,9 +49,6 @@ export default function Pioneer () {
 
   if (!data) return null
 
-  // profile image tests
-  const profileImageUrl = require(`../../public/portraits/${data['PORTRAIT IMG']}?webp`)
-
   return (
     <Layout className="pioneer-page">
       <Head>
@@ -75,45 +72,11 @@ export default function Pioneer () {
         >
           {/* Page 1 */}
           <div className="pioneer-spine" />
-          <ParallaxLayer
-            offset={0}
-            speed={0.5}
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-            // onClick={() => parallax.current.scrollTo(0.99)}
-          >
-            <div className="profile-image-container">
-              <img
-                src={profileImageUrl}
-                onLoad={(e) => {
-                  e.target.style.opacity = 1
-                  e.target.style.transform = 'translateY(0)'
-                }}
-              />
-            </div>
-          </ParallaxLayer>
+
+          <PioneerLede data={data} />
 
           <ParallaxLayer offset={0} speed={1} style={{ padding: '30px' }}>
             <CategoryEyebrow>{data.NAME}</CategoryEyebrow>
-          </ParallaxLayer>
-
-          <ParallaxLayer
-            offset={0}
-            speed={1}
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-          >
-            <div className="pioneer-title-card-container">
-              <PioneerTitleCard data={data} />
-            </div>
           </ParallaxLayer>
 
           {/* Slide 1 */}
@@ -451,34 +414,6 @@ export default function Pioneer () {
             box-shadow: 0 0 5vh 0 rgba(0, 0, 0, 0.25);
           }
 
-          .profile-image-container {
-            display: flex;
-            justify-content: center;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 40%;
-            overflow: hidden;
-            background-color: black;
-          }
-
-          .profile-image-container img {
-            height: 100%;
-            opacity: 0;
-            transform: translateY(3vh);
-            transition: 500ms opacity ease-in-out, 500ms transform ease-in-out;
-          }
-
-          .pioneer-title-card-container {
-            position: absolute;
-            top: 40%;
-            left: 0;
-            right: 0;
-            bottom: 160px;
-            background-color: white;
-          }
-
           .pioneer-spine {
             position: absolute;
             height: 100%;
@@ -500,11 +435,13 @@ export default function Pioneer () {
             background-color: #ccc;
             position: absolute;
           }
+
           .f1 {
             width: 60%;
             top: 30%;
             right: -5%;
           }
+
           .arrow-holder {
             width: 300px;
             background-color: white;
