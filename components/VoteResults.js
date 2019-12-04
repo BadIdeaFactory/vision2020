@@ -95,7 +95,7 @@ function generateRandomTestPercentages () {
     Math.round((num2 / sum) * 100),
     Math.round((num3 / sum) * 100),
     Math.round((num4 / sum) * 100)
-  ].sort((a, b) => a - b) // Sorts results so winner is last
+  ].sort((a, b) => b - a) // Sorts results so winner is first
 }
 
 function VoteResults (props) {
