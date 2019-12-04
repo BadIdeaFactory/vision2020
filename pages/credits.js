@@ -86,9 +86,9 @@ const CreditsPage = () => (
           // NOTE: the credits have no connection to the image they're crediting.
           return (
             <Credits
-              name={item.NAME}
-              text={item['IMAGE CREDITS']}
-              key={item.NAME}
+              name={item.name}
+              text={item.image_credits}
+              key={item.key}
             />
           )
         })}

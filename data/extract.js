@@ -18,7 +18,7 @@ const SOURCE_URL =
 // the CSV yourself and put the file here. Raw CSV in this folder
 // will not get committed to the repository.
 const SOURCE_FILENAME = 'Vision 2020 Digital Content - PEOPLE.csv'
-const DEST_FILENAME = 'data.json'
+const DEST_FILENAME = 'raw.json'
 
 const toFile = fs.createWriteStream(path.join(__dirname, DEST_FILENAME))
 const toJson = csv2json({

@@ -19,7 +19,7 @@ function PioneerTitleCard ({ data }) {
             }
           }}
         >
-          <h2>{data.NAME}</h2>
+          <h2>{data.name}</h2>
         </InView>
         <InView
           as="div"
@@ -33,7 +33,7 @@ function PioneerTitleCard ({ data }) {
             }
           }}
         >
-          <div className="pioneer-lifedate">{data['LIFE DATE']}</div>
+          <div className="pioneer-lifedate">{data.life_date}</div>
         </InView>
         <InView
           as="div"
@@ -48,10 +48,9 @@ function PioneerTitleCard ({ data }) {
           }}
         >
           <div className="pioneer-titles">
-            {data['TITLE 1'] && <div>{data['TITLE 1']}</div>}
-            {data['TITLE 2'] && <div>{data['TITLE 2']}</div>}
-            {data['TITLE 3'] && <div>{data['TITLE 3']}</div>}
-            {data['TITLE 4'] && <div>{data['TITLE 4']}</div>}
+            {data.titles.map((title) => (
+              <div key={title}>{title}</div>
+            ))}
           </div>
         </InView>
       </div>

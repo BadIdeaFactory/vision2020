@@ -1,9 +1,12 @@
 import React from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { Parallax } from '@react-spring/parallax'
 import Layout from '../components/Layout'
 import LowerNav from '../components/LowerNav'
 import AttractMode from '../components/AttractMode'
+import PioneerLede from '../components/PioneerLede'
+import { getEntry } from '../data/load'
 
 // Make kioskId param match server/client
 Home.getInitialProps = async (context) => {
@@ -25,6 +28,8 @@ function Home () {
     window.scrollTo({ top, behavior: 'smooth' })
   }
 
+  const data = getEntry('shirley-chisholm')
+
   return (
     <Layout>
       <Head>
@@ -32,13 +37,25 @@ function Home () {
       </Head>
 
       <AttractMode kioskId={Number.parseInt(kioskId)} />
-      <LowerNav left="pioneers" right="vote" />
 
       <div className="chevron">
         <img src="/ui/chevron.svg" onClick={scrollPage} />
       </div>
 
-      <section className="scrollcontent">{/* <h1>temp</h1> */}</section>
+      <section className="scrollcontent">
+        <Parallax
+          pages={1}
+          style={{
+            left: 0,
+            top: 0,
+            backgroundColor: 'white'
+          }}
+        >
+          <PioneerLede data={data} />
+        </Parallax>
+      </section>
+
+      <LowerNav left="pioneers" right="vote" />
 
       <style jsx>
         {`
@@ -46,13 +63,6 @@ function Home () {
             background-color: black;
             width: 100vw;
             height: 100vh;
-            color: yellow;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
-          .scrollcontent h1 {
-            font-size: 500%;
           }
 
           .chevron {
