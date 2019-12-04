@@ -53,7 +53,7 @@ export default function Pioneer () {
     <Layout className="pioneer-page">
       <Head>
         <title>
-          {data.NAME} {'// Vision2020'}
+          {data.name} {'// Vision2020'}
         </title>
       </Head>
 
@@ -72,18 +72,15 @@ export default function Pioneer () {
         >
           {/* Page 1 */}
           <div className="pioneer-spine" />
-
           <PioneerLede data={data} />
-
           <ParallaxLayer offset={0} speed={1} style={{ padding: '30px' }}>
-            <CategoryEyebrow>{data.NAME}</CategoryEyebrow>
+            <CategoryEyebrow>{data.name}</CategoryEyebrow>
           </ParallaxLayer>
 
           {/* Slide 1 */}
           <ParallaxLayer
             offset={0.99}
             speed={1}
-            // onClick={() => parallax.current.scrollTo(1.5)}
           >
             <Image
               src="/mary/Mary-Church-Terrell-1.jpg"
@@ -116,7 +113,7 @@ export default function Pioneer () {
                 marginRight: 'calc(50% - 50px)'
               }}
             >
-              <ParseText text={data['CONTEXT TEXT 1']} />
+              <ParseText text={data.context[1 - 1].text} />
             </div>
           </ParallaxLayer>
 
@@ -151,7 +148,7 @@ export default function Pioneer () {
                 marginTop: '30%'
               }}
             >
-              <ParseText text={data['CONTEXT TEXT 2']} />
+              <ParseText text={data.context[2 - 1].text} />
             </div>
           </ParallaxLayer>
 
@@ -203,7 +200,7 @@ export default function Pioneer () {
                 backgroundColor: 'white'
               }}
             >
-              <ParseText text={data['CONTEXT TEXT 3']} />
+              <ParseText text={data.context[3 - 1].text} />
             </div>
           </ParallaxLayer>
 
@@ -222,7 +219,7 @@ export default function Pioneer () {
                 marginTop: '60%'
               }}
             >
-              <ParseText text={data['CONTEXT TEXT 4']} />
+              <ParseText text={data.context[4 - 1].text} />
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={2} speed={1}>
@@ -248,7 +245,7 @@ export default function Pioneer () {
                 marginTop: '70%'
               }}
             >
-              <ParseText text={data['CONTEXT TEXT 5']} />
+              <ParseText text={data.context[5 - 1].text} />
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={2.99} speed={1}>
@@ -286,7 +283,7 @@ export default function Pioneer () {
                 marginTop: '30%'
               }}
             >
-              <ParseText text={data['CONTEXT TEXT 6']} />
+              <ParseText text={data.context[6 - 1].text} />
             </div>
           </ParallaxLayer>
 
@@ -305,7 +302,7 @@ export default function Pioneer () {
                 marginTop: '50%'
               }}
             >
-              <ParseText text={data['CONTEXT TEXT 7']} />
+              <ParseText text={data.context[7 - 1].text} />
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={3.99} speed={1}>

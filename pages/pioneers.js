@@ -18,8 +18,8 @@ PioneerItem.propTypes = {
 function PioneerItem ({ id, label }) {
   const [imageLoaded, setImageLoaded] = useState(false)
   const data = getEntry(id)
-  const profileImageTrace = require(`../public/portraits/${data['PORTRAIT IMG']}?trace`)
-  const profileImageUrl = require(`../public/portraits/${data['PORTRAIT IMG']}?webp&resize&size=600`)
+  const profileImageTrace = require(`../public/portraits/${data.portrait_img}?trace`)
+  const profileImageUrl = require(`../public/portraits/${data.portrait_img}?webp&resize&size=600`)
 
   return (
     <>

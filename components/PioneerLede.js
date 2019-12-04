@@ -8,7 +8,7 @@ PioneerLede.propTypes = {
 }
 
 export default function PioneerLede ({ data }) {
-  const profileImageUrl = require(`../public/portraits/${data['PORTRAIT IMG']}?webp`)
+  const profileImageUrl = require(`../public/portraits/${data.portrait_img}?webp`)
 
   return (
     <>
