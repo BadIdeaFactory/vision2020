@@ -47,7 +47,67 @@ export default function Pioneer () {
     // parallax.current.animatedScroll.addListener(console.log)
   })
 
+  // Might be null on first render
   if (!data) return null
+
+  // Determine how many pages there are.
+  // For some reason `<Parallax>` pages have 1 screen in between each page
+  // so we divide the number of pages in half, then add one for the
+  // title screen.
+  const pages = (data.context.length / 2) + 1
+  const lastPageOffset = Number.isInteger(pages - 1) ? pages - 1 : pages - 1 + 0.49
+
+  function renderContext (context) {
+    // Offsetting is weird.
+    // Odd number pages need an offset of (page / 2) + .49 and
+    const offset = context.page % 2 ? (context.page / 2) + 0.49 : (context.page / 2)
+
+    console.log('todo: create layout for slide with', context.images.length, 'images')
+    if (context.slideshow && context.slideshow.length > 0) {
+      console.log('todo: create slideshow for', context.slideshow.length, 'images')
+    }
+
+    return (
+      <>
+        {/* Images */}
+        <ParallaxLayer
+          offset={offset}
+          speed={1}
+        >
+          {context.images.map((image, index) => {
+            const top = 10 + (index * 10)
+            return (
+              <Image
+                key={image}
+                src={`/media/images/${image}`}
+                className="fake-image lightbox"
+                style={{ width: '45%', left: '10%', top: `${top}%` }}
+              />
+            )
+          })}
+        </ParallaxLayer>
+
+        {/* Text */}
+        <ParallaxLayer
+          offset={offset}
+          speed={0.5}
+          style={{ pointerEvents: 'none' }}
+        >
+          <div
+            className="context context1"
+            style={{
+              textAlign: 'left',
+              width: '40%',
+              marginLeft: '58%',
+              marginTop: '30%'
+            }}
+          >
+            <ParseText text={context.text} />
+          </div>
+        </ParallaxLayer>
+      </>
+    )
+  }
 
   return (
     <Layout className="pioneer-page">
@@ -62,7 +122,7 @@ export default function Pioneer () {
       <div className="section1">
         <Parallax
           ref={parallax}
-          pages={4.5}
+          pages={pages}
           scrolling
           style={{
             left: 0,
@@ -70,15 +130,17 @@ export default function Pioneer () {
             backgroundColor: 'white'
           }}
         >
-          {/* Page 1 */}
+          {/* Page 1: Title screen "Lede" */}
           <div className="pioneer-spine" />
           <PioneerLede data={data} />
           <ParallaxLayer offset={0} speed={1} style={{ padding: '30px' }}>
             <CategoryEyebrow>{data.name}</CategoryEyebrow>
           </ParallaxLayer>
 
-          {/* Slide 1 */}
-          <ParallaxLayer
+          {/* Context slides */}
+          {data.context.map(renderContext)}
+
+          {/* <ParallaxLayer
             offset={0.99}
             speed={1}
           >
@@ -118,7 +180,7 @@ export default function Pioneer () {
           </ParallaxLayer>
 
           {/* Slide 2 */}
-          <ParallaxLayer
+          {/* <ParallaxLayer
             offset={1}
             speed={1}
             // onClick={() => parallax.current.scrollTo(2)}
@@ -150,10 +212,10 @@ export default function Pioneer () {
             >
               <ParseText text={data.context[2 - 1].text} />
             </div>
-          </ParallaxLayer>
+          </ParallaxLayer> */}
 
           {/* Slide 3 */}
-          <ParallaxLayer offset={1.99} speed={1}>
+          {/* <ParallaxLayer offset={1.99} speed={1}>
             <Image
               src="/mary/30267a.jpg"
               className="fake-image lightbox"
@@ -202,10 +264,10 @@ export default function Pioneer () {
             >
               <ParseText text={data.context[3 - 1].text} />
             </div>
-          </ParallaxLayer>
+          </ParallaxLayer> */}
 
           {/* Slide 4 */}
-          <ParallaxLayer
+          {/* <ParallaxLayer
             offset={2}
             speed={0.5}
             style={{ pointerEvents: 'none' }}
@@ -228,10 +290,10 @@ export default function Pioneer () {
               className="fake-image lightbox f1"
               style={{ width: '60%', left: '45%', top: '34%' }}
             />
-          </ParallaxLayer>
+          </ParallaxLayer> */}
 
           {/* Slide 5 */}
-          <ParallaxLayer
+          {/* <ParallaxLayer
             offset={2.99}
             speed={0.5}
             style={{ pointerEvents: 'none' }}
@@ -254,10 +316,10 @@ export default function Pioneer () {
               className="fake-image lightbox f1"
               style={{ width: '60%', left: '45%', top: '45%' }}
             />
-          </ParallaxLayer>
+          </ParallaxLayer> */}
 
           {/* Slide 6 */}
-          <ParallaxLayer offset={3} speed={1}>
+          {/* <ParallaxLayer offset={3} speed={1}>
             <Image
               src="/mary/Protesting-768x501 with mct c1952.jpg"
               className="fake-image lightbox"
@@ -285,10 +347,10 @@ export default function Pioneer () {
             >
               <ParseText text={data.context[6 - 1].text} />
             </div>
-          </ParallaxLayer>
+          </ParallaxLayer> */}
 
           {/* Slide 7 */}
-          <ParallaxLayer
+          {/* <ParallaxLayer
             offset={3.99}
             speed={0.5}
             style={{ pointerEvents: 'none' }}
@@ -311,6 +373,12 @@ export default function Pioneer () {
               className="fake-image lightbox f1"
               style={{ width: '60%', left: '45%', top: '34%' }}
             />
+            <div className="arrow-holder">
+              <img src="/ui/triangle.svg" />
+            </div>
+          </ParallaxLayer> */}
+
+          <ParallaxLayer offset={lastPageOffset} speed={1} style={{ pointerEvents: 'none' }}>
             <div className="arrow-holder">
               <img src="/ui/triangle.svg" />
             </div>
@@ -389,6 +457,24 @@ export default function Pioneer () {
             border-top: 5px solid black;
             top: -1.5em;
           }
+
+          .context {
+            font-size: 22px;
+            position: relative;
+            background-color: white;
+            padding: 2em 0;
+          }
+
+          .fake-image {
+            background-color: #ccc;
+            position: absolute;
+          }
+
+          .f1 {
+            width: 60%;
+            top: 30%;
+            right: -5%;
+          }
         `}
       </style>
       <style jsx>
@@ -401,6 +487,7 @@ export default function Pioneer () {
             top: 0;
             left: 0;
           }
+
           .section1 {
             position: sticky;
             bottom: 0;
@@ -419,24 +506,6 @@ export default function Pioneer () {
             left: 50%;
             margin-left: -50px;
             z-index: -1;
-          }
-
-          .context {
-            font-size: 22px;
-            position: relative;
-            background-color: white;
-            padding: 2em 0;
-          }
-
-          :global(.fake-image) {
-            background-color: #ccc;
-            position: absolute;
-          }
-
-          .f1 {
-            width: 60%;
-            top: 30%;
-            right: -5%;
           }
 
           .arrow-holder {
