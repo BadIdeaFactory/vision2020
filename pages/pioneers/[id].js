@@ -29,11 +29,19 @@ function ParseText ({ text }) {
   )
 }
 
+Pioneer.getInitialProps = async (context) => {
+  return {
+    noTransition: context.query.noTransition
+  }
+}
+
 export default function Pioneer () {
   const router = useRouter()
   const parallax = useRef(null)
 
   const data = getEntry(router.query.id)
+  const noTransition = getEntry(router.query.noTransition)
+  console.log('noTransition', noTransition)
 
   useEffect(() => {
     console.log(parallax.current)
@@ -68,23 +76,34 @@ export default function Pioneer () {
     }
 
     return (
-      <>
+      <React.Fragment key={context.page}>
         {/* Images */}
         <ParallaxLayer
           offset={offset}
           speed={1}
         >
-          {context.images.map((image, index) => {
-            const top = 10 + (index * 10)
-            return (
-              <Image
-                key={image}
-                src={`/media/images/${image}`}
-                className="fake-image lightbox"
-                style={{ width: '45%', left: '10%', top: `${top}%` }}
-              />
-            )
-          })}
+          <div
+            className="image-container"
+            style={{
+              // Odd number pages align images to the right
+              // Even number pages align images to the left
+              right: (context.page % 2) ? 0 : 'auto',
+              left: (context.page % 2) ? 'auto' : 0,
+              top: '10%',
+              width: 'calc(50% - 50px - 25px)'
+            }}
+          >
+            {context.images.map((image, index) => {
+              return (
+                <Image
+                  key={image}
+                  src={`/media/images/${image}`}
+                  className="lightbox"
+                  alt=""
+                />
+              )
+            })}
+          </div>
         </ParallaxLayer>
 
         {/* Text */}
@@ -94,18 +113,19 @@ export default function Pioneer () {
           style={{ pointerEvents: 'none' }}
         >
           <div
-            className="context context1"
             style={{
               textAlign: 'left',
               width: '40%',
-              marginLeft: '58%',
-              marginTop: '30%'
+              // Odd number pages align text to the left
+              // Even number pages align text to the right
+              marginLeft: (context.page % 2) ? 'calc(10% + 50px)' : 'calc(50% - 50px)',
+              marginTop: '20%'
             }}
           >
             <ParseText text={context.text} />
           </div>
         </ParallaxLayer>
-      </>
+      </React.Fragment>
     )
   }
 
@@ -167,7 +187,7 @@ export default function Pioneer () {
             style={{ pointerEvents: 'none' }}
           >
             <div
-              className="context context1"
+              className="context"
               style={{
                 textAlign: 'left',
                 marginLeft: '20%',
@@ -202,7 +222,7 @@ export default function Pioneer () {
             style={{ pointerEvents: 'none' }}
           >
             <div
-              className="context context1"
+              className="context"
               style={{
                 textAlign: 'left',
                 width: '40%',
@@ -253,7 +273,7 @@ export default function Pioneer () {
             style={{ pointerEvents: 'none' }}
           >
             <div
-              className="context context1"
+              className="context"
               style={{
                 textAlign: 'left',
                 width: '40%',
@@ -273,7 +293,7 @@ export default function Pioneer () {
             style={{ pointerEvents: 'none' }}
           >
             <div
-              className="context context1"
+              className="context"
               style={{
                 textAlign: 'left',
                 width: '35%',
@@ -299,7 +319,7 @@ export default function Pioneer () {
             style={{ pointerEvents: 'none' }}
           >
             <div
-              className="context context1"
+              className="context"
               style={{
                 textAlign: 'left',
                 width: '35%',
@@ -337,7 +357,7 @@ export default function Pioneer () {
             style={{ pointerEvents: 'none' }}
           >
             <div
-              className="context context1"
+              className="context"
               style={{
                 textAlign: 'left',
                 width: '40%',
@@ -356,7 +376,7 @@ export default function Pioneer () {
             style={{ pointerEvents: 'none' }}
           >
             <div
-              className="context context1"
+              className="context"
               style={{
                 textAlign: 'left',
                 width: '35%',
@@ -394,6 +414,10 @@ export default function Pioneer () {
 
       <style jsx global>
         {`
+          body {
+            background-color: black;
+          }
+
           .context blockquote {
             margin-left: 0;
             margin-right: 0;
@@ -467,7 +491,15 @@ export default function Pioneer () {
 
           .fake-image {
             background-color: #ccc;
+          }
+
+          .image-container {
             position: absolute;
+          }
+
+          .image-container img {
+            width: 100%;
+            margin-top: 15px;
           }
 
           .f1 {
