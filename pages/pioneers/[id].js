@@ -68,7 +68,7 @@ export default function Pioneer () {
     }
 
     return (
-      <>
+      <React.Fragment key={context.page}>
         {/* Images */}
         <ParallaxLayer
           offset={offset}
@@ -81,6 +81,7 @@ export default function Pioneer () {
                 key={image}
                 src={`/media/images/${image}`}
                 className="fake-image lightbox"
+                alt=""
                 style={{ width: '45%', left: '10%', top: `${top}%` }}
               />
             )
@@ -105,7 +106,7 @@ export default function Pioneer () {
             <ParseText text={context.text} />
           </div>
         </ParallaxLayer>
-      </>
+      </React.Fragment>
     )
   }
 
