@@ -394,6 +394,10 @@ export default function Pioneer () {
 
       <style jsx global>
         {`
+          body {
+            background-color: black;
+          }
+
           .context blockquote {
             margin-left: 0;
             margin-right: 0;

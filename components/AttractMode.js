@@ -1,8 +1,13 @@
 import React, { useState, useRef } from 'react'
 import PropTypes from 'prop-types'
+import Router from 'next/router'
+import { Parallax, ParallaxLayer } from '@react-spring/parallax'
+import { InView } from 'react-intersection-observer'
 import CategoryEyebrow from './CategoryEyebrow'
 import MainButton from './MainButton'
+import PioneerLede from './PioneerLede'
 import DIRECTORY from '../data/directory.json'
+import { getEntry } from '../data/load'
 
 function fadeInButton () {
   const el = document.querySelector('.button-container')
@@ -24,6 +29,7 @@ function AttractMode (props) {
 
   const [attractId, setAttractId] = useState(0)
   const videoRef = useRef(null)
+  const parallax = useRef(null)
   let nearEndTriggered = useRef(false).current
 
   function handlePlay () {
@@ -55,6 +61,13 @@ function AttractMode (props) {
     )
   }
 
+  function scrollPage (event) {
+    const top = document.querySelector('.scrollcontent').offsetTop
+    window.scrollTo({ top, behavior: 'smooth' })
+  }
+
+  const data = getEntry(attractLinks[attractId].slug)
+
   return (
     <>
       <div className="attract-container">
@@ -69,16 +82,117 @@ function AttractMode (props) {
             onEnded={handleEnded}
           />
         </div>
-
-        <CategoryEyebrow>{DIRECTORY[kioskId].name}</CategoryEyebrow>
-
-        <div className="button-container">
-          <MainButton href={`/pioneers/${attractLinks[attractId].slug}`}>
-            {attractLinks[attractId].name}
-          </MainButton>
-        </div>
       </div>
 
+      <CategoryEyebrow>{DIRECTORY[kioskId].name}</CategoryEyebrow>
+
+      <div className="button-container">
+        <MainButton href={`/pioneers/${attractLinks[attractId].slug}`}>
+          {attractLinks[attractId].name}
+        </MainButton>
+      </div>
+
+      <div className="chevron">
+        <img src="/ui/chevron.svg" onClick={scrollPage} />
+      </div>
+
+      <section className="scrollcontent">
+        <Parallax pages={2} ref={parallax}>
+          <ParallaxLayer
+            offset={0}
+            speed={1}
+            onClick={() => parallax.current.scrollTo(1)}
+          />
+
+          <ParallaxLayer offset={1} speed={1}>
+            <InView
+              as="div"
+              onChange={(inView, entry) => {
+                // Once we hit this point, hijack scroll to complete the thing
+                // Meh - it doesn't work as expected - it just resets the scroll position.
+                // if (inView) {
+                //   parallax.current.scrollTo(1)
+                // }
+                console.log('Inview:', inView)
+              }}
+            />
+          </ParallaxLayer>
+
+          {/* When we hit the bottom of the scroll, transition to pioneer page */}
+          <ParallaxLayer offset={1} speed={1}>
+            <InView
+              as="div"
+              style={{
+                position: 'absolute',
+                bottom: 0,
+                height: '1px',
+                width: '100%'
+              }}
+              onChange={(inView, entry) => {
+                if (inView) {
+                  Router.push(`/pioneers/${attractLinks[attractId].slug}`)
+                }
+              }}
+            />
+          </ParallaxLayer>
+
+          <PioneerLede data={data} later />
+        </Parallax>
+      </section>
+
+      <style jsx>
+        {`
+          section {
+            padding: 0;
+          }
+
+          .scrollcontent {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 200;
+          }
+
+          .chevron {
+            width: 120px;
+            height: auto;
+            text-align: center;
+            position: fixed;
+            left: 50%;
+            margin-left: -60px;
+            bottom: 3.25em;
+            animation-name: pulse, bounce;
+            animation-duration: 6s;
+            animation-iteration-count: infinite;
+          }
+
+          @keyframes pulse {
+            0%,
+            80%,
+            100% {
+              opacity: 1;
+            }
+            90% {
+              opacity: 0.5;
+            }
+          }
+
+          @keyframes pulse {
+            0%,
+            88%,
+            94%,
+            100% {
+              transform: translateY(0);
+            }
+            91%,
+            97% {
+              transform: translateY(-10px);
+            }
+          }
+        `}
+      </style>
       <style jsx>
         {`
           .attract-container {
