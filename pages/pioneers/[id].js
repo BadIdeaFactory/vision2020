@@ -82,25 +82,28 @@ export default function Pioneer () {
           offset={offset}
           speed={1}
         >
-          {context.images.map((image, index) => {
-            const top = 10 + (index * 10)
-            return (
-              <Image
-                key={image}
-                src={`/media/images/${image}`}
-                className="fake-image lightbox"
-                alt=""
-                style={{
-                  // Odd number pages align images to the right
-                  // Even number pages align images to the left
-                  right: (context.page % 2) ? 0 : 'auto',
-                  left: (context.page % 2) ? 'auto' : 0,
-                  top: `${top}%`,
-                  width: 'calc(50% - 50px - 25px)'
-                }}
-              />
-            )
-          })}
+          <div
+            className="image-container"
+            style={{
+              // Odd number pages align images to the right
+              // Even number pages align images to the left
+              right: (context.page % 2) ? 0 : 'auto',
+              left: (context.page % 2) ? 'auto' : 0,
+              top: '10%',
+              width: 'calc(50% - 50px - 25px)'
+            }}
+          >
+            {context.images.map((image, index) => {
+              return (
+                <Image
+                  key={image}
+                  src={`/media/images/${image}`}
+                  className="lightbox"
+                  alt=""
+                />
+              )
+            })}
+          </div>
         </ParallaxLayer>
 
         {/* Text */}
@@ -488,7 +491,15 @@ export default function Pioneer () {
 
           .fake-image {
             background-color: #ccc;
+          }
+
+          .image-container {
             position: absolute;
+          }
+
+          .image-container img {
+            width: 100%;
+            margin-top: 15px;
           }
 
           .f1 {
