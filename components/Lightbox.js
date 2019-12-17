@@ -16,10 +16,12 @@ export default function Lightbox (props) {
   function openLightbox (event) {
     setImageUrl(event.detail.url)
     setVisible(true)
+    document.body.style.overflow = 'hidden'
   }
 
   function toggleLightbox (event) {
     setVisible(false)
+    document.body.style.overflow = ''
   }
 
   const classNames = ['lightbox']
