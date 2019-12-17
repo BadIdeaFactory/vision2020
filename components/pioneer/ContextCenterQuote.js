@@ -31,7 +31,7 @@ function ContextCenterQuote ({ offset, context = {} }) {
             marginTop: '30%',
             backgroundColor: 'white'
           }}
-          className="context-align-center"
+          className="context-align-center context-text-container"
         >
           <InView
             as="div"
