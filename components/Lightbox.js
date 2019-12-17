@@ -59,7 +59,7 @@ export default function Lightbox (props) {
             justify-content: center;
             opacity: 0;
             pointer-events: none;
-            transition: 120ms all;
+            transition: 400ms opacity;
           }
 
           .lightbox.visible {
