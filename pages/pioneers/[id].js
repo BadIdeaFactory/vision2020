@@ -1,9 +1,7 @@
 import React, { useRef, useEffect } from 'react'
-import PropTypes from 'prop-types'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
-import ReactMarkdown from 'react-markdown'
 import Layout from '../../components/Layout'
 import CategoryEyebrow from '../../components/CategoryEyebrow'
 import Image from '../../components/Image'
@@ -11,23 +9,10 @@ import VoteIntro from '../../components/VoteIntro'
 import LowerNav from '../../components/LowerNav'
 import Lightbox from '../../components/Lightbox'
 import PioneerLede from '../../components/PioneerLede'
+import ParseText from '../../components/pioneer/ParseText'
 import { UI_COLOR_SECONDARY } from '../../main/const'
 import { getEntry } from '../../data/load'
-
-ParseText.propTypes = {
-  text: PropTypes.string.isRequired
-}
-
-function ParseText ({ text }) {
-  return (
-    <ReactMarkdown
-      source={text}
-      className="context"
-      unwrapDisallowed
-      disallowedTypes={['link', 'linkReference']}
-    />
-  )
-}
+import ContextCenterQuote from '../../components/pioneer/ContextCenterQuote'
 
 Pioneer.getInitialProps = async (context) => {
   return {
@@ -39,7 +24,8 @@ export default function Pioneer () {
   const router = useRouter()
   const parallax = useRef(null)
 
-  const data = getEntry(router.query.id)
+  const slug = router.query.id
+  const data = getEntry(slug)
   const noTransition = getEntry(router.query.noTransition)
   console.log('noTransition', noTransition)
 
@@ -73,6 +59,11 @@ export default function Pioneer () {
     console.log('todo: create layout for slide with', context.images.length, 'images')
     if (context.slideshow && context.slideshow.length > 0) {
       console.log('todo: create slideshow for', context.slideshow.length, 'images')
+    }
+
+    console.log(slug, context.page)
+    if (slug === 'women-in-the-116th-us-congress' && context.page === 1) {
+      return <ContextCenterQuote offset={offset} context={context} />
     }
 
     return (
@@ -472,6 +463,7 @@ export default function Pioneer () {
             line-height: 1.4;
           }
 
+          /* Quote attribution divider */
           .context blockquote em::before {
             content: '';
             display: block;
@@ -480,6 +472,10 @@ export default function Pioneer () {
             height: 0px;
             border-top: 5px solid black;
             top: -1.5em;
+          }
+
+          .context-align-center .context blockquote em::before {
+            left: calc(50% - 25px);
           }
 
           .context {
