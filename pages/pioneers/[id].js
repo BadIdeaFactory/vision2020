@@ -45,16 +45,11 @@ export default function Pioneer () {
   if (!data) return null
 
   // Determine how many pages there are.
-  // For some reason `<Parallax>` pages have 1 screen in between each page
-  // so we divide the number of pages in half, then add one for the
-  // title screen.
-  const pages = (data.context.length / 2) + 1
-  const lastPageOffset = Number.isInteger(pages - 1) ? pages - 1 : pages - 1 + 0.49
+  const pages = data.context.length
+  const lastPageOffset = pages - 1
 
   function renderContext (context) {
-    // Offsetting is weird.
-    // Odd number pages need an offset of (page / 2) + .49 and
-    const offset = context.page % 2 ? (context.page / 2) + 0.49 : (context.page / 2)
+    const offset = context.page
 
     console.log('todo: create layout for slide with', context.images.length, 'images')
     if (context.slideshow && context.slideshow.length > 0) {
