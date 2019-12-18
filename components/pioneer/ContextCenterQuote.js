@@ -4,8 +4,7 @@ import { InView } from 'react-intersection-observer'
 import { ParallaxLayer } from '@react-spring/parallax'
 import ParseText from './ParseText'
 import Image from '../Image'
-
-const TRANSITION_IN_DELAY = 500
+import { TRANSITION_IN_DELAY } from './constants'
 
 ContextCenterQuote.propTypes = {
   offset: PropTypes.number,

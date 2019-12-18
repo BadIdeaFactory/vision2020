@@ -12,6 +12,7 @@ import { UI_COLOR_SECONDARY } from '../../main/const'
 import { getEntry } from '../../data/load'
 import ContextCenterQuote from '../../components/pioneer/ContextCenterQuote'
 import ContextImage1 from '../../components/pioneer/ContextImage1'
+import ContextSlideshow from '../../components/pioneer/ContextSlideshow'
 
 Pioneer.getInitialProps = async (context) => {
   return {
@@ -60,9 +61,10 @@ export default function Pioneer () {
       console.log('todo: create slideshow for', context.slideshow.length, 'images')
     }
 
-    console.log(slug, context.page)
     if (slug === 'women-in-the-116th-us-congress' && context.page === 1) {
       return <ContextCenterQuote offset={offset} context={context} />
+    } else if (context.slideshow && context.slideshow.length > 0) {
+      return <ContextSlideshow offset={offset} context={context} />
     }
 
     return <ContextImage1 offset={offset} context={context} />

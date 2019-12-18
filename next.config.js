@@ -1,4 +1,5 @@
 const withPlugins = require('next-compose-plugins')
+const withCSS = require('@zeit/next-css')
 const optimizedImages = require('next-optimized-images')
 
 const nextConfig = {
@@ -49,7 +50,7 @@ const nextConfig = {
     slugs.forEach((slug) => {
       paths[`/pioneers/${slug}`] = {
         page: '/pioneers/[id]',
-        query: { id: slug }
+        query: { id: slug, noTransition: false }
       }
     })
 
@@ -73,6 +74,6 @@ const optimizedImagesConfig = {
 }
 
 module.exports = withPlugins(
-  [[optimizedImages, optimizedImagesConfig]],
+  [withCSS, [optimizedImages, optimizedImagesConfig]],
   nextConfig
 )
