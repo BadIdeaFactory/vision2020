@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@react-spring/parallax": "9.0.0-canary.808.8.4a87fcb",
+    "@zeit/next-css": "1.0.1",
     "electron-is-dev": "1.1.0",
     "electron-next": "3.1.5",
     "eslint": "6.7.2",

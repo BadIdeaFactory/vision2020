@@ -1,0 +1,1 @@
+export const TRANSITION_IN_DELAY = 250

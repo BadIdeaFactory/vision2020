@@ -4,15 +4,15 @@ import { useRouter } from 'next/router'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import Layout from '../../components/Layout'
 import CategoryEyebrow from '../../components/CategoryEyebrow'
-import Image from '../../components/Image'
 import VoteIntro from '../../components/VoteIntro'
 import LowerNav from '../../components/LowerNav'
 import Lightbox from '../../components/Lightbox'
 import PioneerLede from '../../components/PioneerLede'
-import ParseText from '../../components/pioneer/ParseText'
 import { UI_COLOR_SECONDARY } from '../../main/const'
 import { getEntry } from '../../data/load'
 import ContextCenterQuote from '../../components/pioneer/ContextCenterQuote'
+import ContextImage1 from '../../components/pioneer/ContextImage1'
+import ContextSlideshow from '../../components/pioneer/ContextSlideshow'
 
 Pioneer.getInitialProps = async (context) => {
   return {
@@ -61,63 +61,13 @@ export default function Pioneer () {
       console.log('todo: create slideshow for', context.slideshow.length, 'images')
     }
 
-    console.log(slug, context.page)
     if (slug === 'women-in-the-116th-us-congress' && context.page === 1) {
       return <ContextCenterQuote offset={offset} context={context} />
+    } else if (context.slideshow && context.slideshow.length > 0) {
+      return <ContextSlideshow offset={offset} context={context} />
     }
 
-    return (
-      <React.Fragment key={context.page}>
-        {/* Images */}
-        <ParallaxLayer
-          offset={offset}
-          speed={1}
-        >
-          <div
-            className="image-container"
-            style={{
-              // Odd number pages align images to the right
-              // Even number pages align images to the left
-              right: (context.page % 2) ? 0 : 'auto',
-              left: (context.page % 2) ? 'auto' : 0,
-              top: '10%',
-              width: 'calc(50% - 50px - 25px)'
-            }}
-          >
-            {context.images.map((image, index) => {
-              return (
-                <Image
-                  key={image}
-                  src={`/media/images/${image}`}
-                  className="lightbox"
-                  alt=""
-                />
-              )
-            })}
-          </div>
-        </ParallaxLayer>
-
-        {/* Text */}
-        <ParallaxLayer
-          offset={offset}
-          speed={0.5}
-          style={{ pointerEvents: 'none' }}
-        >
-          <div
-            style={{
-              textAlign: 'left',
-              width: '40%',
-              // Odd number pages align text to the left
-              // Even number pages align text to the right
-              marginLeft: (context.page % 2) ? 'calc(10% + 50px)' : 'calc(50% - 50px)',
-              marginTop: '20%'
-            }}
-          >
-            <ParseText text={context.text} />
-          </div>
-        </ParallaxLayer>
-      </React.Fragment>
-    )
+    return <ContextImage1 offset={offset} context={context} />
   }
 
   return (
@@ -478,11 +428,14 @@ export default function Pioneer () {
             left: calc(50% - 25px);
           }
 
-          .context {
-            font-size: 22px;
+          .context-text-container {
             position: relative;
             background-color: white;
             padding: 2em 0;
+          }
+
+          .context {
+            font-size: 22px;
           }
 
           .fake-image {
