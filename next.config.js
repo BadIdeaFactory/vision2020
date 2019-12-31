@@ -1,6 +1,6 @@
 const withPlugins = require('next-compose-plugins')
 const withCSS = require('@zeit/next-css')
-const optimizedImages = require('next-optimized-images')
+const withOptimizedImages = require('next-optimized-images')
 
 const nextConfig = {
   exportPathMap () {
@@ -74,6 +74,6 @@ const optimizedImagesConfig = {
 }
 
 module.exports = withPlugins(
-  [withCSS, [optimizedImages, optimizedImagesConfig]],
+  [withCSS, [withOptimizedImages, optimizedImagesConfig]],
   nextConfig
 )

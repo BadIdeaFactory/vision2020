@@ -21,5 +21,13 @@ export default function Image (props) {
     }
   }
 
-  return <img src={src} className={className} onClick={handleClick} {...rest} />
+  // `require` uses next-optimized-images package
+  return (
+    <img
+      src={require(`../public/media/images/${src}`)}
+      className={className}
+      onClick={handleClick}
+      {...rest}
+    />
+  )
 }

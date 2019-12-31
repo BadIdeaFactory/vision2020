@@ -46,12 +46,7 @@ function ContextImage1 ({ offset, context = {} }) {
           >
             {context.images.map((image, index) => {
               return (
-                <Image
-                  key={image}
-                  src={`/media/images/${image}`}
-                  className="lightbox"
-                  alt=""
-                />
+                <Image key={image} src={image} className="lightbox" alt="" />
               )
             })}
           </div>

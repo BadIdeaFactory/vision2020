@@ -45,7 +45,7 @@ function ContextCenterQuote ({ offset, context = {} }) {
                   return (
                     <Image
                       key={image}
-                      src={`/media/images/${image}`}
+                      src={image}
                       className="lightbox"
                       alt=""
                     />
