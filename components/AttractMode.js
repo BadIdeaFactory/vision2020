@@ -130,7 +130,9 @@ function AttractMode (props) {
               }}
               onChange={(inView, entry) => {
                 if (inView) {
-                  Router.push(`/pioneers/${attractLinks[attractId].slug}`)
+                  Router.push(
+                    `/pioneers/${attractLinks[attractId].slug}?noTransition=true`
+                  )
                 }
               }}
             />
