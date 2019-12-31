@@ -8,7 +8,7 @@ import VoteIntro from '../../components/VoteIntro'
 import LowerNav from '../../components/LowerNav'
 import Lightbox from '../../components/Lightbox'
 import PioneerLede from '../../components/PioneerLede'
-import { UI_COLOR_SECONDARY } from '../../main/const'
+import { MOBILE_BREAKPOINT, UI_COLOR_SECONDARY } from '../../main/const'
 import { getEntry } from '../../data/load'
 import ContextCenterQuote from '../../components/pioneer/ContextCenterQuote'
 import ContextImage1 from '../../components/pioneer/ContextImage1'
@@ -164,6 +164,14 @@ export default function Pioneer () {
             text-transform: uppercase;
           }
 
+          @media screen and (max-width: ${MOBILE_BREAKPOINT}),
+            screen and (orientation: landscape) {
+            .context blockquote p ,
+            .context blockquote p:first-of-type::before {
+              font-size: 20px;
+            }
+          }
+
           /* Quote attribution: only apply if it's direct child of blockquote */
           /* TODO: It's possible for <em> to appear as a child of <p> (the quote)
             itself, so we need to consider what happens when this appears there. */
@@ -175,6 +183,14 @@ export default function Pioneer () {
             font-size: 22px;
             text-transform: initial;
             line-height: 1.4;
+          }
+
+          @media screen and (max-width: ${MOBILE_BREAKPOINT}),
+            screen and (orientation: landscape) {
+            .context blockquote em,
+            .context blockquote + p > em:first-child {
+              font-size: 14px;
+            }
           }
 
           /* Quote attribution divider */
@@ -189,6 +205,16 @@ export default function Pioneer () {
             top: -1.5em;
           }
 
+          @media screen and (max-width: ${MOBILE_BREAKPOINT}),
+            screen and (orientation: landscape) {
+            .context blockquote em::before,
+            .context blockquote + p > em:first-child::before {
+              width: 35px;
+              height: 0px;
+              border-top: 3px solid black;
+            }
+          }
+
           .context-align-center .context blockquote em::before,
           .context-align-center .context blockquote + p > em:first-child::before {
             left: calc(50% - 25px);
@@ -200,14 +226,6 @@ export default function Pioneer () {
             padding: 2em 0;
           }
 
-          .context {
-            font-size: 22px;
-          }
-
-          .fake-image {
-            background-color: #ccc;
-          }
-
           .image-container {
             position: absolute;
           }
@@ -215,12 +233,6 @@ export default function Pioneer () {
           .image-container img {
             width: 100%;
             margin-top: 15px;
-          }
-
-          .f1 {
-            width: 60%;
-            top: 30%;
-            right: -5%;
           }
         `}
       </style>

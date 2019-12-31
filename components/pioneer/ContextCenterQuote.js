@@ -56,17 +56,7 @@ function ContextCenterQuote ({ offset, context = {} }) {
           </div>
           <div>
             {/* Text */}
-            <div
-              style={{
-                textAlign: 'center',
-                width: '40%',
-                marginLeft: '30%',
-                backgroundColor: 'white',
-                zIndex: '-1', // place underneath image for better transitioning+placement
-                marginTop: '-10px' // remove gap between image and text
-              }}
-              className="context-align-center context-text-container"
-            >
+            <div className="context-align-center context-text-container center-quote-text">
               <InView
                 as="div"
                 className="context-transition-container"
@@ -98,6 +88,16 @@ function ContextCenterQuote ({ offset, context = {} }) {
             display: flex;
             flex-direction: column;
             justify-content: center;
+          }
+
+          .center-quote-text {
+            width: 40%;
+            min-width: 240px;
+            margin-top: -10px; /* remove gap between image and text */
+            margin: 0 auto;
+            z-index: -1; /* place underneath image for better transitioning+placement */
+            background-color: white;
+            text-align: center;
           }
         `}
       </style>
