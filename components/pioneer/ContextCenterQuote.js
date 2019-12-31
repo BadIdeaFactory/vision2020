@@ -101,21 +101,6 @@ function ContextCenterQuote ({ offset, context = {} }) {
           }
         `}
       </style>
-
-      <style jsx global>
-        {`
-          .context-transition-container {
-            opacity: 0;
-            transform: translateY(5em);
-            transition: opacity 1000ms, transform 1000ms ease-out;
-          }
-
-          .context-transition-container.visible {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        `}
-      </style>
     </React.Fragment>
   )
 }

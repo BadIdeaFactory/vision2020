@@ -14,8 +14,6 @@ ContextImage1.propTypes = {
 }
 
 function ContextImage1 ({ offset, context = {} }) {
-  console.log(context)
-
   return (
     <React.Fragment key={context.page}>
       {/* Images */}

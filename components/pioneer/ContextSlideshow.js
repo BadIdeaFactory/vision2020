@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { InView } from 'react-intersection-observer'
+import { useTransition, animated } from 'react-spring'
 import { ParallaxLayer } from '@react-spring/parallax'
 import ImageGallery from 'react-image-gallery'
 import ParseText from './ParseText'
@@ -15,6 +16,13 @@ ContextSlideshow.propTypes = {
 }
 
 function ContextSlideshow ({ offset, context = {} }) {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const transitions = useTransition(currentSlide, null, {
+    from: { position: 'absolute', opacity: 0, transform: 'translateY(2vh)' },
+    enter: { opacity: 1, transform: 'translateY(0)' },
+    leave: { opacity: 0, transform: 'translateY(-2vh)' }
+  })
+
   const images = context.slideshow.map((image) => ({
     original: `/media/images/${image.image}`
   }))
@@ -65,6 +73,9 @@ function ContextSlideshow ({ offset, context = {} }) {
                 )
                 window.dispatchEvent(openLightboxEvent)
               }}
+              onSlide={(index) => {
+                setCurrentSlide(index)
+              }}
             />
           </div>
         </InView>
@@ -94,7 +105,11 @@ function ContextSlideshow ({ offset, context = {} }) {
               }
             }}
           >
-            <ParseText text={context.slideshow[0].text} />
+            {transitions.map(({ item, key, props }) => (
+              <animated.div key={key} style={props}>
+                <ParseText text={context.slideshow[item].text} />
+              </animated.div>
+            ))}
           </InView>
         </div>
       </ParallaxLayer>
