@@ -56,7 +56,8 @@ export default function Pioneer () {
       console.log('todo: create slideshow for', context.slideshow.length, 'images')
     }
 
-    if (slug === 'women-in-the-116th-us-congress' && context.page === 1) {
+    // Single quote context slides
+    if (context.text.startsWith('>')) {
       return <ContextCenterQuote offset={offset} context={context} />
     } else if (context.slideshow && context.slideshow.length > 0) {
       return <ContextSlideshow offset={offset} context={context} />
@@ -391,7 +392,7 @@ export default function Pioneer () {
             line-height: 1.2;
           }
 
-          .context blockquote p::before {
+          .context blockquote p:first-of-type::before {
             content: '“';
             display: block;
             font-family: 'Anton', sans-serif;
@@ -399,7 +400,11 @@ export default function Pioneer () {
             text-transform: uppercase;
           }
 
-          .context blockquote em {
+          /* Quote attribution: only apply if it's direct child of blockquote */
+          /* TODO: It's possible for <em> to appear as a child of <p> (the quote)
+            itself, so we need to consider what happens when this appears there. */
+          .context blockquote em,
+          .context blockquote + p > em:first-child {
             display: block;
             margin-top: 3em;
             font-family: 'Noto Serif', serif;
@@ -409,7 +414,8 @@ export default function Pioneer () {
           }
 
           /* Quote attribution divider */
-          .context blockquote em::before {
+          .context blockquote em::before,
+          .context blockquote + p > em:first-child::before {
             content: '';
             display: block;
             position: relative;
@@ -419,7 +425,8 @@ export default function Pioneer () {
             top: -1.5em;
           }
 
-          .context-align-center .context blockquote em::before {
+          .context-align-center .context blockquote em::before,
+          .context-align-center .context blockquote + p > em:first-child::before {
             left: calc(50% - 25px);
           }
 

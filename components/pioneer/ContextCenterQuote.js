@@ -16,76 +16,91 @@ ContextCenterQuote.propTypes = {
 function ContextCenterQuote ({ offset, context = {} }) {
   return (
     <React.Fragment key={context.page}>
-      {/* Text */}
-      <ParallaxLayer
-        offset={offset}
-        speed={0.75}
-        style={{ pointerEvents: 'none' }}
-      >
-        <div
-          style={{
-            textAlign: 'center',
-            width: '40%',
-            marginLeft: '30%',
-            marginTop: '30%',
-            backgroundColor: 'white'
-          }}
-          className="context-align-center context-text-container"
-        >
-          <InView
-            as="div"
-            className="context-transition-container"
-            threshold={0.25}
-            onChange={(inView, entry) => {
-              if (inView) {
-                const timeout = setTimeout(() => {
-                  entry.target.classList.add('visible')
-                }, TRANSITION_IN_DELAY)
-                return () => clearTimeout(timeout)
-              }
-            }}
-          >
-            <ParseText text={context.text} />
-          </InView>
+      <ParallaxLayer offset={offset} speed={0.75}>
+        <div className="context-center-quote-container">
+          <div>
+            {/* Images */}
+            <InView
+              as="div"
+              className="context-transition-container"
+              threshold={0.25}
+              onChange={(inView, entry) => {
+                if (inView) {
+                  const timeout = setTimeout(() => {
+                    entry.target.classList.add('visible')
+                  }, TRANSITION_IN_DELAY)
+                  return () => clearTimeout(timeout)
+                }
+              }}
+            >
+              <div
+                className="image-container"
+                style={{
+                  width: '60%',
+                  left: '20%',
+                  position: 'relative' // override absolute positioning
+                }}
+              >
+                {context.images.map((image, index) => {
+                  return (
+                    <Image
+                      key={image}
+                      src={`/media/images/${image}`}
+                      className="lightbox"
+                      alt=""
+                    />
+                  )
+                })}
+              </div>
+            </InView>
+          </div>
+          <div>
+            {/* Text */}
+            <div
+              style={{
+                textAlign: 'center',
+                width: '40%',
+                marginLeft: '30%',
+                backgroundColor: 'white',
+                zIndex: '-1', // place underneath image for better transitioning+placement
+                marginTop: '-10px' // remove gap between image and text
+              }}
+              className="context-align-center context-text-container"
+            >
+              <InView
+                as="div"
+                className="context-transition-container"
+                threshold={0.25}
+                onChange={(inView, entry) => {
+                  if (inView) {
+                    const timeout = setTimeout(() => {
+                      entry.target.classList.add('visible')
+                    }, TRANSITION_IN_DELAY)
+                    return () => clearTimeout(timeout)
+                  }
+                }}
+              >
+                <ParseText text={context.text} />
+              </InView>
+            </div>
+          </div>
         </div>
       </ParallaxLayer>
 
-      {/* Images */}
-      <ParallaxLayer offset={offset} speed={0.75}>
-        <InView
-          as="div"
-          className="context-transition-container"
-          threshold={0.25}
-          onChange={(inView, entry) => {
-            if (inView) {
-              const timeout = setTimeout(() => {
-                entry.target.classList.add('visible')
-              }, TRANSITION_IN_DELAY)
-              return () => clearTimeout(timeout)
-            }
-          }}
-        >
-          <div
-            className="image-container"
-            style={{
-              top: '10%',
-              width: '50%',
-              left: '25%'
-            }}
-          >
-            {context.images.map((image, index) => {
-              return (
-                <Image
-                  key={image}
-                  src={`/media/images/${image}`}
-                  className="lightbox"
-                  alt=""
-                />
-              )
-            })}
-          </div>
-        </InView>
-      </ParallaxLayer>
+      <style jsx>
+        {`
+          .context-center-quote-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+        `}
+      </style>
 
       <style jsx global>
         {`
