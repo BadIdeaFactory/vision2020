@@ -1,1 +1,2 @@
-export const TRANSITION_IN_DELAY = 250
+export const TRANSITION_IN_DELAY = 0
+export const TRANSITION_IN_THRESHOLD = 0.25

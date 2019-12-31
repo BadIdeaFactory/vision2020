@@ -4,7 +4,7 @@ import { InView } from 'react-intersection-observer'
 import { ParallaxLayer } from '@react-spring/parallax'
 import ParseText from './ParseText'
 import Image from '../Image'
-import { TRANSITION_IN_DELAY } from './constants'
+import { TRANSITION_IN_DELAY, TRANSITION_IN_THRESHOLD } from './constants'
 
 ContextImage1.propTypes = {
   offset: PropTypes.number,
@@ -23,7 +23,7 @@ function ContextImage1 ({ offset, context = {} }) {
         <InView
           as="div"
           className="context-transition-container"
-          threshold={0.25}
+          threshold={TRANSITION_IN_THRESHOLD}
           onChange={(inView, entry) => {
             if (inView) {
               const timeout = setTimeout(() => {

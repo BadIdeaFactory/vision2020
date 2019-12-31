@@ -4,7 +4,7 @@ import { InView } from 'react-intersection-observer'
 import { ParallaxLayer } from '@react-spring/parallax'
 import ImageGallery from 'react-image-gallery'
 import ParseText from './ParseText'
-import { TRANSITION_IN_DELAY } from './constants'
+import { TRANSITION_IN_DELAY, TRANSITION_IN_THRESHOLD } from './constants'
 import '../../node_modules/react-image-gallery/styles/css/image-gallery.css'
 
 ContextSlideshow.propTypes = {
@@ -26,7 +26,7 @@ function ContextSlideshow ({ offset, context = {} }) {
         <InView
           as="div"
           className="context-transition-container"
-          threshold={0.25}
+          threshold={TRANSITION_IN_THRESHOLD}
           onChange={(inView, entry) => {
             if (inView) {
               const timeout = setTimeout(() => {
@@ -84,7 +84,7 @@ function ContextSlideshow ({ offset, context = {} }) {
           <InView
             as="div"
             className="context-transition-container"
-            threshold={0.25}
+            threshold={TRANSITION_IN_THRESHOLD}
             onChange={(inView, entry) => {
               if (inView) {
                 const timeout = setTimeout(() => {
