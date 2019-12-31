@@ -54,7 +54,7 @@ export default function Pioneer () {
     // Single quote context slides
     if (context.text.startsWith('>')) {
       return <ContextCenterQuote offset={offset} context={context} />
-    } else if (context.slideshow && context.slideshow.length <= 1) {
+    } else if (context.slideshow && context.slideshow.length > 0) {
       return <ContextSlideshow offset={offset} context={context} />
     }
 

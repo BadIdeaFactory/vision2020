@@ -148,6 +148,10 @@ function ContextSlideshow ({ offset, context = {} }) {
           .image-gallery-right-nav:hover::before {
             color: white;
           }
+
+          .image-gallery-icon:hover {
+            color: white;
+          }
         `}
       </style>
     </React.Fragment>
