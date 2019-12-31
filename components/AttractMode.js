@@ -205,13 +205,14 @@ function AttractMode (props) {
             height: 100vh;
             position: sticky;
             background-color: white;
+            display: flex;
+            align-content: center;
+            justify-content: center;
           }
 
           .attract-video-container {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
+            width: 100vmin; /* Allows somewhat viewable experience on landscape viewports */
             height: 100vh;
           }
 
@@ -220,7 +221,12 @@ function AttractMode (props) {
           .attract-video-container video {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+          }
+
+          @media screen and (orientation: portrait) {
+            .attract-video-container video {
+              object-fit: cover;
+            }
           }
 
           .button-container {

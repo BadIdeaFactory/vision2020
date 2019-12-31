@@ -60,6 +60,7 @@ function VoteIntro (props) {
             font-family: 'Anton', sans-serif;
             line-height: 1;
             font-size: 180px;
+            font-size: 9.375vh;
             color: ${UI_COLOR_SECONDARY};
             text-align: center;
             text-transform: uppercase;
