@@ -6,6 +6,7 @@ import { InView } from 'react-intersection-observer'
 import CategoryEyebrow from './CategoryEyebrow'
 import MainButton from './MainButton'
 import PioneerLede from './PioneerLede'
+import Chevron from './Chevron'
 import DIRECTORY from '../data/directory.json'
 import { getEntry } from '../data/load'
 
@@ -92,9 +93,7 @@ function AttractMode (props) {
         </MainButton>
       </div>
 
-      <div className="chevron">
-        <img src="/ui/chevron.svg" onClick={scrollPage} />
-      </div>
+      <Chevron onClick={scrollPage} />
 
       <section className="scrollcontent">
         <Parallax pages={2} ref={parallax}>
@@ -157,46 +156,6 @@ function AttractMode (props) {
             z-index: 200;
           }
 
-          .chevron {
-            width: 120px;
-            height: auto;
-            text-align: center;
-            position: fixed;
-            left: 50%;
-            margin-left: -60px;
-            bottom: 3.25em;
-            animation-name: pulse, bounce;
-            animation-duration: 6s;
-            animation-iteration-count: infinite;
-          }
-
-          @keyframes pulse {
-            0%,
-            80%,
-            100% {
-              opacity: 1;
-            }
-            90% {
-              opacity: 0.5;
-            }
-          }
-
-          @keyframes pulse {
-            0%,
-            88%,
-            94%,
-            100% {
-              transform: translateY(0);
-            }
-            91%,
-            97% {
-              transform: translateY(-10px);
-            }
-          }
-        `}
-      </style>
-      <style jsx>
-        {`
           .attract-container {
             position: absolute;
             top: 0;

@@ -3,11 +3,8 @@ import PropTypes from 'prop-types'
 import NavButton from './NavButton'
 
 const PioneersButton = () => <NavButton href="/pioneers">Pioneers</NavButton>
-
 const CreditsButton = () => <NavButton href="/credits">Credits</NavButton>
-
 const ExitButton = () => <NavButton href="/">Exit</NavButton>
-
 const VoteButton = () => <NavButton href="/vote">Vote</NavButton>
 
 function getButton (string) {
@@ -54,16 +51,18 @@ export default function LowerNav (props) {
             bottom: 0;
             text-align: center;
             width: 100%;
-            padding: 3em;
+            padding: 2em 1.5em;
             left: 0;
             pointer-events: none;
             z-index: 2000;
           }
 
-          @media only screen and (max-width: 768px) {
+           {
+            /* @media only screen and (max-width: 768px) {
             nav {
               display: none;
             }
+          } */
           }
 
           ul {
@@ -74,6 +73,7 @@ export default function LowerNav (props) {
 
           nav > ul {
             padding: 0;
+            margin: 0;
           }
 
           li {

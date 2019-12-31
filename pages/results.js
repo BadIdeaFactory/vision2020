@@ -60,7 +60,6 @@ const ResultsPage = () => {
           }
 
           :global(.vote-content p) {
-            font-size: 1.5em;
             text-align: center;
             margin: 2em;
           }

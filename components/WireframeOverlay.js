@@ -46,12 +46,15 @@ export default function WireframeOverlay (props) {
             z-index: 1000;
             font-family: Courier, monospace;
             font-size: 36px;
+            display: none; /* Usually hidden unless we're on the exhibit displays */
           }
-          @media only screen and (max-width: 768px) {
+
+          @media screen and (min-width: 1080px) and (min-height: 1920px) {
             .wireframe-overlay {
-              display: none;
+              display: block;
             }
           }
+
           .wireframe-overlay-eye {
             position: absolute;
             bottom: 1216px;
@@ -60,6 +63,7 @@ export default function WireframeOverlay (props) {
             border-bottom: 1px solid cyan;
             padding: 6px 18px;
           }
+
           .wireframe-overlay-ada {
             position: absolute;
             bottom: 712px;
@@ -68,6 +72,7 @@ export default function WireframeOverlay (props) {
             border-bottom: 1px solid red;
             padding: 6px 18px;
           }
+
           .wireframe-overlay-field {
             position: absolute;
             left: 303px;
@@ -76,6 +81,7 @@ export default function WireframeOverlay (props) {
             height: 820px;
             background-color: rgba(220, 249, 0, 0.25);
           }
+
           .wireframe-overlay-field span {
             margin-top: -40px;
             width: 100%;

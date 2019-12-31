@@ -89,6 +89,7 @@ function PioneerTitleCard ({ data }) {
           white space for the accent mark in GONZÁLEZ */
           h2 {
             font-size: 140px;
+            font-size: 7.292vh; /* match 140px on 1920x1080 portrait */
             margin: 0 10%;
           }
 
@@ -97,12 +98,14 @@ function PioneerTitleCard ({ data }) {
             margin-bottom: 1em;
             font-weight: bold;
             font-size: 48px;
+            font-size: 2.5vh; /* match 60px on 1920x1080 portrait */
             white-space: nowrap;
           }
 
           .pioneer-titles {
             font-family: ${TYPOGRAPHY_DISPLAY};
             font-size: 60px;
+            font-size: 3.125vh; /* match 60px on 1920x1080 portrait */
             line-height: 1.5;
             color: ${UI_COLOR_PRIMARY};
             text-transform: uppercase;

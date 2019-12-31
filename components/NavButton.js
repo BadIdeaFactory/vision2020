@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
+import { MOBILE_BREAKPOINT } from '../main/const'
 
 NavButton.propTypes = {
   href: PropTypes.string,
@@ -49,7 +50,8 @@ export default function NavButton (props) {
             cursor: pointer;
           }
 
-          @media only screen and (max-width: 768px) {
+          @media screen and (max-width: ${MOBILE_BREAKPOINT}),
+            screen and (orientation: landscape) {
             a,
             div {
               font-size: 18px;

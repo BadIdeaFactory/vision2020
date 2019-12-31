@@ -88,11 +88,10 @@ export default function PioneerLede ({ data, later = false }) {
             top: 40%;
             left: 0;
             right: 0;
-            bottom: 160px;
-            background-color: white;
-
-            padding-bottom: 160px;
             bottom: 0;
+            padding-bottom: 160px;
+            padding-bottom: 8.33vh;
+            background-color: white;
           }
 
           .pioneer-title-card-container::after {

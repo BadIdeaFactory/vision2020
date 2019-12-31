@@ -2,7 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 import WireframeOverlay from './WireframeOverlay'
-import { TYPOGRAPHY_DISPLAY, TYPOGRAPHY_BODY } from '../main/const'
+import {
+  MOBILE_BREAKPOINT,
+  TYPOGRAPHY_DISPLAY,
+  TYPOGRAPHY_BODY
+} from '../main/const'
 
 // Imports and initializes Firebase
 // Runs here because every page in our app uses <Layout />
@@ -108,6 +112,13 @@ export default function Layout ({ className = '', ...props }) {
             font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
               Helvetica, sans-serif;
             font-family: ${TYPOGRAPHY_BODY};
+            font-size: 32px;
+          }
+
+          @media (max-width: ${MOBILE_BREAKPOINT}) {
+            body {
+              font-size: 16px;
+            }
           }
 
           h1,
@@ -118,18 +129,20 @@ export default function Layout ({ className = '', ...props }) {
           h6 {
             font-family: ${TYPOGRAPHY_DISPLAY};
             font-weight: normal;
+            text-align: center;
             text-transform: uppercase;
             line-height: 1.1;
-            text-align: center;
             letter-spacing: 0.02em;
           }
 
           h2 {
             font-size: 180px;
+            font-size: 9.375vh; /* matches 180px on 1920x1080 portrait */
           }
 
           h3 {
             font-size: 60px;
+            font-size: 3.125vh; /* matches 60px on 1920x1080 portrait */
           }
 
           section {

@@ -16,7 +16,7 @@ function VoteIntro (props) {
           </div>
 
           <h2>What's your vision in 2020?</h2>
-          <p>Cast a vote and see how others voted</p>
+          <p>Cast a vote and see how others voted!</p>
 
           <div className="vote-intro-button">
             <UIButton href="/vote">Vote now</UIButton>
@@ -45,35 +45,40 @@ function VoteIntro (props) {
           }
 
           .vote-intro-content {
+            width: 80%;
+            height: 80%;
             max-width: 660px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
           }
 
           .vote-intro-stars {
             display: flex;
             flex-direction: row;
             width: 100%;
+            height: 5vh;
+            max-height: 92px;
             justify-content: space-between;
           }
 
+          .vote-intro-stars img {
+            /* Setting height forces svg to maintain aspect ratio */
+            height: 100%;
+          }
+
           .vote-intro-content h2 {
-            font-family: 'Anton', sans-serif;
-            line-height: 1;
-            font-size: 180px;
-            font-size: 9.375vh;
             color: ${UI_COLOR_SECONDARY};
-            text-align: center;
-            text-transform: uppercase;
-            margin: 0.75em 0 0.5em;
+            margin: 0;
           }
 
           .vote-intro-content p {
-            font-family: 'Noto Serif', serif;
-            font-size: 22px;
+            margin: 0;
           }
 
           .vote-intro-button {
-            margin: 6em 0;
+            margin: 1em 0;
           }
         `}
       </style>
