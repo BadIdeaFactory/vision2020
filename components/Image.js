@@ -21,9 +21,13 @@ export default function Image (props) {
     }
   }
 
+  // see: https://github.com/cyrilwanner/next-optimized-images/issues/16
+  // const requireImage = require.context('../public/media/images?webp&resize=600', false, /\.jpg$/)
+
   // `require` uses next-optimized-images package
   return (
     <img
+      // src={requireImage(`./${src}`)}
       src={require(`../public/media/images/${src}`)}
       className={className}
       onClick={handleClick}
