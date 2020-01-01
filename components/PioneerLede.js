@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { ParallaxLayer } from '@react-spring/parallax'
 import { useInView } from 'react-intersection-observer'
 import PioneerTitleCard from './PioneerTitleCard'
-import { UI_COLOR_SECONDARY } from '../main/const'
+import { MOBILE_BREAKPOINT, UI_COLOR_SECONDARY } from '../main/const'
 
 PioneerLede.propTypes = {
   data: PropTypes.object
@@ -101,6 +101,13 @@ export default function PioneerLede ({ data }) {
             left: 50%;
             margin-left: -50px;
             z-index: 1;
+          }
+
+          @media (max-width: ${MOBILE_BREAKPOINT}) {
+            .pioneer-title-card-container::after {
+              border-left: 50px solid ${UI_COLOR_SECONDARY};
+              margin-left: -25px;
+            }
           }
         `}
       </style>

@@ -282,6 +282,13 @@ export default function Pioneer () {
             z-index: -1;
           }
 
+          @media (max-width: ${MOBILE_BREAKPOINT}) {
+            .pioneer-spine {
+              border-left: 50px solid ${UI_COLOR_SECONDARY};
+              margin-left: -25px;
+            }
+          }
+
           .arrow-holder {
             width: 300px;
             background-color: white;
