@@ -53,9 +53,9 @@ export default function Pioneer () {
 
     // Single quote context slides
     if (context.text.startsWith('>')) {
-      return <ContextCenterQuote offset={offset} context={context} />
+      return <ContextCenterQuote key={offset} offset={offset} context={context} />
     } else if (context.slideshow && context.slideshow.length > 0) {
-      return <ContextSlideshow offset={offset} context={context} />
+      return <ContextSlideshow key={offset} offset={offset} context={context} />
     }
 
     // Use ContextImage1 for one or zero images
@@ -64,7 +64,7 @@ export default function Pioneer () {
       console.log('todo: create layout for slide with', context.images.length, 'images')
     }
 
-    return <ContextImage1 offset={offset} context={context} />
+    return <ContextImage1 key={offset} offset={offset} context={context} />
   }
 
   return (
@@ -81,7 +81,7 @@ export default function Pioneer () {
         <Parallax
           ref={parallax}
           pages={pages}
-          scrolling
+          scrolling="true"
           style={{
             left: 0,
             top: 0,
