@@ -265,6 +265,7 @@ export default function Pioneer () {
             position: sticky;
             bottom: 0;
             background-color: black;
+            overscroll-behavior: contain;
           }
 
           .section2 {

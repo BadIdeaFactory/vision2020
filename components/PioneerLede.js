@@ -6,11 +6,10 @@ import PioneerTitleCard from './PioneerTitleCard'
 import { UI_COLOR_SECONDARY } from '../main/const'
 
 PioneerLede.propTypes = {
-  data: PropTypes.object,
-  later: PropTypes.bool
+  data: PropTypes.object
 }
 
-export default function PioneerLede ({ data, later = false }) {
+export default function PioneerLede ({ data }) {
   // Lazy-load the image for the attract page
   const [ref, inView] = useInView({
     threshold: 1,
@@ -20,9 +19,8 @@ export default function PioneerLede ({ data, later = false }) {
 
   return (
     <>
-      {/* `later` means it starts offscreen on attract page */}
       <ParallaxLayer
-        offset={later ? 1 : 0}
+        offset={0}
         speed={1}
         style={{
           display: 'flex',
@@ -38,7 +36,7 @@ export default function PioneerLede ({ data, later = false }) {
       </ParallaxLayer>
 
       <ParallaxLayer
-        offset={later ? 1 : 0}
+        offset={0}
         speed={0.5}
         style={{
           display: 'flex',

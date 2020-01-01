@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import PropTypes from 'prop-types'
 import Router from 'next/router'
-import { Parallax, ParallaxLayer } from '@react-spring/parallax'
+import { Parallax } from '@react-spring/parallax'
 import { InView } from 'react-intersection-observer'
 import CategoryEyebrow from './CategoryEyebrow'
 import MainButton from './MainButton'
@@ -20,6 +20,15 @@ function fadeOutButton () {
   el.style.opacity = 0
 }
 
+function scrollPage (event) {
+  const scrollEl = document.querySelector('.scrollsnapper')
+  scrollEl.scrollTo({
+    top: scrollEl.offsetHeight,
+    left: 0,
+    behavior: 'smooth'
+  })
+}
+
 AttractMode.propTypes = {
   kioskId: PropTypes.oneOf([0, 1, 2, 3, 4, 5])
 }
@@ -27,10 +36,8 @@ AttractMode.propTypes = {
 function AttractMode (props) {
   const { kioskId = 0 } = props
   const attractLinks = DIRECTORY[kioskId].persons
-
   const [attractId, setAttractId] = useState(0)
   const videoRef = useRef(null)
-  const parallax = useRef(null)
   let nearEndTriggered = useRef(false).current
 
   function handlePlay () {
@@ -62,11 +69,6 @@ function AttractMode (props) {
     )
   }
 
-  function scrollPage (event) {
-    const top = document.querySelector('.scrollcontent').offsetTop
-    window.scrollTo({ top, behavior: 'smooth' })
-  }
-
   const data = getEntry(attractLinks[attractId].slug)
 
   return (
@@ -95,38 +97,20 @@ function AttractMode (props) {
 
       <Chevron onClick={scrollPage} />
 
-      <section className="scrollcontent">
-        <Parallax pages={2} ref={parallax}>
-          <ParallaxLayer
-            offset={0}
-            speed={1}
-            onClick={() => parallax.current.scrollTo(1)}
-          />
-
-          <ParallaxLayer offset={1} speed={1}>
-            <InView
-              as="div"
-              onChange={(inView, entry) => {
-                // Once we hit this point, hijack scroll to complete the thing
-                // Meh - it doesn't work as expected - it just resets the scroll position.
-                // if (inView) {
-                //   parallax.current.scrollTo(1)
-                // }
-                console.log('Inview:', inView)
-              }}
-            />
-          </ParallaxLayer>
+      <div className="scrollsnapper">
+        <div className="scrollsnapper-page" onClick={scrollPage} />
+        <div className="scrollsnapper-page">
+          {/* PioneerLede expects to be inside a Parallax component */}
+          <Parallax pages={1}>
+            <PioneerLede data={data} />
+          </Parallax>
 
           {/* When we hit the bottom of the scroll, transition to pioneer page */}
-          <ParallaxLayer offset={1} speed={1}>
+          {/* Elements created by InView will require global styles, so we put it
+          inside a container to allow scoped styles */}
+          <div className="navigation-trigger">
             <InView
               as="div"
-              style={{
-                position: 'absolute',
-                bottom: 0,
-                height: '1px',
-                width: '100%'
-              }}
               onChange={(inView, entry) => {
                 if (inView) {
                   Router.push(
@@ -135,34 +119,18 @@ function AttractMode (props) {
                 }
               }}
             />
-          </ParallaxLayer>
-
-          <PioneerLede data={data} later />
-        </Parallax>
-      </section>
+          </div>
+        </div>
+      </div>
 
       <style jsx>
         {`
-          section {
-            padding: 0;
-          }
-
-          .scrollcontent {
-            width: 100vw;
-            height: 100vh;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 200;
-          }
-
           .attract-container {
             position: absolute;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            position: sticky;
             background-color: white;
             display: flex;
             align-content: center;
@@ -207,6 +175,36 @@ function AttractMode (props) {
             border: 0;
             font-family: 'Anton';
             text-transform: uppercase;
+          }
+
+          .scrollsnapper {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 200;
+            /* Allow scroll snapping */
+            scroll-snap-type: y mandatory;
+            display: flex;
+            flex-flow: column nowrap;
+            overflow-y: auto;
+          }
+
+          /* Each "page" in the scroll snap container */
+          .scrollsnapper-page {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            flex: none;
+            scroll-snap-align: center;
+          }
+
+          .navigation-trigger {
+            position: absolute;
+            bottom: 0;
+            height: 1px;
+            width: 100%;
           }
         `}
       </style>

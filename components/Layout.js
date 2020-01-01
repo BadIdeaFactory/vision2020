@@ -112,7 +112,7 @@ export default function Layout ({ className = '', ...props }) {
             font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
               Helvetica, sans-serif;
             font-family: ${TYPOGRAPHY_BODY};
-            font-size: 32px;
+            font-size: 22px;
             overscroll-behavior: none;
           }
 
