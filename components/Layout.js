@@ -113,6 +113,7 @@ export default function Layout ({ className = '', ...props }) {
               Helvetica, sans-serif;
             font-family: ${TYPOGRAPHY_BODY};
             font-size: 32px;
+            overscroll-behavior: none;
           }
 
           @media (max-width: ${MOBILE_BREAKPOINT}) {
