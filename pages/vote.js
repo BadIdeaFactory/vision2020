@@ -127,7 +127,6 @@ const VotePage = () => {
             margin: 0 10%;
             /* Bottom alignment keeps interactive area in ADA zone */
             position: absolute;
-            bottom: 240px;
           }
 
           :global(.vote-content h2) {
@@ -136,7 +135,6 @@ const VotePage = () => {
           }
 
           :global(.vote-content p) {
-            font-size: 1.5em;
             text-align: center;
             margin: 2em 5em;
           }
