@@ -19,7 +19,7 @@ export default function WireframeOverlay (props) {
     setActive(!isActive)
   }
 
-  if (process.env.DEV_ADA_WIREFRAME === 'true') {
+  if (process.env.DEV_ADA_WIREFRAME === true) {
     return (
       <>
         <div className="wireframe-overlay">

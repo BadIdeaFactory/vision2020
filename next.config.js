@@ -3,6 +3,40 @@ const withPlugins = require('next-compose-plugins')
 const withCSS = require('@zeit/next-css')
 const withOptimizedImages = require('next-optimized-images')
 
+/**
+ * Environment variables are passed in as strings. This means falsy values are
+ * implicitly converted to strings, which become truthy as a result.
+ *
+ * This function parses incoming variables and unconverts them, if necessary.
+ *
+ * @param {string} value
+ * @return mixed types
+ */
+function parse (value) {
+  switch (value) {
+    case 'null':
+      return null
+    case 'undefined':
+      return undefined
+    case 'false':
+      return false
+    case 'true':
+      return true
+    default: {
+      if (isNumeric(value)) {
+        return +value
+      } else {
+        return value
+      }
+    }
+  }
+}
+
+/* Tests if a string can be parsed as a number */
+function isNumeric (num) {
+  return !Number.isNaN(num)
+}
+
 const nextConfig = {
   exportPathMap () {
     // Let Next.js know where to find the entry page
@@ -59,8 +93,9 @@ const nextConfig = {
   },
   env: {
     // Reference a variable that was defined in the .env file and make it available at Build Time
-    KIOSK_ID: process.env.KIOSK_ID,
-    DEV_ADA_WIREFRAME: process.env.DEV_ADA_WIREFRAME
+    KIOSK_MODE: parse(process.env.KIOSK_MODE),
+    KIOSK_ID: parse(process.env.KIOSK_ID),
+    DEV_ADA_WIREFRAME: parse(process.env.DEV_ADA_WIREFRAME)
   },
   devIndicators: {
     autoPrerender: false
