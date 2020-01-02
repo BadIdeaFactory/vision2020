@@ -59,7 +59,8 @@ const nextConfig = {
   },
   env: {
     // Reference a variable that was defined in the .env file and make it available at Build Time
-    KIOSK_ID: process.env.KIOSK_ID
+    KIOSK_ID: process.env.KIOSK_ID,
+    DEV_ADA_WIREFRAME: process.env.DEV_ADA_WIREFRAME
   },
   devIndicators: {
     autoPrerender: false
