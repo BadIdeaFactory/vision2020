@@ -51,7 +51,7 @@ const nextConfig = {
     slugs.forEach((slug) => {
       paths[`/pioneers/${slug}`] = {
         page: '/pioneers/[id]',
-        query: { id: slug, noTransition: false }
+        query: { id: slug, animated: true }
       }
     })
 

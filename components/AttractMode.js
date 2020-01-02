@@ -113,9 +113,10 @@ function AttractMode (props) {
               as="div"
               onChange={(inView, entry) => {
                 if (inView) {
-                  Router.push(
-                    `/pioneers/${attractLinks[attractId].slug}?noTransition=true`
-                  )
+                  Router.push({
+                    pathname: `/pioneers/${attractLinks[attractId].slug}`,
+                    query: { animated: false }
+                  })
                 }
               }}
             />

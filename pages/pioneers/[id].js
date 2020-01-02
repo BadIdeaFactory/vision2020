@@ -14,28 +14,24 @@ import ContextCenterQuote from '../../components/pioneer/ContextCenterQuote'
 import ContextImage1 from '../../components/pioneer/ContextImage1'
 import ContextSlideshow from '../../components/pioneer/ContextSlideshow'
 
-Pioneer.getInitialProps = async (context) => {
-  return {
-    noTransition: context.query.noTransition
-  }
+Pioneer.getInitialProps = async ({ query }) => {
+  return { query }
 }
 
-export default function Pioneer () {
+export default function Pioneer (props) {
   const router = useRouter()
   const parallax = useRef(null)
 
   const slug = router.query.id
   const data = getEntry(slug)
-  const noTransition = getEntry(router.query.noTransition)
-  console.log('noTransition', noTransition)
 
   useEffect(() => {
-    console.log(parallax.current)
+    // console.log(parallax.current)
     if (parallax.current) {
       parallax.current.originalOnScroll = parallax.current.onScroll
       parallax.current.onScroll = (event) => {
         parallax.current.originalOnScroll(event)
-        console.log(parallax.current.offset)
+        // console.log(parallax.current.offset)
       }
     }
     // parallax.current.animatedScroll.addListener(console.log)
@@ -43,6 +39,21 @@ export default function Pioneer () {
 
   // Might be null on first render
   if (!data) return null
+
+  // Do we want to show transition effects when we load this?
+  // This is done client-side because next.js pre-rednder has problems
+  // with paths where this is a dynamic value
+  function shouldWeAnimate () {
+    const params = new URLSearchParams(window.location.search)
+    const animated = params.get('animated')
+    // Only return `false` if animated === 'false
+    // This is the only safe way to "coerce" the string value to boolean
+    return animated !== 'false'
+  }
+
+  const animated = (typeof window !== 'undefined')
+    ? shouldWeAnimate()
+    : router.query.animated
 
   // Determine how many pages there are.
   const pages = data.context.length
@@ -90,7 +101,7 @@ export default function Pioneer () {
         >
           {/* Page 1: Title screen "Lede" */}
           <div className="pioneer-spine" />
-          <PioneerLede data={data} />
+          <PioneerLede data={data} animated={animated} />
           <ParallaxLayer offset={0} speed={1} style={{ padding: '30px' }}>
             <CategoryEyebrow>{data.name}</CategoryEyebrow>
           </ParallaxLayer>

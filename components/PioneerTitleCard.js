@@ -4,55 +4,79 @@ import { InView } from 'react-intersection-observer'
 import { UI_COLOR_PRIMARY, TYPOGRAPHY_DISPLAY } from '../main/const'
 
 PioneerTitleCard.propTypes = {
-  data: PropTypes.object
+  data: PropTypes.object,
+  animated: PropTypes.bool
 }
 
-function PioneerTitleCard ({ data }) {
+function PioneerTitleCard ({ data, animated = true }) {
   return (
     <>
       <div className="pioneer-title-card">
-        <InView
-          as="div"
-          onChange={(inView, entry) => {
-            if (inView) {
-              entry.target.classList.add('visible')
-            }
-          }}
-        >
-          <h2>{data.name}</h2>
-        </InView>
-        <InView
-          as="div"
-          onChange={(inView, entry) => {
-            if (inView) {
-              window.setTimeout(() => {
-                if (entry && entry.target) {
+        {animated ? (
+          <>
+            <InView
+              as="div"
+              className="animated"
+              onChange={(inView, entry) => {
+                if (inView) {
                   entry.target.classList.add('visible')
                 }
-              }, 200)
-            }
-          }}
-        >
-          <div className="pioneer-lifedate">{data.life_date}</div>
-        </InView>
-        <InView
-          as="div"
-          onChange={(inView, entry) => {
-            if (inView) {
-              window.setTimeout(() => {
-                if (entry && entry.target) {
-                  entry.target.classList.add('visible')
+              }}
+            >
+              <h2>{data.name}</h2>
+            </InView>
+            <InView
+              as="div"
+              className="animated"
+              onChange={(inView, entry) => {
+                if (inView) {
+                  window.setTimeout(() => {
+                    if (entry && entry.target) {
+                      entry.target.classList.add('visible')
+                    }
+                  }, 200)
                 }
-              }, 400)
-            }
-          }}
-        >
-          <div className="pioneer-titles">
-            {data.titles.map((title) => (
-              <div key={title}>{title}</div>
-            ))}
-          </div>
-        </InView>
+              }}
+            >
+              <div className="pioneer-lifedate">{data.life_date}</div>
+            </InView>
+            <InView
+              as="div"
+              className="animated"
+              onChange={(inView, entry) => {
+                if (inView) {
+                  window.setTimeout(() => {
+                    if (entry && entry.target) {
+                      entry.target.classList.add('visible')
+                    }
+                  }, 400)
+                }
+              }}
+            >
+              <div className="pioneer-titles">
+                {data.titles.map((title) => (
+                  <div key={title}>{title}</div>
+                ))}
+              </div>
+            </InView>
+          </>
+        ) : (
+          <>
+            <div className="visible">
+              <h2>{data.name}</h2>
+            </div>
+            <div className="visible">
+              <div className="pioneer-lifedate">{data.life_date}</div>
+            </div>
+            <div className="visible">
+              <div className="pioneer-titles">
+                {data.titles.map((title) => (
+                  <div key={title}>{title}</div>
+                ))}
+              </div>
+            </div>
+          </>
+        )}
       </div>
 
       <style jsx>
@@ -74,13 +98,13 @@ function PioneerTitleCard ({ data }) {
           }
 
           /* react-spring <animated.div> does not render namespaced classnames */
-          :global(.pioneer-title-card > div) {
+          :global(.pioneer-title-card > div.animated) {
             opacity: 0;
             transform: translateY(4em);
             transition: opacity 1000ms, transform 600ms ease-out;
           }
 
-          :global(.pioneer-title-card > div.visible) {
+          :global(.pioneer-title-card > div.animated.visible) {
             opacity: 1;
             transform: translateY(0);
           }

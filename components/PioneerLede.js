@@ -6,10 +6,11 @@ import PioneerTitleCard from './PioneerTitleCard'
 import { MOBILE_BREAKPOINT, UI_COLOR_SECONDARY } from '../main/const'
 
 PioneerLede.propTypes = {
-  data: PropTypes.object
+  data: PropTypes.object,
+  animated: PropTypes.bool
 }
 
-export default function PioneerLede ({ data }) {
+export default function PioneerLede ({ data, animated = true }) {
   // Lazy-load the image for the attract page
   const [ref, inView] = useInView({
     threshold: 1,
@@ -31,7 +32,7 @@ export default function PioneerLede ({ data }) {
         }}
       >
         <div className="pioneer-title-card-container">
-          <PioneerTitleCard data={data} />
+          <PioneerTitleCard data={data} animated={animated} />
         </div>
       </ParallaxLayer>
 
@@ -49,6 +50,7 @@ export default function PioneerLede ({ data }) {
           <img
             ref={ref}
             src={inView ? profileImageUrl : ''}
+            className={animated ? 'animated' : ''}
             onLoad={(e) => {
               const el = e.target
               window.setTimeout(() => {
@@ -76,6 +78,9 @@ export default function PioneerLede ({ data }) {
 
           .profile-image-container img {
             height: 100%;
+          }
+
+          .profile-image-container img.animated {
             opacity: 0;
             transform: translateY(5vh);
             transition: 500ms opacity ease-in-out, 500ms transform ease-in-out;
