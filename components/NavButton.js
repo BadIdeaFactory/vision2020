@@ -1,7 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-import { MOBILE_BREAKPOINT } from '../main/const'
+import {
+  MOBILE_BREAKPOINT,
+  UI_BUTTON_BORDER_LG,
+  UI_BUTTON_BORDER_SM,
+  TYPE_BUTTON_LG,
+  TYPE_BUTTON_SM
+} from '../main/const'
 
 NavButton.propTypes = {
   href: PropTypes.string,
@@ -35,14 +41,14 @@ export default function NavButton (props) {
             padding: 0.1em 0.55em;
             text-decoration: none;
             font-family: 'Anton', sans-serif;
-            font-size: 36px;
+            font-size: ${TYPE_BUTTON_LG};
             text-transform: uppercase;
             white-space: nowrap;
             pointer-events: auto;
 
             background-color: white;
             color: black;
-            border: 8px solid black;
+            border: ${UI_BUTTON_BORDER_LG} solid black;
           }
 
           div {
@@ -54,8 +60,8 @@ export default function NavButton (props) {
             screen and (orientation: landscape) {
             a,
             div {
-              font-size: 18px;
-              border: 4px solid black;
+              font-size: ${TYPE_BUTTON_SM};
+              border: ${UI_BUTTON_BORDER_SM} solid black;
             }
           }
         `}

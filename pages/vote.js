@@ -102,6 +102,10 @@ const VotePage = () => {
 
       <style jsx>
         {`
+          :global(body) {
+            overflow: hidden;
+          }
+
           :global(.vote-page) {
             background-color: black;
             color: white;

@@ -1,7 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import uniqueId from 'lodash/uniqueId'
-import { UI_COLOR_SECONDARY } from '../main/const'
+import {
+  MOBILE_BREAKPOINT,
+  UI_COLOR_SECONDARY,
+  UI_BUTTON_BORDER_SM,
+  UI_BUTTON_BORDER_LG,
+  TYPE_BUTTON_SM,
+  TYPE_BUTTON_LG
+} from '../main/const'
 
 VoteButton.propTypes = {
   name: PropTypes.string.isRequired,
@@ -66,14 +73,22 @@ function VoteButton ({
             padding: 0.1em 0.55em;
             text-decoration: none;
             font-family: 'Anton', sans-serif;
-            font-size: 36px;
+            font-size: ${TYPE_BUTTON_LG};
             text-transform: uppercase;
             white-space: nowrap;
             pointer-events: auto;
 
             background-color: black;
             color: white;
-            border: 8px solid ${UI_COLOR_SECONDARY};
+            border: ${UI_BUTTON_BORDER_LG} solid ${UI_COLOR_SECONDARY};
+          }
+
+          @media screen and (max-width: ${MOBILE_BREAKPOINT}),
+            screen and (orientation: landscape) {
+            label {
+              font-size: ${TYPE_BUTTON_SM};
+              border-width: ${UI_BUTTON_BORDER_SM};
+            }
           }
 
           input:active + label {
