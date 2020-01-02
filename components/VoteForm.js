@@ -74,7 +74,8 @@ function VoteForm (props) {
             user-select: none;
             text-align: center;
             max-width: 680px;
-            margin: 6em auto;
+            margin: 0 auto;
+            margin-bottom: 10vh;
           }
         `}
       </style>

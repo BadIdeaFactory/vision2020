@@ -80,12 +80,6 @@ const VotePage = () => {
     case 1:
       voteContent = (
         <animated.div className="vote-content" style={props}>
-          <h2>Thanks!</h2>
-          <p>
-            We're collecting anonymous data for internal purposes only. This
-            will not be shown to the public. Share or skip ahead to see poll
-            results.
-          </p>
           <DemographicsForm onSubmit={handleSubmitDemographics} />
         </animated.div>
       )
@@ -108,10 +102,6 @@ const VotePage = () => {
 
       <style jsx>
         {`
-          :global(body) {
-            overflow: hidden;
-          }
-
           :global(.vote-page) {
             background-color: black;
             color: white;
@@ -127,16 +117,21 @@ const VotePage = () => {
             margin: 0 10%;
             /* Bottom alignment keeps interactive area in ADA zone */
             position: absolute;
+            bottom: 1.5em; /* align skip with LowerNav */
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 70%;
           }
 
           :global(.vote-content h2) {
             color: ${UI_COLOR_SECONDARY};
-            margin-bottom: 0.25em;
+            margin: 0;
           }
 
           :global(.vote-content p) {
             text-align: center;
-            margin: 2em 5em;
           }
         `}
       </style>

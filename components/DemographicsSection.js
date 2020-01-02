@@ -72,8 +72,8 @@ function DemographicsSection (props) {
       <style jsx>
         {`
           h3 {
-            margin: 80px 0; /* To assist with pushing buttons into ADA zone */
             font-size: 60px;
+            font-size: 3.125vh;
             color: ${UI_COLOR_SECONDARY};
             white-space: nowrap;
           }
@@ -82,6 +82,10 @@ function DemographicsSection (props) {
             height: 400px; /* Position elements in the same place on screen */
             width: 300px;
             margin: 0 auto;
+          }
+
+          .form-section {
+            margin-bottom: 5vh;
           }
 
           .row {
