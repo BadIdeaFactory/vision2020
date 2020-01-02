@@ -95,7 +95,11 @@ const CreditsPage = () => (
       </div>
     </div>
 
-    <LowerNav left="pioneers" middle="exit" right="vote" />
+    <LowerNav
+      left={LowerNav.types.PIONEERS}
+      middle={LowerNav.types.EXIT}
+      right={LowerNav.types.VOTE}
+    />
 
     <style jsx global>
       {`

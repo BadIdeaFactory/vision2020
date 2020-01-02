@@ -2,6 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import NavButton from './NavButton'
 
+const types = {
+  PIONEERS: 'PIONEERS',
+  CREDITS: 'CREDITS',
+  EXIT: 'EXIT',
+  VOTE: 'VOTE'
+}
+
 const PioneersButton = () => <NavButton href="/pioneers">Pioneers</NavButton>
 const CreditsButton = () => <NavButton href="/credits">Credits</NavButton>
 const ExitButton = () => <NavButton href="/">Exit</NavButton>
@@ -9,13 +16,13 @@ const VoteButton = () => <NavButton href="/vote">Vote</NavButton>
 
 function getButton (string) {
   switch (string) {
-    case 'pioneers':
+    case types.PIONEERS:
       return <PioneersButton />
-    case 'credits':
+    case types.CREDITS:
       return <CreditsButton />
-    case 'exit':
+    case types.EXIT:
       return <ExitButton />
-    case 'vote':
+    case types.VOTE:
       return <VoteButton />
     default:
       console.error(`Nav button ${string} is not valid.`)
@@ -24,6 +31,9 @@ function getButton (string) {
 
   return null
 }
+
+// Set enumerable values
+LowerNav.types = types
 
 LowerNav.propTypes = {
   left: PropTypes.string,

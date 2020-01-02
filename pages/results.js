@@ -29,7 +29,7 @@ const ResultsPage = () => {
           <VoteResults />
         </animated.div>
 
-        <LowerNav left="pioneers" right="exit" />
+        <LowerNav left={LowerNav.types.PIONEERS} right={LowerNav.types.EXIT} />
       </Layout>
 
       <style jsx>

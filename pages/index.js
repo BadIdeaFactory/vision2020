@@ -18,6 +18,8 @@ function Home () {
   // We've also defined custom urls at /attract/{num} where the number is
   // no longer 0-indexed (so use 1-6). This is better for non-tech viewers.
   const router = useRouter()
+  // If kioskId isn't specified, we read kiosk ID from the environment
+  // variable or default to the 0 (the first kiosk ID.)
   const { kioskId = process.env.KIOSK_ID || 0 } = router.query
 
   return (
@@ -28,7 +30,7 @@ function Home () {
 
       <AttractMode kioskId={Number.parseInt(kioskId)} />
 
-      <LowerNav left="pioneers" right="vote" />
+      <LowerNav left={LowerNav.types.PIONEERS} right={LowerNav.types.VOTE} />
     </Layout>
   )
 }

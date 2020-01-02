@@ -144,7 +144,7 @@ const PioneersList = () => (
       </div>
     </section>
 
-    <LowerNav left="exit" right="vote" />
+    <LowerNav left={LowerNav.types.EXIT} right={LowerNav.types.VOTE} />
 
     <style jsx global>
       {`

@@ -111,7 +111,7 @@ export default function Pioneer () {
         <VoteIntro />
       </div>
 
-      <LowerNav left="pioneers" right="vote" />
+      <LowerNav left={LowerNav.types.PIONEERS} right={LowerNav.types.VOTE} />
 
       <style jsx global>
         {`
