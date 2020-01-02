@@ -28,6 +28,25 @@ function VoteButton ({
 }) {
   const id = uniqueId('vote-button_')
 
+  function handleChange (event) {
+    // Animate color pulse
+    const labelEl = event.target.parentNode.querySelector('label')
+    window.setTimeout(() => {
+      labelEl.classList.add('flash-off')
+    }, 100)
+    window.setTimeout(() => {
+      labelEl.classList.add('flash-on')
+      labelEl.classList.remove('flash-off')
+    }, 200)
+    window.setTimeout(() => {
+      labelEl.classList.remove('flash-on')
+      labelEl.classList.add('flash-off')
+    }, 300)
+
+    // Call handler from prop
+    onChange(event)
+  }
+
   return (
     <div>
       <input
@@ -36,7 +55,7 @@ function VoteButton ({
         name={name}
         value={value}
         checked={checked}
-        onChange={onChange}
+        onChange={handleChange}
         {...rest}
       />
       <label htmlFor={id}>{label}</label>
@@ -99,20 +118,16 @@ function VoteButton ({
           input:checked + label {
             background-color: ${UI_COLOR_SECONDARY};
             color: black;
-
-            animation-name: color-pulse;
-            animation-duration: 250ms;
-            animation-iteration-count: 2;
-            animation-timing-function: steps(2, start);
           }
 
-          @keyframes color-pulse {
-            100% {
-              background-color: rgba(237, 219, 90, 1);
-            }
-            0% {
-              background-color: rgba(237, 219, 90, 0.2);
-            }
+          label.flash-on {
+            background-color: ${UI_COLOR_SECONDARY} !important;
+            color: black !important;
+          }
+
+          label.flash-off {
+            background-color: black !important;
+            color: white !important;
           }
         `}
       </style>
