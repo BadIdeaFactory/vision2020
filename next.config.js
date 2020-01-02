@@ -1,3 +1,4 @@
+require('dotenv').config()
 const withPlugins = require('next-compose-plugins')
 const withCSS = require('@zeit/next-css')
 const withOptimizedImages = require('next-optimized-images')
@@ -55,6 +56,10 @@ const nextConfig = {
     })
 
     return paths
+  },
+  env: {
+    // Reference a variable that was defined in the .env file and make it available at Build Time
+    KIOSK_ID: process.env.KIOSK_ID
   },
   devIndicators: {
     autoPrerender: false

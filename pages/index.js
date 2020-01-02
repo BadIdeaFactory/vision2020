@@ -18,7 +18,7 @@ function Home () {
   // We've also defined custom urls at /attract/{num} where the number is
   // no longer 0-indexed (so use 1-6). This is better for non-tech viewers.
   const router = useRouter()
-  const { kioskId = 0 } = router.query
+  const { kioskId = process.env.KIOSK_ID || 0 } = router.query
 
   return (
     <Layout>
