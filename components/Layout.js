@@ -114,6 +114,7 @@ export default function Layout ({ className = '', ...props }) {
             font-family: ${TYPOGRAPHY_BODY};
             font-size: 22px;
             overscroll-behavior: none;
+            overflow-x: hidden;
           }
 
           @media (max-width: ${MOBILE_BREAKPOINT}) {
