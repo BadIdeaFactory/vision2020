@@ -18,9 +18,9 @@ ContextSlideshow.propTypes = {
 function ContextSlideshow ({ offset, context = {} }) {
   const [currentSlide, setCurrentSlide] = useState(0)
   const transitions = useTransition(currentSlide, null, {
-    from: { position: 'absolute', opacity: 0, transform: 'translateY(2vh)' },
-    enter: { opacity: 1, transform: 'translateY(0)' },
-    leave: { opacity: 0, transform: 'translateY(-2vh)' }
+    from: { position: 'absolute', opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 }
   })
 
   const images = context.slideshow.map((image) => ({
