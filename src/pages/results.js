@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 import CategoryEyebrow from '../components/CategoryEyebrow'
 import VoteResults from '../components/VoteResults'
 import LowerNav from '../components/LowerNav'
-import { UI_COLOR_SECONDARY } from '../main/const'
+import { UI_COLOR_SECONDARY } from '../const'
 
 const ResultsPage = () => {
   const props = useSpring({

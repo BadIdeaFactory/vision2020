@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 import CategoryEyebrow from '../components/CategoryEyebrow'
 import LowerNav from '../components/LowerNav'
 import NavButton from '../components/NavButton'
-import { UI_COLOR_PRIMARY } from '../main/const'
+import { UI_COLOR_PRIMARY } from '../const'
 import { getEntry } from '../data/load'
 import DIRECTORY from '../data/directory.json'
 
@@ -18,8 +18,8 @@ PioneerItem.propTypes = {
 function PioneerItem ({ id, label }) {
   const [imageLoaded, setImageLoaded] = useState(false)
   const data = getEntry(id)
-  const profileImageTrace = require(`../public/portraits/${data.portrait_img}?trace`)
-  const profileImageUrl = require(`../public/portraits/${data.portrait_img}?webp&resize&size=600`)
+  const profileImageTrace = require(`../../public/portraits/${data.portrait_img}?trace`)
+  const profileImageUrl = require(`../../public/portraits/${data.portrait_img}?webp&resize&size=600`)
 
   return (
     <>

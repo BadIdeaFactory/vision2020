@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { ParallaxLayer } from '@react-spring/parallax'
 import { useInView } from 'react-intersection-observer'
 import PioneerTitleCard from './PioneerTitleCard'
-import { MOBILE_BREAKPOINT, UI_COLOR_SECONDARY } from '../main/const'
+import { MOBILE_BREAKPOINT, UI_COLOR_SECONDARY } from '../const'
 
 PioneerLede.propTypes = {
   data: PropTypes.object,
@@ -16,7 +16,7 @@ export default function PioneerLede ({ data, animated = true }) {
     threshold: 1,
     triggerOnce: true
   })
-  const profileImageUrl = require(`../public/portraits/${data.portrait_img}?webp`)
+  const profileImageUrl = require(`../../public/portraits/${data.portrait_img}?webp`)
 
   return (
     <>

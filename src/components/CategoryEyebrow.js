@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { UI_COLOR_PRIMARY } from '../main/const'
+import { UI_COLOR_PRIMARY } from '../const'
 
 CategoryEyebrow.propTypes = {
   children: PropTypes.node,

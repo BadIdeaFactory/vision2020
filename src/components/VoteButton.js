@@ -8,7 +8,7 @@ import {
   UI_BUTTON_BORDER_LG,
   TYPE_BUTTON_SM,
   TYPE_BUTTON_LG
-} from '../main/const'
+} from '../const'
 
 VoteButton.propTypes = {
   name: PropTypes.string.isRequired,

@@ -4,8 +4,8 @@ import Head from 'next/head'
 import Layout from '../components/Layout'
 import CategoryEyebrow from '../components/CategoryEyebrow'
 import LowerNav from '../components/LowerNav'
-import { getData } from '../data/load'
-import { UI_COLOR_PRIMARY } from '../main/const'
+import { getData } from '../../data/load'
+import { UI_COLOR_PRIMARY } from '../const'
 
 const TEAM = [
   {

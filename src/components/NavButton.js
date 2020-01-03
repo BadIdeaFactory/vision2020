@@ -7,7 +7,7 @@ import {
   UI_BUTTON_BORDER_SM,
   TYPE_BUTTON_LG,
   TYPE_BUTTON_SM
-} from '../main/const'
+} from '../const'
 
 NavButton.propTypes = {
   href: PropTypes.string,

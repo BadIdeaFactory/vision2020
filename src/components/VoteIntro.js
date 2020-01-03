@@ -1,6 +1,6 @@
 import React from 'react'
 import UIButton from './UIButton'
-import { UI_COLOR_SECONDARY } from '../main/const'
+import { UI_COLOR_SECONDARY } from '../const'
 
 function VoteIntro (props) {
   return (

@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Router from 'next/router'
-import createActivityDetector from '../main/vendor/activity-detector'
+import createActivityDetector from '../vendor/activity-detector'
 import Metatags from './Metatags'
 import WireframeOverlay from './WireframeOverlay'
 import {
   MOBILE_BREAKPOINT,
   TYPOGRAPHY_DISPLAY,
   TYPOGRAPHY_BODY
-} from '../main/const'
+} from '../const'
 
 // Imports and initializes Firebase
 // Runs here because every page in our app uses <Layout />
 // so loading any page initializes it
-import '../main/firebase'
+import '../firebase'
 
 // A hook to determine user idleness
 // Borrowed from https://egghead.io/lessons/react-detect-user-activity-with-a-custom-useidle-react-hook

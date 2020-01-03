@@ -7,8 +7,8 @@ import CategoryEyebrow from '../components/CategoryEyebrow'
 import VoteForm from '../components/VoteForm'
 import DemographicsForm from '../components/DemographicsForm'
 import LowerNav from '../components/LowerNav'
-import firebase from '../main/firebase'
-import { UI_COLOR_SECONDARY } from '../main/const'
+import firebase from '../firebase'
+import { UI_COLOR_SECONDARY } from '../const'
 
 const VotePage = () => {
   const [voteState, setVoteState] = useState(0)

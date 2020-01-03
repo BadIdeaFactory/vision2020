@@ -6,7 +6,7 @@ import { ParallaxLayer } from '@react-spring/parallax'
 import ImageGallery from 'react-image-gallery'
 import ParseText from './ParseText'
 import { TRANSITION_IN_DELAY, TRANSITION_IN_THRESHOLD } from './constants'
-import '../../node_modules/react-image-gallery/styles/css/image-gallery.css'
+import '../../../node_modules/react-image-gallery/styles/css/image-gallery.css'
 
 ContextSlideshow.propTypes = {
   offset: PropTypes.number,

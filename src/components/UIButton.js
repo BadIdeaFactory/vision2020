@@ -1,6 +1,6 @@
 import React from 'react'
 import NavButton from './NavButton'
-import { UI_COLOR_SECONDARY } from '../main/const'
+import { UI_COLOR_SECONDARY } from '../const'
 
 function UIButton (props) {
   return (

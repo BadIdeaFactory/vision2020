@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { InView } from 'react-intersection-observer'
-import { UI_COLOR_PRIMARY, TYPOGRAPHY_DISPLAY } from '../main/const'
+import { UI_COLOR_PRIMARY, TYPOGRAPHY_DISPLAY } from '../const'
 
 PioneerTitleCard.propTypes = {
   data: PropTypes.object,

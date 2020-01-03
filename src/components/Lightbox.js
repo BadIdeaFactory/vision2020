@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { UI_COLOR_SECONDARY } from '../main/const'
+import { UI_COLOR_SECONDARY } from '../const'
 
 export default function Lightbox (props) {
   const [isVisible, setVisible] = useState(false)

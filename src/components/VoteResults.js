@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useSpring, useTransition, animated } from 'react-spring'
-import { UI_COLOR_SECONDARY } from '../main/const'
+import { UI_COLOR_SECONDARY } from '../const'
 
 BarChartItem.propTypes = {
   label: PropTypes.string.isRequired,
