@@ -21,11 +21,6 @@ function DemographicsForm (props) {
     setPage((page) => page + 1)
   }
 
-  function handleSubmit (event) {
-    event.preventDefault()
-    onSubmit(formState)
-  }
-
   function handleSkip (event) {
     event.preventDefault()
     setPage((page) => page + 1)
@@ -46,7 +41,7 @@ function DemographicsForm (props) {
           not be shown to the public. Share or skip ahead to see poll results.
         </p>
 
-        <form className="demo-form" onSubmit={handleSubmit}>
+        <form className="demo-form">
           <PageDots pages={4} currentPage={page} />
           {page === 1 && (
             <DemographicsSection

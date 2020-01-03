@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import VoteButton from './VoteButton'
 
@@ -13,32 +13,20 @@ function VoteForm (props) {
   function handleOptionChange (event) {
     // Only vote once
     if (checkedValue === null) {
-      setCheckedValue(event.target.value)
-    }
-  }
+      const vote = event.target.value
+      setCheckedValue(vote)
 
-  function handleSubmit (event) {
-    event.preventDefault()
-    console.log(`Voting for: ${checkedValue}`)
-    onSubmit(checkedValue)
-  }
-
-  useEffect(() => {
-    // Basically the same as handleSubmit but we handle it immediately on
-    // selection. (The other function is kept for the record.) We do not
-    // use the HTML DOM method .submit() because the event handler is
-    // defined in React, not in HTML DOM.
-    if (checkedValue !== null) {
-      console.log(`Voting for: ${checkedValue}`)
+      // Submit immediately on click.
       window.setTimeout(() => {
-        onSubmit(checkedValue)
+        console.log(`Voting for: ${vote}`)
+        onSubmit(vote)
       }, 500)
     }
-  }, [checkedValue, onSubmit])
+  }
 
   return (
     <>
-      <form className="vote-form" onSubmit={handleSubmit}>
+      <form className="vote-form">
         <VoteButton
           name="vote1"
           value="1"

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Head from 'next/head'
 import Router from 'next/router'
 import { useSpring, animated } from 'react-spring'
@@ -7,49 +7,18 @@ import CategoryEyebrow from '../components/CategoryEyebrow'
 import VoteForm from '../components/VoteForm'
 import DemographicsForm from '../components/DemographicsForm'
 import LowerNav from '../components/LowerNav'
-// import firebase from '../main/firebase'
+import firebase from '../main/firebase'
 import { UI_COLOR_SECONDARY } from '../main/const'
 
 const VotePage = () => {
   const [voteState, setVoteState] = useState(0)
   const [vote, setVote] = useState(false)
-  const [demo, setDemo] = useState(false)
 
   const props = useSpring({
     from: { transform: 'translate3d(0, 3vh, 0)', opacity: 0 },
     opacity: 1,
     transform: 'translate3d(0, 0, 0)'
   })
-
-  useEffect(() => {
-    // When the voteState hits the end, we submit data.
-    // We have to do this in an effect hook so that we can
-    // submit the latest state.
-    if (voteState === 2) {
-      // TODO:
-      // THIS WORKS!
-      // But we can't initialize it more than once per session.
-      // How to access this after init?
-      // const db = firebase.db
-
-      // Add a new document with a generated id.
-
-      console.log('firestore disabled')
-      // const date = new Date()
-      // firebase.firestore().collection('survey-responses').add({
-      //   vote,
-      //   timestamp: date, // Firebase accepts the raw Date object!
-      //   ...demo,
-      //   source: 'test' // TODO: Update source with environment
-      // })
-      //   .then(function (docRef) {
-      //     console.log('[Firestore] Document written with ID: ', docRef.id)
-      //   })
-      //   .catch(function (error) {
-      //     console.error('[Firestore] Error adding document: ', error)
-      //   })
-    }
-  }, [voteState, demo, vote])
 
   function handleSubmitVote (data) {
     setVote(Number.parseInt(data, 10))
@@ -59,10 +28,27 @@ const VotePage = () => {
   }
 
   function handleSubmitDemographics (data) {
-    setDemo(data)
-
-    // Go to next vote page
-    Router.push('/results')
+    // Add a new document with a generated id.
+    const date = new Date()
+    firebase
+      .firestore()
+      .collection('survey-responses')
+      .add({
+        vote,
+        timestamp: date, // Firebase accepts the raw Date object!
+        ...data,
+        source: 'test' // TODO: Update source with environment
+      })
+      .then(function (docRef) {
+        console.log('[Firestore] Document written with ID: ', docRef.id)
+      })
+      .catch(function (error) {
+        console.error('[Firestore] Error adding document: ', error)
+      })
+      .finally(function () {
+        // Go to next vote page
+        Router.push('/results')
+      })
   }
 
   let voteContent
