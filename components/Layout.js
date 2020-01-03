@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Router from 'next/router'
 import createActivityDetector from '../main/vendor/activity-detector'
+import Metatags from './Metatags'
 import WireframeOverlay from './WireframeOverlay'
 import {
   MOBILE_BREAKPOINT,
@@ -62,6 +63,7 @@ export default function Layout ({ className = '', ...props }) {
 
   return (
     <>
+      <Metatags />
       <div id="vision2020" className={className}>
         <WireframeOverlay />
         {props.children}
