@@ -22,6 +22,10 @@ function Home () {
   // variable or default to the 0 (the first kiosk ID.)
   const { kioskId = process.env.KIOSK_ID || 0 } = router.query
 
+  if (process.env.KIOSK_MODE === true) {
+    console.log('[Vision2020] Kiosk mode is on!')
+  }
+
   return (
     <Layout>
       <Head>

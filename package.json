@@ -41,6 +41,7 @@
   "dependencies": {
     "@react-spring/parallax": "9.0.0-canary.808.8.4a87fcb",
     "@zeit/next-css": "1.0.1",
+    "activity-detector": "3.0.0",
     "dotenv": "8.2.0",
     "electron-is-dev": "1.1.0",
     "electron-next": "3.1.5",

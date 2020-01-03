@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
-import Head from 'next/head'
+import Router from 'next/router'
+import createActivityDetector from '../main/vendor/activity-detector'
 import WireframeOverlay from './WireframeOverlay'
 import {
   MOBILE_BREAKPOINT,
@@ -13,18 +14,54 @@ import {
 // so loading any page initializes it
 import '../main/firebase'
 
+// A hook to determine user idleness
+// Borrowed from https://egghead.io/lessons/react-detect-user-activity-with-a-custom-useidle-react-hook
+// We've forked the contents of the `activity-detector` package
+// because it reads from `document` unsafely; it fails in a server
+// rendering environment. See: https://github.com/tuenti/activity-detector/issues/10
+function useIdle (options) {
+  const [isIdle, setIsIdle] = React.useState(false)
+
+  React.useEffect(() => {
+    const activityDetector = createActivityDetector(options)
+    activityDetector.on('idle', () => setIsIdle(true))
+    activityDetector.on('active', () => setIsIdle(false))
+
+    return () => activityDetector.stop()
+  }, [options])
+
+  return isIdle
+}
+
 Layout.propTypes = {
   className: PropTypes.string,
   children: PropTypes.any
 }
 
 export default function Layout ({ className = '', ...props }) {
+  // After a certain amount of time is idle, return to attract screen
+  // (only in Kiosk mode)
+  const isIdle = useIdle({
+    timeToIdle: 180000, // 3 minutes
+    // Remove default 'inactivityEvent' which automatically sets to idle when page is tabbed out
+    inactivityEvents: []
+  })
+
+  useEffect(() => {
+    if (
+      process.env.KIOSK_MODE === true &&
+      window.location.pathname !== '/' &&
+      isIdle
+    ) {
+      console.log(
+        '[Vision2020] Screen idle for 3 minutes, returning to attract mode.'
+      )
+      Router.push('/')
+    }
+  }, [isIdle])
+
   return (
     <>
-      <Head>
-        {/* <link href="https://fonts.googleapis.com/css?family=Anton|Noto+Serif:400,400i,700,700i&display=swap" rel="stylesheet" /> */}
-      </Head>
-
       <div id="vision2020" className={className}>
         <WireframeOverlay />
         {props.children}
