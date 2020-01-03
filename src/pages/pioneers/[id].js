@@ -183,10 +183,7 @@ export default function Pioneer (props) {
             }
           }
 
-          /* Quote attribution: only apply if it's direct child of blockquote */
-          /* TODO: It's possible for <em> to appear as a child of <p> (the quote)
-            itself, so we need to consider what happens when this appears there. */
-          .context blockquote em,
+          /* Quote attribution: only apply if it's direct next sibling of blockquote */
           .context blockquote + p > em:first-child {
             display: block;
             margin-top: 3em;
@@ -198,14 +195,12 @@ export default function Pioneer (props) {
 
           @media screen and (max-width: ${MOBILE_BREAKPOINT}),
             screen and (orientation: landscape) {
-            .context blockquote em,
             .context blockquote + p > em:first-child {
               font-size: 14px;
             }
           }
 
           /* Quote attribution divider */
-          .context blockquote em::before,
           .context blockquote + p > em:first-child::before {
             content: '';
             display: block;
@@ -218,7 +213,6 @@ export default function Pioneer (props) {
 
           @media screen and (max-width: ${MOBILE_BREAKPOINT}),
             screen and (orientation: landscape) {
-            .context blockquote em::before,
             .context blockquote + p > em:first-child::before {
               width: 35px;
               height: 0px;
@@ -226,7 +220,6 @@ export default function Pioneer (props) {
             }
           }
 
-          .context-align-center .context blockquote em::before,
           .context-align-center .context blockquote + p > em:first-child::before {
             left: calc(50% - 25px);
           }
