@@ -1,6 +1,41 @@
+require('dotenv').config()
 const withPlugins = require('next-compose-plugins')
 const withCSS = require('@zeit/next-css')
 const withOptimizedImages = require('next-optimized-images')
+
+/**
+ * Environment variables are passed in as strings. This means falsy values are
+ * implicitly converted to strings, which become truthy as a result.
+ *
+ * This function parses incoming variables and unconverts them, if necessary.
+ *
+ * @param {string} value
+ * @return mixed types
+ */
+function parse (value) {
+  switch (value) {
+    case 'null':
+      return null
+    case 'undefined':
+      return undefined
+    case 'false':
+      return false
+    case 'true':
+      return true
+    default: {
+      if (isNumeric(value)) {
+        return +value
+      } else {
+        return value
+      }
+    }
+  }
+}
+
+/* Tests if a string can be parsed as a number */
+function isNumeric (num) {
+  return !Number.isNaN(num)
+}
 
 const nextConfig = {
   exportPathMap () {
@@ -50,11 +85,26 @@ const nextConfig = {
     slugs.forEach((slug) => {
       paths[`/pioneers/${slug}`] = {
         page: '/pioneers/[id]',
-        query: { id: slug, noTransition: false }
+        query: { id: slug, animated: true }
       }
     })
 
     return paths
+  },
+  env: {
+    // Reference a variable that was defined in the .env file and make it available at Build Time
+    KIOSK_MODE: parse(process.env.KIOSK_MODE),
+    KIOSK_ID: parse(process.env.KIOSK_ID),
+    DEV_ADA_WIREFRAME: parse(process.env.DEV_ADA_WIREFRAME),
+    // Firebase
+    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
+    FIREBASE_AUTH_DOMAIN: process.env.FIREBASE_AUTH_DOMAIN,
+    FIREBASE_DATABASE_URL: process.env.FIREBASE_DATABASE_URL,
+    FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,
+    FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET,
+    FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID,
+    FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,
+    FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUREMENT_ID
   },
   devIndicators: {
     autoPrerender: false
