@@ -30,16 +30,25 @@ const VotePage = () => {
   function handleSubmitDemographics (data) {
     // Add a new document with a generated id.
     const date = new Date()
-    firebase
-      .firestore()
-      .collection('survey-responses')
-      .add({
+    const db = firebase.firestore().collection('survey-responses')
+    return Promise.all([
+      // Stores each individual survey response
+      db.add({
         vote,
         timestamp: date, // Firebase accepts the raw Date object!
         ...data,
         source: 'test' // TODO: Update source with environment
-      })
-      .then(function (docRef) {
+      }),
+      // Second request increments the vote counter
+      db
+        .doc('vote_counter')
+        // Note: the 'vote-counter' document must already exist
+        .update({
+          [vote]: firebase.firestore.FieldValue.increment(1)
+        })
+    ])
+      .then(function (refs) {
+        const [docRef] = refs
         console.log('[Firestore] Document written with ID: ', docRef.id)
       })
       .catch(function (error) {
