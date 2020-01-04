@@ -31,6 +31,7 @@ const VotePage = () => {
     // Add a new document with a generated id.
     const date = new Date()
     const db = firebase.firestore().collection('survey-responses')
+    const key = `vote${vote}`
     return Promise.all([
       // Stores each individual survey response
       db.add({
@@ -44,7 +45,7 @@ const VotePage = () => {
         .doc('vote_counter')
         // Note: the 'vote-counter' document must already exist
         .update({
-          [vote]: firebase.firestore.FieldValue.increment(1)
+          [key]: firebase.firestore.FieldValue.increment(1)
         })
     ])
       .then(function (refs) {
