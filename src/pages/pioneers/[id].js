@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useCallback, useEffect } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
@@ -27,18 +27,6 @@ export default function Pioneer (props) {
   const slug = router.query.id
   const data = getEntry(slug)
 
-  useEffect(() => {
-    // console.log(parallax.current)
-    if (parallax.current) {
-      parallax.current.originalOnScroll = parallax.current.onScroll
-      parallax.current.onScroll = (event) => {
-        parallax.current.originalOnScroll(event)
-        // console.log(parallax.current.offset)
-      }
-    }
-    // parallax.current.animatedScroll.addListener(console.log)
-  })
-
   // Might be null on first render
   if (!data) return null
 
@@ -60,6 +48,12 @@ export default function Pioneer (props) {
   // Determine how many pages there are.
   const pages = data.context.length
   const lastPageOffset = pages - 1
+
+  // Scroll to next page on click because we don't know how to handle
+  // scroll / flick action yet.
+  function clickToScroll (event) {
+    parallax.current.scrollTo(parallax.current.offset + 1)
+  }
 
   function renderContext (context) {
     const offset = context.page
@@ -101,6 +95,7 @@ export default function Pioneer (props) {
             top: 0,
             backgroundColor: 'white'
           }}
+          onClick={clickToScroll}
         >
           {/* Page 1: Title screen "Lede" */}
           <div className="pioneer-spine" />
@@ -235,6 +230,7 @@ export default function Pioneer (props) {
 
           .image-container {
             position: absolute;
+            margin-top: -10%;
           }
 
           .image-container img {
@@ -249,6 +245,10 @@ export default function Pioneer (props) {
             opacity: 0;
             transform: translateY(5em);
             transition: opacity 1000ms, transform 1000ms ease-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
           }
 
           .context-transition-container.visible {
