@@ -12,6 +12,8 @@ import { MOBILE_BREAKPOINT, UI_COLOR_SECONDARY } from '../../const'
 import { getEntry } from '../../data/load'
 import ContextCenterQuote from '../../components/pioneer/ContextCenterQuote'
 import ContextImage1 from '../../components/pioneer/ContextImage1'
+import ContextImage2 from '../../components/pioneer/ContextImage2'
+import ContextImage5 from '../../components/pioneer/ContextImage5'
 import ContextSlideshow from '../../components/pioneer/ContextSlideshow'
 
 Pioneer.getInitialProps = async ({ query }) => {
@@ -67,14 +69,15 @@ export default function Pioneer (props) {
       return <ContextCenterQuote key={offset} offset={offset} context={context} />
     } else if (context.slideshow && context.slideshow.length > 0) {
       return <ContextSlideshow key={offset} offset={offset} context={context} />
+    } else if (context.images.length > 1 && context.images.length <= 4) {
+      // If there are 2-4 images, stagger them
+      return <ContextImage2 key={offset} offset={offset} context={context} />
+    } else if (context.images.length >= 5) {
+      // If there are 5 or more images, tile them
+      return <ContextImage5 key={offset} offset={offset} context={context} />
     }
 
     // Use ContextImage1 for one or zero images
-    // TODO: make the layouts for all the others.
-    if (context.images.length > 1) {
-      console.log('todo: create layout for slide with', context.images.length, 'images')
-    }
-
     return <ContextImage1 key={offset} offset={offset} context={context} />
   }
 
