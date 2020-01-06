@@ -38,7 +38,6 @@ function ContextImage1 ({ offset, context = {} }) {
               // Even number pages align images to the left
               right: context.page % 2 ? 0 : 'auto',
               left: context.page % 2 ? 'auto' : 0,
-              top: '10%',
               width: 'calc(50% - 50px - 25px)'
             }}
           >
@@ -65,7 +64,7 @@ function ContextImage1 ({ offset, context = {} }) {
             // Even number pages align text to the right
             marginLeft:
               context.page % 2 ? 'calc(10% + 50px)' : 'calc(50% - 50px)',
-            marginTop: '20%'
+            marginTop: '50%'
           }}
           className="context-text-container"
         >

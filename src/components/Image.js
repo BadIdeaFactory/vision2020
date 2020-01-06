@@ -11,6 +11,7 @@ export default function Image (props) {
   const { src, alt, className, ...rest } = props
 
   function handleClick (event) {
+    event.stopPropagation()
     if (className.includes('lightbox')) {
       const openLightboxEvent = new CustomEvent('vision2020:open_lightbox', {
         detail: {

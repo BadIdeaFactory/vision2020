@@ -82,3 +82,5 @@ function BarChartItem ({ label, value }) {
     </>
   )
 }
+
+export default BarChartItem
