@@ -52,7 +52,7 @@ export default function Pioneer (props) {
   // Scroll to next page on click because we don't know how to handle
   // scroll / flick action yet.
   function clickToScroll (event) {
-    parallax.current.scrollTo(parallax.current.offset + 1)
+    // parallax.current.scrollTo(parallax.current.offset + 1)
   }
 
   function renderContext (context) {
