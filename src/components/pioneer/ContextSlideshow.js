@@ -73,7 +73,7 @@ function ContextSlideshow ({ offset, context = {} }) {
                 )
                 window.dispatchEvent(openLightboxEvent)
               }}
-              onSlide={(index) => {
+              onBeforeSlide={(index) => {
                 setCurrentSlide(index)
               }}
             />
