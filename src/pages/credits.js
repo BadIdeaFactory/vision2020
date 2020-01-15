@@ -9,28 +9,26 @@ import { UI_COLOR_PRIMARY } from '../const'
 
 const TEAM = [
   {
-    name: 'Drexel University',
-    text: 'Planning, Finances'
+    name: 'ORGANIZER',
+    text:
+      'Drexel University, Institute for Women’s Health and Leadership, Vision 2020, Lynn H. Yeakel, president and founder'
   },
   {
-    name: 'Kimmel Center',
-    text: 'Host venue'
+    name: 'DESIGNERS',
+    text:
+      'Dome Collective in collaboration with MakerB Studio (Furniture Design), Bad Idea Factory (Software Development), This is our work (Graphic Design)'
   },
   {
-    name: 'Dome',
-    text: 'Strategy & Design'
+    name: 'CURATORS/PROJECT MANAGERS',
+    text: 'Melissa Clemmer and Page Talbott, Talbott Exhibits and Planning'
   },
   {
-    name: 'Artguild',
-    text: 'Production & Fabrication'
+    name: 'FABRICATORS',
+    text: 'Art Guild, Inc.'
   },
   {
-    name: 'Talbott Exhibits & Planning',
-    text: 'Content & Project Management'
-  },
-  {
-    name: 'Bad Idea Factory',
-    text: 'Software Development'
+    name: 'VISION 2020 HISTORIAN',
+    text: 'Joanne Murray'
   }
 ]
 
