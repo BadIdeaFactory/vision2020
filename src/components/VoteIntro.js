@@ -1,6 +1,7 @@
 import React from 'react'
 import UIButton from './UIButton'
 import { UI_COLOR_SECONDARY } from '../const'
+import star from '../images/ui/star.svg'
 
 function VoteIntro (props) {
   return (
@@ -8,11 +9,11 @@ function VoteIntro (props) {
       <div className="vote-intro-container vote-thing">
         <div className="vote-intro-content">
           <div className="vote-intro-stars">
-            <img src="/ui/star.svg" />
-            <img src="/ui/star.svg" />
-            <img src="/ui/star.svg" />
-            <img src="/ui/star.svg" />
-            <img src="/ui/star.svg" />
+            <img src={star} />
+            <img src={star} />
+            <img src={star} />
+            <img src={star} />
+            <img src={star} />
           </div>
 
           <h2>What's your vision in 2020?</h2>
@@ -23,11 +24,11 @@ function VoteIntro (props) {
           </div>
 
           <div className="vote-intro-stars">
-            <img src="/ui/star.svg" />
-            <img src="/ui/star.svg" />
-            <img src="/ui/star.svg" />
-            <img src="/ui/star.svg" />
-            <img src="/ui/star.svg" />
+            <img src={star} />
+            <img src={star} />
+            <img src={star} />
+            <img src={star} />
+            <img src={star} />
           </div>
         </div>
       </div>

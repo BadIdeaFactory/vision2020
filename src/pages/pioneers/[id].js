@@ -15,6 +15,7 @@ import ContextImage1 from '../../components/pioneer/ContextImage1'
 import ContextImage2 from '../../components/pioneer/ContextImage2'
 import ContextImage5 from '../../components/pioneer/ContextImage5'
 import ContextSlideshow from '../../components/pioneer/ContextSlideshow'
+import triangle from '../../images/ui/triangle.svg'
 
 Pioneer.getInitialProps = async ({ query }) => {
   return { query }
@@ -110,7 +111,7 @@ export default function Pioneer (props) {
           {/* Triangle */}
           <ParallaxLayer offset={lastPageOffset} speed={1} style={{ pointerEvents: 'none' }}>
             <div className="arrow-holder">
-              <img src="/ui/triangle.svg" />
+              <img src={triangle} />
             </div>
           </ParallaxLayer>
         </Parallax>

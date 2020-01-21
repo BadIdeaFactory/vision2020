@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import chevron from '../images/ui/chevron.svg'
 
 Chevron.propTypes = {
   onClick: PropTypes.func
@@ -11,7 +12,7 @@ function Chevron (props) {
   return (
     <>
       <div className="chevron">
-        <img src="/ui/chevron.svg" onClick={onClick} />
+        <img src={chevron} onClick={onClick} />
       </div>
       <style jsx>
         {`
