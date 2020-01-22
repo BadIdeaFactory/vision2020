@@ -130,10 +130,18 @@ function PioneerTitleCard ({ data, animated = true }) {
             font-family: ${TYPOGRAPHY_DISPLAY};
             font-size: 60px;
             font-size: 3.125vh; /* match 60px on 1920x1080 portrait */
-            line-height: 1.5;
+            line-height: 1.2;
             color: ${UI_COLOR_PRIMARY};
             text-transform: uppercase;
             margin: 0 10%;
+          }
+
+          .pioneer-titles > div:not(:first-child) {
+            margin-top: 0.3em;
+          }
+
+          .pioneer-titles > div:not(:last-child) {
+            margin-bottom: 0.3em;
           }
         `}
       </style>
