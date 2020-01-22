@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Router from 'next/router'
 import { Parallax } from '@react-spring/parallax'
@@ -10,7 +10,7 @@ import Chevron from './Chevron'
 import DIRECTORY from '../data/directory.json'
 import { getEntry } from '../data/load'
 
-function fadeInButton () {
+function fadeInButton (attractId) {
   const el = document.querySelector('.button-container')
   el.style.opacity = 1
 }
@@ -40,10 +40,6 @@ function AttractMode (props) {
   const videoRef = useRef(null)
   let nearEndTriggered = useRef(false).current
 
-  function handlePlay () {
-    fadeInButton()
-  }
-
   function handleTimeUpdate (event) {
     if (
       event.target.duration - event.target.currentTime <= 2.5 &&
@@ -71,6 +67,10 @@ function AttractMode (props) {
 
   const data = getEntry(attractLinks[attractId].slug)
 
+  useEffect(() => {
+    fadeInButton(attractId)
+  }, [attractId])
+
   return (
     <>
       <div className="attract-container">
@@ -80,7 +80,6 @@ function AttractMode (props) {
             muted
             src={`/media/attract/${attractLinks[attractId].slug}.mp4`}
             ref={videoRef}
-            onPlay={handlePlay}
             onTimeUpdate={handleTimeUpdate}
             onEnded={handleEnded}
           />
