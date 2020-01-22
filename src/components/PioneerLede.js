@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ParallaxLayer } from '@react-spring/parallax'
 import { useInView } from 'react-intersection-observer'
-import PioneerTitleCard from './PioneerTitleCard'
+import PioneerTombstoneText from './PioneerTombstoneText'
 import { MOBILE_BREAKPOINT, UI_COLOR_SECONDARY } from '../const'
 
 PioneerLede.propTypes = {
@@ -31,8 +31,8 @@ export default function PioneerLede ({ data, animated = true }) {
           backgroundColor: 'white'
         }}
       >
-        <div className="pioneer-title-card-container">
-          <PioneerTitleCard data={data} animated={animated} />
+        <div className="pioneer-tombstone-text-container">
+          <PioneerTombstoneText data={data} animated={animated} />
         </div>
       </ParallaxLayer>
 
@@ -86,7 +86,7 @@ export default function PioneerLede ({ data, animated = true }) {
             transition: 500ms opacity ease-in-out, 500ms transform ease-in-out;
           }
 
-          .pioneer-title-card-container {
+          .pioneer-tombstone-text-container {
             position: absolute;
             top: 40%;
             left: 0;
@@ -97,7 +97,7 @@ export default function PioneerLede ({ data, animated = true }) {
             background-color: white;
           }
 
-          .pioneer-title-card-container::after {
+          .pioneer-tombstone-text-container::after {
             content: '';
             position: absolute;
             height: 160px;
@@ -109,7 +109,7 @@ export default function PioneerLede ({ data, animated = true }) {
           }
 
           @media (max-width: ${MOBILE_BREAKPOINT}) {
-            .pioneer-title-card-container::after {
+            .pioneer-tombstone-text-container::after {
               border-left: 50px solid ${UI_COLOR_SECONDARY};
               margin-left: -25px;
             }
