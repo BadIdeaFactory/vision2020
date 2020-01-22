@@ -39,6 +39,18 @@ function AttractMode (props) {
   const [attractId, setAttractId] = useState(0)
   const videoRef = useRef(null)
   let nearEndTriggered = useRef(false).current
+  let hasDelayed = useRef(false).current
+
+  // Briefly delay the playback of video on start
+  function handlePlay () {
+    if (!hasDelayed) {
+      videoRef.current.pause()
+    }
+    window.setTimeout(() => {
+      hasDelayed = true
+      videoRef.current.play()
+    }, 1000)
+  }
 
   function handleTimeUpdate (event) {
     if (
@@ -80,6 +92,7 @@ function AttractMode (props) {
             muted
             src={`/media/attract/${attractLinks[attractId].slug}.mp4`}
             ref={videoRef}
+            onPlay={handlePlay}
             onTimeUpdate={handleTimeUpdate}
             onEnded={handleEnded}
           />
