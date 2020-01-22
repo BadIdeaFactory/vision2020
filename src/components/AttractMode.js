@@ -48,7 +48,9 @@ function AttractMode (props) {
     }
     window.setTimeout(() => {
       hasDelayed = true
-      videoRef.current.play()
+      if (videoRef.current && typeof videoRef.current.play === 'function') {
+        videoRef.current.play()
+      }
     }, 1000)
   }
 
