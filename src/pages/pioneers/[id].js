@@ -48,7 +48,6 @@ export default function Pioneer (props) {
 
   // Determine how many pages there are.
   const pages = data.context.length
-  const lastPageOffset = pages - 1
 
   // Scroll to next page on click because we don't know how to handle
   // scroll / flick action yet.
@@ -87,9 +86,10 @@ export default function Pioneer (props) {
       <Lightbox />
 
       <div className="section1">
+        {/* Weirdly, `pages` needs to be +2 */}
         <Parallax
           ref={parallax}
-          pages={pages}
+          pages={pages + 2}
           scrolling="true"
           style={{
             left: 0,
@@ -109,7 +109,8 @@ export default function Pioneer (props) {
           {data.context.map(renderContext)}
 
           {/* Triangle */}
-          <ParallaxLayer offset={lastPageOffset} speed={1} style={{ pointerEvents: 'none' }}>
+          {/* On its own page at the end */}
+          <ParallaxLayer offset={pages + 1} speed={2} style={{ pointerEvents: 'none' }}>
             <div className="arrow-holder">
               <img src={triangle} />
             </div>
