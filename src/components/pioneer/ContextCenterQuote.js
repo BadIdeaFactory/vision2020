@@ -38,7 +38,8 @@ function ContextCenterQuote ({ offset, context = {} }) {
                 style={{
                   width: '60%',
                   left: '20%',
-                  position: 'relative' // override absolute positioning
+                  position: 'relative', // override absolute positioning
+                  lineHeight: 0 // remove gap below image
                 }}
               >
                 {context.images.map((image, index) => {

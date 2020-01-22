@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import chevron from '../images/ui/chevron.svg'
 
 Chevron.propTypes = {
   onClick: PropTypes.func
@@ -11,7 +12,7 @@ function Chevron (props) {
   return (
     <>
       <div className="chevron">
-        <img src="/ui/chevron.svg" onClick={onClick} />
+        <img src={chevron} onClick={onClick} />
       </div>
       <style jsx>
         {`
@@ -30,7 +31,7 @@ function Chevron (props) {
             height: 3.33vh; /* Matches 64px on 1920x1080 portrait */
             min-height: 32px;
             animation-name: pulse;
-            animation-duration: 6s;
+            animation-duration: 5s;
             animation-iteration-count: infinite;
             pointer-events: auto;
           }

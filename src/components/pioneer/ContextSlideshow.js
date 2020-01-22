@@ -43,16 +43,20 @@ function ContextSlideshow ({ offset, context = {} }) {
               return () => clearTimeout(timeout)
             }
           }}
+          style={{
+            // Odd number pages align images to the right
+            // Even number pages align images to the left
+            right: context.page % 2 ? 0 : 'auto',
+            left: context.page % 2 ? 'auto' : 0,
+            top: '10%',
+            width: 'calc(50% - 50px - 25px)',
+            position: 'absolute'
+          }}
         >
           <div
             className="image-container"
             style={{
-              // Odd number pages align images to the right
-              // Even number pages align images to the left
-              right: context.page % 2 ? 0 : 'auto',
-              left: context.page % 2 ? 'auto' : 0,
-              top: '10%',
-              width: 'calc(50% - 50px - 25px)'
+              position: 'relative' // override
             }}
           >
             <ImageGallery
@@ -73,45 +77,34 @@ function ContextSlideshow ({ offset, context = {} }) {
                 )
                 window.dispatchEvent(openLightboxEvent)
               }}
-              onSlide={(index) => {
+              onBeforeSlide={(index) => {
                 setCurrentSlide(index)
               }}
             />
           </div>
-        </InView>
-        <div
-          style={{
-            position: 'absolute',
-            right: context.page % 2 ? 0 : 'auto',
-            left: context.page % 2 ? 'auto' : 0,
-            width: 'calc(50% - 50px - 25px)',
-            top: '35%',
-            paddingRight: context.page % 2 ? '20px' : 'auto',
-            paddingLeft: context.page % 2 ? 'auto' : '20px',
-            backgroundColor: 'white'
-          }}
-          className="context-text-container"
-        >
-          <InView
-            as="div"
-            className="context-transition-container"
-            threshold={TRANSITION_IN_THRESHOLD}
-            onChange={(inView, entry) => {
-              if (inView) {
-                const timeout = setTimeout(() => {
-                  entry.target.classList.add('visible')
-                }, TRANSITION_IN_DELAY)
-                return () => clearTimeout(timeout)
-              }
+          <div
+            style={{
+              // position: 'absolute',
+              // right: context.page % 2 ? 0 : 'auto',
+              // left: context.page % 2 ? 'auto' : 0,
+              // width: 'calc(50% - 50px - 25px)',
+              // top: '35%',
+              position: 'relative',
+              paddingRight: context.page % 2 ? '20px' : 'auto',
+              paddingLeft: context.page % 2 ? 'auto' : '20px',
+              backgroundColor: 'white',
+              zIndex: '-1',
+              marginTop: '20px'
             }}
+            className="context-text-container"
           >
             {transitions.map(({ item, key, props }) => (
               <animated.div key={key} style={props}>
                 <ParseText text={context.slideshow[item].text} />
               </animated.div>
             ))}
-          </InView>
-        </div>
+          </div>
+        </InView>
       </ParallaxLayer>
 
       {/* Text */}
@@ -128,7 +121,7 @@ function ContextSlideshow ({ offset, context = {} }) {
             // Even number pages align text to the right
             marginLeft:
               context.page % 2 ? 'calc(10% + 50px)' : 'calc(50% - 50px)',
-            marginTop: '20%'
+            marginTop: '60%'
           }}
           className="context-text-container"
         >

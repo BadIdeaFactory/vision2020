@@ -3,15 +3,15 @@ import PropTypes from 'prop-types'
 import { InView } from 'react-intersection-observer'
 import { UI_COLOR_PRIMARY, TYPOGRAPHY_DISPLAY } from '../const'
 
-PioneerTitleCard.propTypes = {
+PioneerTombstoneText.propTypes = {
   data: PropTypes.object,
   animated: PropTypes.bool
 }
 
-function PioneerTitleCard ({ data, animated = true }) {
+function PioneerTombstoneText ({ data, animated = true }) {
   return (
     <>
-      <div className="pioneer-title-card">
+      <div className="pioneer-tombstone-text">
         {animated ? (
           <>
             <InView
@@ -81,7 +81,7 @@ function PioneerTitleCard ({ data, animated = true }) {
 
       <style jsx>
         {`
-          .pioneer-title-card {
+          .pioneer-tombstone-text {
             position: relative;
             width: 100%;
             height: 100%;
@@ -98,13 +98,13 @@ function PioneerTitleCard ({ data, animated = true }) {
           }
 
           /* react-spring <animated.div> does not render namespaced classnames */
-          :global(.pioneer-title-card > div.animated) {
+          :global(.pioneer-tombstone-text > div.animated) {
             opacity: 0;
             transform: translateY(4em);
             transition: opacity 1000ms, transform 600ms ease-out;
           }
 
-          :global(.pioneer-title-card > div.animated.visible) {
+          :global(.pioneer-tombstone-text > div.animated.visible) {
             opacity: 1;
             transform: translateY(0);
           }
@@ -130,10 +130,18 @@ function PioneerTitleCard ({ data, animated = true }) {
             font-family: ${TYPOGRAPHY_DISPLAY};
             font-size: 60px;
             font-size: 3.125vh; /* match 60px on 1920x1080 portrait */
-            line-height: 1.5;
+            line-height: 1.2;
             color: ${UI_COLOR_PRIMARY};
             text-transform: uppercase;
             margin: 0 10%;
+          }
+
+          .pioneer-titles > div:not(:first-child) {
+            margin-top: 0.3em;
+          }
+
+          .pioneer-titles > div:not(:last-child) {
+            margin-bottom: 0.3em;
           }
         `}
       </style>
@@ -141,4 +149,4 @@ function PioneerTitleCard ({ data, animated = true }) {
   )
 }
 
-export default PioneerTitleCard
+export default PioneerTombstoneText
