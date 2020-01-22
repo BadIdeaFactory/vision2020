@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Router from 'next/router'
 import { Parallax } from '@react-spring/parallax'
 import { InView } from 'react-intersection-observer'
+import { UI_COLOR_SECONDARY } from '../const'
 import CategoryEyebrow from './CategoryEyebrow'
 import MainButton from './MainButton'
 import PioneerLede from './PioneerLede'
@@ -113,10 +114,11 @@ function AttractMode (props) {
 
       <div className="scrollsnapper">
         <div className="scrollsnapper-page" onClick={scrollPage} />
-        <div className="scrollsnapper-page">
+        <div className="scrollsnapper-page page2">
           {/* PioneerLede expects to be inside a Parallax component */}
           <Parallax pages={1}>
             <PioneerLede data={data} />
+            <div className="pioneer-spine" />
           </Parallax>
 
           {/* When we hit the bottom of the scroll, transition to pioneer page */}
@@ -215,11 +217,25 @@ function AttractMode (props) {
             scroll-snap-align: center;
           }
 
+          .page2 {
+            background-color: white;
+          }
+
           .navigation-trigger {
             position: absolute;
             bottom: 0;
             height: 1px;
             width: 100%;
+          }
+
+          .pioneer-spine {
+            position: absolute;
+            height: 100%;
+            width: 0;
+            border-left: 100px solid ${UI_COLOR_SECONDARY};
+            left: 50%;
+            margin-left: -50px;
+            z-index: -1;
           }
         `}
       </style>

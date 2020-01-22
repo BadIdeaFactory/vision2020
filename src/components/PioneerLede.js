@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { ParallaxLayer } from '@react-spring/parallax'
 import { useInView } from 'react-intersection-observer'
 import PioneerTombstoneText from './PioneerTombstoneText'
-import { MOBILE_BREAKPOINT, UI_COLOR_SECONDARY } from '../const'
 
 PioneerLede.propTypes = {
   data: PropTypes.object,
@@ -27,8 +26,7 @@ export default function PioneerLede ({ data, animated = true }) {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: 'white'
+          justifyContent: 'center'
         }}
       >
         <div className="pioneer-tombstone-text-container">
@@ -91,28 +89,7 @@ export default function PioneerLede ({ data, animated = true }) {
             top: 40%;
             left: 0;
             right: 0;
-            bottom: 0;
-            padding-bottom: 160px;
-            padding-bottom: 8.33vh;
             background-color: white;
-          }
-
-          .pioneer-tombstone-text-container::after {
-            content: '';
-            position: absolute;
-            height: 160px;
-            width: 0;
-            border-left: 100px solid ${UI_COLOR_SECONDARY};
-            left: 50%;
-            margin-left: -50px;
-            z-index: 1;
-          }
-
-          @media (max-width: ${MOBILE_BREAKPOINT}) {
-            .pioneer-tombstone-text-container::after {
-              border-left: 50px solid ${UI_COLOR_SECONDARY};
-              margin-left: -25px;
-            }
           }
         `}
       </style>
