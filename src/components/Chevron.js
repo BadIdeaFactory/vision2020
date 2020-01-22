@@ -31,7 +31,7 @@ function Chevron (props) {
             height: 3.33vh; /* Matches 64px on 1920x1080 portrait */
             min-height: 32px;
             animation-name: pulse;
-            animation-duration: 6s;
+            animation-duration: 5s;
             animation-iteration-count: infinite;
             pointer-events: auto;
           }
