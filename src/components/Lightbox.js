@@ -13,6 +13,15 @@ export default function Lightbox (props) {
     }
   })
 
+  // When this component unmounts (e.g. when navigating to another page)
+  // make sure any overflow style is cleaned up to prevent it from
+  // locking the page scroll indefinitely
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [])
+
   function openLightbox (event) {
     setImageUrl(event.detail.url)
     setVisible(true)
