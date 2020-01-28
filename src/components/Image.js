@@ -32,6 +32,7 @@ export default function Image (props) {
       src={require(`../../public/media/images/${src}`).default}
       className={className}
       onClick={handleClick}
+      draggable={false}
       {...rest}
     />
   )
