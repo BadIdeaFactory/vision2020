@@ -75,6 +75,10 @@ export default function Layout ({ className = '', ...props }) {
             box-sizing: border-box;
           }
 
+          body {
+            user-select: none;
+          }
+
           *,
           *::after,
           *::before {
