@@ -24,7 +24,9 @@ const ResultsPage = () => {
         if (doc.exists) {
           const data = doc.data()
           console.log('[Firestore] Vote counter data:', data)
-          setResults(data)
+          setResults(
+            JSON.parse(window.localStorage.getItem('vision2020_votes'))
+          )
           window.localStorage.setItem('vision2020_votes', JSON.stringify(data))
         } else {
           // doc.data() will be undefined in this case
@@ -42,6 +44,9 @@ const ResultsPage = () => {
         const data = window.localStorage.getItem('vision2020_votes')
         if (data) {
           setResults(JSON.parse(data))
+        } else {
+          // No localstorage? Show nothing
+          setResults({})
         }
       })
   }, [])

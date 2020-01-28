@@ -24,7 +24,7 @@ function ContextSlideshow ({ offset, context = {} }) {
   })
 
   const images = context.slideshow.map((image) => ({
-    original: `/media/images/${image.image}`
+    original: require(`../../../public/media/images/${image.image}`).default
   }))
 
   return (
@@ -132,11 +132,14 @@ function ContextSlideshow ({ offset, context = {} }) {
       <style jsx global>
         {`
           /* Override react-image-gallery global styles */
-          .image-gallery-bullets {
+          /* Additional classname specificity is required because
+          we can't rely on style load order for importance. the load
+          order is different between Electron and web */
+          .image-container .image-gallery-bullets {
             bottom: -50px;
           }
 
-          .image-gallery-bullets .image-gallery-bullet {
+          .image-container .image-gallery-bullets .image-gallery-bullet {
             margin: 0 10px;
             width: 6px;
             height: 6px;
@@ -146,18 +149,18 @@ function ContextSlideshow ({ offset, context = {} }) {
             box-shadow: none;
           }
 
-          .image-gallery-bullets .image-gallery-bullet.active {
+          .image-container .image-gallery-bullets .image-gallery-bullet.active {
             background-color: black;
           }
 
-          .image-gallery-fullscreen-button:hover::before,
-          .image-gallery-play-button:hover::before,
-          .image-gallery-left-nav:hover::before,
-          .image-gallery-right-nav:hover::before {
+          .image-container .image-gallery-fullscreen-button:hover::before,
+          .image-container .image-gallery-play-button:hover::before,
+          .image-container .image-gallery-left-nav:hover::before,
+          .image-container .image-gallery-right-nav:hover::before {
             color: white;
           }
 
-          .image-gallery-icon:hover {
+          .image-container .image-gallery-icon:hover {
             color: white;
           }
         `}

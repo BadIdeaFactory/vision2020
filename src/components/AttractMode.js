@@ -86,6 +86,11 @@ function AttractMode (props) {
     fadeInButton(attractId)
   }, [attractId])
 
+  // use file-loader so we can use the url in electron
+  // workaround for file location
+  const x = require(`../../public/media/attract/${attractLinks[attractId].slug}.mp4`)
+  const videoSrc = x.default.replace('_next/', '_next/static/')
+
   return (
     <>
       <div className="attract-container">
@@ -93,7 +98,7 @@ function AttractMode (props) {
           <video
             autoPlay
             muted
-            src={`/media/attract/${attractLinks[attractId].slug}.mp4`}
+            src={videoSrc}
             ref={videoRef}
             onPlay={handlePlay}
             onTimeUpdate={handleTimeUpdate}

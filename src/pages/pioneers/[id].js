@@ -58,8 +58,8 @@ export default function Pioneer (props) {
   function renderContext (context) {
     const offset = context.page
 
-    // Single quote context slides
-    if (context.text.startsWith('>')) {
+    // Single quote context slides (one or fewer images)
+    if (context.text.startsWith('>') && context.images.length <= 1) {
       return <ContextCenterQuote key={offset} offset={offset} context={context} />
     } else if (context.slideshow && context.slideshow.length > 0) {
       return <ContextSlideshow key={offset} offset={offset} context={context} />

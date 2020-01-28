@@ -51,6 +51,14 @@ const VotePage = () => {
       .then(function (refs) {
         const [docRef] = refs
         console.log('[Firestore] Document written with ID: ', docRef.id)
+
+        // Increment localstorage optimistically
+        // This will be overwritten with real data on results page, if
+        // internet connection exists.
+        const data = window.localStorage.getItem('vision2020_votes')
+        const parsed = JSON.parse(data)
+        parsed[key]++
+        window.localStorage.setItem('vision2020_votes', JSON.stringify(parsed))
       })
       .catch(function (error) {
         console.error('[Firestore] Error adding document: ', error)
