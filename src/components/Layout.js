@@ -9,6 +9,7 @@ import {
   TYPOGRAPHY_DISPLAY,
   TYPOGRAPHY_BODY
 } from '../const'
+import { isKiosk } from '../kiosk'
 
 // Imports and initializes Firebase
 // Runs here because every page in our app uses <Layout />
@@ -49,11 +50,7 @@ export default function Layout ({ className = '', ...props }) {
   })
 
   useEffect(() => {
-    if (
-      process.env.KIOSK_MODE === true &&
-      window.location.pathname !== '/' &&
-      isIdle
-    ) {
+    if (isKiosk() === true && window.location.pathname !== '/' && isIdle) {
       console.log(
         '[Vision2020] Screen idle for 3 minutes, returning to attract mode.'
       )

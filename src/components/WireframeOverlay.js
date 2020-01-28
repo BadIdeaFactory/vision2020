@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { isKiosk } from '../kiosk'
 
 /**
  * I've set up a full scale mockup with a projector and tested the wireframes.
@@ -12,6 +13,8 @@ import React, { useState } from 'react'
  * - Lynn
  */
 // Wireframe can be enabled by setting DEV_ADA_WIREFRAME=true in env vars
+// Will no longer activate in Electron because we have already confirmed
+// that the wireframe is accurate on the kiosk.
 export default function WireframeOverlay (props) {
   const [isActive, setActive] = useState(false)
 
@@ -19,7 +22,7 @@ export default function WireframeOverlay (props) {
     setActive(!isActive)
   }
 
-  if (process.env.DEV_ADA_WIREFRAME === true) {
+  if (process.env.DEV_ADA_WIREFRAME === true && !isKiosk()) {
     return (
       <>
         <div className="wireframe-overlay">

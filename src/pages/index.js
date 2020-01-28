@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import Layout from '../components/Layout'
 import LowerNav from '../components/LowerNav'
 import AttractMode from '../components/AttractMode'
+import { isKiosk } from '../kiosk'
 
 // Make kioskId param match server/client
 Home.getInitialProps = async (context) => {
@@ -22,7 +23,7 @@ function Home () {
   // variable or default to the 0 (the first kiosk ID.)
   const { kioskId = process.env.KIOSK_ID || 0 } = router.query
 
-  if (process.env.KIOSK_MODE === true) {
+  if (isKiosk() === true) {
     console.log('[Vision2020] Kiosk mode is on!')
   }
 
