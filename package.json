@@ -9,7 +9,8 @@
     "build": "next build && next export",
     "electron": "electron .",
     "dist": "npm run build && electron-builder --dir",
-    "static": "npx serve -p 3010 out"
+    "static": "npx serve -p 3010 out",
+    "postinstall": "electron-builder install-app-deps"
   },
   "build": {
     "asar": false,
@@ -23,9 +24,9 @@
   "devDependencies": {
     "babel-eslint": "10.0.3",
     "csv2json": "2.0.2",
-    "electron": "7.1.9",
-    "electron-builder": "22.2.0",
-    "electron-rebuild": "1.8.8",
+    "electron": "7.1.10",
+    "electron-builder": "22.3.2",
+    "electron-rebuild": "1.9.0",
     "eslint-config-standard": "14.1.0",
     "eslint-config-standard-react": "9.2.0",
     "eslint-plugin-import": "2.20.0",
@@ -53,7 +54,7 @@
     "imagemin-svgo": "7.0.0",
     "jimp": "0.9.3",
     "lodash": "4.17.15",
-    "next": "9.2.0",
+    "next": "9.2.1",
     "next-compose-plugins": "2.2.0",
     "next-optimized-images": "2.5.4",
     "react": "16.12.0",
@@ -73,12 +74,10 @@
   "lint-staged": {
     "*.{js,jsx}": [
       "prettier --write",
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ],
     "*.{json,scss,css,md}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   }
 }
