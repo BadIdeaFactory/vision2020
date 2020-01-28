@@ -47,6 +47,7 @@
     "electron-is-dev": "1.1.0",
     "electron-next": "3.1.5",
     "eslint": "6.8.0",
+    "file-loader": "5.0.2",
     "firebase": "7.7.0",
     "image-trace-loader": "1.0.2",
     "imagemin-mozjpeg": "8.0.0",
