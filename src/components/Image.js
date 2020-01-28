@@ -29,7 +29,7 @@ export default function Image (props) {
   return (
     <img
       // src={requireImage(`./${src}`)}
-      src={require(`../../public/media/images/${src}`)}
+      src={require(`../../public/media/images/${src}`).default}
       className={className}
       onClick={handleClick}
       {...rest}
