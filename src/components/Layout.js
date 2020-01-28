@@ -49,8 +49,15 @@ export default function Layout ({ className = '', ...props }) {
     inactivityEvents: []
   })
 
+  // If kiosk, add a class to body to make it easier to apply kiosk-specific styles
   useEffect(() => {
-    if (isKiosk() === true && window.location.pathname !== '/' && isIdle) {
+    if (isKiosk()) {
+      document.body.classList.add('kiosk')
+    }
+  })
+
+  useEffect(() => {
+    if (isKiosk() && window.location.pathname !== '/' && isIdle) {
       console.log(
         '[Vision2020] Screen idle for 3 minutes, returning to attract mode.'
       )
@@ -62,7 +69,9 @@ export default function Layout ({ className = '', ...props }) {
     <>
       <Metatags />
       <div id="vision2020" className={className}>
-        <WireframeOverlay />
+        {!isKiosk() && process.env.DEV_ADA_WIREFRAME === true && (
+          <WireframeOverlay />
+        )}
         {props.children}
       </div>
 
@@ -72,7 +81,7 @@ export default function Layout ({ className = '', ...props }) {
             box-sizing: border-box;
           }
 
-          body {
+          body.kiosk {
             user-select: none;
           }
 
