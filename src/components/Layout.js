@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import Router from 'next/router'
 import createActivityDetector from '../vendor/activity-detector'
 import Metatags from './Metatags'
-import WireframeOverlay from './WireframeOverlay'
 import {
   MOBILE_BREAKPOINT,
   TYPOGRAPHY_DISPLAY,
@@ -69,9 +68,6 @@ export default function Layout ({ className = '', ...props }) {
     <>
       <Metatags />
       <div id="vision2020" className={className}>
-        {!isKiosk() && process.env.DEV_ADA_WIREFRAME === true && (
-          <WireframeOverlay />
-        )}
         {props.children}
       </div>
 

@@ -20,11 +20,17 @@ function Home () {
   // no longer 0-indexed (so use 1-6). This is better for non-tech viewers.
   const router = useRouter()
   // If kioskId isn't specified, we read kiosk ID from the environment
-  // variable or default to the 0 (the first kiosk ID.)
-  const { kioskId = process.env.KIOSK_ID || 0 } = router.query
+  // variable or default to 1 (the first kiosk ID.)
+  /* global VISION2020_KIOSK_ID */
+  const {
+    kioskId = (typeof VISION2020_KIOSK_ID !== 'undefined' &&
+      VISION2020_KIOSK_ID) ||
+      1
+  } = router.query
 
   if (isKiosk() === true) {
     console.log('[Vision2020] Kiosk mode is on!')
+    console.log('[Vision2020] Running kiosk #' + kioskId)
   }
 
   return (
