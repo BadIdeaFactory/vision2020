@@ -109,12 +109,15 @@ function PioneerTombstoneText ({ data, animated = true }) {
             transform: translateY(0);
           }
 
-          /* Note: do not adjust line-height here, we need
-          white space for the accent mark in GONZÁLEZ */
           h2 {
             font-size: 140px;
             font-size: 7.292vh; /* match 140px on 1920x1080 portrait */
             margin: 0 10%;
+            /* Note: adjust line-height here to be slightly higher
+             to provide white space for the accent mark in GONZÁLEZ.
+             Note that Windows machine seems to have lower line-height
+             spacing than Mac. */
+            line-height: 1.2;
           }
 
           .pioneer-lifedate {
