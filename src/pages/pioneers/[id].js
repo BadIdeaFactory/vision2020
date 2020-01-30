@@ -236,7 +236,7 @@ export default function Pioneer (props) {
           }
 
           .image-container img {
-            width: 100%;
+            max-width: 100%;
             margin-top: 15px;
           }
         `}

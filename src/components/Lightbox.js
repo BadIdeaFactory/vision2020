@@ -79,7 +79,7 @@ export default function Lightbox (props) {
 
           .lightbox img {
             max-width: 90%;
-            max-height: 90%;
+            max-height: 85%;
           }
 
           .close-icon {
