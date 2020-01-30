@@ -201,7 +201,6 @@ export default function Layout ({ className = '', ...props }) {
           @media screen and (min-width: 768px) {
             section {
               padding: 30px 70px;
-              padding-bottom: 120px;
             }
           }
 

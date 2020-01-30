@@ -277,7 +277,7 @@ const PioneersList = () => (
           .nav-button {
             /* Position to align with other nav buttons */
             position: relative;
-            top: 90px;
+            top: 20px;
           }
         }
       `}

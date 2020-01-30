@@ -19,7 +19,7 @@ function Chevron (props) {
           .chevron {
             position: fixed;
             width: 100%;
-            bottom: 2em; /* based off body font-size */
+            bottom: 2.5em; /* based off body font-size */
             display: flex;
             justify-content: center;
             pointer-events: none;

@@ -125,7 +125,7 @@ const VotePage = () => {
             margin: 0 10%;
             /* Bottom alignment keeps interactive area in ADA zone */
             position: absolute;
-            bottom: 1.5em; /* align skip with LowerNav */
+            bottom: 2em; /* align skip with LowerNav */
 
             display: flex;
             flex-direction: column;
