@@ -62,7 +62,7 @@ function PioneerItem ({ id, label }) {
             position: absolute;
             width: 100%;
             height: 100%;
-            border: 20px solid black;
+            border: 10px solid black;
             background-color: white;
             overflow: hidden;
           }
