@@ -112,7 +112,7 @@ export default function Pioneer (props) {
           {/* On its own page at the end */}
           <ParallaxLayer offset={pages + 1} speed={2} style={{ pointerEvents: 'none' }}>
             <div className="arrow-holder">
-              <img src={triangle} />
+              <img src={triangle} draggable={false} />
             </div>
           </ParallaxLayer>
         </Parallax>

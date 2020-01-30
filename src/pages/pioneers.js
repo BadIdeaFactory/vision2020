@@ -24,7 +24,7 @@ function PioneerItem ({ id, label }) {
   return (
     <>
       <Link href="/pioneers/[id]" as={`/pioneers/${id}`}>
-        <a>
+        <a draggable={false}>
           {/* Wrapper element ensures square image at any width */}
           <div className="pioneer-pic-wrapper">
             <div className="pioneer-pic">
@@ -33,6 +33,7 @@ function PioneerItem ({ id, label }) {
                 src={profileImageTrace.trace}
                 aria-hidden="true"
                 style={{ opacity: imageLoaded ? 0 : 1 }}
+                draggable={false}
               />
               {/* Image fades in after loading */}
               <img
@@ -42,6 +43,7 @@ function PioneerItem ({ id, label }) {
                   setImageLoaded(true)
                 }}
                 aria-labelledby={`pioneer-label-${id}`}
+                draggable={false}
               />
             </div>
           </div>

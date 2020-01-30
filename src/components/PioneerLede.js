@@ -50,6 +50,7 @@ export default function PioneerLede ({ data, animated = true }) {
             ref={ref}
             src={inView ? profileImageUrl : ''}
             className={animated ? 'animated' : ''}
+            draggable={false}
             onLoad={(e) => {
               const el = e.target
               window.setTimeout(() => {

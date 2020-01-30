@@ -41,7 +41,7 @@ export default function Lightbox (props) {
   return (
     <>
       <div className={classNames.join(' ')} onClick={toggleLightbox}>
-        <img src={imageUrl} />
+        <img src={imageUrl} draggable={false} />
 
         {/* Technically, tapping any part of the lightbox closes it, but
         this indicator gives the viewer a prompt */}

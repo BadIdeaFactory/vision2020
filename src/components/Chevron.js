@@ -12,7 +12,7 @@ function Chevron (props) {
   return (
     <>
       <div className="chevron">
-        <img src={chevron} onClick={onClick} />
+        <img src={chevron} onClick={onClick} draggable={false} />
       </div>
       <style jsx>
         {`
