@@ -24,7 +24,8 @@ function ContextSlideshow ({ offset, context = {} }) {
   })
 
   const images = context.slideshow.map((image) => ({
-    original: require(`../../../public/media/images/${image.image}`).default
+    original: require(`../../../public/media/images/${image.image}?webp`)
+      .default
   }))
 
   return (
