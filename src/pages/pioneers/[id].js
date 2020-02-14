@@ -6,6 +6,7 @@ import Layout from '../../components/Layout'
 import CategoryEyebrow from '../../components/CategoryEyebrow'
 import VoteIntro from '../../components/VoteIntro'
 import LowerNav from '../../components/LowerNav'
+import SwipePrompt from '../../components/SwipePrompt'
 import Lightbox from '../../components/Lightbox'
 import PioneerLede from '../../components/PioneerLede'
 import { MOBILE_BREAKPOINT, UI_COLOR_SECONDARY } from '../../const'
@@ -116,6 +117,7 @@ export default function Pioneer (props) {
             </div>
           </ParallaxLayer>
         </Parallax>
+        <SwipePrompt />
       </div>
 
       <div className="section2">
