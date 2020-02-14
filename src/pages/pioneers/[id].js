@@ -128,6 +128,11 @@ export default function Pioneer (props) {
 
       <style jsx global>
         {`
+          html {
+            /* Allows section2 to not be stuck mid-scroll-position */
+            scroll-snap-type: y mandatory;
+          }
+
           body {
             background-color: black;
           }
@@ -268,12 +273,13 @@ export default function Pioneer (props) {
             position: relative;
             width: 100vw;
             height: 100vh;
-            top: 0;
-            left: 0;
+            scroll-snap-align: center;
           }
 
           .section1 {
             position: sticky;
+            top: 0;
+            left: 0;
             bottom: 0;
             background-color: black;
             overscroll-behavior: contain;
