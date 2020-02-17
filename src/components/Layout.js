@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import Router from 'next/router'
 import createActivityDetector from '../vendor/activity-detector'
 import Metatags from './Metatags'
-import WireframeOverlay from './WireframeOverlay'
 import {
   MOBILE_BREAKPOINT,
   TYPOGRAPHY_DISPLAY,
   TYPOGRAPHY_BODY
 } from '../const'
+import { isKiosk } from '../kiosk'
 
 // Imports and initializes Firebase
 // Runs here because every page in our app uses <Layout />
@@ -48,12 +48,15 @@ export default function Layout ({ className = '', ...props }) {
     inactivityEvents: []
   })
 
+  // If kiosk, add a class to body to make it easier to apply kiosk-specific styles
   useEffect(() => {
-    if (
-      process.env.KIOSK_MODE === true &&
-      window.location.pathname !== '/' &&
-      isIdle
-    ) {
+    if (isKiosk()) {
+      document.body.classList.add('kiosk')
+    }
+  })
+
+  useEffect(() => {
+    if (isKiosk() && window.location.pathname !== '/' && isIdle) {
       console.log(
         '[Vision2020] Screen idle for 3 minutes, returning to attract mode.'
       )
@@ -65,7 +68,6 @@ export default function Layout ({ className = '', ...props }) {
     <>
       <Metatags />
       <div id="vision2020" className={className}>
-        <WireframeOverlay />
         {props.children}
       </div>
 
@@ -73,6 +75,10 @@ export default function Layout ({ className = '', ...props }) {
         {`
           html {
             box-sizing: border-box;
+          }
+
+          body.kiosk {
+            user-select: none;
           }
 
           *,
@@ -195,7 +201,6 @@ export default function Layout ({ className = '', ...props }) {
           @media screen and (min-width: 768px) {
             section {
               padding: 30px 70px;
-              padding-bottom: 120px;
             }
           }
 

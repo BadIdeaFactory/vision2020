@@ -9,11 +9,11 @@ function VoteIntro (props) {
       <div className="vote-intro-container vote-thing">
         <div className="vote-intro-content">
           <div className="vote-intro-stars">
-            <img src={star} />
-            <img src={star} />
-            <img src={star} />
-            <img src={star} />
-            <img src={star} />
+            <img src={star} draggable={false} />
+            <img src={star} draggable={false} />
+            <img src={star} draggable={false} />
+            <img src={star} draggable={false} />
+            <img src={star} draggable={false} />
           </div>
 
           <h2>What's your vision in 2020?</h2>
@@ -24,11 +24,11 @@ function VoteIntro (props) {
           </div>
 
           <div className="vote-intro-stars">
-            <img src={star} />
-            <img src={star} />
-            <img src={star} />
-            <img src={star} />
-            <img src={star} />
+            <img src={star} draggable={false} />
+            <img src={star} draggable={false} />
+            <img src={star} draggable={false} />
+            <img src={star} draggable={false} />
+            <img src={star} draggable={false} />
           </div>
         </div>
       </div>

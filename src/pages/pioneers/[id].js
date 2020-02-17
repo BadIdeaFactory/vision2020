@@ -6,6 +6,7 @@ import Layout from '../../components/Layout'
 import CategoryEyebrow from '../../components/CategoryEyebrow'
 import VoteIntro from '../../components/VoteIntro'
 import LowerNav from '../../components/LowerNav'
+import SwipePrompt from '../../components/SwipePrompt'
 import Lightbox from '../../components/Lightbox'
 import PioneerLede from '../../components/PioneerLede'
 import { MOBILE_BREAKPOINT, UI_COLOR_SECONDARY } from '../../const'
@@ -47,7 +48,16 @@ export default function Pioneer (props) {
     : router.query.animated
 
   // Determine how many pages there are.
-  const pages = data.context.length
+  // const pages = data.context.length
+  // const lastPageOffset = pages - 1
+  // For some reason `<Parallax>` pages have 1 screen in between each page
+  // so we divide the number of pages in half, then add one for the
+  // title screen. The number of pages is incerased by +1 for the down arrow.
+  // Others have faced this issue.
+  // - https://github.com/react-spring/react-spring/issues/771
+  // - https://github.com/react-spring/react-spring/issues/707
+  const pages = ((data.context.length + 1) / 2) + 1
+  const lastPageOffset = Number.isInteger(pages - 1) ? pages - 1 : pages - 1 + 0.49
 
   // Scroll to next page on click because we don't know how to handle
   // scroll / flick action yet.
@@ -56,7 +66,10 @@ export default function Pioneer (props) {
   }
 
   function renderContext (context) {
-    const offset = context.page
+    // const offset = context.page
+    // Offsetting is weird.
+    // Odd number pages need an offset of (page / 2) + .49 to make a value of x.99
+    const offset = context.page % 2 ? (context.page / 2) + 0.49 : (context.page / 2)
 
     // Single quote context slides (one or fewer images)
     if (context.text.startsWith('>') && context.images.length <= 1) {
@@ -86,10 +99,11 @@ export default function Pioneer (props) {
       <Lightbox />
 
       <div className="section1">
-        {/* Weirdly, `pages` needs to be +2 */}
+        {/* (OLD) Weirdly, `pages` needs to be +2 */}
         <Parallax
           ref={parallax}
-          pages={pages + 2}
+          // pages={pages + 2}
+          pages={pages}
           scrolling="true"
           style={{
             left: 0,
@@ -110,12 +124,13 @@ export default function Pioneer (props) {
 
           {/* Triangle */}
           {/* On its own page at the end */}
-          <ParallaxLayer offset={pages + 1} speed={2} style={{ pointerEvents: 'none' }}>
+          <ParallaxLayer offset={lastPageOffset} speed={1} style={{ pointerEvents: 'none' }}>
             <div className="arrow-holder">
-              <img src={triangle} />
+              <img src={triangle} draggable={false} />
             </div>
           </ParallaxLayer>
         </Parallax>
+        <SwipePrompt />
       </div>
 
       <div className="section2">
@@ -126,6 +141,11 @@ export default function Pioneer (props) {
 
       <style jsx global>
         {`
+          html {
+            /* Allows section2 to not be stuck mid-scroll-position */
+            scroll-snap-type: y mandatory;
+          }
+
           body {
             background-color: black;
           }
@@ -224,6 +244,13 @@ export default function Pioneer (props) {
             left: calc(50% - 25px);
           }
 
+          .context-text-parallaxlayer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            pointer-events: none;
+          }
+
           .context-text-container {
             position: relative;
             background-color: white;
@@ -236,7 +263,7 @@ export default function Pioneer (props) {
           }
 
           .image-container img {
-            width: 100%;
+            max-width: 100%;
             margin-top: 15px;
           }
         `}
@@ -257,6 +284,10 @@ export default function Pioneer (props) {
             opacity: 1;
             transform: translateY(0);
           }
+
+          .section1 > div > div > div {
+            border: 1px solid red;
+          }
         `}
       </style>
       <style jsx>
@@ -266,12 +297,13 @@ export default function Pioneer (props) {
             position: relative;
             width: 100vw;
             height: 100vh;
-            top: 0;
-            left: 0;
+            scroll-snap-align: center;
           }
 
           .section1 {
             position: sticky;
+            top: 0;
+            left: 0;
             bottom: 0;
             background-color: black;
             overscroll-behavior: contain;

@@ -24,7 +24,7 @@ function PioneerItem ({ id, label }) {
   return (
     <>
       <Link href="/pioneers/[id]" as={`/pioneers/${id}`}>
-        <a>
+        <a draggable={false}>
           {/* Wrapper element ensures square image at any width */}
           <div className="pioneer-pic-wrapper">
             <div className="pioneer-pic">
@@ -33,6 +33,7 @@ function PioneerItem ({ id, label }) {
                 src={profileImageTrace.trace}
                 aria-hidden="true"
                 style={{ opacity: imageLoaded ? 0 : 1 }}
+                draggable={false}
               />
               {/* Image fades in after loading */}
               <img
@@ -42,6 +43,7 @@ function PioneerItem ({ id, label }) {
                   setImageLoaded(true)
                 }}
                 aria-labelledby={`pioneer-label-${id}`}
+                draggable={false}
               />
             </div>
           </div>
@@ -62,7 +64,7 @@ function PioneerItem ({ id, label }) {
             position: absolute;
             width: 100%;
             height: 100%;
-            border: 20px solid black;
+            border: 10px solid black;
             background-color: white;
             overflow: hidden;
           }
@@ -277,7 +279,7 @@ const PioneersList = () => (
           .nav-button {
             /* Position to align with other nav buttons */
             position: relative;
-            top: 90px;
+            top: 20px;
           }
         }
       `}

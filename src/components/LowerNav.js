@@ -61,7 +61,7 @@ export default function LowerNav (props) {
             bottom: 0;
             text-align: center;
             width: 100%;
-            padding: 2em 1.5em;
+            padding: 2.5em 2em;
             left: 0;
             pointer-events: none;
             z-index: 2000;

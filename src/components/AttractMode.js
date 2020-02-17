@@ -31,12 +31,13 @@ function scrollPage (event) {
 }
 
 AttractMode.propTypes = {
-  kioskId: PropTypes.oneOf([0, 1, 2, 3, 4, 5])
+  kioskId: PropTypes.oneOf([1, 2, 3, 4, 5, 6])
 }
 
 function AttractMode (props) {
-  const { kioskId = 0 } = props
-  const attractLinks = DIRECTORY[kioskId].persons
+  const { kioskId = 1 } = props
+  const kioskIndex = kioskId - 1
+  const attractLinks = DIRECTORY[kioskIndex].persons
   const [attractId, setAttractId] = useState(0)
   const videoRef = useRef(null)
   let nearEndTriggered = useRef(false).current
@@ -107,7 +108,7 @@ function AttractMode (props) {
         </div>
       </div>
 
-      <CategoryEyebrow>{DIRECTORY[kioskId].name}</CategoryEyebrow>
+      <CategoryEyebrow>{DIRECTORY[kioskIndex].name}</CategoryEyebrow>
 
       <div className="button-container">
         <MainButton href={`/pioneers/${attractLinks[attractId].slug}`}>
@@ -134,10 +135,13 @@ function AttractMode (props) {
               as="div"
               onChange={(inView, entry) => {
                 if (inView) {
-                  Router.push({
-                    pathname: `/pioneers/${attractLinks[attractId].slug}`,
-                    query: { animated: false }
-                  })
+                  Router.push(
+                    '/pioneers/[id]?animated=false',
+                    `/pioneers/${attractLinks[attractId].slug}?animated=false`,
+                    {
+                      query: { animated: false }
+                    }
+                  )
                 }
               }}
             />

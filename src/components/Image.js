@@ -29,9 +29,10 @@ export default function Image (props) {
   return (
     <img
       // src={requireImage(`./${src}`)}
-      src={require(`../../public/media/images/${src}`).default}
+      src={require(`../../public/media/images/${src}?webp`).default}
       className={className}
       onClick={handleClick}
+      draggable={false}
       {...rest}
     />
   )

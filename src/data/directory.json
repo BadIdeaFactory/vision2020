@@ -1,6 +1,7 @@
 [
   {
     "index": 0,
+    "id": 1,
     "key": "category-1",
     "name": "Agents of Change",
     "persons": [
@@ -20,6 +21,7 @@
   },
   {
     "index": 1,
+    "id": 2,
     "key": "category-2",
     "name": "Politics & Government",
     "persons": [
@@ -39,6 +41,7 @@
   },
   {
     "index": 2,
+    "id": 3,
     "key": "category-3",
     "name": "Business & Finance",
     "persons": [
@@ -58,6 +61,7 @@
   },
   {
     "index": 3,
+    "id": 4,
     "key": "category-4",
     "name": "STEM",
     "persons": [
@@ -77,6 +81,7 @@
   },
   {
     "index": 4,
+    "id": 5,
     "key": "category-5",
     "name": "Communications & Media",
     "persons": [
@@ -96,6 +101,7 @@
   },
   {
     "index": 5,
+    "id": 6,
     "key": "category-6",
     "name": "Sports",
     "persons": [

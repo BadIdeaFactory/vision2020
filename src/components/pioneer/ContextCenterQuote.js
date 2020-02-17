@@ -4,7 +4,11 @@ import { InView } from 'react-intersection-observer'
 import { ParallaxLayer } from '@react-spring/parallax'
 import ParseText from './ParseText'
 import Image from '../Image'
-import { TRANSITION_IN_DELAY, TRANSITION_IN_THRESHOLD } from './constants'
+import {
+  TRANSITION_IN_DELAY,
+  TRANSITION_IN_THRESHOLD,
+  PARALLAX_QUOTE_SPEED
+} from './constants'
 
 ContextCenterQuote.propTypes = {
   offset: PropTypes.number,
@@ -16,7 +20,7 @@ ContextCenterQuote.propTypes = {
 function ContextCenterQuote ({ offset, context = {} }) {
   return (
     <React.Fragment key={context.page}>
-      <ParallaxLayer offset={offset} speed={0.75}>
+      <ParallaxLayer offset={offset} speed={PARALLAX_QUOTE_SPEED}>
         <div className="context-center-quote-container">
           <div>
             {/* Images */}

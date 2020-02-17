@@ -13,6 +13,15 @@ export default function Lightbox (props) {
     }
   })
 
+  // When this component unmounts (e.g. when navigating to another page)
+  // make sure any overflow style is cleaned up to prevent it from
+  // locking the page scroll indefinitely
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [])
+
   function openLightbox (event) {
     setImageUrl(event.detail.url)
     setVisible(true)
@@ -32,7 +41,7 @@ export default function Lightbox (props) {
   return (
     <>
       <div className={classNames.join(' ')} onClick={toggleLightbox}>
-        <img src={imageUrl} />
+        <img src={imageUrl} draggable={false} />
 
         {/* Technically, tapping any part of the lightbox closes it, but
         this indicator gives the viewer a prompt */}
@@ -70,7 +79,7 @@ export default function Lightbox (props) {
 
           .lightbox img {
             max-width: 90%;
-            max-height: 90%;
+            max-height: 85%;
           }
 
           .close-icon {

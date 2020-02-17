@@ -26,7 +26,9 @@ export default function NavButton (props) {
       */}
       {href ? (
         <Link href={href}>
-          <a style={style}>{children}</a>
+          <a style={style} draggable={false}>
+            {children}
+          </a>
         </Link>
       ) : (
         <div style={style} onClick={onClick}>

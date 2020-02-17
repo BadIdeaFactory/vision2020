@@ -82,12 +82,12 @@ const nextConfig = {
       '/': { page: '/' },
 
       // Convenience attract-loop URLs
-      '/attract/1': { page: '/', query: { kioskId: 0 } },
-      '/attract/2': { page: '/', query: { kioskId: 1 } },
-      '/attract/3': { page: '/', query: { kioskId: 2 } },
-      '/attract/4': { page: '/', query: { kioskId: 3 } },
-      '/attract/5': { page: '/', query: { kioskId: 4 } },
-      '/attract/6': { page: '/', query: { kioskId: 5 } },
+      '/attract/1': { page: '/', query: { kioskId: 1 } },
+      '/attract/2': { page: '/', query: { kioskId: 2 } },
+      '/attract/3': { page: '/', query: { kioskId: 3 } },
+      '/attract/4': { page: '/', query: { kioskId: 4 } },
+      '/attract/5': { page: '/', query: { kioskId: 5 } },
+      '/attract/6': { page: '/', query: { kioskId: 6 } },
 
       // Other pages
       '/credits': { page: '/credits' },
@@ -107,7 +107,6 @@ const nextConfig = {
   },
   env: {
     // Reference a variable that was defined in the .env file and make it available at Build Time
-    KIOSK_MODE: parse(process.env.KIOSK_MODE),
     KIOSK_ID: parse(process.env.KIOSK_ID),
     DEV_ADA_WIREFRAME: parse(process.env.DEV_ADA_WIREFRAME),
     // Firebase

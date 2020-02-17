@@ -5,7 +5,12 @@ import { useTransition, animated } from 'react-spring'
 import { ParallaxLayer } from '@react-spring/parallax'
 import ImageGallery from 'react-image-gallery'
 import ParseText from './ParseText'
-import { TRANSITION_IN_DELAY, TRANSITION_IN_THRESHOLD } from './constants'
+import {
+  TRANSITION_IN_DELAY,
+  TRANSITION_IN_THRESHOLD,
+  PARALLAX_IMAGE_SPEED,
+  PARALLAX_TEXT_SPEED
+} from './constants'
 import '../../../node_modules/react-image-gallery/styles/css/image-gallery.css'
 
 ContextSlideshow.propTypes = {
@@ -24,13 +29,14 @@ function ContextSlideshow ({ offset, context = {} }) {
   })
 
   const images = context.slideshow.map((image) => ({
-    original: require(`../../../public/media/images/${image.image}`).default
+    original: require(`../../../public/media/images/${image.image}?webp`)
+      .default
   }))
 
   return (
     <React.Fragment key={context.page}>
       {/* Images */}
-      <ParallaxLayer offset={offset} speed={1}>
+      <ParallaxLayer offset={offset} speed={PARALLAX_IMAGE_SPEED}>
         <InView
           as="div"
           className="context-transition-container"
@@ -110,8 +116,8 @@ function ContextSlideshow ({ offset, context = {} }) {
       {/* Text */}
       <ParallaxLayer
         offset={offset}
-        speed={0.5}
-        style={{ pointerEvents: 'none' }}
+        speed={PARALLAX_TEXT_SPEED}
+        className="context-text-parallaxlayer"
       >
         <div
           style={{
@@ -121,7 +127,7 @@ function ContextSlideshow ({ offset, context = {} }) {
             // Even number pages align text to the right
             marginLeft:
               context.page % 2 ? 'calc(10% + 50px)' : 'calc(50% - 50px)',
-            marginTop: '60%'
+            marginTop: '-20%'
           }}
           className="context-text-container"
         >

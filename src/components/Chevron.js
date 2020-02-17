@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import SwipePrompt from './SwipePrompt'
 import chevron from '../images/ui/chevron.svg'
 
 Chevron.propTypes = {
@@ -12,14 +13,16 @@ function Chevron (props) {
   return (
     <>
       <div className="chevron">
-        <img src={chevron} onClick={onClick} />
+        <img src={chevron} onClick={onClick} draggable={false} />
       </div>
+      <SwipePrompt />
+
       <style jsx>
         {`
           .chevron {
             position: fixed;
             width: 100%;
-            bottom: 2em; /* based off body font-size */
+            bottom: 3em; /* based off body font-size, make room for SwipePrompt */
             display: flex;
             justify-content: center;
             pointer-events: none;

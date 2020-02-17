@@ -8,6 +8,7 @@ import VoteForm from '../components/VoteForm'
 import DemographicsForm from '../components/DemographicsForm'
 import LowerNav from '../components/LowerNav'
 import firebase from '../firebase'
+import { isKiosk } from '../kiosk'
 import { UI_COLOR_SECONDARY } from '../const'
 
 const VotePage = () => {
@@ -32,13 +33,37 @@ const VotePage = () => {
     const date = new Date()
     const db = firebase.firestore().collection('survey-responses')
     const key = `vote${vote}`
+
+    // Increment localstorage optimistically
+    // This will be overwritten with real data on results page, if
+    // internet connection exists.
+    const oldData = window.localStorage.getItem('vision2020_votes')
+    const parsed = JSON.parse(oldData)
+    parsed[key]++
+    window.localStorage.setItem('vision2020_votes', JSON.stringify(parsed))
+
+    // Go to results page optimistically; let the database addition
+    // happen in the background.
+    Router.push('/results')
+
+    // Set vote environment
+    let source = 'test'
+    if (isKiosk() === true) {
+      /* global VISION2020_KIOSK_ID */
+      source = 'kiosk'
+      if (typeof VISION2020_KIOSK_ID !== 'undefined') {
+        source += `_${VISION2020_KIOSK_ID}`
+      }
+    }
+    console.log(`[Vision2020] Sending vote from ${source} device.`)
+
     return Promise.all([
       // Stores each individual survey response
       db.add({
         vote,
         timestamp: date, // Firebase accepts the raw Date object!
         ...data,
-        source: 'test' // TODO: Update source with environment
+        source
       }),
       // Second request increments the vote counter
       db
@@ -51,21 +76,9 @@ const VotePage = () => {
       .then(function (refs) {
         const [docRef] = refs
         console.log('[Firestore] Document written with ID: ', docRef.id)
-
-        // Increment localstorage optimistically
-        // This will be overwritten with real data on results page, if
-        // internet connection exists.
-        const data = window.localStorage.getItem('vision2020_votes')
-        const parsed = JSON.parse(data)
-        parsed[key]++
-        window.localStorage.setItem('vision2020_votes', JSON.stringify(parsed))
       })
       .catch(function (error) {
         console.error('[Firestore] Error adding document: ', error)
-      })
-      .finally(function () {
-        // Go to next vote page
-        Router.push('/results')
       })
   }
 
@@ -125,7 +138,7 @@ const VotePage = () => {
             margin: 0 10%;
             /* Bottom alignment keeps interactive area in ADA zone */
             position: absolute;
-            bottom: 1.5em; /* align skip with LowerNav */
+            bottom: 2em; /* align skip with LowerNav */
 
             display: flex;
             flex-direction: column;

@@ -4,7 +4,12 @@ import { InView } from 'react-intersection-observer'
 import { ParallaxLayer } from '@react-spring/parallax'
 import ParseText from './ParseText'
 import Image from '../Image'
-import { TRANSITION_IN_DELAY, TRANSITION_IN_THRESHOLD } from './constants'
+import {
+  TRANSITION_IN_DELAY,
+  TRANSITION_IN_THRESHOLD,
+  PARALLAX_IMAGE_SPEED,
+  PARALLAX_TEXT_SPEED
+} from './constants'
 
 ContextImage1.propTypes = {
   offset: PropTypes.number,
@@ -17,7 +22,7 @@ function ContextImage1 ({ offset, context = {} }) {
   return (
     <React.Fragment key={context.page}>
       {/* Images */}
-      <ParallaxLayer offset={offset} speed={1}>
+      <ParallaxLayer offset={offset} speed={PARALLAX_IMAGE_SPEED}>
         <InView
           as="div"
           className="context-transition-container"
@@ -38,7 +43,10 @@ function ContextImage1 ({ offset, context = {} }) {
               // Even number pages align images to the left
               right: context.page % 2 ? 0 : 'auto',
               left: context.page % 2 ? 'auto' : 0,
-              width: 'calc(50% - 50px - 25px)'
+              width: 'calc(50% - 50px - 25px)',
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: context.page % 2 ? 'flex-start' : 'flex-end'
             }}
           >
             {context.images.map((image, index) => {
@@ -53,8 +61,8 @@ function ContextImage1 ({ offset, context = {} }) {
       {/* Text */}
       <ParallaxLayer
         offset={offset}
-        speed={0.5}
-        style={{ pointerEvents: 'none' }}
+        speed={PARALLAX_TEXT_SPEED}
+        className="context-text-parallaxlayer"
       >
         <div
           style={{
@@ -64,7 +72,7 @@ function ContextImage1 ({ offset, context = {} }) {
             // Even number pages align text to the right
             marginLeft:
               context.page % 2 ? 'calc(10% + 50px)' : 'calc(50% - 50px)',
-            marginTop: '50%'
+            marginTop: '-20%'
           }}
           className="context-text-container"
         >
