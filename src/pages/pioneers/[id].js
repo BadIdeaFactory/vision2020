@@ -48,7 +48,16 @@ export default function Pioneer (props) {
     : router.query.animated
 
   // Determine how many pages there are.
-  const pages = data.context.length
+  // const pages = data.context.length
+  // const lastPageOffset = pages - 1
+  // For some reason `<Parallax>` pages have 1 screen in between each page
+  // so we divide the number of pages in half, then add one for the
+  // title screen.
+  // Others have faced this issue.
+  // - https://github.com/react-spring/react-spring/issues/771
+  // - https://github.com/react-spring/react-spring/issues/707
+  const pages = (data.context.length / 2) + 1
+  const lastPageOffset = Number.isInteger(pages - 1) ? pages - 1 : pages - 1 + 0.49
 
   // Scroll to next page on click because we don't know how to handle
   // scroll / flick action yet.
@@ -57,7 +66,10 @@ export default function Pioneer (props) {
   }
 
   function renderContext (context) {
-    const offset = context.page
+    // const offset = context.page
+    // Offsetting is weird.
+    // Odd number pages need an offset of (page / 2) + .49 to make a value of x.99
+    const offset = context.page % 2 ? (context.page / 2) + 0.49 : (context.page / 2)
 
     // Single quote context slides (one or fewer images)
     if (context.text.startsWith('>') && context.images.length <= 1) {
@@ -90,7 +102,8 @@ export default function Pioneer (props) {
         {/* Weirdly, `pages` needs to be +2 */}
         <Parallax
           ref={parallax}
-          pages={pages + 2}
+          // pages={pages + 2}
+          pages={pages + 1}
           scrolling="true"
           style={{
             left: 0,
@@ -111,7 +124,7 @@ export default function Pioneer (props) {
 
           {/* Triangle */}
           {/* On its own page at the end */}
-          <ParallaxLayer offset={pages + 1} speed={2} style={{ pointerEvents: 'none' }}>
+          <ParallaxLayer offset={lastPageOffset + 1} speed={1} style={{ pointerEvents: 'none' }}>
             <div className="arrow-holder">
               <img src={triangle} draggable={false} />
             </div>
