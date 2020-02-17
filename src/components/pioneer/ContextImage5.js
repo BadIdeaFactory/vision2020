@@ -69,7 +69,7 @@ function ContextImage5 ({ offset, context = {} }) {
       <ParallaxLayer
         offset={offset}
         speed={PARALLAX_TEXT_SPEED}
-        style={{ pointerEvents: 'none' }}
+        className="context-text-parallaxlayer"
       >
         <div
           style={{
@@ -79,7 +79,7 @@ function ContextImage5 ({ offset, context = {} }) {
             // Even number pages align text to the right
             marginLeft:
               context.page % 2 ? 'calc(10% + 50px)' : 'calc(50% - 50px)',
-            marginTop: '50%'
+            marginTop: '-20%'
           }}
           className="context-text-container"
         >

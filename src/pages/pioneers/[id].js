@@ -244,6 +244,13 @@ export default function Pioneer (props) {
             left: calc(50% - 25px);
           }
 
+          .context-text-parallaxlayer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            pointer-events: none;
+          }
+
           .context-text-container {
             position: relative;
             background-color: white;
@@ -276,6 +283,10 @@ export default function Pioneer (props) {
           .context-transition-container.visible {
             opacity: 1;
             transform: translateY(0);
+          }
+
+          .section1 > div > div > div {
+            border: 1px solid red;
           }
         `}
       </style>

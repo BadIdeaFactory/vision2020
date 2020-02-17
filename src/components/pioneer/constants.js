@@ -3,4 +3,4 @@ export const TRANSITION_IN_THRESHOLD = 0.25
 
 export const PARALLAX_TEXT_SPEED = 0.5
 export const PARALLAX_QUOTE_SPEED = 0.75
-export const PARALLAX_IMAGE_SPEED = 1
+export const PARALLAX_IMAGE_SPEED = 0.9
