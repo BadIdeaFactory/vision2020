@@ -5,7 +5,12 @@ import { useTransition, animated } from 'react-spring'
 import { ParallaxLayer } from '@react-spring/parallax'
 import ImageGallery from 'react-image-gallery'
 import ParseText from './ParseText'
-import { TRANSITION_IN_DELAY, TRANSITION_IN_THRESHOLD } from './constants'
+import {
+  TRANSITION_IN_DELAY,
+  TRANSITION_IN_THRESHOLD,
+  PARALLAX_IMAGE_SPEED,
+  PARALLAX_TEXT_SPEED
+} from './constants'
 import '../../../node_modules/react-image-gallery/styles/css/image-gallery.css'
 
 ContextSlideshow.propTypes = {
@@ -31,7 +36,7 @@ function ContextSlideshow ({ offset, context = {} }) {
   return (
     <React.Fragment key={context.page}>
       {/* Images */}
-      <ParallaxLayer offset={offset} speed={1}>
+      <ParallaxLayer offset={offset} speed={PARALLAX_IMAGE_SPEED}>
         <InView
           as="div"
           className="context-transition-container"
@@ -111,7 +116,7 @@ function ContextSlideshow ({ offset, context = {} }) {
       {/* Text */}
       <ParallaxLayer
         offset={offset}
-        speed={0.5}
+        speed={PARALLAX_TEXT_SPEED}
         style={{ pointerEvents: 'none' }}
       >
         <div

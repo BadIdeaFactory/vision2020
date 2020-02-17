@@ -4,7 +4,12 @@ import { InView } from 'react-intersection-observer'
 import { ParallaxLayer } from '@react-spring/parallax'
 import ParseText from './ParseText'
 import Image from '../Image'
-import { TRANSITION_IN_DELAY, TRANSITION_IN_THRESHOLD } from './constants'
+import {
+  TRANSITION_IN_DELAY,
+  TRANSITION_IN_THRESHOLD,
+  PARALLAX_IMAGE_SPEED,
+  PARALLAX_TEXT_SPEED
+} from './constants'
 
 ContextImage2.propTypes = {
   offset: PropTypes.number,
@@ -17,7 +22,7 @@ function ContextImage2 ({ offset, context = {} }) {
   return (
     <React.Fragment key={context.page}>
       {/* Images */}
-      <ParallaxLayer offset={offset} speed={1}>
+      <ParallaxLayer offset={offset} speed={PARALLAX_IMAGE_SPEED}>
         <InView
           as="div"
           className="context-transition-container"
@@ -65,7 +70,7 @@ function ContextImage2 ({ offset, context = {} }) {
       {/* Text */}
       <ParallaxLayer
         offset={offset}
-        speed={0.5}
+        speed={PARALLAX_TEXT_SPEED}
         style={{ pointerEvents: 'none' }}
       >
         <div
