@@ -52,11 +52,11 @@ export default function Pioneer (props) {
   // const lastPageOffset = pages - 1
   // For some reason `<Parallax>` pages have 1 screen in between each page
   // so we divide the number of pages in half, then add one for the
-  // title screen.
+  // title screen. The number of pages is incerased by +1 for the down arrow.
   // Others have faced this issue.
   // - https://github.com/react-spring/react-spring/issues/771
   // - https://github.com/react-spring/react-spring/issues/707
-  const pages = (data.context.length / 2) + 1
+  const pages = ((data.context.length + 1) / 2) + 1
   const lastPageOffset = Number.isInteger(pages - 1) ? pages - 1 : pages - 1 + 0.49
 
   // Scroll to next page on click because we don't know how to handle
@@ -99,11 +99,11 @@ export default function Pioneer (props) {
       <Lightbox />
 
       <div className="section1">
-        {/* Weirdly, `pages` needs to be +2 */}
+        {/* (OLD) Weirdly, `pages` needs to be +2 */}
         <Parallax
           ref={parallax}
           // pages={pages + 2}
-          pages={pages + 1}
+          pages={pages}
           scrolling="true"
           style={{
             left: 0,
@@ -124,7 +124,7 @@ export default function Pioneer (props) {
 
           {/* Triangle */}
           {/* On its own page at the end */}
-          <ParallaxLayer offset={lastPageOffset + 1} speed={1} style={{ pointerEvents: 'none' }}>
+          <ParallaxLayer offset={lastPageOffset} speed={1} style={{ pointerEvents: 'none' }}>
             <div className="arrow-holder">
               <img src={triangle} draggable={false} />
             </div>
