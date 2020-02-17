@@ -16,17 +16,26 @@ const ResultsPage = () => {
     transform: 'translate3d(0, 0, 0)'
   })
 
+  // I think this must be run in an effect hook for so client-server matches
   useEffect(() => {
     const db = firebase.firestore().collection('survey-responses')
+
+    // Display results from localstorage
+    const data = window.localStorage.getItem('vision2020_votes')
+    if (data) {
+      setResults(JSON.parse(data))
+    } else {
+      // No localstorage? Show nothing
+      setResults({})
+    }
+
+    // Read database and set localstorage
     db.doc('vote_counter')
       .get()
       .then(function (doc) {
         if (doc.exists) {
           const data = doc.data()
-          console.log('[Firestore] Vote counter data:', data)
-          setResults(
-            JSON.parse(window.localStorage.getItem('vision2020_votes'))
-          )
+          console.log('[Firestore] Caching vote counter data:', data)
           window.localStorage.setItem('vision2020_votes', JSON.stringify(data))
         } else {
           // doc.data() will be undefined in this case
@@ -39,15 +48,6 @@ const ResultsPage = () => {
           '[Firestore] Error getting vote counter document: ',
           error
         )
-
-        // Fallback to localstroage
-        const data = window.localStorage.getItem('vision2020_votes')
-        if (data) {
-          setResults(JSON.parse(data))
-        } else {
-          // No localstorage? Show nothing
-          setResults({})
-        }
       })
   }, [])
 
