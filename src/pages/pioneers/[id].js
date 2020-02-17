@@ -284,10 +284,6 @@ export default function Pioneer (props) {
             opacity: 1;
             transform: translateY(0);
           }
-
-          .section1 > div > div > div {
-            border: 1px solid red;
-          }
         `}
       </style>
       <style jsx>
