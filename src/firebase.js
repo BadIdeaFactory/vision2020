@@ -23,6 +23,20 @@ const config = {
 console.log('[Firebase] Importing module ...')
 
 function init (config) {
+  // If config is not provided, quit
+  if (
+    typeof config.apiKey === 'undefined' ||
+    typeof config.authDomain === 'undefined' ||
+    typeof config.databaseURL === 'undefined' ||
+    typeof config.projectId === 'undefined' ||
+    typeof config.storageBucket === 'undefined' ||
+    typeof config.messagingSenderId === 'undefined' ||
+    typeof config.appId === 'undefined' ||
+    typeof config.measurementId === 'undefined'
+  ) {
+    return
+  }
+
   // Initialize Firebase
   console.log('[Firebase] Initializing ...')
   firebase.initializeApp(config)

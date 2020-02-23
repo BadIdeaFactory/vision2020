@@ -18,8 +18,6 @@ const ResultsPage = () => {
 
   // I think this must be run in an effect hook for so client-server matches
   useEffect(() => {
-    const db = firebase.firestore().collection('survey-responses')
-
     // Display results from localstorage
     const data = window.localStorage.getItem('vision2020_votes')
     if (data) {
@@ -29,26 +27,33 @@ const ResultsPage = () => {
       setResults({})
     }
 
-    // Read database and set localstorage
-    db.doc('vote_counter')
-      .get()
-      .then(function (doc) {
-        if (doc.exists) {
-          const data = doc.data()
-          console.log('[Firestore] Caching vote counter data:', data)
-          window.localStorage.setItem('vision2020_votes', JSON.stringify(data))
-        } else {
-          // doc.data() will be undefined in this case
-          console.log('[Firestore] Document `vote_counter` is not found!')
-        }
-        // TODO: catch rate-limiting errors?
-      })
-      .catch(function (error) {
-        console.error(
-          '[Firestore] Error getting vote counter document: ',
-          error
-        )
-      })
+    if (firebase) {
+      const db = firebase.firestore().collection('survey-responses')
+
+      // Read database and set localstorage
+      db.doc('vote_counter')
+        .get()
+        .then(function (doc) {
+          if (doc.exists) {
+            const data = doc.data()
+            console.log('[Firestore] Caching vote counter data:', data)
+            window.localStorage.setItem(
+              'vision2020_votes',
+              JSON.stringify(data)
+            )
+          } else {
+            // doc.data() will be undefined in this case
+            console.log('[Firestore] Document `vote_counter` is not found!')
+          }
+          // TODO: catch rate-limiting errors?
+        })
+        .catch(function (error) {
+          console.error(
+            '[Firestore] Error getting vote counter document: ',
+            error
+          )
+        })
+    }
   }, [])
 
   return (

@@ -31,7 +31,6 @@ const VotePage = () => {
   function handleSubmitDemographics (data) {
     // Add a new document with a generated id.
     const date = new Date()
-    const db = firebase.firestore().collection('survey-responses')
     const key = `vote${vote}`
 
     // Increment localstorage optimistically
@@ -69,29 +68,33 @@ const VotePage = () => {
     }
     console.log(`[Vision2020] Sending vote from ${source} device.`)
 
-    return Promise.all([
-      // Stores each individual survey response
-      db.add({
-        vote,
-        timestamp: date, // Firebase accepts the raw Date object!
-        ...data,
-        source
-      }),
-      // Second request increments the vote counter
-      db
-        .doc('vote_counter')
-        // Note: the 'vote-counter' document must already exist
-        .update({
-          [key]: firebase.firestore.FieldValue.increment(1)
+    if (firebase) {
+      const db = firebase.firestore().collection('survey-responses')
+
+      return Promise.all([
+        // Stores each individual survey response
+        db.add({
+          vote,
+          timestamp: date, // Firebase accepts the raw Date object!
+          ...data,
+          source
+        }),
+        // Second request increments the vote counter
+        db
+          .doc('vote_counter')
+          // Note: the 'vote-counter' document must already exist
+          .update({
+            [key]: firebase.firestore.FieldValue.increment(1)
+          })
+      ])
+        .then(function (refs) {
+          const [docRef] = refs
+          console.log('[Firestore] Document written with ID: ', docRef.id)
         })
-    ])
-      .then(function (refs) {
-        const [docRef] = refs
-        console.log('[Firestore] Document written with ID: ', docRef.id)
-      })
-      .catch(function (error) {
-        console.error('[Firestore] Error adding document: ', error)
-      })
+        .catch(function (error) {
+          console.error('[Firestore] Error adding document: ', error)
+        })
+    }
   }
 
   let voteContent
