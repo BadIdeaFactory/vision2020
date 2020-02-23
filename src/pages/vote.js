@@ -38,9 +38,21 @@ const VotePage = () => {
     // This will be overwritten with real data on results page, if
     // internet connection exists.
     const oldData = window.localStorage.getItem('vision2020_votes')
-    const parsed = JSON.parse(oldData)
-    parsed[key]++
-    window.localStorage.setItem('vision2020_votes', JSON.stringify(parsed))
+    if (oldData) {
+      const parsed = JSON.parse(oldData)
+      parsed[key]++
+      window.localStorage.setItem('vision2020_votes', JSON.stringify(parsed))
+    } else {
+      // If not old data, initalize with data
+      const initial = {
+        vote1: 0,
+        vote2: 0,
+        vote3: 0,
+        vote4: 0
+      }
+      initial[key]++
+      window.localStorage.setItem('vision2020_votes', JSON.stringify(initial))
+    }
 
     // Go to results page optimistically; let the database addition
     // happen in the background.
