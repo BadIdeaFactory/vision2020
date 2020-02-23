@@ -5,7 +5,12 @@ import Layout from '../components/Layout'
 import CategoryEyebrow from '../components/CategoryEyebrow'
 import VoteResults from '../components/VoteResults'
 import LowerNav from '../components/LowerNav'
-import { UI_COLOR_SECONDARY } from '../const'
+import {
+  UI_COLOR_SECONDARY,
+  LOCALSTORAGE_KEY,
+  DB_COLLECTION,
+  DB_VOTES_DOC
+} from '../const'
 import firebase from '../firebase'
 
 const ResultsPage = () => {
@@ -19,7 +24,7 @@ const ResultsPage = () => {
   // I think this must be run in an effect hook for so client-server matches
   useEffect(() => {
     // Display results from localstorage
-    const data = window.localStorage.getItem('vision2020_votes')
+    const data = window.localStorage.getItem(LOCALSTORAGE_KEY)
     if (data) {
       setResults(JSON.parse(data))
     } else {
@@ -28,22 +33,21 @@ const ResultsPage = () => {
     }
 
     if (firebase) {
-      const db = firebase.firestore().collection('survey-responses')
+      const db = firebase.firestore().collection(DB_COLLECTION)
 
       // Read database and set localstorage
-      db.doc('vote_counter')
+      db.doc(DB_VOTES_DOC)
         .get()
         .then(function (doc) {
           if (doc.exists) {
             const data = doc.data()
             console.log('[Firestore] Caching vote counter data:', data)
-            window.localStorage.setItem(
-              'vision2020_votes',
-              JSON.stringify(data)
-            )
+            window.localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(data))
           } else {
             // doc.data() will be undefined in this case
-            console.log('[Firestore] Document `vote_counter` is not found!')
+            console.log(
+              `[Firestore] Document \`${DB_VOTES_DOC}\` is not found!`
+            )
           }
           // TODO: catch rate-limiting errors?
         })

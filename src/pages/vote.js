@@ -9,7 +9,12 @@ import DemographicsForm from '../components/DemographicsForm'
 import LowerNav from '../components/LowerNav'
 import firebase from '../firebase'
 import { isKiosk } from '../kiosk'
-import { UI_COLOR_SECONDARY } from '../const'
+import {
+  UI_COLOR_SECONDARY,
+  LOCALSTORAGE_KEY,
+  DB_COLLECTION,
+  DB_VOTES_DOC
+} from '../const'
 
 const VotePage = () => {
   const [voteState, setVoteState] = useState(0)
@@ -36,11 +41,11 @@ const VotePage = () => {
     // Increment localstorage optimistically
     // This will be overwritten with real data on results page, if
     // internet connection exists.
-    const oldData = window.localStorage.getItem('vision2020_votes')
+    const oldData = window.localStorage.getItem(LOCALSTORAGE_KEY)
     if (oldData) {
       const parsed = JSON.parse(oldData)
       parsed[key]++
-      window.localStorage.setItem('vision2020_votes', JSON.stringify(parsed))
+      window.localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(parsed))
     } else {
       // If not old data, initalize with data
       const initial = {
@@ -50,7 +55,7 @@ const VotePage = () => {
         vote4: 0
       }
       initial[key]++
-      window.localStorage.setItem('vision2020_votes', JSON.stringify(initial))
+      window.localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(initial))
     }
 
     // Go to results page optimistically; let the database addition
@@ -69,7 +74,7 @@ const VotePage = () => {
     console.log(`[Vision2020] Sending vote from ${source} device.`)
 
     if (firebase) {
-      const db = firebase.firestore().collection('survey-responses')
+      const db = firebase.firestore().collection(DB_COLLECTION)
 
       return Promise.all([
         // Stores each individual survey response
@@ -81,7 +86,7 @@ const VotePage = () => {
         }),
         // Second request increments the vote counter
         db
-          .doc('vote_counter')
+          .doc(DB_VOTES_DOC)
           // Note: the 'vote-counter' document must already exist
           .update({
             [key]: firebase.firestore.FieldValue.increment(1)
