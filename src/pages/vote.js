@@ -9,7 +9,12 @@ import DemographicsForm from '../components/DemographicsForm'
 import LowerNav from '../components/LowerNav'
 import firebase from '../firebase'
 import { isKiosk } from '../kiosk'
-import { UI_COLOR_SECONDARY } from '../const'
+import {
+  UI_COLOR_SECONDARY,
+  LOCALSTORAGE_KEY,
+  DB_COLLECTION,
+  DB_VOTES_DOC
+} from '../const'
 
 const VotePage = () => {
   const [voteState, setVoteState] = useState(0)
@@ -31,16 +36,27 @@ const VotePage = () => {
   function handleSubmitDemographics (data) {
     // Add a new document with a generated id.
     const date = new Date()
-    const db = firebase.firestore().collection('survey-responses')
     const key = `vote${vote}`
 
     // Increment localstorage optimistically
     // This will be overwritten with real data on results page, if
     // internet connection exists.
-    const oldData = window.localStorage.getItem('vision2020_votes')
-    const parsed = JSON.parse(oldData)
-    parsed[key]++
-    window.localStorage.setItem('vision2020_votes', JSON.stringify(parsed))
+    const oldData = window.localStorage.getItem(LOCALSTORAGE_KEY)
+    if (oldData) {
+      const parsed = JSON.parse(oldData)
+      parsed[key]++
+      window.localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(parsed))
+    } else {
+      // If not old data, initalize with data
+      const initial = {
+        vote1: 0,
+        vote2: 0,
+        vote3: 0,
+        vote4: 0
+      }
+      initial[key]++
+      window.localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(initial))
+    }
 
     // Go to results page optimistically; let the database addition
     // happen in the background.
@@ -57,29 +73,33 @@ const VotePage = () => {
     }
     console.log(`[Vision2020] Sending vote from ${source} device.`)
 
-    return Promise.all([
-      // Stores each individual survey response
-      db.add({
-        vote,
-        timestamp: date, // Firebase accepts the raw Date object!
-        ...data,
-        source
-      }),
-      // Second request increments the vote counter
-      db
-        .doc('vote_counter')
-        // Note: the 'vote-counter' document must already exist
-        .update({
-          [key]: firebase.firestore.FieldValue.increment(1)
+    if (firebase) {
+      const db = firebase.firestore().collection(DB_COLLECTION)
+
+      return Promise.all([
+        // Stores each individual survey response
+        db.add({
+          vote,
+          timestamp: date, // Firebase accepts the raw Date object!
+          ...data,
+          source
+        }),
+        // Second request increments the vote counter
+        db
+          .doc(DB_VOTES_DOC)
+          // Note: the 'vote-counter' document must already exist
+          .update({
+            [key]: firebase.firestore.FieldValue.increment(1)
+          })
+      ])
+        .then(function (refs) {
+          const [docRef] = refs
+          console.log('[Firestore] Document written with ID: ', docRef.id)
         })
-    ])
-      .then(function (refs) {
-        const [docRef] = refs
-        console.log('[Firestore] Document written with ID: ', docRef.id)
-      })
-      .catch(function (error) {
-        console.error('[Firestore] Error adding document: ', error)
-      })
+        .catch(function (error) {
+          console.error('[Firestore] Error adding document: ', error)
+        })
+    }
   }
 
   let voteContent

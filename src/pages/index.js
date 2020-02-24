@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import Layout from '../components/Layout'
 import LowerNav from '../components/LowerNav'
 import AttractMode from '../components/AttractMode'
+import PosterList from '../components/PosterList'
 import { isKiosk } from '../kiosk'
 
 // Make kioskId param match server/client
@@ -31,19 +32,29 @@ function Home () {
   if (isKiosk() === true) {
     console.log('[Vision2020] Kiosk mode is on!')
     console.log('[Vision2020] Running kiosk #' + kioskId)
+
+    return (
+      <Layout>
+        <Head>
+          <title>Vision2020</title>
+        </Head>
+
+        <AttractMode kioskId={Number.parseInt(kioskId)} />
+
+        <LowerNav left={LowerNav.types.PIONEERS} right={LowerNav.types.VOTE} />
+      </Layout>
+    )
+  } else {
+    return (
+      <Layout>
+        <Head>
+          <title>Vision2020</title>
+        </Head>
+
+        <PosterList />
+      </Layout>
+    )
   }
-
-  return (
-    <Layout>
-      <Head>
-        <title>Vision2020</title>
-      </Head>
-
-      <AttractMode kioskId={Number.parseInt(kioskId)} />
-
-      <LowerNav left={LowerNav.types.PIONEERS} right={LowerNav.types.VOTE} />
-    </Layout>
-  )
 }
 
 export default Home

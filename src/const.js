@@ -11,3 +11,7 @@ export const MOBILE_BREAKPOINT = '768px'
 
 export const TYPOGRAPHY_DISPLAY = '"Anton", sans-serif'
 export const TYPOGRAPHY_BODY = '"Noto Serif", serif'
+
+export const LOCALSTORAGE_KEY = 'vision2020_votes'
+export const DB_COLLECTION = 'survey_responses'
+export const DB_VOTES_DOC = 'vote_counter'
