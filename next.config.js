@@ -107,7 +107,6 @@ const nextConfig = {
   },
   env: {
     // Reference a variable that was defined in the .env file and make it available at Build Time
-    KIOSK_ID: parse(process.env.KIOSK_ID),
     DEV_ADA_WIREFRAME: parse(process.env.DEV_ADA_WIREFRAME),
     // Firebase
     FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
