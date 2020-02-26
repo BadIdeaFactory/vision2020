@@ -1,7 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { InView } from 'react-intersection-observer'
-import { UI_COLOR_PRIMARY, TYPOGRAPHY_DISPLAY } from '../const'
+import {
+  UI_COLOR_PRIMARY,
+  TYPOGRAPHY_DISPLAY,
+  MOBILE_BREAKPOINT
+} from '../const'
 
 PioneerTombstoneText.propTypes = {
   data: PropTypes.object,
@@ -95,6 +99,14 @@ function PioneerTombstoneText ({ data, animated = true }) {
             justify-content: center;
 
             text-align: center;
+          }
+
+          @media screen and (max-width: ${MOBILE_BREAKPOINT}),
+            screen and (orientation: landscape) {
+            .pioneer-tombstone-text {
+              padding-top: 60px;
+              padding-bottom: 60px;
+            }
           }
 
           /* react-spring <animated.div> does not render namespaced classnames */

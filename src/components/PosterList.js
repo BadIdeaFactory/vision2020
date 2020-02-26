@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Head from 'next/head'
 import Link from 'next/link'
 import Layout from './Layout'
+import WebHeader from './WebHeader'
 import { UI_COLOR_SECONDARY } from '../const'
 import DIRECTORY from '../data/directory.json'
 
@@ -77,7 +78,7 @@ const PosterList = () => (
     </Head>
 
     <section>
-      <h1>Pioneering Women</h1>
+      <WebHeader />
 
       <div className="pioneers-list-container">
         <ul className="pioneers-list">
@@ -108,22 +109,6 @@ const PosterList = () => (
     </style>
     <style jsx>
       {`
-        h1 {
-          text-align: center;
-          text-transform: uppercase;
-          font-size: 36px;
-          font-weight: normal;
-          color: black;
-          width: 100%;
-          margin: 0;
-          line-height: 80px;
-          white-space: nowrap;
-        }
-
-        .pioneers-list-container {
-          border-top: 10px solid black;
-        }
-
         .pioneers-list {
           padding: 0;
           font-size: 2vh;
@@ -203,7 +188,6 @@ const PosterList = () => (
 
           .pioneers-list > ul > li:last-child {
             border-bottom: 0;
-            padding-bottom: 0;
           }
         }
       `}

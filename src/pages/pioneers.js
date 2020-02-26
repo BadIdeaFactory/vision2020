@@ -9,6 +9,8 @@ import NavButton from '../components/NavButton'
 import { UI_COLOR_PRIMARY } from '../const'
 import { getEntry } from '../data/load'
 import DIRECTORY from '../data/directory.json'
+import { isKiosk } from '../kiosk'
+import WebHeader from '../components/WebHeader'
 
 PioneerItem.propTypes = {
   id: PropTypes.string.isRequired,
@@ -119,9 +121,13 @@ const PioneersList = () => (
     </Head>
 
     <section>
-      <CategoryEyebrow color="black">Pioneers</CategoryEyebrow>
+      {isKiosk() ? (
+        <CategoryEyebrow color="black">Pioneers</CategoryEyebrow>
+      ) : (
+        <WebHeader />
+      )}
 
-      <h2>Pioneering women</h2>
+      {isKiosk() && <h2>Pioneering women</h2>}
 
       <div className="pioneers-list-container">
         <ul className="pioneers-list">
@@ -146,12 +152,18 @@ const PioneersList = () => (
       </div>
     </section>
 
-    <LowerNav left={LowerNav.types.EXIT} right={LowerNav.types.VOTE} />
+    {isKiosk() && (
+      <LowerNav left={LowerNav.types.EXIT} right={LowerNav.types.VOTE} />
+    )}
 
     <style jsx global>
       {`
         body {
           background-color: ${UI_COLOR_PRIMARY};
+        }
+
+        body:not(.kiosk) .pioneers-list-container {
+          border-top: 0;
         }
       `}
     </style>
@@ -168,7 +180,7 @@ const PioneersList = () => (
             left: 0;
             width: calc(100vw - 60px);
             position: absolute;
-            top: 90px;
+            top: 120px;
             left: 30px;
             bottom: 60px;
           }
@@ -177,12 +189,6 @@ const PioneersList = () => (
         h2 {
           width: 100%;
           margin-top: 400px;
-        }
-
-        @media only screen and (max-width: 768px) {
-          h2 {
-            display: none;
-          }
         }
 
         .pioneers-list {

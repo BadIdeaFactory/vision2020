@@ -157,14 +157,18 @@ export default function Layout ({ className = '', ...props }) {
             font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
               Helvetica, sans-serif;
             font-family: ${TYPOGRAPHY_BODY};
-            font-size: 22px;
+            font-size: 16px;
             overscroll-behavior: none;
             overflow-x: hidden;
           }
 
+          body.kiosk {
+            font-size: 22px;
+          }
+
           @media (max-width: ${MOBILE_BREAKPOINT}) {
             body {
-              font-size: 16px;
+              font-size: 13px;
             }
           }
 

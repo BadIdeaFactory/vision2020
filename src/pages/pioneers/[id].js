@@ -17,6 +17,7 @@ import ContextImage2 from '../../components/pioneer/ContextImage2'
 import ContextImage5 from '../../components/pioneer/ContextImage5'
 import ContextSlideshow from '../../components/pioneer/ContextSlideshow'
 import triangle from '../../images/ui/triangle.svg'
+import { isKiosk } from '../../kiosk'
 
 Pioneer.getInitialProps = async ({ query }) => {
   return { query }
@@ -103,7 +104,7 @@ export default function Pioneer (props) {
         <Parallax
           ref={parallax}
           // pages={pages + 2}
-          pages={pages}
+          pages={isKiosk() ? pages : lastPageOffset}
           scrolling="true"
           style={{
             left: 0,
@@ -115,29 +116,43 @@ export default function Pioneer (props) {
           {/* Page 1: Title screen "Lede" */}
           <div className="pioneer-spine" />
           <PioneerLede data={data} animated={animated} />
-          <ParallaxLayer offset={0} speed={1} style={{ padding: '30px' }}>
-            <CategoryEyebrow>{data.name}</CategoryEyebrow>
-          </ParallaxLayer>
+
+          {isKiosk() && (
+            <ParallaxLayer offset={0} speed={1} style={{ padding: '30px' }}>
+              <CategoryEyebrow>{data.name}</CategoryEyebrow>
+            </ParallaxLayer>
+          )}
 
           {/* Context slides */}
           {data.context.map(renderContext)}
 
           {/* Triangle */}
           {/* On its own page at the end */}
-          <ParallaxLayer offset={lastPageOffset} speed={1} style={{ pointerEvents: 'none' }}>
-            <div className="arrow-holder">
-              <img src={triangle} draggable={false} />
-            </div>
-          </ParallaxLayer>
+          {isKiosk() && (
+            <ParallaxLayer offset={lastPageOffset} speed={1} style={{ pointerEvents: 'none' }}>
+              <div className="arrow-holder">
+                <img src={triangle} draggable={false} />
+              </div>
+            </ParallaxLayer>
+          )}
         </Parallax>
-        <SwipePrompt />
+
+        {isKiosk() && (
+          <SwipePrompt />
+        )}
       </div>
 
-      <div className="section2">
-        <VoteIntro />
-      </div>
+      {isKiosk() && (
+        <div className="section2">
+          <VoteIntro />
+        </div>
+      )}
 
-      <LowerNav left={LowerNav.types.PIONEERS} right={LowerNav.types.VOTE} />
+      {isKiosk() ? (
+        <LowerNav left={LowerNav.types.PIONEERS} right={LowerNav.types.VOTE} />
+      ) : (
+        <LowerNav middle={LowerNav.types.PIONEERS} />
+      )}
 
       <style jsx global>
         {`

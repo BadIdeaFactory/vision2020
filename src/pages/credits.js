@@ -5,7 +5,9 @@ import Layout from '../components/Layout'
 import CategoryEyebrow from '../components/CategoryEyebrow'
 import LowerNav from '../components/LowerNav'
 import { getData } from '../data/load'
-import { UI_COLOR_PRIMARY } from '../const'
+import { UI_COLOR_PRIMARY, UI_COLOR_SECONDARY } from '../const'
+import { isKiosk } from '../kiosk'
+import WebHeader from '../components/WebHeader'
 
 const TEAM = [
   {
@@ -65,9 +67,11 @@ const CreditsPage = () => (
       <title>Credits // Vision2020</title>
     </Head>
 
-    <CategoryEyebrow>Credits</CategoryEyebrow>
+    {isKiosk() && <CategoryEyebrow>Credits</CategoryEyebrow>}
 
     <div className="credits-container">
+      {!isKiosk() && <WebHeader color={UI_COLOR_SECONDARY} />}
+
       <h3>Exhibition Team</h3>
 
       <div className="credits">
@@ -93,17 +97,25 @@ const CreditsPage = () => (
       </div>
     </div>
 
-    <LowerNav
-      left={LowerNav.types.PIONEERS}
-      middle={LowerNav.types.EXIT}
-      right={LowerNav.types.VOTE}
-    />
+    {isKiosk() ? (
+      <LowerNav
+        left={LowerNav.types.PIONEERS}
+        middle={LowerNav.types.EXIT}
+        right={LowerNav.types.VOTE}
+      />
+    ) : (
+      <LowerNav left={LowerNav.types.PIONEERS} right={LowerNav.types.EXIT} />
+    )}
 
     <style jsx global>
       {`
         body {
           background-color: black;
           color: white;
+        }
+
+        body:not(.kiosk) .credits-container {
+          margin: 0 auto;
         }
       `}
     </style>
@@ -134,17 +146,14 @@ const CreditsPage = () => (
         @media only screen and (max-width: 768px) {
           .credits-container {
             width: auto;
-            margin-left: 30px;
-            margin-right: 30px;
-            margin-top: 40px;
-            margin-bottom: 40px;
+            margin: 20px;
           }
 
           h3 {
             font-size: 24px;
             text-align: left;
             margin-bottom: 1.5em;
-            margin-top: 3em;
+            margin-top: 1em;
           }
 
           .credits {
