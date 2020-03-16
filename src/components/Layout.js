@@ -158,11 +158,12 @@ export default function Layout ({ className = '', ...props }) {
               Helvetica, sans-serif;
             font-family: ${TYPOGRAPHY_BODY};
             font-size: 16px;
-            overscroll-behavior: none;
             overflow-x: hidden;
           }
 
           body.kiosk {
+            /* Prevent overscroll only on kiosks */
+            overscroll-behavior: none;
             font-size: 22px;
           }
 
