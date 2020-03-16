@@ -13,7 +13,7 @@ PosterItem.propTypes = {
 }
 
 function PosterItem ({ id, label }) {
-  const profileImageUrl = require(`../../public/posters/${id}.png?webp`)
+  const profileImageUrl = require(`../../public/posters/${id}.png`)
 
   return (
     <>

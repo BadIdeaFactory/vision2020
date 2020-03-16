@@ -15,7 +15,7 @@ export default function PioneerLede ({ data, animated = true }) {
     threshold: 1,
     triggerOnce: true
   })
-  const profileImageUrl = require(`../../public/portraits/${data.portrait_img}?webp`)
+  const profileImageUrl = require(`../../public/portraits/${data.portrait_img}`)
     .default
 
   return (
