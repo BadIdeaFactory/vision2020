@@ -27,13 +27,18 @@ export default function Image (props) {
 
   // `require` uses next-optimized-images package
   return (
-    <img
-      // src={requireImage(`./${src}`)}
-      src={require(`../../public/media/images/${src}`).default}
-      className={className}
-      onClick={handleClick}
-      draggable={false}
-      {...rest}
-    />
+    <picture>
+      <source
+        type="image/webp"
+        srcSet={require(`../../public/media/images/${src}?webp`).default}
+      />
+      <img
+        src={require(`../../public/media/images/${src}`).default}
+        className={className}
+        onClick={handleClick}
+        draggable={false}
+        {...rest}
+      />
+    </picture>
   )
 }

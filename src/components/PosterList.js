@@ -13,18 +13,23 @@ PosterItem.propTypes = {
 }
 
 function PosterItem ({ id, label }) {
-  const profileImageUrl = require(`../../public/posters/${id}.png`)
+  const profileImageUrlWebp = require(`../../public/posters/${id}.png?webp`)
+    .default
+  const profileImageUrl = require(`../../public/posters/${id}.png`).default
 
   return (
     <>
       <Link href="/pioneers/[id]" as={`/pioneers/${id}`}>
         <a draggable={false}>
           <div className="poster">
-            <img
-              src={profileImageUrl.default}
-              aria-labelledby={`poster-label-${id}`}
-              draggable={false}
-            />
+            <picture>
+              <source type="image/webp" srcSet={profileImageUrlWebp} />
+              <img
+                src={profileImageUrl}
+                aria-labelledby={`poster-label-${id}`}
+                draggable={false}
+              />
+            </picture>
           </div>
           <div className="poster-label" id={`poster-label-${id}`}>
             {label}
