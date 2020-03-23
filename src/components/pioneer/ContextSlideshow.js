@@ -12,6 +12,7 @@ import {
   PARALLAX_TEXT_SPEED
 } from './constants'
 import '../../../node_modules/react-image-gallery/styles/css/image-gallery.css'
+import { MOBILE_BREAKPOINT } from '../../const'
 
 ContextSlideshow.propTypes = {
   offset: PropTypes.number,
@@ -52,21 +53,15 @@ function ContextSlideshow ({ offset, context = {} }) {
               return () => clearTimeout(timeout)
             }
           }}
-          style={{
-            // Odd number pages align images to the right
-            // Even number pages align images to the left
-            right: context.page % 2 ? 0 : 'auto',
-            left: context.page % 2 ? 'auto' : 0,
-            top: '10%',
-            width: 'calc(50% - 50px - 25px)',
-            maxHeight: '100%',
-            position: 'absolute'
-          }}
+          style={{}}
         >
           <div
             className="image-container"
             style={{
-              position: 'relative' // override
+              // Odd number pages align images to the right
+              // Even number pages align images to the left
+              right: context.page % 2 ? 0 : 'auto',
+              left: context.page % 2 ? 'auto' : 0
             }}
           >
             <ImageGallery
@@ -91,28 +86,24 @@ function ContextSlideshow ({ offset, context = {} }) {
                 setCurrentSlide(index)
               }}
             />
-          </div>
-          <div
-            style={{
-              // position: 'absolute',
-              // right: context.page % 2 ? 0 : 'auto',
-              // left: context.page % 2 ? 'auto' : 0,
-              // width: 'calc(50% - 50px - 25px)',
-              // top: '35%',
-              position: 'relative',
-              paddingRight: context.page % 2 ? '20px' : 'auto',
-              paddingLeft: context.page % 2 ? 'auto' : '20px',
-              backgroundColor: 'white',
-              zIndex: '-1',
-              marginTop: '20px'
-            }}
-            className="context-text-container"
-          >
-            {transitions.map(({ item, key, props }) => (
-              <animated.div key={key} style={props}>
-                <ParseText text={context.slideshow[item].text} />
-              </animated.div>
-            ))}
+            <div
+              style={{
+                position: 'relative',
+                paddingRight: context.page % 2 ? '20px' : 'auto',
+                paddingLeft: context.page % 2 ? 'auto' : '20px',
+                backgroundColor: 'white',
+                zIndex: '-1',
+                marginTop: '20px',
+                width: 'calc(100% - 1.5em)' // Override
+              }}
+              className="context-text-container"
+            >
+              {transitions.map(({ item, key, props }) => (
+                <animated.div key={key} style={props}>
+                  <ParseText text={context.slideshow[item].text} />
+                </animated.div>
+              ))}
+            </div>
           </div>
         </InView>
       </ParallaxLayer>
@@ -145,13 +136,19 @@ function ContextSlideshow ({ offset, context = {} }) {
           }
 
           .image-container .image-gallery-bullets .image-gallery-bullet {
-            margin: 0 10px;
+            margin: 0 0.65em;
             width: 6px;
             height: 6px;
             background-color: #9b9b9b;
             transition: background-color 120ms ease;
             border: 0;
             box-shadow: none;
+          }
+
+          @media (max-width: ${MOBILE_BREAKPOINT}) {
+            .image-container .image-gallery-bullets .image-gallery-bullet {
+              margin: 0 0.25em;
+            }
           }
 
           .image-container .image-gallery-bullets .image-gallery-bullet.active {

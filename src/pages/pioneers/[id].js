@@ -308,12 +308,28 @@ export default function Pioneer (props) {
 
           .image-container {
             position: absolute;
-            margin-top: -10%;
+            width: calc(50% - (${SPINE_WIDTH_LG} / 2) - 1.5em);
+            max-height: 100%;
+          }
+
+          @media (max-width: ${MOBILE_BREAKPOINT}) {
+            .image-container {
+              width: calc(50% - (${SPINE_WIDTH_SM} / 2) - 1em);
+            }
           }
 
           .image-container img {
             max-width: 100%;
-            margin-top: 15px;
+          }
+
+          .context-image-many {
+            column-count: 2;
+            column-gap: 0.5em;
+            line-height: 0; /* Ensures vertical and horizontal spacing is the same */
+          }
+
+          .context-image-many img {
+            margin-top: 0.5em;
           }
         `}
       </style>

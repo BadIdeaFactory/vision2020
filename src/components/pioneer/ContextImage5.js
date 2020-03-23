@@ -41,16 +41,12 @@ function ContextImage5 ({ offset, context = {} }) {
           }}
         >
           <div
-            className="image-container"
+            className="image-container context-image-many"
             style={{
               // Odd number pages align images to the right
               // Even number pages align images to the left
               right: context.page % 2 ? 0 : 'auto',
-              left: context.page % 2 ? 'auto' : 0,
-              width: 'calc(50% - 50px - 25px)',
-              maxHeight: '100%',
-              // 2-columns!
-              columnCount: 2
+              left: context.page % 2 ? 'auto' : 0
             }}
           >
             {context.images.map((image, index) => {

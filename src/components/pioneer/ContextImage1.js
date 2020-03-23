@@ -47,8 +47,6 @@ function ContextImage1 ({ offset, context = {} }) {
               // Even number pages align images to the left
               right: context.page % 2 ? 0 : 'auto',
               left: context.page % 2 ? 'auto' : 0,
-              width: 'calc(50% - 50px - 25px)',
-              maxHeight: '100%',
               display: 'flex',
               flexDirection: 'row',
               justifyContent: context.page % 2 ? 'flex-start' : 'flex-end'
