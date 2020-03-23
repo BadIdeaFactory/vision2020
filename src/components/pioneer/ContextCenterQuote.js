@@ -20,7 +20,11 @@ ContextCenterQuote.propTypes = {
 function ContextCenterQuote ({ offset, context = {} }) {
   return (
     <React.Fragment key={context.page}>
-      <ParallaxLayer offset={offset} speed={PARALLAX_QUOTE_SPEED}>
+      <ParallaxLayer
+        offset={offset}
+        speed={PARALLAX_QUOTE_SPEED}
+        className="parallax-layer"
+      >
         <div className="context-center-quote-container">
           <div>
             {/* Images */}

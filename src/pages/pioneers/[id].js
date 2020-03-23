@@ -9,7 +9,7 @@ import LowerNav from '../../components/LowerNav'
 import SwipePrompt from '../../components/SwipePrompt'
 import Lightbox from '../../components/Lightbox'
 import PioneerLede from '../../components/PioneerLede'
-import { MOBILE_BREAKPOINT, UI_COLOR_SECONDARY } from '../../const'
+import { MOBILE_BREAKPOINT, UI_COLOR_SECONDARY, SPINE_WIDTH_LG, SPINE_WIDTH_SM } from '../../const'
 import { getEntry } from '../../data/load'
 import ContextCenterQuote from '../../components/pioneer/ContextCenterQuote'
 import ContextImage1 from '../../components/pioneer/ContextImage1'
@@ -255,6 +255,13 @@ export default function Pioneer (props) {
             }
           }
 
+          @media screen and (orientation: landscape) {
+            .parallax-layer {
+              max-width: 100vh;
+              left: calc(50% - 50vh);
+            }
+          }
+
           .context-align-center .context blockquote + p > em:first-child::before {
             left: calc(50% - 25px);
           }
@@ -270,16 +277,59 @@ export default function Pioneer (props) {
             position: relative;
             background-color: white;
             padding: 2em 0;
+            text-align: left;
+            width: calc(40% + 1px); /* +1px to fix rounding errors */
+            margin-top: -20%;
+          }
+
+          @media (max-width: ${MOBILE_BREAKPOINT}) {
+            .context-text-container {
+              width: 50%;
+            }
+          }
+
+          .context-align-left {
+            margin-left: calc(10% + ${SPINE_WIDTH_LG} / 2);
+          }
+
+          .context-align-right {
+            margin-left: calc(50% - ${SPINE_WIDTH_LG} / 2);
+          }
+
+          @media (max-width: ${MOBILE_BREAKPOINT}) {
+            .context-align-left {
+              margin-left: calc(0% + ${SPINE_WIDTH_SM} / 2);
+            }
+
+            .context-align-right {
+              margin-left: calc(50% - ${SPINE_WIDTH_SM} / 2);
+            }
           }
 
           .image-container {
             position: absolute;
-            margin-top: -10%;
+            width: calc(50% - (${SPINE_WIDTH_LG} / 2) - 1.5em);
+            max-height: 100%;
+          }
+
+          @media (max-width: ${MOBILE_BREAKPOINT}) {
+            .image-container {
+              width: calc(50% - (${SPINE_WIDTH_SM} / 2) - 1em);
+            }
           }
 
           .image-container img {
             max-width: 100%;
-            margin-top: 15px;
+          }
+
+          .context-image-many {
+            column-count: 2;
+            column-gap: 0.5em;
+            line-height: 0; /* Ensures vertical and horizontal spacing is the same */
+          }
+
+          .context-image-many img {
+            margin-top: 0.5em;
           }
         `}
       </style>
@@ -328,16 +378,16 @@ export default function Pioneer (props) {
             position: absolute;
             height: 100%;
             width: 0;
-            border-left: 100px solid ${UI_COLOR_SECONDARY};
+            border-left: ${SPINE_WIDTH_LG} solid ${UI_COLOR_SECONDARY};
             left: 50%;
-            margin-left: -50px;
+            margin-left: calc(${SPINE_WIDTH_LG} / -2);
             z-index: -1;
           }
 
           @media (max-width: ${MOBILE_BREAKPOINT}) {
             .pioneer-spine {
-              border-left: 50px solid ${UI_COLOR_SECONDARY};
-              margin-left: -25px;
+              border-left-width: ${SPINE_WIDTH_SM};
+              margin-left: calc(${SPINE_WIDTH_SM} / -2);
             }
           }
 
