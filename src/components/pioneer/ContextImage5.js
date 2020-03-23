@@ -22,7 +22,11 @@ function ContextImage5 ({ offset, context = {} }) {
   return (
     <React.Fragment key={context.page}>
       {/* Images */}
-      <ParallaxLayer offset={offset} speed={PARALLAX_IMAGE_SPEED}>
+      <ParallaxLayer
+        offset={offset}
+        speed={PARALLAX_IMAGE_SPEED}
+        className="parallax-layer"
+      >
         <InView
           as="div"
           className="context-transition-container"
@@ -44,6 +48,7 @@ function ContextImage5 ({ offset, context = {} }) {
               right: context.page % 2 ? 0 : 'auto',
               left: context.page % 2 ? 'auto' : 0,
               width: 'calc(50% - 50px - 25px)',
+              maxHeight: '100%',
               // 2-columns!
               columnCount: 2
             }}
@@ -69,7 +74,7 @@ function ContextImage5 ({ offset, context = {} }) {
       <ParallaxLayer
         offset={offset}
         speed={PARALLAX_TEXT_SPEED}
-        className="context-text-parallaxlayer"
+        className="context-text-parallaxlayer parallax-layer"
       >
         <div
           style={{

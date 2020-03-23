@@ -255,6 +255,13 @@ export default function Pioneer (props) {
             }
           }
 
+          @media screen and (orientation: landscape) {
+            .parallax-layer {
+              max-width: 100vh;
+              left: calc(50% - 50vh);
+            }
+          }
+
           .context-align-center .context blockquote + p > em:first-child::before {
             left: calc(50% - 25px);
           }

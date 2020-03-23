@@ -35,7 +35,11 @@ function ContextSlideshow ({ offset, context = {} }) {
   return (
     <React.Fragment key={context.page}>
       {/* Images */}
-      <ParallaxLayer offset={offset} speed={PARALLAX_IMAGE_SPEED}>
+      <ParallaxLayer
+        offset={offset}
+        speed={PARALLAX_IMAGE_SPEED}
+        className="parallax-layer"
+      >
         <InView
           as="div"
           className="context-transition-container"
@@ -55,6 +59,7 @@ function ContextSlideshow ({ offset, context = {} }) {
             left: context.page % 2 ? 'auto' : 0,
             top: '10%',
             width: 'calc(50% - 50px - 25px)',
+            maxHeight: '100%',
             position: 'absolute'
           }}
         >
@@ -116,7 +121,7 @@ function ContextSlideshow ({ offset, context = {} }) {
       <ParallaxLayer
         offset={offset}
         speed={PARALLAX_TEXT_SPEED}
-        className="context-text-parallaxlayer"
+        className="context-text-parallaxlayer parallax-layer"
       >
         <div
           style={{

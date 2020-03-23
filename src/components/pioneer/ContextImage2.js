@@ -22,7 +22,11 @@ function ContextImage2 ({ offset, context = {} }) {
   return (
     <React.Fragment key={context.page}>
       {/* Images */}
-      <ParallaxLayer offset={offset} speed={PARALLAX_IMAGE_SPEED}>
+      <ParallaxLayer
+        offset={offset}
+        speed={PARALLAX_IMAGE_SPEED}
+        className="parallax-layer"
+      >
         <InView
           as="div"
           className="context-transition-container"
@@ -43,7 +47,8 @@ function ContextImage2 ({ offset, context = {} }) {
               // Even number pages align images to the left
               right: context.page % 2 ? 0 : 'auto',
               left: context.page % 2 ? 'auto' : 0,
-              width: 'calc(50% - 50px - 25px)'
+              width: 'calc(50% - 50px - 25px)',
+              maxHeight: '100%'
             }}
           >
             {context.images.map((image, index) => {
@@ -71,7 +76,7 @@ function ContextImage2 ({ offset, context = {} }) {
       <ParallaxLayer
         offset={offset}
         speed={PARALLAX_TEXT_SPEED}
-        className="context-text-parallaxlayer"
+        className="context-text-parallaxlayer parallax-layer"
       >
         <div
           style={{
