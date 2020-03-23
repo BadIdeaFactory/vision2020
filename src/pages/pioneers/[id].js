@@ -277,6 +277,9 @@ export default function Pioneer (props) {
             position: relative;
             background-color: white;
             padding: 2em 0;
+            text-align: left;
+            width: calc(40% + 1px); /* +1px to fix rounding errors */
+            margin-top: -20%;
           }
 
           .image-container {
