@@ -5,6 +5,7 @@ import createActivityDetector from '../vendor/activity-detector'
 import Metatags from './Metatags'
 import {
   MOBILE_BREAKPOINT,
+  TINY_MOBILE_BREAKPOINT,
   TYPOGRAPHY_DISPLAY,
   TYPOGRAPHY_BODY
 } from '../const'
@@ -170,6 +171,12 @@ export default function Layout ({ className = '', ...props }) {
           @media (max-width: ${MOBILE_BREAKPOINT}) {
             body {
               font-size: 13px;
+            }
+          }
+
+          @media (max-width: ${TINY_MOBILE_BREAKPOINT}) {
+            body {
+              font-size: 11px;
             }
           }
 

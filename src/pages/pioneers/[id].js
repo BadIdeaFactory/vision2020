@@ -285,6 +285,7 @@ export default function Pioneer (props) {
           @media (max-width: ${MOBILE_BREAKPOINT}) {
             .context-text-container {
               width: 50%;
+              padding: 1em 0;
             }
           }
 
