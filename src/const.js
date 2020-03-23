@@ -15,3 +15,6 @@ export const TYPOGRAPHY_BODY = '"Noto Serif", serif'
 export const LOCALSTORAGE_KEY = 'vision2020_votes'
 export const DB_COLLECTION = 'survey_responses'
 export const DB_VOTES_DOC = 'vote_counter'
+
+export const SPINE_WIDTH_LG = '100px'
+export const SPINE_WIDTH_SM = '50px'

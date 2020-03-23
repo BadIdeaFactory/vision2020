@@ -70,13 +70,11 @@ function ContextImage1 ({ offset, context = {} }) {
         className="context-text-parallaxlayer parallax-layer"
       >
         <div
-          className="context-text-container"
-          style={{
-            // Odd number pages align text to the left
-            // Even number pages align text to the right
-            marginLeft:
-              context.page % 2 ? 'calc(10% + 50px)' : 'calc(50% - 50px)'
-          }}
+          // Odd number pages align text to the left
+          // Even number pages align text to the right
+          className={`context-text-container ${
+            context.page % 2 ? 'context-align-left' : 'context-align-right'
+          }`}
         >
           <ParseText text={context.text} />
         </div>
