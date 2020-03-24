@@ -7,7 +7,8 @@ import {
   MOBILE_BREAKPOINT,
   TINY_MOBILE_BREAKPOINT,
   TYPOGRAPHY_DISPLAY,
-  TYPOGRAPHY_BODY
+  TYPOGRAPHY_BODY,
+  MOBILE_BREAKPOINT_MIN
 } from '../const'
 import { isKiosk } from '../kiosk'
 
@@ -210,7 +211,7 @@ export default function Layout ({ className = '', ...props }) {
             position: relative;
           }
 
-          @media screen and (min-width: 768px) {
+          @media screen and (min-width: ${MOBILE_BREAKPOINT_MIN}) {
             section {
               padding: 30px 70px;
             }
@@ -233,7 +234,7 @@ export default function Layout ({ className = '', ...props }) {
           position: relative;
         }
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: ${MOBILE_BREAKPOINT_MIN}) {
           #vision2020 {
             padding: 30px 80px;
             padding-bottom: 120px;

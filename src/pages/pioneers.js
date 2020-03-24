@@ -174,9 +174,10 @@ const PioneersList = () => (
     </style>
     <style jsx>
       {`
-        @media only screen and (min-width: ${MOBILE_BREAKPOINT_MIN}) {
+        @media only screen and (min-width: ${MOBILE_BREAKPOINT_MIN}) and (orientation: landscape) {
           .pioneers-container {
             max-width: 100vh;
+            min-width: 500px;
             margin: 0 auto;
           }
         }
@@ -251,7 +252,6 @@ const PioneersList = () => (
           font-weight: bold;
           margin-bottom: 0.75em;
           margin-top: 0.75em;
-          white-space: nowrap;
           letter-spacing: -1px;
           text-transform: initial;
         }
@@ -261,8 +261,7 @@ const PioneersList = () => (
             font-size: 48px;
             line-height: 60px;
             padding-top: 0.35em;
-            /* Allow headers to wrap on small screens */
-            white-space: normal;
+            white-space: nowrap;
           }
         }
 

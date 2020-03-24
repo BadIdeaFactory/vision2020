@@ -5,7 +5,11 @@ import Layout from '../components/Layout'
 import CategoryEyebrow from '../components/CategoryEyebrow'
 import LowerNav from '../components/LowerNav'
 import { getData } from '../data/load'
-import { UI_COLOR_PRIMARY, UI_COLOR_SECONDARY } from '../const'
+import {
+  UI_COLOR_PRIMARY,
+  UI_COLOR_SECONDARY,
+  MOBILE_BREAKPOINT_MAX
+} from '../const'
 import { isKiosk } from '../kiosk'
 import WebHeader from '../components/WebHeader'
 
@@ -143,7 +147,7 @@ const CreditsPage = () => (
           gap: 20px;
         }
 
-        @media only screen and (max-width: 768px) {
+        @media only screen and (max-width: ${MOBILE_BREAKPOINT_MAX}) {
           .credits-container {
             width: auto;
             margin: 20px;

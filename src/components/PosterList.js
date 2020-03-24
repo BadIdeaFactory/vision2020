@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Layout from './Layout'
 import WebHeader from './WebHeader'
-import { UI_COLOR_SECONDARY } from '../const'
+import { UI_COLOR_SECONDARY, MOBILE_BREAKPOINT_MIN } from '../const'
 import DIRECTORY from '../data/directory.json'
 
 PosterItem.propTypes = {
@@ -131,7 +131,7 @@ const PosterList = () => (
           border-top: 10px solid black;
         }
 
-        @media only screen and (min-width: 768px) {
+        @media only screen and (min-width: ${MOBILE_BREAKPOINT_MIN}) {
           .pioneers-list > li {
             margin-top: 1.5em;
           }

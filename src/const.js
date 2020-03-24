@@ -7,9 +7,9 @@ export const TYPE_BUTTON_LG = '36px'
 export const TYPE_BUTTON_SM = '16px'
 
 export const MQ_EXHIBIT = ''
-export const MOBILE_BREAKPOINT = '768px'
-export const MOBILE_BREAKPOINT_MIN = '768px'
-export const MOBILE_BREAKPOINT_MAX = '767px'
+export const MOBILE_BREAKPOINT = '900px'
+export const MOBILE_BREAKPOINT_MIN = '899px'
+export const MOBILE_BREAKPOINT_MAX = '899px'
 export const TINY_MOBILE_BREAKPOINT = '400px'
 
 export const TYPOGRAPHY_DISPLAY = '"Anton", sans-serif'

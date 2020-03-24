@@ -67,14 +67,6 @@ export default function LowerNav (props) {
             z-index: 2000;
           }
 
-           {
-            /* @media only screen and (max-width: 768px) {
-            nav {
-              display: none;
-            }
-          } */
-          }
-
           ul {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
