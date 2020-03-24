@@ -6,7 +6,12 @@ import Layout from '../components/Layout'
 import CategoryEyebrow from '../components/CategoryEyebrow'
 import LowerNav from '../components/LowerNav'
 import NavButton from '../components/NavButton'
-import { UI_COLOR_PRIMARY } from '../const'
+import {
+  UI_COLOR_PRIMARY,
+  MOBILE_BREAKPOINT_MIN,
+  MOBILE_BREAKPOINT_MAX,
+  TINY_MOBILE_BREAKPOINT
+} from '../const'
 import { getEntry } from '../data/load'
 import DIRECTORY from '../data/directory.json'
 import { isKiosk } from '../kiosk'
@@ -79,7 +84,7 @@ function PioneerItem ({ id, label }) {
             transition: '150ms opacity';
           }
 
-          @media only screen and (max-width: 768px) {
+          @media only screen and (max-width: ${MOBILE_BREAKPOINT_MAX}) {
             .pioneer-pic-wrapper {
               display: none;
             }
@@ -92,7 +97,7 @@ function PioneerItem ({ id, label }) {
             margin-top: 1em;
           }
 
-          @media only screen and (max-width: 768px) {
+          @media only screen and (max-width: ${MOBILE_BREAKPOINT_MAX}) {
             .pioneer-label {
               font-size: 18px;
               border-top: 1px solid black;
@@ -120,7 +125,7 @@ const PioneersList = () => (
       <title>Pioneering women // Vision2020</title>
     </Head>
 
-    <section>
+    <section className="pioneers-container">
       {isKiosk() ? (
         <CategoryEyebrow color="black">Pioneers</CategoryEyebrow>
       ) : (
@@ -169,11 +174,26 @@ const PioneersList = () => (
     </style>
     <style jsx>
       {`
+        @media only screen and (min-width: ${MOBILE_BREAKPOINT_MIN}) {
+          .pioneers-container {
+            max-width: 100vh;
+            margin: 0 auto;
+          }
+        }
+
+        @media screen and (max-width: ${TINY_MOBILE_BREAKPOINT}) {
+          .pioneers-container {
+            /* Better fitting on iPhone 5 and tiny mobiles */
+            /* Overrides <Layout /> <section> */
+            padding: 20px;
+          }
+        }
+
         .pioneers-list-container {
           border-top: 10px solid black;
         }
 
-        @media only screen and (max-width: 768px) {
+        @media only screen and (max-width: ${MOBILE_BREAKPOINT_MAX}) {
           .pioneers-list-container {
             position: relative;
             top: 0;
@@ -197,7 +217,7 @@ const PioneersList = () => (
           border-bottom: 10px solid black;
         }
 
-        @media only screen and (min-width: 768px) {
+        @media only screen and (min-width: ${MOBILE_BREAKPOINT_MIN}) {
           .pioneers-list {
             padding-bottom: 60px;
             border-bottom: 20px solid black;
@@ -214,7 +234,7 @@ const PioneersList = () => (
           border-top: 10px solid black;
         }
 
-        @media only screen and (min-width: 768px) {
+        @media only screen and (min-width: ${MOBILE_BREAKPOINT_MIN}) {
           .pioneers-list > li {
             margin-top: 1.5em;
           }
@@ -236,11 +256,13 @@ const PioneersList = () => (
           text-transform: initial;
         }
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: ${MOBILE_BREAKPOINT_MIN}) {
           .pioneers-list h5 {
             font-size: 48px;
             line-height: 60px;
             padding-top: 0.35em;
+            /* Allow headers to wrap on small screens */
+            white-space: normal;
           }
         }
 
@@ -253,7 +275,7 @@ const PioneersList = () => (
           margin: 0;
         }
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: ${MOBILE_BREAKPOINT_MIN}) {
           .pioneers-list > ul {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -281,7 +303,7 @@ const PioneersList = () => (
           margin: 2em 0;
         }
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: ${MOBILE_BREAKPOINT_MIN}) {
           .nav-button {
             /* Position to align with other nav buttons */
             position: relative;
