@@ -177,7 +177,7 @@ export default function Pioneer (props) {
           .context h4,
           .context h5,
           .context h6 {
-            font-size: 22px;
+            font-size: 1em; /* Match body text font */
             font-family: 'Noto Serif', serif;
             text-transform: initial;
             text-align: left;
