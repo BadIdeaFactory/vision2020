@@ -276,16 +276,19 @@ export default function Pioneer (props) {
           .context-text-container {
             position: relative;
             background-color: white;
-            padding: 2em 0;
+            padding: 1em 0;
             text-align: left;
             width: calc(40% + 1px); /* +1px to fix rounding errors */
             margin-top: -20%;
           }
 
+          body.kiosk .context-text-container {
+            padding: 2em 0;
+          }
+
           @media (max-width: ${MOBILE_BREAKPOINT}) {
             .context-text-container {
               width: 50%;
-              padding: 1em 0;
             }
           }
 
