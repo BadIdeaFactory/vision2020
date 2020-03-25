@@ -69,6 +69,7 @@ export default function Lightbox (props) {
             opacity: 0;
             pointer-events: none;
             transition: 400ms opacity;
+            z-index: 3000;
           }
 
           .lightbox.visible {
@@ -79,7 +80,9 @@ export default function Lightbox (props) {
 
           .lightbox img {
             max-width: 90%;
-            max-height: 85%;
+            max-height: calc(
+              100% - 6vh - 100px
+            ); /* Clear close button on any screen size */
           }
 
           .close-icon {
@@ -90,6 +93,13 @@ export default function Lightbox (props) {
             min-height: 40px;
             min-width: 40px;
             cursor: pointer;
+          }
+
+          @media only screen and (orientation: landscape) {
+            .close-icon {
+              min-height: 32px;
+              min-width: 32px;
+            }
           }
 
           .close-icon path {
