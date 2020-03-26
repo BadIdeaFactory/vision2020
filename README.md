@@ -6,4 +6,6 @@ UPDATE (March 2020): Because of the COVID-19 pandemic, the Kimmel Center is clos
 
 ![Vision2020 hero image](https://raw.githubusercontent.com/BadIdeaFactory/vision2020/louh/work/public/vision2020_hero_910x520.jpg)
 
+More info on the [BIFFUD website](https://biffud.com/projects/vision2020).
+
 ![](https://img.shields.io/netlify/4f8187ce-c3bb-4c60-8fe0-ae4433dbd306?style=flat-square "Netlify status")
