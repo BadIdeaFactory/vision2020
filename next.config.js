@@ -1,6 +1,5 @@
 require('dotenv').config()
 const withPlugins = require('next-compose-plugins')
-const withCSS = require('@zeit/next-css')
 const withOptimizedImages = require('next-optimized-images')
 
 /**
@@ -138,6 +137,6 @@ const optimizedImagesConfig = {
 }
 
 module.exports = withPlugins(
-  [withCSS, [withOptimizedImages, optimizedImagesConfig]],
+  [[withOptimizedImages, optimizedImagesConfig]],
   nextConfig
 )

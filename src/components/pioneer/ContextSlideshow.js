@@ -11,7 +11,6 @@ import {
   PARALLAX_IMAGE_SPEED,
   PARALLAX_TEXT_SPEED
 } from './constants'
-import '../../../node_modules/react-image-gallery/styles/css/image-gallery.css'
 import { MOBILE_BREAKPOINT_MAX } from '../../const'
 
 ContextSlideshow.propTypes = {
