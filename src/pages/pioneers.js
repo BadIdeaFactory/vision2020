@@ -201,7 +201,7 @@ const PioneersList = () => (
             left: 0;
             width: calc(100vw - 60px);
             position: absolute;
-            top: 120px;
+            top: 10vh; /* Clear WebHeader component */
             left: 30px;
             bottom: 60px;
           }
