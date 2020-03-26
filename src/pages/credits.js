@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Layout from '../components/Layout'
 import CategoryEyebrow from '../components/CategoryEyebrow'
 import LowerNav from '../components/LowerNav'
+import WebHeader from '../components/WebHeader'
 import { getData } from '../data/load'
 import {
   UI_COLOR_PRIMARY,
@@ -11,7 +12,6 @@ import {
   MOBILE_BREAKPOINT_MAX
 } from '../const'
 import { isKiosk } from '../kiosk'
-import WebHeader from '../components/WebHeader'
 
 const TEAM = [
   {

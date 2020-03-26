@@ -62,6 +62,13 @@ export default function PioneerLede ({ data, animated = true }) {
         </div>
       </ParallaxLayer>
 
+      <style jsx global>
+        {`
+          body:not(.kiosk) .profile-image-container {
+            padding-top: 6vh;
+          }
+        `}
+      </style>
       <style jsx>
         {`
           .profile-image-container {

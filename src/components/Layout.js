@@ -207,7 +207,7 @@ export default function Layout ({ className = '', ...props }) {
 
           section {
             min-height: 100vh;
-            padding: 30px;
+            padding: 20px;
             position: relative;
           }
 

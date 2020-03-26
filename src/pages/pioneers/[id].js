@@ -4,12 +4,13 @@ import { useRouter } from 'next/router'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import Layout from '../../components/Layout'
 import CategoryEyebrow from '../../components/CategoryEyebrow'
+import WebHeader from '../../components/WebHeader'
 import VoteIntro from '../../components/VoteIntro'
 import LowerNav from '../../components/LowerNav'
 import SwipePrompt from '../../components/SwipePrompt'
 import Lightbox from '../../components/Lightbox'
 import PioneerLede from '../../components/PioneerLede'
-import { MOBILE_BREAKPOINT, UI_COLOR_SECONDARY, SPINE_WIDTH_LG, SPINE_WIDTH_SM } from '../../const'
+import { MOBILE_BREAKPOINT, UI_COLOR_SECONDARY, SPINE_WIDTH_LG, SPINE_WIDTH_SM, MOBILE_BREAKPOINT_MIN } from '../../const'
 import { getEntry } from '../../data/load'
 import ContextCenterQuote from '../../components/pioneer/ContextCenterQuote'
 import ContextImage1 from '../../components/pioneer/ContextImage1'
@@ -117,11 +118,13 @@ export default function Pioneer (props) {
           <div className="pioneer-spine" />
           <PioneerLede data={data} animated={animated} />
 
-          {isKiosk() && (
-            <ParallaxLayer offset={0} speed={1} style={{ padding: '30px' }}>
+          <ParallaxLayer offset={0} speed={1} className="pioneer-header">
+            {isKiosk() ? (
               <CategoryEyebrow>{data.name}</CategoryEyebrow>
-            </ParallaxLayer>
-          )}
+            ) : (
+              <WebHeader color={UI_COLOR_SECONDARY} />
+            )}
+          </ParallaxLayer>
 
           {/* Context slides */}
           {data.context.map(renderContext)}
@@ -255,7 +258,18 @@ export default function Pioneer (props) {
             }
           }
 
+          .pioneer-header {
+            padding: 20px;
+          }
+
+          @media screen and (min-width: ${MOBILE_BREAKPOINT_MIN}) {
+            .pioneer-header {
+              padding: 30px;
+            }
+          }
+
           @media screen and (orientation: landscape) {
+            .pioneer-header,
             .parallax-layer {
               max-width: 100vh;
               left: calc(50% - 50vh);
