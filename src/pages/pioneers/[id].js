@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
@@ -30,6 +30,23 @@ export default function Pioneer (props) {
 
   const slug = router.query.id
   const data = getEntry(slug)
+
+  // Handle an interaction with all ten fingers causing the vote page to
+  // drag up earlier than expected. See real-world video of kids doing
+  // this on purpose. I think this takes care of it?
+  function cancelTenOrMoreTouchMoves (event) {
+    if (event.touches.length >= 10) {
+      event.preventDefault()
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('touchmove', cancelTenOrMoreTouchMoves)
+
+    return () => {
+      window.removeEventListener('touchmove', cancelTenOrMoreTouchMoves)
+    }
+  }, [])
 
   // Might be null on first render
   if (!data) return null
