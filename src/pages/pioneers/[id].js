@@ -297,7 +297,8 @@ export default function Pioneer (props) {
           }
 
           .context-align-right {
-            margin-left: calc(50% - ${SPINE_WIDTH_LG} / 2);
+            margin-left: calc(50% - ${SPINE_WIDTH_LG} / 2 - 1px);
+            /* -1px to fix rounding errors with position */
           }
 
           @media (max-width: ${MOBILE_BREAKPOINT}) {
@@ -306,7 +307,8 @@ export default function Pioneer (props) {
             }
 
             .context-align-right {
-              margin-left: calc(50% - ${SPINE_WIDTH_SM} / 2);
+              margin-left: calc(50% - ${SPINE_WIDTH_SM} / 2 - 1px);
+              /* -1px to fix rounding errors with position */
             }
           }
 
