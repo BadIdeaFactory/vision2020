@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { UI_COLOR_PRIMARY } from '../const'
+import { UI_COLOR_PRIMARY, MOBILE_BREAKPOINT_MAX } from '../const'
 
 CategoryEyebrow.propTypes = {
   children: PropTypes.node,
@@ -30,7 +30,7 @@ export default function CategoryEyebrow (props) {
             white-space: nowrap;
           }
 
-          @media only screen and (max-width: 768px) {
+          @media only screen and (max-width: ${MOBILE_BREAKPOINT_MAX}) {
             h1 {
               position: fixed;
               width: calc(100% - 60px);

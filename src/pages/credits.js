@@ -4,10 +4,14 @@ import Head from 'next/head'
 import Layout from '../components/Layout'
 import CategoryEyebrow from '../components/CategoryEyebrow'
 import LowerNav from '../components/LowerNav'
-import { getData } from '../data/load'
-import { UI_COLOR_PRIMARY, UI_COLOR_SECONDARY } from '../const'
-import { isKiosk } from '../kiosk'
 import WebHeader from '../components/WebHeader'
+import { getData } from '../data/load'
+import {
+  UI_COLOR_PRIMARY,
+  UI_COLOR_SECONDARY,
+  MOBILE_BREAKPOINT_MAX
+} from '../const'
+import { isKiosk } from '../kiosk'
 
 const TEAM = [
   {
@@ -115,7 +119,7 @@ const CreditsPage = () => (
         }
 
         body:not(.kiosk) .credits-container {
-          margin: 0 auto;
+          margin: 20px auto;
         }
       `}
     </style>
@@ -143,10 +147,10 @@ const CreditsPage = () => (
           gap: 20px;
         }
 
-        @media only screen and (max-width: 768px) {
+        @media only screen and (max-width: ${MOBILE_BREAKPOINT_MAX}) {
           .credits-container {
             width: auto;
-            margin: 20px;
+            padding: 0 20px;
           }
 
           h3 {

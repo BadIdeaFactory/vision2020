@@ -12,7 +12,7 @@ import {
   PARALLAX_TEXT_SPEED
 } from './constants'
 import '../../../node_modules/react-image-gallery/styles/css/image-gallery.css'
-import { MOBILE_BREAKPOINT } from '../../const'
+import { MOBILE_BREAKPOINT_MAX } from '../../const'
 
 ContextSlideshow.propTypes = {
   offset: PropTypes.number,
@@ -88,15 +88,10 @@ function ContextSlideshow ({ offset, context = {} }) {
             />
             <div
               style={{
-                position: 'relative',
                 paddingRight: context.page % 2 ? '20px' : 'auto',
-                paddingLeft: context.page % 2 ? 'auto' : '20px',
-                backgroundColor: 'white',
-                zIndex: '-1',
-                marginTop: '20px',
-                width: 'calc(100% - 1.5em)' // Override
+                paddingLeft: context.page % 2 ? 'auto' : '20px'
               }}
-              className="context-text-container"
+              className="context-text-container slideshow-text"
             >
               {transitions.map(({ item, key, props }) => (
                 <animated.div key={key} style={props}>
@@ -127,12 +122,20 @@ function ContextSlideshow ({ offset, context = {} }) {
 
       <style jsx global>
         {`
+          .slideshow-text {
+            position: relative;
+            background-color: white;
+            z-index: -1;
+            margin-top: 1em;
+            width: calc(100% - 1.5em); // Override
+          }
+
           /* Override react-image-gallery global styles */
           /* Additional classname specificity is required because
           we can't rely on style load order for importance. the load
           order is different between Electron and web */
           .image-container .image-gallery-bullets {
-            bottom: -50px;
+            bottom: -2em;
           }
 
           .image-container .image-gallery-bullets .image-gallery-bullet {
@@ -145,7 +148,7 @@ function ContextSlideshow ({ offset, context = {} }) {
             box-shadow: none;
           }
 
-          @media (max-width: ${MOBILE_BREAKPOINT}) {
+          @media (max-width: ${MOBILE_BREAKPOINT_MAX}) {
             .image-container .image-gallery-bullets .image-gallery-bullet {
               margin: 0 0.25em;
             }

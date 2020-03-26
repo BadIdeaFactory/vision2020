@@ -14,12 +14,12 @@ function WebHeader ({ color }) {
           h1 {
             text-align: center;
             text-transform: uppercase;
-            font-size: 36px;
+            font-size: 3vh;
             font-weight: normal;
             color: ${color || 'black'};
             width: 100%;
             margin: 0;
-            line-height: 80px;
+            line-height: 6vh;
             white-space: nowrap;
             border-bottom: 10px solid ${color || 'black'};
           }

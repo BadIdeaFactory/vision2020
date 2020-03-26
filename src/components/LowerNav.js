@@ -65,14 +65,8 @@ export default function LowerNav (props) {
             left: 0;
             pointer-events: none;
             z-index: 2000;
-          }
-
-           {
-            /* @media only screen and (max-width: 768px) {
-            nav {
-              display: none;
-            }
-          } */
+            /* Force the fixed position item to include width of a scrollbar when calculating layout */
+            overflow-y: scroll;
           }
 
           ul {

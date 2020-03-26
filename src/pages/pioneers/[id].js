@@ -1,15 +1,16 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import Layout from '../../components/Layout'
 import CategoryEyebrow from '../../components/CategoryEyebrow'
+import WebHeader from '../../components/WebHeader'
 import VoteIntro from '../../components/VoteIntro'
 import LowerNav from '../../components/LowerNav'
 import SwipePrompt from '../../components/SwipePrompt'
 import Lightbox from '../../components/Lightbox'
 import PioneerLede from '../../components/PioneerLede'
-import { MOBILE_BREAKPOINT, UI_COLOR_SECONDARY, SPINE_WIDTH_LG, SPINE_WIDTH_SM } from '../../const'
+import { MOBILE_BREAKPOINT, UI_COLOR_SECONDARY, SPINE_WIDTH_LG, SPINE_WIDTH_SM, MOBILE_BREAKPOINT_MIN } from '../../const'
 import { getEntry } from '../../data/load'
 import ContextCenterQuote from '../../components/pioneer/ContextCenterQuote'
 import ContextImage1 from '../../components/pioneer/ContextImage1'
@@ -29,6 +30,23 @@ export default function Pioneer (props) {
 
   const slug = router.query.id
   const data = getEntry(slug)
+
+  // Handle an interaction with all ten fingers causing the vote page to
+  // drag up earlier than expected. See real-world video of kids doing
+  // this on purpose. I think this takes care of it?
+  function cancelTenOrMoreTouchMoves (event) {
+    if (event.touches.length >= 10) {
+      event.preventDefault()
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('touchmove', cancelTenOrMoreTouchMoves)
+
+    return () => {
+      window.removeEventListener('touchmove', cancelTenOrMoreTouchMoves)
+    }
+  }, [])
 
   // Might be null on first render
   if (!data) return null
@@ -117,11 +135,13 @@ export default function Pioneer (props) {
           <div className="pioneer-spine" />
           <PioneerLede data={data} animated={animated} />
 
-          {isKiosk() && (
-            <ParallaxLayer offset={0} speed={1} style={{ padding: '30px' }}>
+          <ParallaxLayer offset={0} speed={1} className="pioneer-header">
+            {isKiosk() ? (
               <CategoryEyebrow>{data.name}</CategoryEyebrow>
-            </ParallaxLayer>
-          )}
+            ) : (
+              <WebHeader color={UI_COLOR_SECONDARY} />
+            )}
+          </ParallaxLayer>
 
           {/* Context slides */}
           {data.context.map(renderContext)}
@@ -177,7 +197,7 @@ export default function Pioneer (props) {
           .context h4,
           .context h5,
           .context h6 {
-            font-size: 22px;
+            font-size: 1em; /* Match body text font */
             font-family: 'Noto Serif', serif;
             text-transform: initial;
             text-align: left;
@@ -255,7 +275,18 @@ export default function Pioneer (props) {
             }
           }
 
+          .pioneer-header {
+            padding: 20px;
+          }
+
+          @media screen and (min-width: ${MOBILE_BREAKPOINT_MIN}) {
+            .pioneer-header {
+              padding: 30px;
+            }
+          }
+
           @media screen and (orientation: landscape) {
+            .pioneer-header,
             .parallax-layer {
               max-width: 100vh;
               left: calc(50% - 50vh);
@@ -276,16 +307,19 @@ export default function Pioneer (props) {
           .context-text-container {
             position: relative;
             background-color: white;
-            padding: 2em 0;
+            padding: 1em 0;
             text-align: left;
             width: calc(40% + 1px); /* +1px to fix rounding errors */
             margin-top: -20%;
           }
 
+          body.kiosk .context-text-container {
+            padding: 2em 0;
+          }
+
           @media (max-width: ${MOBILE_BREAKPOINT}) {
             .context-text-container {
               width: 50%;
-              padding: 1em 0;
             }
           }
 
@@ -294,7 +328,8 @@ export default function Pioneer (props) {
           }
 
           .context-align-right {
-            margin-left: calc(50% - ${SPINE_WIDTH_LG} / 2);
+            margin-left: calc(50% - ${SPINE_WIDTH_LG} / 2 - 1px);
+            /* -1px to fix rounding errors with position */
           }
 
           @media (max-width: ${MOBILE_BREAKPOINT}) {
@@ -303,7 +338,8 @@ export default function Pioneer (props) {
             }
 
             .context-align-right {
-              margin-left: calc(50% - ${SPINE_WIDTH_SM} / 2);
+              margin-left: calc(50% - ${SPINE_WIDTH_SM} / 2 - 1px);
+              /* -1px to fix rounding errors with position */
             }
           }
 
