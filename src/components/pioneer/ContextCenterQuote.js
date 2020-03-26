@@ -42,7 +42,7 @@ function ContextCenterQuote ({ offset, context = {} }) {
               }}
             >
               <div
-                className="image-container"
+                className="image-container image-center-quote"
                 style={{
                   width: '60%',
                   left: '20%',
@@ -107,6 +107,13 @@ function ContextCenterQuote ({ offset, context = {} }) {
             z-index: -1; /* place underneath image for better transitioning+placement */
             background-color: white;
             text-align: center;
+          }
+
+          .image-center-quote {
+            /* Center-align image on very wide screens */
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
         `}
       </style>
