@@ -119,7 +119,7 @@ const CreditsPage = () => (
         }
 
         body:not(.kiosk) .credits-container {
-          margin: 0 auto;
+          margin: 20px auto;
         }
       `}
     </style>
@@ -150,7 +150,7 @@ const CreditsPage = () => (
         @media only screen and (max-width: ${MOBILE_BREAKPOINT_MAX}) {
           .credits-container {
             width: auto;
-            margin: 20px;
+            padding: 0 20px;
           }
 
           h3 {
