@@ -109,7 +109,7 @@ const VotePage = () => {
       voteContent = (
         <animated.div className="vote-content" style={props}>
           <h2>What’s your vision?</h2>
-          <p>Select a goal to support in 2020</p>
+          <p>Select the #1 goal you support.</p>
           <VoteForm onSubmit={handleSubmitVote} />
         </animated.div>
       )
