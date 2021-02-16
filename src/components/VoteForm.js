@@ -32,7 +32,7 @@ function VoteForm (props) {
           value="1"
           checked={checkedValue === '1'}
           onChange={handleOptionChange}
-          label="Women & Men Sharing Leadership 50-50"
+          label="Women and Men Sharing Leadership 50-50"
         />
         <VoteButton
           name="vote1"
@@ -46,7 +46,7 @@ function VoteForm (props) {
           value="3"
           checked={checkedValue === '3'}
           onChange={handleOptionChange}
-          label="More Women Voting & Running for Office"
+          label="More Women Voting and in Public Service"
         />
         <VoteButton
           name="vote1"

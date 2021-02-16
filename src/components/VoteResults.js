@@ -4,9 +4,9 @@ import { useTransition, animated } from 'react-spring'
 import BarChartItem from './BarChartItem'
 
 const ITEMS = [
-  'Women & Men Sharing Leadership 50-50',
+  'Women and Men Sharing Leadership 50-50',
   'Equal Pay for Equal Work',
-  'More Women Voting & Running for Office',
+  'More Women Voting and in Public Service',
   'Inclusive Education of Women’s History'
 ]
 
