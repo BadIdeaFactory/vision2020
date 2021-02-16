@@ -17,6 +17,9 @@ app.on('ready', async () => {
     frame: false,
     webPreferences: {
       nodeIntegration: false,
+      // Note: the `remote` module will be deprecated in future.
+      // https://www.electronjs.org/docs/breaking-changes#default-changed-enableremotemodule-defaults-to-false
+      enableRemoteModule: true,
       preload: join(__dirname, 'preload.js')
     }
   })
