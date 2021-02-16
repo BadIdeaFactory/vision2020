@@ -46,7 +46,7 @@ function VoteForm (props) {
           value="3"
           checked={checkedValue === '3'}
           onChange={handleOptionChange}
-          label="More Women Voting and Running for Office"
+          label="More Women Voting and in Public Service"
         />
         <VoteButton
           name="vote1"
