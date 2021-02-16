@@ -20,7 +20,7 @@
     "postinstall": "electron-builder install-app-deps"
   },
   "build": {
-    "asar": false,
+    "asar": true,
     "extraResources": [
       {
         "from": "out",
