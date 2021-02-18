@@ -19,18 +19,16 @@ Target deployments are:
 - Clone the repository (Git Bash):
   - `git clone git@github.com:BadIdeaFactory/vision2020.git`
   - If Netlify and LFS are all installed correctly, everything should download correctly, including large media content. If you are presented with Git Credential Manager or OpenSSH login prompts, then the credential helper may not be running correctly. If everything has been installed it's possible restarting Git Bash or the computer may help.
-- Install [Yarn](https://classic.yarnpkg.com/en/docs/install/#windows-stable).
-- Run `yarn install`.
-  - You may see some errors related to building `grpc`. This seems to be necessary for electron distribution. It seems that running `yarn dist` later gets `electron-builder` to build `grpc` properly.
-- Run `yarn build`.
+- Run `npm install`.
+- Run `npm run build`.
 - To run a local server:
-  - `yarn start`
+  - `npm start`
   - Open `http://localhost:3000` in a browser. Preferably Chrome for best compatibility, as Electron is the target executable environment.
 - To run a preview Electron instance:
-  - `yarn electron`
-  - Note: gRPC needs to be built for this. If you get an error run `yarn dist` first to have it rebuild `grpc`.
+  - `npm run electron`
+  - Note: gRPC needs to be built for this. If you get an error run `npm run dist` first to have it rebuild `grpc`.
 - To export an executable for kiosks:
-  - `yarn dist`
+  - `npm run dist`
   - Copy the contents of the `dist` folder to the kiosk.
 
 ## Kiosk distribution
