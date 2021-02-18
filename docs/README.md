@@ -31,6 +31,10 @@ Target deployments are:
   - `npm run dist`
   - Copy the contents of the `dist` folder to the kiosk.
 
+### Dependency notes
+
+- `next-optimized-images` cannot be bumped to 2.6.1; there appears to have been a breaking change with the file loader which makes images not appear anymore when built
+
 ## Kiosk distribution
 
 - TODO (See document sent to Dome/ArtGuild)
