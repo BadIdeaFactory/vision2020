@@ -1,6 +1,6 @@
 {
   "name": "vision2020",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Vision2020: Seat at the Table — An interactive exhibit coming to the Kimmel Center March 2020",
   "author": "Lou Huang, Bad Idea Factory <lou@biffud.com> (https://biffud.com/)",
   "repository": {
@@ -17,7 +17,7 @@
     "electron": "electron .",
     "dist": "npm run build && electron-builder --dir",
     "static": "npx serve -p 3010 out",
-    "postinstall": "electron-builder install-app-deps"
+    "postinstall": "electron-builder install-app-deps && husky install"
   },
   "build": {
     "asar": true,
@@ -29,58 +29,54 @@
     ]
   },
   "peerDependencies": {
-    "webpack": "^4.42.1",
+    "webpack": "^5.22.0",
     "webpack-cli": "*"
   },
   "devDependencies": {
     "babel-eslint": "10.1.0",
     "csv2json": "2.0.2",
-    "electron": "9.4.0",
-    "electron-builder": "22.4.1",
-    "eslint-config-standard": "14.1.1",
-    "eslint-config-standard-react": "9.2.0",
-    "eslint-plugin-import": "2.20.1",
-    "eslint-plugin-node": "11.0.0",
-    "eslint-plugin-promise": "4.2.1",
-    "eslint-plugin-react": "7.19.0",
-    "eslint-plugin-react-hooks": "3.0.0",
-    "eslint-plugin-standard": "4.0.1",
-    "husky": ">=4",
+    "electron": "11.2.3",
+    "electron-builder": "22.10.4",
+    "eslint": "7.20.0",
+    "eslint-config-standard": "16.0.2",
+    "eslint-config-standard-react": "11.0.1",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "4.3.1",
+    "eslint-plugin-react": "7.22.0",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "eslint-plugin-standard": "4.1.0",
+    "husky": "5.0.9",
     "lint-staged": ">=10",
-    "prettier": "2.0.2"
+    "prettier": "2.2.1"
   },
   "dependencies": {
-    "@react-spring/parallax": "9.0.0-canary.808.8.4a87fcb",
+    "@react-spring/parallax": "9.0.0-rc.3",
     "@zeit/next-css": "1.0.1",
     "activity-detector": "3.0.0",
     "dotenv": "8.2.0",
-    "electron-is-dev": "1.1.0",
+    "electron-is-dev": "1.2.0",
     "electron-next": "3.1.5",
-    "eslint": "6.8.0",
-    "file-loader": "6.0.0",
-    "firebase": "7.12.0",
+    "file-loader": "6.2.0",
+    "firebase": "8.2.7",
     "image-trace-loader": "1.0.2",
-    "imagemin-mozjpeg": "8.0.0",
-    "imagemin-optipng": "7.1.0",
-    "imagemin-svgo": "7.1.0",
-    "jimp": "0.9.6",
-    "lodash": "4.17.19",
-    "next": "9.3.2",
-    "next-compose-plugins": "2.2.0",
-    "next-optimized-images": "2.5.5",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-image-gallery": "1.0.7",
-    "react-intersection-observer": "8.26.1",
-    "react-markdown": "4.3.1",
+    "imagemin-mozjpeg": "9.0.0",
+    "imagemin-optipng": "8.0.0",
+    "imagemin-svgo": "8.0.0",
+    "jimp": "0.16.1",
+    "lodash": "4.17.20",
+    "next": "10.0.7",
+    "next-compose-plugins": "2.2.1",
+    "next-optimized-images": "2.5.8",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-image-gallery": "1.0.8",
+    "react-intersection-observer": "8.31.0",
+    "react-markdown": "5.0.3",
     "react-spring": "8.0.27",
-    "responsive-loader": "1.2.0",
-    "webp-loader": "0.6.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "responsive-loader": "2.3.0",
+    "webp-loader": "0.6.0",
+    "webpack": "5.22.0"
   },
   "lint-staged": {
     "*.{js,jsx}": [

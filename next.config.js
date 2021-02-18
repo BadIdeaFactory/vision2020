@@ -49,6 +49,15 @@ const nextConfig = {
         publicPath: '/_next/'
       }
     })
+
+    // Fix `i.willAdvance is not a function` error introduced with newer
+    // versions of Next.js. Solution borrowed from
+    // https://github.com/pmndrs/react-spring/issues/1078#issuecomment-752143468
+    config.module.rules.push({
+      test: /react-spring/,
+      sideEffects: true
+    })
+
     return config
   },
   exportPathMap () {
