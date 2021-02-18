@@ -120,6 +120,7 @@ const CreditsPage = () => (
 
         body:not(.kiosk) .credits-container {
           margin: 20px auto;
+          padding-bottom: auto;
         }
       `}
     </style>
@@ -127,7 +128,8 @@ const CreditsPage = () => (
       {`
         .credits-container {
           max-width: 620px;
-          margin: 160px auto 200px;
+          margin: 160px auto;
+          padding-bottom: 200px;
         }
 
         h3 {
